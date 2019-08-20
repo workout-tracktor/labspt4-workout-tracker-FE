@@ -1,22 +1,20 @@
 import React from 'react'
 // import axios from 'axios'
 
-// import style from './style'
+import SECTION from './style'
 
 class Landing extends React.Component {
     state = {
         username: '',
         password: ''
     }
-    componentDidMount = () => {}
-
-    update_state = e => {}
+    update_field = e => this.setState({[e.target.id]: e.target.value})
     render = () => 
-        <section class='login'>
+        <SECTION class='login'>
             <input type='text' id='username' onChange={this.update_state} placeholder='username' />
             <input type='password' id='password' onChange={this.update_state} placeholder='password' />
             <button class='submit'>LOG ME IN!!!!</button>
-        </section>
+        </SECTION>
 }
 
 export default Landing
