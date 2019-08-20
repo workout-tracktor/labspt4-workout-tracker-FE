@@ -11,11 +11,13 @@ class Landing extends React.Component {
     componentDidMount(){
         axios.get("https://workouttrackerprod.herokuapp.com/")
             .then(res => {
+                console.log('hi')
                 this.setState( res.data)
             })
             .catch(err =>{
                 console.log(err)
             })
+            
     }
 
     render(){
