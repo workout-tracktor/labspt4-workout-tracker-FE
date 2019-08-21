@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\seanw\.Rider2019.1\config\javascript\nodejs\10.16.0\core-modules" t="IncludeRecursive" />
+    <e p="C:\Users\seanw\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\seanw\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\seanw\Desktop\Workout\labspt4-workout-tracker-FE" t="IncludeFlat">
+      <e p="web-workout-tracker\Workout\node_modules\@auth0\auth0-spa-js" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\@babel\parser" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\@babel\types" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\@types" t="IncludeRecursive">
+        <e p="babel__generator" t="IncludeRecursive" />
+        <e p="babel__template" t="IncludeRecursive" />
+        <e p="babel__traverse" t="IncludeRecursive" />
+        <e p="istanbul-lib-coverage" t="IncludeRecursive" />
+        <e p="istanbul-lib-report" t="IncludeRecursive" />
+        <e p="yargs-parser" t="IncludeRecursive" />
+      </e>
+      <e p="web-workout-tracker\Workout\node_modules\auth0-js" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\auth0-lock" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\axios" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\jest-dom" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react-dom" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react-router-dom" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react-scripts" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react-testing-library" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\router" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
