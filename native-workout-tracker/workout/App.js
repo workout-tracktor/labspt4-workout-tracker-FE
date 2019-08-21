@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Landing from './components/Landing'
 import LoginForm from './components/LoginForm'
+import Onboarding from './components/Onboarding'
 import {NativeRouter, Switch, Route} from 'react-router-native'
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
         <Switch>
           <Route exact path = "/" component = {LoginForm} />
           <Route exact path = "/login" component = {Landing} />
+          <Route exact path = "/bodytype" component = {Onboarding} />
         </Switch>
       </View>
     </NativeRouter>
