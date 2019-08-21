@@ -1,12 +1,11 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useAuth0 } from "./react-auth0-wrapper";
 
 
-import Landing from "./components/Landing";
-import NavBar from "./components/Navbar";
-import UserSettings from './components/user_settings'
+import Landing from "./views/Landing";
+import NavBar from "./views/Navbar";
+import UserSettings from './views/user_settings'
 
 function App() {
   const { loading } = useAuth0();
@@ -23,7 +22,7 @@ function App() {
         <Route exact path='/user-settings' component={UserSettings} />
       </Router>
     </div>
-  );
+  )
 }
 
 export default App;

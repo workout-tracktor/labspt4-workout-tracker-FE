@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as serviceWorker from './serviceWorker';
 
+import GlobalStyle from './design/global_style'
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 
@@ -28,9 +27,8 @@ ReactDOM.render(
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
 >
+      <GlobalStyle/>
       <Route path="/" component={App} />
       </Auth0Provider>
     </Router>,
     document.getElementById('root'));
-
-serviceWorker.unregister();
