@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import TypeCard from './TypeCard';
-import axios from 'axios';
 
 export default function Onboarding() {
     const dummyData = [
