@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Profile from './Profile'
 
 class Landing extends React.Component {
 
@@ -20,6 +21,7 @@ class Landing extends React.Component {
         return (
             <>
             {this.state.api}
+            <Profile />
             </>
         )
     }
