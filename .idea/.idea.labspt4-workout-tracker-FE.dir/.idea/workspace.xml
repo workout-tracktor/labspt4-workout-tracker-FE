@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed23385e-5123-4216-9954-ad1ffc70c488" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/web-workout-tracker/workout/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-workout-tracker/workout/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.labspt4-workout-tracker-FE.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.labspt4-workout-tracker-FE.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkoutForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkoutForm.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,15 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" selection-start-column="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-workout-tracker/workout/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -36,13 +28,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkoutForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="282">
+              <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>weight</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,9 +47,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkout.js" />
         <option value="$PROJECT_DIR$/web-workout-tracker/workout/src/App.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkoutForm.js" />
       </list>
     </option>
@@ -79,32 +76,6 @@
             <path>
               <item name="" type="161ac34:FileSystemExplorerRootNode" />
               <item name="labspt4-workout-tracker-FE" type="34e6ba20:FileSystemExplorerNode" />
-            </path>
-            <path>
-              <item name="" type="161ac34:FileSystemExplorerRootNode" />
-              <item name="labspt4-workout-tracker-FE" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="web-workout-tracker" type="34e6ba20:FileSystemExplorerNode" />
-            </path>
-            <path>
-              <item name="" type="161ac34:FileSystemExplorerRootNode" />
-              <item name="labspt4-workout-tracker-FE" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="web-workout-tracker" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="workout" type="34e6ba20:FileSystemExplorerNode" />
-            </path>
-            <path>
-              <item name="" type="161ac34:FileSystemExplorerRootNode" />
-              <item name="labspt4-workout-tracker-FE" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="web-workout-tracker" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="workout" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="src" type="34e6ba20:FileSystemExplorerNode" />
-            </path>
-            <path>
-              <item name="" type="161ac34:FileSystemExplorerRootNode" />
-              <item name="labspt4-workout-tracker-FE" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="web-workout-tracker" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="workout" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="src" type="34e6ba20:FileSystemExplorerNode" />
-              <item name="components" type="34e6ba20:FileSystemExplorerNode" />
             </path>
           </expand>
           <select />
@@ -147,12 +118,12 @@
       <option name="presentableId" value="Default" />
       <updated>1566355384852</updated>
       <workItem from="1566355386217" duration="600000" />
-      <workItem from="1566399493060" duration="3294000" />
+      <workItem from="1566399493060" duration="8644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3894000" />
+    <option name="totallyTimeSpent" value="9244000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -167,7 +138,7 @@
     <frame x="59" y="0" width="747" height="870" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.043541364" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3018868" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -209,13 +180,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-workout-tracker/workout/src/logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -237,6 +201,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-workout-tracker/workout/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -249,8 +220,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-workout-tracker/workout/src/components/InputWorkoutForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="282">
+          <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
         </state>
       </provider>
     </entry>
