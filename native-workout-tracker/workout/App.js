@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
 import Landing from "./components/Landing";
+import Onboarding from './components/Onboarding'
 import { NativeRouter, Switch, Route } from "react-router-native";
 
 import { AuthSession } from "expo";
@@ -79,6 +80,7 @@ export default class App extends React.Component {
           )}
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path = "/bodytype" component = {Onboarding} />
           </Switch>
         </View>
       </NativeRouter>
