@@ -2,7 +2,7 @@ import React from 'react'
 import {View, Text} from 'react-native'
 import axios from 'axios'
 
-class Landing extends React.Component {
+class BackendAPI extends React.Component {
 
     state = {
 
@@ -29,4 +29,4 @@ class Landing extends React.Component {
     }
 }
 
-export default Landing
+export default BackendAPI
