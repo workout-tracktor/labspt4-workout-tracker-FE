@@ -6,8 +6,8 @@ import App from './views/App';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import GlobalStyle from './design/global_style'
 //Auth0
-import { Auth0Provider } from "./react-auth0-wrapper";
-import config from "./auth_config.json";
+import { Auth0Provider } from "./components/auth0-wrapper";
+import config from "./config/auth0/auth_config.json";
 
 // A function that routes the user to the right place
 // after login
