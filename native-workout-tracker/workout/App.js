@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import Landing from "./components/Landing";
+import BackendAPI from "./components/BackendAPI";
 import Onboarding from './components/Onboarding'
 import { NativeRouter, Switch, Route } from "react-router-native";
+import Welcome from './components/Welcome'
 
 import { AuthSession } from "expo";
 import jwtDecode from "jwt-decode";
@@ -74,12 +75,12 @@ export default class App extends React.Component {
       <NativeRouter>
         <View style={styles.container}>
           {name ? (
-            <Text style={styles.title}>You are logged in, {name}!</Text>
+            <Route exact path="/" component={Welcome} />
           ) : (
             <Button title="Log in with Auth0" onPress={this.login} />
           )}
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/api" component={BackendAPI} />
             <Route exact path = "/bodytype" component = {Onboarding} />
           </Switch>
         </View>
