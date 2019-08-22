@@ -1,8 +1,11 @@
+//React
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+//Imported
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import GlobalStyle from './design/global_style'
+//Auth0
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 
@@ -20,13 +23,13 @@ const onRedirectCallback = appState => {
 
 ReactDOM.render(
     <Router>
-    <Auth0Provider
-    domain={config.domain}
-    client_id={config.clientId}
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
->
+      <Auth0Provider
+      domain={config.domain}
+      client_id={config.clientId}
+      redirect_uri={window.location.origin}
+      onRedirectCallback={onRedirectCallback}>
       <Route path="/" component={App} />
+      <GlobalStyle />
       </Auth0Provider>
     </Router>,
     document.getElementById('root'))
