@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as serviceWorker from './serviceWorker';
 
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
@@ -31,6 +30,4 @@ ReactDOM.render(
       <Route path="/" component={App} />
       </Auth0Provider>
     </Router>,
-    document.getElementById('root'));
-
-serviceWorker.unregister();
+    document.getElementById('root'))
