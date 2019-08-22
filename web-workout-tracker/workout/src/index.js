@@ -1,7 +1,7 @@
 //React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './views/App';
 //Imported
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import GlobalStyle from './design/global_style'
