@@ -19,6 +19,12 @@ class UserSettings extends React.Component {
     }
     render = () =>
         <SECTION className='user-settings'>
+            <div id='user-avatar'>
+                <span className='title'>That's You!</span>
+                <div className='value'>
+                    <img src='/' alt='you!'/>
+                </div>
+            </div>
             <div id='first-name'>
                 <span className='title'>First Name</span>
                 <div className='value'>
