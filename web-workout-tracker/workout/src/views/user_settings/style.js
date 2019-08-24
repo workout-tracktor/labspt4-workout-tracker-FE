@@ -1,15 +1,24 @@
 import styled from 'styled-components'
 
 export default styled.section`
-    .ideal-body-type {
+    display: flex;
+    flex-direction: column;
+    .field {
         display: flex;
-        .type {
+        align-items: center;
+        .title {
+            font-size: 2rem;
+        }
+        .value {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            span {
-                font-size: 2rem;
+            .type {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                span {
+                    text-align: center;
+                    font-size: 1.6rem;
+                }
             }
         }
     }
