@@ -6,6 +6,7 @@ import SECTION from './style'
 class UserSettings extends React.Component {
     state = {
         first_name: 'Gordon',
+        last_name: 'Clark',
         body_types: [{name: 'Slenderman', src: '1.png'},
                         {name: 'Boringman', src: '2.png'},
                         {name: 'Incredibly Big Man', src: '3.png'},
@@ -22,6 +23,12 @@ class UserSettings extends React.Component {
                 <span className='title'>First Name</span>
                 <div className='value'>
                     <input type='text' id='first_name' value={this.state.first_name} onChange={this.update_field} />
+                </div>
+            </div>
+            <div id='last-name'>
+                <span className='title'>First Name</span>
+                <div className='value'>
+                    <input type='text' id='last_name' value={this.state.last_name} onChange={this.update_field} />
                 </div>
             </div>
             <div id='ideal-body-type'>
