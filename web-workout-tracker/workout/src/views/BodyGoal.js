@@ -45,7 +45,7 @@ class BodyGoal extends React.Component {
                     <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} />
                 )}
 
-                {/* "Select" Button */}
+                {/* "Select" Button - renders only button is active */}
 
                 {/* @TO-DO: Add possibility to skip onboarding when it grows in next versions of the app */}
 

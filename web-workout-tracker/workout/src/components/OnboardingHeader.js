@@ -1,12 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 
-function OnboardingHeader(props) {
+export default function OnboardingHeader(props) {
     return (
-        <div className="onb-header">
+        <Header>
             <img alt={props.text} src={props.url} />
             <h1>{props.text}</h1>
-        </div>
+        </Header>
     )
 }
 
-export default OnboardingHeader;
+const Header = styled.div`
+    width: 40%;
+    margin: 15px auto;
+    display: flex;
+`;
