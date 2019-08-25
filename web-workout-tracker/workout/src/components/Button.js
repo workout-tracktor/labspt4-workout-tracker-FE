@@ -22,9 +22,17 @@ const StyledButton = styled.button`
     font-weight: bold;
     text-transform: uppercase;
     border: none;
+    border-radius: 5px;
     padding: 7px 15px;
     min-width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus, &:active {
+        outline: none;
+    };
 `;

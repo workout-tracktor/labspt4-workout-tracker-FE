@@ -15,7 +15,7 @@ const Button = styled.button`
     margin: 0 0 15px 0;
     padding: 0;
     border: none;
-    border-radius: 7px; 
+    border-radius: 5px; 
     background: url(${props => props.url || "white"});
 
     &:hover {
