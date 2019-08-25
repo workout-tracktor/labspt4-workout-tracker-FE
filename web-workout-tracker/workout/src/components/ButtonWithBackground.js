@@ -10,38 +10,38 @@ export default function ButtonWithBackground(props) {
 };
 
 const Button = styled.button`
-    width: 40%;
-    height: 50px;
-    margin: 15px auto;
+    width: 100%;
+    height: 100px;
+    margin: 0 0 15px 0;
     padding: 0;
     border: none;
-    /* display: flex;
-    align-items: flex-end;
-    justify-content: flex-end; */
-
+    border-radius: 7px; 
     background: url(${props => props.url || "white"});
 
-    &:hover, &:focus, &:active {
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus, &:active {
         background-image: 
             linear-gradient(
-                rgba(3, 163, 243, 0.5),
-                rgba(3, 163, 243, 0.5)
+                rgba(3, 163, 243, 0.8),
+                rgba(3, 163, 243, 0.8)
             ),
         url(${props => props.url || "white"});
-        cursor: pointer;
+        outline: none;
     };
 `;
 
-const Text = styled.span`
+const Text = styled.div`
     width: 100%;
     height: 100%;
-    margin-right: 10%;
-    margin-bottom: 5%;
+    padding-bottom: 5px;
+    padding-right: 15px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    border: 1px solid red;
-    font-size: 20px;
+    align-content: flex-end;
+    font-size: 50px;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
