@@ -1,0 +1,17 @@
+@media (min-width: 300px) {
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    justify-content: space-between;
+  }
+  .navBar .navLogo {
+    margin-top: 5px;
+  }
+}
+body {
+  background-image: url("/marketing-site/resources/img/tactile_noise.png");
+  background-repeat: repeat-y-x;
+  margin: 0 auto;
+}
