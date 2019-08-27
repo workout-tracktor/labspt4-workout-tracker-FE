@@ -47,7 +47,6 @@ const InputForm = ({weightOrCardio, setWeightOrCardio, setData, data}) => {
         event.preventDefault();
         setWeightOrCardio('')
     };
-
     const [inputData, setInputData] = useState({});
 
     const submitHandler = (event) => {
@@ -78,8 +77,8 @@ const InputForm = ({weightOrCardio, setWeightOrCardio, setData, data}) => {
                        placeholder='Enter measurement'
                        onChange={onChangeHandler}/>
                 <select name='unit' onChange={onChangeHandler}>
-                    <option value="time">{weightOrCardio === 'weightlifting' ? 'reps' : 'distance'}</option>
-                    <option value="distance">{weightOrCardio === 'weightlifting' ? 'weight' : 'minutes'}</option>
+                    <option value="reps" selected='selected'>{weightOrCardio === 'weightlifting' ? 'reps' : 'distance'}</option>
+                    <option value="weight">{weightOrCardio === 'weightlifting' ? 'weight' : 'minutes'}</option>
                 </select>
                 <button type='submit'>Submit</button>
             </form>
