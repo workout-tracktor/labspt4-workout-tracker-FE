@@ -1,28 +1,36 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useAuth0 } from "../components/auth0-wrapper";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import { useAuth0 } from "../components/auth0-wrapper";
 
-import Landing from "./Landing";
-import BodyGoal from './BodyGoal';
 import NavBar from "../components/Navbar";
-import UserSettings from './user_settings'
+import Landing from "./Landing";
+import BodyGoal from "./BodyGoal";
 
+import UserSettings from "./user_settings";
+// import PrivateRoute from "../components/PrivateRoute";
+import Profile from "./Profile";
+import { useAuth0 } from "../components/auth0-wrapper";
+import Loading from "../components/Loading";
 function App() {
   const { loading } = useAuth0();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
-
   return (
     <div className="App">
-      <NavBar />
-      <Router>
-        <Route exact path="/" component={Landing} />
-        <Route exact path='/user-settings' component={UserSettings} />
-        {/* On boarding - choose the body goal */}
-        <Route exact path='/onboarding/body-goal' component={BodyGoal} />
-      </Router>
+      <BrowserRouter>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/user-settings" component={UserSettings} />
+          {/* On boarding - choose the body goal */}
+          <Route exact path="/onboarding/body-goal" component={BodyGoal} />
+          <Route path="/profile" component={Profile} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
