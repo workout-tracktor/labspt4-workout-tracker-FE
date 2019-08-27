@@ -7,11 +7,98 @@
     justify-content: space-between;
   }
   .navBar .navLogo {
-    margin-top: 5px;
+    margin-top: 8px;
+    margin-left: 10px;
   }
 }
 body {
   background-image: url("/marketing-site/resources/img/tactile_noise.png");
   background-repeat: repeat-y-x;
   margin: 0 auto;
+  font-family: aktiv-grotesk;
+}
+.top-market .guy-phone {
+  width: 100%;
+  filter: brightness(65%);
+}
+.top-market .top-cta {
+  position: absolute;
+  text-align: center;
+  margin-top: -270px;
+  margin-left: 40px;
+  font-size: 35px;
+  color: white;
+}
+.top-market .google-download {
+  position: absolute;
+  margin-top: -140px;
+  left: 60px;
+  width: 180px;
+}
+.top-market .apple-download {
+  position: absolute;
+  margin-top: -130px;
+  right: 60px;
+  width: 150px;
+}
+.upper-mid-market {
+  margin-top: -24px;
+  height: 1000px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(3, 163, 243, 0.753));
+}
+.upper-mid-market h1 {
+  margin-top: 30px;
+  color: #03A3F3;
+  text-align: center;
+}
+.upper-mid-market .onboarding-mock {
+  margin-top: 20px;
+  margin-left: -250px;
+  width: 1000px;
+}
+.upper-mid-market p {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+.lower-market {
+  margin-top: -30px;
+  height: 1000px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(3, 163, 243, 0.753));
+}
+.lower-market p {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+.lower-market .running-girl {
+  position: relative;
+  width: 500px;
+  margin-left: 40px;
+}
+.lower-market .trips {
+  width: 100%;
+}
+.footer h1 {
+  padding-top: 100px;
+  color: white;
+}
+.footer p {
+  color: white;
+}
+.footer .google-download {
+  position: absolute;
+  margin-top: 21px;
+  left: 60px;
+  width: 180px;
+}
+.footer .apple-download {
+  position: absolute;
+  margin-top: 30px;
+  right: 60px;
+  width: 150px;
+}
+.copyright p {
+  text-align: center;
+  color: white;
 }
