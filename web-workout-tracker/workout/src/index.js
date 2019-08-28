@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from "../reducers";
+import rootReducer from "./reducers";
 //Auth0
 import { Auth0Provider } from "./components/auth0-wrapper";
 import config from "./config/auth0/auth_config.json";

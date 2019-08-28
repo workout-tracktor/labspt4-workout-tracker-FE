@@ -1,6 +1,10 @@
 import React from "react"
 import styled from "styled-components";
 
+// Redux
+import { connect } from "react-redux";
+import { addGoal } from '../actions';
+
 import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
@@ -56,7 +60,9 @@ class BodyGoal extends React.Component {
                     <Button text="I'll do this later" background="white" color="#03A3F3" width="1" />
 
                     {/* "Select" Button
-                    @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) */}
+                    @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) 
+                    @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
+                    */}
                     {
                         !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png"  alt="check mark" text="Select"  width="1" />
                     }
@@ -66,6 +72,11 @@ class BodyGoal extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    goal: state.goal,
+    savingGoal: state.savingGoal
+});
 
 const PageWrapper = styled.div`
     width: 40%;
@@ -87,4 +98,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default BodyGoal;
+export default connect(mapStateToProps, {addGoal})(BodyGoal);
