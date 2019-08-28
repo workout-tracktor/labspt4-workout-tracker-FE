@@ -4,15 +4,17 @@
     flex-direction: row;
     width: 100%;
     background-color: white;
-    justify-content: space-between;
+    justify-content: center;
   }
   .navBar .navLogo {
+    width: 200px;
     margin-top: 8px;
     margin-left: 10px;
   }
   .navBar .nav {
     margin-top: 5px;
     margin-bottom: 5px;
+    display: none;
   }
   .navBar .nav .loginButton {
     height: 15px;
@@ -43,6 +45,7 @@ body {
 @media (min-width: 300px) {
   .top-market .guy-phone {
     width: 100%;
+    z-index: 1;
     filter: brightness(65%);
     -webkit-mask-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0));
   }
@@ -54,20 +57,56 @@ body {
     font-size: 35px;
     color: white;
   }
+  .top-market .nav {
+    margin-top: -150px;
+    margin-bottom: 5px;
+    position: absolute;
+  }
+  .top-market .nav .loginButton {
+    height: 15px;
+    background-color: #ffffff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #03a3f3;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 16px 50px;
+    text-decoration: none;
+    margin-left: 65px;
+    margin-right: -30px;
+  }
+  .top-market .nav .signupButton {
+    height: 15px;
+    background-color: #03a3f3;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 16px 55px;
+    text-decoration: none;
+    margin-left: 60px;
+    margin-right: -40px;
+  }
   .top-market .google-download {
     position: absolute;
-    margin-top: -140px;
-    left: 60px;
+    margin-top: -89px;
+    left: 65px;
     width: 180px;
   }
   .top-market .apple-download {
     position: absolute;
-    margin-top: -130px;
-    right: 60px;
+    margin-top: -80px;
+    right: 70px;
     width: 150px;
   }
   .upper-mid-market {
-    margin-top: -24px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(3, 163, 243, 0.753));
   }
   .upper-mid-market p {
