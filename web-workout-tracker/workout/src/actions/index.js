@@ -9,7 +9,7 @@ export const ADD_GOAL_FAILURE = 'ADD_GOAL_FAILURE';
 export const addGoal = newGoal => dispatch => {
   dispatch({ type: ADD_GOAL_START });
   axios
-    .post(/*link for the request here*/, newGoal)
+    .post(/*link for the request here,*/ newGoal)
     .then(res => {
       console.log(res);
       dispatch({
