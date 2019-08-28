@@ -10,7 +10,7 @@ import styled from "styled-components";
 export default function Button(props) {
     return (
         <StyledButton onClick={props.onClick} background={props.background} color={props.color}>
-            <img src={props.icon} />{props.text}
+            <img alt={props.alt} src={props.icon} />{props.text}
         </StyledButton>
     )
 };

@@ -55,7 +55,7 @@ class BodyGoal extends React.Component {
 
                     {/* "Select" Button - renders only button is active */}
                     {
-                        !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png" text="Select"  width="1" />
+                        !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png"  alt="check mark" text="Select"  width="1" />
                     }
                 </ButtonsWrapper>
 
