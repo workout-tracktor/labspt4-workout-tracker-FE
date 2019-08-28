@@ -7,6 +7,9 @@ import styled from "styled-components";
 // width 
 // text
 // onClick
+// alt
+// icon (for src attribute)
+
 export default function Button(props) {
     return (
         <StyledButton onClick={props.onClick} background={props.background} color={props.color}>
