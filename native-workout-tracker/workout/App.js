@@ -1,10 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import BackendAPI from "./components/BackendAPI";
-import Onboarding from './components/Onboarding'
-import { NativeRouter, Switch, Route } from "react-router-native";
-import Welcome from './components/Welcome'
 
+import MyAppNav from './Navigation/MainNavigator' 
 import { AuthSession } from "expo";
 import jwtDecode from "jwt-decode";
 
@@ -72,19 +69,15 @@ export default class App extends React.Component {
   render() {
     const { name } = this.state;
     return (
-      <NativeRouter>
-        <View style={styles.container}>
-          {name ? (
-            <Route exact path="/" component={Welcome} />
+      <>
+        {name ? (
+              <MyAppNav /> 
           ) : (
-            <Button title="Log in with Auth0" onPress={this.login} />
+            <View style = {styles.container}>
+              <Button title="Log in with Auth0" onPress={this.login} />
+            </View>
           )}
-          <Switch>
-            <Route exact path="/api" component={BackendAPI} />
-            <Route exact path = "/bodytype" component = {Onboarding} />
-          </Switch>
-        </View>
-      </NativeRouter>
+      </>
     );
   }
 }
@@ -96,7 +89,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-
+  welcome: {
+    margin: 0
+  },
   title: {
     fontSize: 20,
     textAlign: "center",

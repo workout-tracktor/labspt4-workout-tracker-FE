@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import TypeCard from './TypeCard';
 
 export default function Onboarding() {
@@ -18,12 +18,13 @@ export default function Onboarding() {
         }
     ];
     function generateCards() {
+        console.log('hi')
         return dummyData.map((elem, index) =>
             <TypeCard key={index} url={elem.url} text={elem.text} />
         )
     }
     return (
-        <View>
+        <View >
             <Text>Goal: Select a body type</Text>
             {generateCards()}
         </View>

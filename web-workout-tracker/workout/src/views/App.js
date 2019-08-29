@@ -26,8 +26,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/user-settings" component={UserSettings} />
+
           {/* On boarding - choose the body goal */}
+          {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />
+          
           <Route path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
