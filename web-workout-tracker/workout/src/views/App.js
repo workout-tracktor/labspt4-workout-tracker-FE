@@ -34,6 +34,7 @@ function App() {
                     <Route exact path="/onboarding/body-goal" component={BodyGoal}/>
 
                     <Route path="/profile" component={Profile}/>
+                    <Route path='/input-workout' component={InputWorkoutForm}/>
                 </Switch>
             </BrowserRouter>
         </div>

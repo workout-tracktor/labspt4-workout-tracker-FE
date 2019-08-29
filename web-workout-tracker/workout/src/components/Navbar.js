@@ -10,7 +10,6 @@ const NavBar = () => {
 
     return (
         <div>
-            <Link to='/input-workout'><a>Input Workout</a></Link>
             {!isAuthenticated && (
                 <button onClick={() => loginWithRedirect({})}>Log in</button>
             )}
@@ -19,8 +18,10 @@ const NavBar = () => {
 
             {isAuthenticated && (
                 <span>
-          <Link to="/profile">Profile</Link>
-          <Link to="/user-settings">Settings</Link>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/user-settings">Settings</Link>
+                    <Link to='/input-workout'>Input Workout</Link>
+
         </span>
             )}
         </div>

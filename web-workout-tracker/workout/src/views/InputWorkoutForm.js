@@ -2,16 +2,17 @@ import React, {useState} from 'react'
 
 const InputWorkoutForm = (props) => {
 
-    const [weightOrCardio, setWeightOrCardio] = useState('');
+    const [workoutType, setWorkoutType] = useState('');
 
     const [data, setData] = useState([]);
 
 
     return (
         <div className="input-workout-form">
-            {weightOrCardio === '' ? <ChooseForm setWeightOrCardio={setWeightOrCardio}/> :
-                <InputForm weightOrCardio={weightOrCardio}
-                           setWeightOrCardio={setWeightOrCardio}
+            {workoutType === '' ?
+                <ChooseWorkoutForm setWorkoutType={setWorkoutType}/> :
+                <InputForm workoutType={workoutType}
+                           setWorkoutType={setWorkoutType}
                            setData={setData}
                            data={data}/>}
 
@@ -20,21 +21,23 @@ const InputWorkoutForm = (props) => {
                 return (
                     <div>
                         {console.log(data)}
-                        {data.exerciseName} {data.measurement} {data.unit}
+                        {data.exerciseName} {data.measurement1} {data.unit1}
+                        {data.measurement2} {data.unit2}
+                        {data.completed.toString()}
                     </div>)
             })}
         </div>
     );
 };
 
-const ChooseForm = ({setWeightOrCardio}) => {
+const ChooseWorkoutForm = ({setWorkoutType}) => {
 
     const chooseHandler = (event) => {
         event.preventDefault();
-        setWeightOrCardio(event.target.value)
+        setWorkoutType(event.target.value)
     };
     return (
-        <form>
+        <form onSubmit={chooseHandler}>
             <legend>What kind of workout did you do?</legend>
             <button value='weightlifting' onClick={chooseHandler}>Weightlifting?</button>
             <button value='cardio' onClick={chooseHandler}>Cardio?</button>
@@ -42,16 +45,21 @@ const ChooseForm = ({setWeightOrCardio}) => {
     )
 };
 
-const InputForm = ({weightOrCardio, setWeightOrCardio, setData, data}) => {
+
+const InputForm = ({workoutType, setWorkoutType, setData, data}) => {
     const backHandler = (event) => {
         event.preventDefault();
-        setWeightOrCardio('')
+        setWorkoutType('')
     };
-    const [inputData, setInputData] = useState({});
+    const [inputData, setInputData] = useState({
+        measurement1: '0',
+        measurement2: '0',
+        completed: false
+    });
 
     const submitHandler = (event) => {
         event.preventDefault();
-        setData([...data, inputData])
+        setData([...data, inputData]);
     };
 
     const onChangeHandler = (event) => {
@@ -64,22 +72,54 @@ const InputForm = ({weightOrCardio, setWeightOrCardio, setData, data}) => {
         <>
             <button onClick={backHandler}>Go back</button>
             <form onSubmit={submitHandler}>
-                <p>{weightOrCardio}</p>
-                <label>Input your workout info</label>
+                <h3>{workoutType}</h3>
+                <h5>Input your workout info</h5>
                 <input type='text'
                        name='exerciseName'
                        placeholder='Enter your exercise'
-                       onChange={onChangeHandler}/>
+                       onChange={onChangeHandler}
+                       required/>
+                <br/>
+                <h5>Enter Workout Details</h5>
+                <input type='range'
+                       min='1'
+                       max='100'
+                       name='measurement1'
+                       onChange={onChangeHandler}
+                       value={inputData.measurement1}/>
                 <input type='number'
                        min='1'
-                       max='1000'
-                       name='measurement'
-                       placeholder='Enter measurement'
-                       onChange={onChangeHandler}/>
-                <select name='unit' onChange={onChangeHandler}>
-                    <option value="reps" selected='selected'>{weightOrCardio === 'weightlifting' ? 'reps' : 'distance'}</option>
-                    <option value="weight">{weightOrCardio === 'weightlifting' ? 'weight' : 'minutes'}</option>
-                </select>
+                       max='100'
+                       name='measurement1'
+                       onChange={onChangeHandler}
+                       value={inputData.measurement1}/>
+                <br/>
+
+                <input type='range'
+                       min='1'
+                       max='100'
+                       name='measurement2'
+                       onChange={onChangeHandler}
+                       value={inputData.measurement2}/>
+                <input type='number'
+                       min='1'
+                       max='100'
+                       name='measurement2'
+                       onChange={onChangeHandler}
+                       value={inputData.measurement2}/>
+                <p>Completed?</p>
+                <input type='checkbox' name='completed'
+                       value={inputData.completed}
+                       onChange={(e) => {
+                           if (e.target.checked) {
+                               setInputData({...inputData, completed: true})
+                           } else if (!e.target.checked) {
+                               setInputData({...inputData, completed: false})
+                           }
+                           console.log(inputData)
+                       }}/>
+                <br/>
+
                 <button type='submit'>Submit</button>
             </form>
         </>
