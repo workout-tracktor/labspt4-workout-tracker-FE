@@ -4,7 +4,7 @@ import {
     Text, 
     StyleSheet, 
     Button,
-    Dimensions,
+    TouchableOpacity,
 } from 'react-native';
 import TypeCard from './TypeCard';
 import data from './DummyData'
@@ -45,18 +45,12 @@ class Onboarding extends React.Component {
                 </View>
                 <View style = {styles.buttonsContainer}>
                     <View style = {styles.buttons}>
-                        <Button
-                        onPress={this.onPressLearnMore}
-                        title = "Select Later"
-                        color = "black"
-                        style = {styles.button}
-                        />
-                        <Button
-                        onPress={this.onPressLearnMore}
-                        title = "SELECT"
-                        color = "black"
-                        style = {styles.button}
-                        />
+                    <TouchableOpacity onPress={this.handlPress}>
+                        <Text style={styles.button}>Select Later</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.handlPress}>
+                        <Text style={styles.button}>Select</Text>
+                    </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -67,7 +61,7 @@ class Onboarding extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'red',
+        backgroundColor: '#364064',
         justifyContent: "center",
         flex: 1
     },
@@ -78,7 +72,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: '10%',
-        padding: 20
+        padding: 20,
+        fontSize: 20
     },
     buttonsContainer: {
         flex: 1.2
@@ -86,12 +81,19 @@ const styles = StyleSheet.create({
     buttons: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        margin: 25,
     },
     button: {
-        alignSelf: 'center',
-        width: 500
-    }
+        backgroundColor: 'blue',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 12,
+        color: 'white',
+        fontSize: 24,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 12,
+        textAlign:'center'
+      },
 })
 
 export default Onboarding;

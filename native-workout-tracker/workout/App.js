@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
+import { StyleSheet, Text, View, Button, Alert,StatusBar } from "react-native";
 
 import MyAppNav from './Navigation/MainNavigator' 
 import { AuthSession } from "expo";
@@ -71,6 +71,7 @@ export default class App extends React.Component {
     return (
       <>
         {/* {name ? ( */}
+          <StatusBar hidden/>
               <MyAppNav /> 
           {/* ) : (
             <View style = {styles.container}>
