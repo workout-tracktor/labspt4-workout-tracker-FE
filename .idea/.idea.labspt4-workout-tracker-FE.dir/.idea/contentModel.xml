@@ -22,10 +22,13 @@
       <e p="web-workout-tracker\Workout\node_modules\jest-dom" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\react" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\react-dom" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\react-router" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\react-scripts" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\react-testing-library" t="IncludeRecursive" />
       <e p="web-workout-tracker\Workout\node_modules\router" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\styled-components" t="IncludeRecursive" />
+      <e p="web-workout-tracker\Workout\node_modules\styled-reset" t="IncludeRecursive" />
     </e>
   </component>
 </project>
