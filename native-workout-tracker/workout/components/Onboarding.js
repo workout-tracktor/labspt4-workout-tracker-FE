@@ -5,36 +5,66 @@ import data from './DummyData'
 
 
 class Onboarding extends React.Component {
-    static navigationOptions = {
+    //React Navigation comes with a default navbar, which can be styled 
+    //with the static navigationOptions
+    static navigationOptions =  ({navigation}) => ({
+        title: 'Onboarding',
+        //setting header as null removes the top navbar
+        header: null
+    })
 
-        title: 'Choose your body type',
-        headerRight: (<View />)
-    }
+
     constructor(props){
         super(props)
     }
 
 
     generateCards() {
-        console.log('hi')
         return data.dummyData.map((elem, index) =>
             <TypeCard key={index} url={elem.url} text={elem.text} />
         )
     }
+
+    onPressLearnMore(){
+        console.log('hi')
+    }
     
     render() {
         return (
-            <View >
-                <Text>Goal: Select a body type</Text>
+            <View style = {styles.container}>
+                <Text> Goal: Select a body type</Text>
                 {this.generateCards()}
-                <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('BackendAPI')}
-        />
+                <View style = {styles.buttonsContainer}>
+                    <Button
+                     onPress={this.onPressLearnMore}
+                     title = "Select Later"
+                     color = "black"
+                     style = {styles.button}
+                    />
+                    <Button
+                     onPress={this.onPressLearnMore}
+                     title = "SELECT"
+                     color = "black"
+                     style = {styles.button}
+                    />
+                    
+                </View>
+
             </View>
         )
     }
 
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center"
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
+})
 
 export default Onboarding;

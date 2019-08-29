@@ -3,11 +3,14 @@ import BackendAPI from "../components/BackendAPI";
 import Onboarding from '../components/Onboarding';
 
 const MainNavigator = createStackNavigator({
+  //Keys that help navigate to different screens
     Onboarding: {
-      screen: Onboarding,
-    }, 
+        screen: Onboarding,
+      }, 
     BackendAPI:  BackendAPI,
-  }, {headerLayoutPreset: 'center'}) 
+      }, 
+      //Centers the nav screen
+      {headerLayoutPreset: 'center'}) 
   
   const MyAppNav = createAppContainer(MainNavigator)
   

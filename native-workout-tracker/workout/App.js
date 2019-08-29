@@ -70,13 +70,13 @@ export default class App extends React.Component {
     const { name } = this.state;
     return (
       <>
-        {name ? (
+        {/* {name ? ( */}
               <MyAppNav /> 
-          ) : (
+          {/* ) : (
             <View style = {styles.container}>
               <Button title="Log in with Auth0" onPress={this.login} />
             </View>
-          )}
+          )} */}
       </>
     );
   }

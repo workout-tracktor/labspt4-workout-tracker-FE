@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b99a954d-38cd-4fa3-a720-711c6bc854ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Navigation/MainNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/Navigation/MainNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Onboarding.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Onboarding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Card.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/CardSection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Spinner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/index.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
