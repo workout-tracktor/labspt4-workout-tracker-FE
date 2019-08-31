@@ -4,16 +4,24 @@ import styled from "styled-components";
 export default function OnboardingHeader(props) {
     return (
         <Header>
-            <img alt={props.text} src={props.url} style={{width: "10%"}}/>
-            <h1 style={{fontSize: "30px"}}>{props.text}</h1>
+            <img alt={props.text} src={props.url} style={{width: "4%"}}/>
+            <HeaderText>{props.text}</HeaderText>
         </Header>
     )
 }
 
 const Header = styled.div`
-    width: 100%;
-    margin: 15px 0;
+    width: 90%;
+    margin: 15px auto;
     display: flex;
     align-items: center;
+    /* text-transform: uppercase; */
+`;
+
+const HeaderText = styled.h1`
+    /* font-family: Aktiv Grotesk Cd; */
+    font-size: 24px;
+    line-height: 31px;
     text-transform: uppercase;
+    color: #333333;
 `;
