@@ -12,6 +12,7 @@ export default function ButtonWithBackground(props) {
 const Button = styled.button`
     width: 100%;
     height: 120px;
+    position: relative;
     margin: 0 0 15px 0;
     padding: 0;
     border: none;
@@ -37,18 +38,16 @@ const Button = styled.button`
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center; 
+        border: none;
     };
 `;
 
 const Text = styled.div`
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     padding-bottom: 5px;
     padding-right: 15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-content: flex-end;
     font-family: "aktiv-grotesk-condensed",sans-serif;
     font-size: 36px;
     line-height: 46px;
