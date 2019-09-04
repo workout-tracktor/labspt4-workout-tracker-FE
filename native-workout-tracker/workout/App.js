@@ -37,7 +37,7 @@ export default class App extends React.Component {
     //Font.loadAsync is used for expo to utilize custom fonts withink the app.
     //it points to the folder that holds the font files
     await Font.loadAsync({
-        'SourceSansPro-Bold': require('./assets/fonts/SourceSansPro-Bold.ttf')
+        'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro-Regular.ttf')
     })
 }
 

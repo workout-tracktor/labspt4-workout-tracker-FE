@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 40,
         paddingTop: 20,
-        fontFamily: 'SourceSansPro-Bold',
+        fontWeight: "700",
+        fontFamily: 'SourceSansPro-Regular',
     }
 });

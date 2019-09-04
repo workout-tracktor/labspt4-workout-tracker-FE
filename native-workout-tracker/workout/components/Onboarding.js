@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#364064',
         justifyContent: "center",
         flex: 1,
-        fontFamily: 'SourceSansPro-Bold',
     },
     titleContainer: {
         flex: 1,
@@ -81,8 +80,8 @@ const styles = StyleSheet.create({
         marginTop: '10%',
         padding: 20,
         fontSize: 20,
-        fontWeight: "400",
-        fontFamily: 'SourceSansPro-Bold',
+        fontWeight: "700",
+        fontFamily: 'SourceSansPro-Regular',
         color: 'white'
     },
     buttonsContainer: {
@@ -102,7 +101,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         padding: 12,
         textAlign:'center',
-        fontFamily: 'SourceSansPro-Bold',
+        fontWeight: "700",
+        fontFamily: 'SourceSansPro-Regular',
       },
 })
 
