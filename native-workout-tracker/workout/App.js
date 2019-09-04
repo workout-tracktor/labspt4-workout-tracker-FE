@@ -31,7 +31,7 @@ function toQueryString(params) {
 }
 
 export default class App extends React.Component {
-  state = { name: null };
+  state = { name: null, loadedFont: null };
   
   async componentDidMount(){
     //Font.loadAsync is used for expo to utilize custom fonts withink the app.
@@ -39,6 +39,7 @@ export default class App extends React.Component {
     await Font.loadAsync({
         'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro-Regular.ttf')
     })
+    this.setState({loadedFont: true})
 }
 
   login = async () => {
@@ -86,13 +87,13 @@ export default class App extends React.Component {
     const { name } = this.state;
     return (
       <>
-        {name ? (
-              <MyAppNav /> 
-          ) : (
+        {/* {name ? ( */}
+             { this.state.loadedFont ? <MyAppNav />  :  console.log('no') }
+          {/* ) : (
             <View style = {styles.container}>
               <Button title="Log in with Auth0" onPress={this.login} />
             </View>
-          )}
+          )} */}
       </>
     );
   }
