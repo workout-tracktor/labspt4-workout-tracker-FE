@@ -19,6 +19,7 @@ const Button = styled.button`
     background: url(${props => props.url || "white"});
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: center; 
 
     &:hover {
         cursor: pointer;
@@ -29,6 +30,7 @@ const Button = styled.button`
         outline: none;
         background-size: 100%;
         background-repeat: no-repeat;
+        background-position: center; 
     };
 `;
 
@@ -41,12 +43,11 @@ const Text = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     align-content: flex-end;
-    /* font-family: Aktiv Grotesk Cd; */
+    font-family: "aktiv-grotesk-condensed",sans-serif;
     font-size: 36px;
     line-height: 46px;
-    /* font-size: 50px; */
     color: #FFFFFF;
     text-transform: uppercase;
-    /* font-weight: bold; */
+    font-weight: bold;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 `;

@@ -20,8 +20,10 @@ export default function Button(props) {
 
 const StyledButton = styled.button`
     background: ${props => props.background || "#03A3F3"};
-    color: ${props => props.color || "white"};
+    color: ${props => props.color || "#FFFFFF"};
     font-size: 18px;
+    line-height: 23px;
+    font-family: "aktiv-grotesk-condensed",sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     border: none;

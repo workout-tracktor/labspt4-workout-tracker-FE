@@ -12,15 +12,17 @@ export default function OnboardingHeader(props) {
 
 const Header = styled.div`
     width: 90%;
+    max-width: 510px;
     margin: 15px auto;
     display: flex;
     align-items: center;
 `;
 
 const HeaderText = styled.h1`
-    /* font-family: Aktiv Grotesk Cd; */
+    font-family: "aktiv-grotesk-condensed",sans-serif;
     font-size: 24px;
     line-height: 31px;
+    font-weight: bold;
     text-transform: uppercase;
     color: #333333;
 `;
