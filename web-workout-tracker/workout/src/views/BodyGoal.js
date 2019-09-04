@@ -5,6 +5,8 @@ import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
 
+import TrophyIcon from "../assets/icons/Trophy.svg";
+
 
 class BodyGoal extends React.Component {
     state= {
@@ -40,7 +42,7 @@ class BodyGoal extends React.Component {
             <PageWrapper>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
-                <OnboardingHeader url="https://img.icons8.com/carbon-copy/100/000000/uefa-euro-trophy.png" text="What's your goal?" />
+                <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
                 {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick change filter, save goal to state 
                 @TO-DO: change styling for non-active buttons when one of the buttons is active; add clickHandler function?

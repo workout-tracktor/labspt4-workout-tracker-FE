@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function OnboardingHeader(props) {
     return (
         <Header>
-            <img alt={props.text} src={props.url} style={{width: "4%"}}/>
+            <img alt={props.text} src={props.url} style={{width: "20px", "margin-right": "7px"}}/>
             <HeaderText>{props.text}</HeaderText>
         </Header>
     )
@@ -24,5 +24,5 @@ const HeaderText = styled.h1`
     line-height: 31px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #333333;
+    color: #FAFBFC;
 `;

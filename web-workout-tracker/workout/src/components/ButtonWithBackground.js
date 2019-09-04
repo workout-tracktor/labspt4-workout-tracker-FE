@@ -16,7 +16,10 @@ const Button = styled.button`
     padding: 0;
     border: none;
     border-radius: 5px; 
-    background: url(${props => props.url || "white"});
+    background: linear-gradient(0deg, rgba(22, 26, 41, 0.5), rgba(22, 26, 41, 0.5)),
+    url(${props => props.url || "white"});
+    opacity: 0.7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center; 
@@ -25,9 +28,11 @@ const Button = styled.button`
         cursor: pointer;
     }
     &:focus, &:active {
-        background: linear-gradient(0deg, rgba(3, 163, 243, 0.8), rgba(3, 163, 243, 0.8)),
+        background: linear-gradient(180deg, rgba(47, 221, 228, 0.8) -18.64%, rgba(35, 103, 255, 0.8) 75.02%),
         url(${props => props.url || "white"});
         outline: none;
+        box-shadow: 0px 5px 10px rgba(35, 103, 255, 0.4);
+        opacity: 1;
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center; 
