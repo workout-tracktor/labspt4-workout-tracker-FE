@@ -30,10 +30,12 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: 10
+        paddingTop: 10,
+        
     },
     text: {
         fontSize: 40,
-        paddingTop: 20
+        paddingTop: 20,
+        fontFamily: 'SourceSansPro-Bold',
     }
 });

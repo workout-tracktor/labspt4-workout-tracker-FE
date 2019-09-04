@@ -9,6 +9,7 @@ import {
 import TypeCard from './TypeCard';
 import data from './DummyData'
 
+
 class Onboarding extends React.Component {
     //React Navigation comes with a default navbar, which can be styled 
     //with the static navigationOptions
@@ -21,7 +22,12 @@ class Onboarding extends React.Component {
 
     constructor(props){
         super(props)
+        this.state = {
+            fontLoaded: false
+        }
     }
+
+
 
 
     generateCards() {
@@ -37,22 +43,22 @@ class Onboarding extends React.Component {
     render() {
         return (
             <View style = {styles.container}>
-                <View style = {styles.titleContainer}>
-                    <Text style = {styles.title}> Goal: Select a body type</Text>
-                </View>
-                <View style = {styles.cards}>
-                    {this.generateCards()}
-                </View>
-                <View style = {styles.buttonsContainer}>
-                    <View style = {styles.buttons}>
-                    <TouchableOpacity onPress={this.handlPress}>
-                        <Text style={styles.button}>Select Later</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this.handlPress}>
-                        <Text style={styles.button}>Select</Text>
-                    </TouchableOpacity>
+                    <View style = {styles.titleContainer}>
+                        <Text style = {styles.title}> Goal: Select a body type</Text>
                     </View>
-                </View>
+                    <View style = {styles.cards}>
+                        {this.generateCards()}
+                    </View>
+                    <View style = {styles.buttonsContainer}>
+                        <View style = {styles.buttons}>
+                        <TouchableOpacity onPress={this.handlPress}>
+                            <Text style={styles.button}>Select Later</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={this.handlPress}>
+                            <Text style={styles.button}>Select</Text>
+                        </TouchableOpacity>
+                        </View>
+                    </View>
             </View>
         )
     }
@@ -63,7 +69,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#364064',
         justifyContent: "center",
-        flex: 1
+        flex: 1,
+        fontFamily: 'SourceSansPro-Bold',
     },
     titleContainer: {
         flex: 1,
@@ -73,7 +80,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: '10%',
         padding: 20,
-        fontSize: 20
+        fontSize: 20,
+        fontWeight: "400",
+        fontFamily: 'SourceSansPro-Bold',
+        color: 'white'
     },
     buttonsContainer: {
         flex: 1.2
@@ -89,10 +99,10 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         color: 'white',
         fontSize: 24,
-        fontWeight: 'bold',
         overflow: 'hidden',
         padding: 12,
-        textAlign:'center'
+        textAlign:'center',
+        fontFamily: 'SourceSansPro-Bold',
       },
 })
 

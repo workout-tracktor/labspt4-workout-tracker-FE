@@ -6,6 +6,7 @@ const MainNavigator = createStackNavigator({
   //Keys that help navigate to different screens
     Onboarding: {
         screen: Onboarding,
+        
       }, 
     BackendAPI:  BackendAPI,
       }, 
