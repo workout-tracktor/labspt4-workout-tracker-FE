@@ -26,6 +26,7 @@ const Button = styled.button`
 
     &:hover {
         cursor: pointer;
+        border: 2px solid #03A3F3;
     }
     &:focus, &:active {
         background: linear-gradient(180deg, rgba(47, 221, 228, 0.8) -18.64%, rgba(35, 103, 255, 0.8) 75.02%),
@@ -55,4 +56,9 @@ const Text = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #03A3F3;
+    }
 `;

@@ -55,12 +55,12 @@ class BodyGoal extends React.Component {
                 
                 <ButtonsWrapper>
                     {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
-                    <Button text="I'll do this later" background="white" color="#03A3F3" width="1" />
+                    <Button text="I'll do this later" background="transparent" width="1" padding="0" />
 
                     {/* "Select" Button
                     @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) */}
                     {
-                        !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png"  alt="check mark" text="Select"  width="1" />
+                        !this.state.buttonPressed && <Button text="Select"  width="1" />
                     }
                 </ButtonsWrapper>
 
