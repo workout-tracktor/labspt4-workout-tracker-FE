@@ -21,22 +21,22 @@ class BodyGoal extends React.Component {
         const dummyData = [
             {
                 id: 1,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
+                url: "https://s3-alpha-sig.figma.com/img/cb4f/0681/b2fc8492d1a3149fe77f55d644e2bd60?Expires=1567987200&Signature=FTEgebWuPaXpcTjjFPMR1LxlQgJHWJE9L53UNTFxwSKP0h41g6TF6OjBx~zj9BUKNUS746sBNdF58AmwxqiGUEqu9J4Q2OulfL1YIfQ3AmIs4oREbzTfxXUUdBustOjq6P65s9hMOcWlwgEPeSmY7nIxBogcNZVf~EEEWZdWwlQjsCn8IBob48zEVdCwFotMtUohF926QTw0IlXRqcDHY2wLEL4us9DxUWxkPi3rS1xehzJ2IdRksv9WxBS8Y3CyolBf5aBqB1-HjWp9pVM~3-cFd8oxGIcLj3oJnrmlG902GbomhmV6Dv7LBnlxL08QuBeSMzJtGYjcea3tqN5fjw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
                 text: "Slim down"
             },
             {
                 id: 2,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
+                url: "https://s3-alpha-sig.figma.com/img/6799/bbc2/cd7ba475f2525a3b2020ebdb24552cd1?Expires=1567987200&Signature=YGpGFRtSvolBZrS8Az2QH0gLrtt-Ydz9UgtZ962xkWp3Yuv~SMxsZeTyEzEl~aQJnbY5rJuSbPZsX2HBsf6mDXc17tm6aUCL58xMoRTUEU56DBPYvnxKXsJHixz73duiOJHAXiAT0VmyZax4PuRjInBHKRzzDaIR1b24SpvZl~TpXhcl-5RstmvilTTPE7luDaTR5jmEGyL5QXchjuaLB7XpehPx76myl9iU9UyMiIfp6QAke2VWakQcj2XzEwJ01BTmvmNinmR48wFC0beqClHNf1eb0vbuxD2iR2EWfh1CH9T2hTx4ht5Xrk5fJCOwMPQ-Pl0Hz6LJnUPmg88pYQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
                 text: "Get big"
             },
             {
                 id: 3,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
+                url: "https://s3-alpha-sig.figma.com/img/8949/0b85/559de265f93d16058bf878d1591aa3a8?Expires=1567987200&Signature=OCIMeD0G-ByrCGy6b15I-F8Ktl5IV6jYW3R4z3iAwBEz6F3pH7tmOp7BlD3SZ9Fa-WVprptbjdQ6Awncuujo6ofvurGLlFC2qIQi9HgHHjTmPeBhKg8S-62fwgfnu8QaojVm24nKZn2HgMHMI-cgsLz0mLSFBRgVFmzVhjYMhUgxva6-jrNPFYJLjBPKy9fl0LD9JGmGi~0iTEhW-meoygae6jltipRwOF0Bancz8jFOUdlNpoCyqKpJjJXHj-zHcLGf45Vp4ocxXKNMSQljjo2jIvGJKdIfE4i1UUreOCKbUefW~8Ikz3hAbkx4hfKT-0bHcPn3tOZoX~Yo~Ipq3A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
                 text: "Maintain"
             },
             {
                 id: 4,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
+                url: "https://s3-alpha-sig.figma.com/img/0fc9/5987/8e1f5df124cebe407906e6d9ab0579e3?Expires=1567987200&Signature=fjibM-WqQbZkapl-ID6NQOu3TZHTvndjH-GihpyAtBdUDVLsC9q8mBYzYkx-NdaiDjUOwew94nhZoszMB23mas9SKcmF-oH4BdbqfxaRsa5s3ITYIRKezhU7nxIDrk5SL9ljz1wadU-cgPApbRxQywk73tS~yrcaazDAZCbewIighZZsJsBmosCOJNmzXaNr8rIMkNkiPLl44lMGC7CQ7F7sTDHkp4usDz3Ud4HoNnqpU3dcDQ5h-E2Hphei6gBgAAV-Ahzp4l6h5p2hIDT2PMJPL93YZkR01f4d2HLvgb5Z3IkdlHCMYE37SoQ8toIEa4Y7iLCk2ofBxS0kAK3Qkg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
                 text: "Athletic"
             }
         ]
@@ -79,18 +79,20 @@ const mapStateToProps = state => ({
 });
 
 const PageWrapper = styled.div`
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
 `;
 
 const OptionsWrapper = styled.div`
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 `;
 
 const ButtonsWrapper = styled.div`
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
