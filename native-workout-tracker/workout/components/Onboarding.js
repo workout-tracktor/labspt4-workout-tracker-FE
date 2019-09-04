@@ -4,8 +4,10 @@ import {
     Text, 
     StyleSheet, 
     Button,
+    Image,
     TouchableOpacity,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient'
 import TypeCard from './TypeCard';
 import data from './DummyData'
 
@@ -43,22 +45,31 @@ class Onboarding extends React.Component {
     render() {
         return (
             <View style = {styles.container}>
+                <LinearGradient
+                    colors={['#394366', '#161A29']}
+                    style={{ flex: 1 }}
+                    >
                     <View style = {styles.titleContainer}>
-                        <Text style = {styles.title}> Goal: Select a body type</Text>
+                        <Image
+                            style = {styles.trophy}
+                            source = {require('../assets/images/TrophyIcon.png')}
+                        />
+                        <Text style = {styles.title}> WHAT'S YOUR GOAL? </Text>
                     </View>
                     <View style = {styles.cards}>
                         {this.generateCards()}
                     </View>
                     <View style = {styles.buttonsContainer}>
                         <View style = {styles.buttons}>
-                        <TouchableOpacity onPress={this.handlPress}>
-                            <Text style={styles.button}>Select Later</Text>
+                        <TouchableOpacity onPress={this.handlPress} style = {styles.laterButtonContainer}>
+                            <Text style={styles.laterButton}>CHOOSE LATER</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={this.handlPress}>
-                            <Text style={styles.button}>Select</Text>
+                        <TouchableOpacity onPress={this.handlPress} style = {styles.selectButtonContainer}>
+                            <Text style={styles.selectButton}>SELECT</Text>
                         </TouchableOpacity>
                         </View>
                     </View>
+                </LinearGradient>
             </View>
         )
     }
@@ -67,19 +78,23 @@ class Onboarding extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#364064',
         justifyContent: "center",
         flex: 1,
     },
     titleContainer: {
         flex: 1,
-    },
-    title: {
-        justifyContent: 'center',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginTop: '10%',
-        padding: 20,
-        fontSize: 20,
+        paddingLeft: 20
+    },
+    trophy: {
+        width: 20,
+        height: 20
+    },
+    title: {
+        fontSize: 24,
         fontWeight: "700",
         fontFamily: 'SourceSansPro-Regular',
         color: 'white'
@@ -91,19 +106,31 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
-    button: {
-        backgroundColor: 'blue',
-        borderColor: 'white',
-        borderWidth: 1,
-        borderRadius: 12,
-        color: 'white',
-        fontSize: 24,
-        overflow: 'hidden',
-        padding: 12,
-        textAlign:'center',
+      laterButtonContainer: {
+        width: 140,
+        height: 36.5,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      laterButton: {
         fontWeight: "700",
         fontFamily: 'SourceSansPro-Regular',
+        fontSize: 18,
+        color: 'white',
       },
+      selectButtonContainer: {
+        width: 114,
+        height: 36.5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#2367FF",
+      },
+      selectButton: {
+        fontWeight: "700",
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: 18,
+        color: 'white',
+      }
 })
 
 export default Onboarding;
