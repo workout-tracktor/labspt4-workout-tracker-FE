@@ -15,7 +15,6 @@ const Header = styled.div`
     margin: 15px auto;
     display: flex;
     align-items: center;
-    /* text-transform: uppercase; */
 `;
 
 const HeaderText = styled.h1`

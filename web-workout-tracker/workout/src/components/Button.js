@@ -25,7 +25,7 @@ const StyledButton = styled.button`
     font-weight: bold;
     text-transform: uppercase;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 7px 15px;
     min-width: 30%;
     display: flex;
