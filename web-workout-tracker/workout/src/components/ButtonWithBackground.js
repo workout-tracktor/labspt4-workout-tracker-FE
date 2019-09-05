@@ -19,7 +19,7 @@ const Button = styled.button`
     border-radius: 5px; 
     background: linear-gradient(0deg, rgba(22, 26, 41, 0.5), rgba(22, 26, 41, 0.5)),
     url(${props => props.url || "white"});
-    opacity: 0.7;
+    opacity: ${props => props.opacity || "0.7"};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-size: 100%;
     background-repeat: no-repeat;

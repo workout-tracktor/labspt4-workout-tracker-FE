@@ -13,8 +13,8 @@ class BodyGoal extends React.Component {
         goal: "",
         buttonPressed: false
     }
-    clickOptionHandler = e => {
-        this.setState({ buttonPressed: true });
+    clickOptionHandler = (goal) => {
+        this.setState({ goal, buttonPressed: true });
     }
     handleBlur = () => {
         this.setState({ buttonPressed: false });
@@ -50,23 +50,22 @@ class BodyGoal extends React.Component {
 
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
-                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, save goal to state 
+                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
                 @TO-DO: change styling for non-active buttons when one of the buttons is active
                 */}
 
                 {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {dummyData.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "1" : "0.7"} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
+                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
                     <Button text="I'll do this later" background="transparent" padding={0} />
 
-                    {/* "Select" Button
-                    @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) */}
+                    {/* "Select" Button */}
                     {
                         this.state.buttonPressed && <Button text="Select" />
                     }
