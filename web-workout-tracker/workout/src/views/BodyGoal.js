@@ -1,6 +1,10 @@
 import React from "react"
 import styled from "styled-components";
 
+// Redux
+import { connect } from "react-redux";
+import { addGoal } from '../actions';
+
 import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
@@ -66,7 +70,9 @@ class BodyGoal extends React.Component {
                     {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
                     <Button text="I'll do this later" background="transparent" padding={0} />
 
-                    {/* "Select" Button */}
+                    {/* "Select" Button
+                    @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
+                     */}
                     {
                         this.state.buttonPressed && <Button text="Select" />
                     }
@@ -101,4 +107,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default BodyGoal;
+export default connect(mapStateToProps, {addGoal})(BodyGoal);
