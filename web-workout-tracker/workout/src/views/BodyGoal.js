@@ -50,9 +50,11 @@ class BodyGoal extends React.Component {
 
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
-                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick change filter, save goal to state 
-                @TO-DO: change styling for non-active buttons when one of the buttons is active; add clickHandler function?
+                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, save goal to state 
+                @TO-DO: change styling for non-active buttons when one of the buttons is active
                 */}
+
+                {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {dummyData.map(elem =>
                         <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} />
