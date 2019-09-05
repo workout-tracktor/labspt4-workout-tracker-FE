@@ -21,7 +21,7 @@ class BodyGoal extends React.Component {
     }
 
     render() {
-        // change to real data, when design will be finalized
+        // @TO-DO: change to real data, when design will be finalized, make it separate file as well
         const dummyData = [
             {
                 id: 1,
