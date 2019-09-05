@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function ButtonWithBackground(props) {
     return (
-        <Button url={props.url}>
+        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur}>
             <Text>{props.text}</Text>
         </Button>
     )
@@ -44,10 +44,8 @@ const Button = styled.button`
 
 const Text = styled.div`
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-bottom: 5px;
-    padding-right: 15px;
+    bottom: 5px;
+    right: 15px;
     font-family: "aktiv-grotesk-condensed",sans-serif;
     font-size: 36px;
     line-height: 46px;

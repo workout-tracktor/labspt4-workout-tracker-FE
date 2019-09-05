@@ -2,13 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 // PROPS:
-// color (default: white)
-// background (default: #03A3F3)
-// width 
+// color (default: #FFFFFF)
+// background (default: #2367FF)
 // text
 // onClick
-// alt
-// icon (for src attribute)
+// padding (default: "7px 15px")
 
 export default function Button(props) {
     return (
