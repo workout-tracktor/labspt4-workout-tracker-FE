@@ -14,8 +14,10 @@ class BodyGoal extends React.Component {
         buttonPressed: false
     }
     clickOptionHandler = e => {
-        this.setState({buttonPressed: true});
-        console.log(this.state.buttonPressed);
+        this.setState({ buttonPressed: true });
+    }
+    handleBlur = () => {
+        this.setState({ buttonPressed: false });
     }
 
     render() {
@@ -53,18 +55,18 @@ class BodyGoal extends React.Component {
                 */}
                 <OptionsWrapper>
                     {dummyData.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickOptionHandler} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
                     {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
-                    <Button text="I'll do this later" background="transparent" width={1} padding={0} />
+                    <Button text="I'll do this later" background="transparent" padding={0} />
 
                     {/* "Select" Button
                     @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) */}
                     {
-                        this.state.buttonPressed && <Button text="Select"  width={1} />
+                        this.state.buttonPressed && <Button text="Select" />
                     }
                 </ButtonsWrapper>
 

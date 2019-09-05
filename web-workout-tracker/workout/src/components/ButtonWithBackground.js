@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function ButtonWithBackground(props) {
     return (
-        <Button url={props.url} onClick={props.onClick}>
+        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur}>
             <Text>{props.text}</Text>
         </Button>
     )
