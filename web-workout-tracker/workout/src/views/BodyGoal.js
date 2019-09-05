@@ -9,6 +9,8 @@ import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
 
+import TrophyIcon from "../assets/icons/Trophy.svg";
+
 
 class BodyGoal extends React.Component {
     state= {
@@ -44,7 +46,7 @@ class BodyGoal extends React.Component {
             <PageWrapper>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
-                <OnboardingHeader url="https://img.icons8.com/carbon-copy/100/000000/uefa-euro-trophy.png" text="What's your goal?" />
+                <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
                 {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick change filter, save goal to state 
                 @TO-DO: change styling for non-active buttons when one of the buttons is active; add clickHandler function?
@@ -57,14 +59,14 @@ class BodyGoal extends React.Component {
                 
                 <ButtonsWrapper>
                     {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
-                    <Button text="I'll do this later" background="white" color="#03A3F3" width="1" />
+                    <Button text="I'll do this later" background="transparent" width="1" padding="0" />
 
                     {/* "Select" Button
                     @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) 
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
                     */}
                     {
-                        !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png"  alt="check mark" text="Select"  width="1" />
+                        !this.state.buttonPressed && <Button text="Select"  width="1" />
                     }
                 </ButtonsWrapper>
 
@@ -85,6 +87,7 @@ const PageWrapper = styled.div`
 
 const OptionsWrapper = styled.div`
     width: 90%;
+    max-width: 510px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -92,6 +95,7 @@ const OptionsWrapper = styled.div`
 
 const ButtonsWrapper = styled.div`
     width: 90%;
+    max-width: 510px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;

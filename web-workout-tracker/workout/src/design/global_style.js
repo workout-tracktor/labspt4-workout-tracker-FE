@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         height: 100%;
         width: 100%;
-        background: #E5E5E5;
+        background: linear-gradient(#394366, #161A29);
     }
     a {
         color: inherit;
