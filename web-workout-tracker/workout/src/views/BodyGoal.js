@@ -52,6 +52,7 @@ class BodyGoal extends React.Component {
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
                 {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
+                @TO-DO: add checkmark on active button
                 */}
 
                 {/* onBlur event occurs when component lose focus */}
