@@ -11,7 +11,11 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <DateTimePicker onChange={this.onChange} value={this.state.date} />
+        <DateTimePicker
+          disableClock="false"
+          onChange={this.onChange}
+          value={this.state.date}
+        />
       </div>
     );
   }
