@@ -72,7 +72,7 @@ class BodyGoal extends React.Component {
 
                     {/* "Select" Button
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
-                     */}
+                    */}
                     {
                         this.state.buttonPressed && <Button text="Select" />
                     }
@@ -82,6 +82,11 @@ class BodyGoal extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    goal: state.goal,
+    savingGoal: state.savingGoal
+});
 
 const PageWrapper = styled.div`
     width: 100%;

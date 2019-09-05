@@ -1,12 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import BackendAPI from "./components/BackendAPI";
-import Onboarding from './components/Onboarding'
-import { NativeRouter, Switch, Route } from "react-router-native";
-import Welcome from './components/Welcome'
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Button, 
+  Alert,
+  ActivityIndicator,
+   } from "react-native";
 
+import MyAppNav from './Navigation/MainNavigator' 
 import { AuthSession } from "expo";
 import jwtDecode from "jwt-decode";
+import * as Font from 'expo-font'
 
 //linking auth0 account info
 const auth0ClientId = "SC50FcSQGQUTThJvrl40XzSZ5E6NqT5l";
@@ -27,6 +32,14 @@ function toQueryString(params) {
 
 export default class App extends React.Component {
   state = { name: null };
+  
+  async componentDidMount(){
+    //Font.loadAsync is used for expo to utilize custom fonts withink the app.
+    //it points to the folder that holds the font files
+    await Font.loadAsync({
+        'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro-Regular.ttf')
+    })
+}
 
   login = async () => {
     // retrieve the redirect URL, add this tot he callback in Auth0
@@ -72,19 +85,15 @@ export default class App extends React.Component {
   render() {
     const { name } = this.state;
     return (
-      <NativeRouter>
-        <View style={styles.container}>
-          {name ? (
-            <Route exact path="/" component={Welcome} />
+      <>
+        {name ? (
+              <MyAppNav /> 
           ) : (
-            <Button title="Log in with Auth0" onPress={this.login} />
+            <View style = {styles.container}>
+              <Button title="Log in with Auth0" onPress={this.login} />
+            </View>
           )}
-          <Switch>
-            <Route exact path="/api" component={BackendAPI} />
-            <Route exact path = "/bodytype" component = {Onboarding} />
-          </Switch>
-        </View>
-      </NativeRouter>
+      </>
     );
   }
 }
@@ -96,7 +105,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-
+  welcome: {
+    margin: 0
+  },
   title: {
     fontSize: 20,
     textAlign: "center",
