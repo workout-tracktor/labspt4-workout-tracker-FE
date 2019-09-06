@@ -27,7 +27,7 @@ class BodyGoal extends React.Component {
 
     render() {
         console.log(this.state.buttonPressed);
-        // @TO-DO: change to real data, when design will be finalized, make it separate file as well
+        // @TO-DO: add different urls for mobile and desktop, make it separate file as well
         const dummyData = [
             {
                 id: 1,
@@ -57,7 +57,6 @@ class BodyGoal extends React.Component {
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
                 {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
-                @TO-DO: add checkmark on active button
                 */}
 
                 {/* onBlur event occurs when component lose focus */}
