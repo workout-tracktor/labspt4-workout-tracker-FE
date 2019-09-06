@@ -33,7 +33,7 @@ const Button = styled.button`
         cursor: pointer;
         border: 2px solid #03A3F3;
     }
-    &:focus, &:active, &:focus-within {
+    &:focus, &:active {
         background: linear-gradient(180deg, rgba(47, 221, 228, 0.8) -18.64%, rgba(35, 103, 255, 0.8) 75.02%),
         url(${props => props.url || "white"});
         outline: none;
