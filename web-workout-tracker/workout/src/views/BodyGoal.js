@@ -17,14 +17,15 @@ class BodyGoal extends React.Component {
         goal: "",
         buttonPressed: false
     }
-    clickOptionHandler = e => {
-        this.setState({ buttonPressed: true });
+    clickOptionHandler = (goal) => {
+        this.setState({ goal, buttonPressed: true });
     }
     handleBlur = () => {
         this.setState({ buttonPressed: false });
     }
 
     render() {
+        console.log(this.state.buttonPressed);
         // @TO-DO: change to real data, when design will be finalized, make it separate file as well
         const dummyData = [
             {
@@ -54,23 +55,22 @@ class BodyGoal extends React.Component {
 
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
-                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, save goal to state 
-                @TO-DO: change styling for non-active buttons when one of the buttons is active
+                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
+                @TO-DO: add checkmark on active button
                 */}
 
                 {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {dummyData.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
+                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
                     <Button text="I'll do this later" background="transparent" padding={0} />
 
                     {/* "Select" Button
-                    @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) 
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
                     */}
                     {

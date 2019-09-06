@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function ButtonWithBackground(props) {
     return (
-        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur}>
+        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient}>
             <Text>{props.text}</Text>
         </Button>
     )
@@ -17,9 +17,9 @@ const Button = styled.button`
     padding: 0;
     border: none;
     border-radius: 5px; 
-    background: linear-gradient(0deg, rgba(22, 26, 41, 0.5), rgba(22, 26, 41, 0.5)),
+    background: linear-gradient(0deg, ${props => props.gradient}, ${props => props.gradient}),
     url(${props => props.url || "white"});
-    opacity: 0.7;
+    opacity: ${props => props.opacity || "0.7" };
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-size: 100%;
     background-repeat: no-repeat;
