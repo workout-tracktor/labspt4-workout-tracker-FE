@@ -17,7 +17,7 @@ const NavBar = () => {
         <div>
             {!isAuthenticated && (
                 <Container >
-                    <img src = {liftQuestTitle}/>
+                    <img src = {liftQuestTitle} alt = 'liftquest'/>
                     <Button 
                         onClick={() => loginWithRedirect({})} 
                         color = {'white'}
@@ -29,7 +29,7 @@ const NavBar = () => {
 
             {isAuthenticated && (
                 <Nav>
-                        <Link to="/"> <img src = {liftQuestTitle}/> </Link>
+                        <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav> 
                         <Link to="/user-settings" >
                         <NavText> 
@@ -68,7 +68,12 @@ const Nav = styled.span`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 15px;
 `
+
+const Logo = styled.img`
+    width: 20rem;
+` 
 
 const RightNav = styled.div`
     display: flex;
