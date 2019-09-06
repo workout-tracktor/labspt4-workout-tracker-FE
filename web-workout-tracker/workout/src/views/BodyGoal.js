@@ -26,7 +26,6 @@ class BodyGoal extends React.Component {
     }
 
     render() {
-        console.log(this.state.buttonPressed);
         // @TO-DO: add different urls for mobile and desktop, make it separate file as well
         const dummyData = [
             {

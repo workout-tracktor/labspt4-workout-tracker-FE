@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 export default function ButtonWithBackground(props) {
     return (
-        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient}>
+        // onTouchStart={() => {}} is for re-enabling active pseudo class (By default Mobile Safari disables CSS active pseudo styles on web pages)
+        <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
             <img alt="" src={props.icon} style={{position: "absolute", left: "12px", top: "12px", width: "19px", height: "18px" }} />
             <Text>{props.text}</Text>
         </Button>
@@ -52,7 +53,8 @@ const Text = styled.div`
     position: absolute;
     bottom: 5px;
     right: 15px;
-    font-family: "aktiv-grotesk-condensed",sans-serif;
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: bold;
     font-size: 36px;
     line-height: 46px;
     color: #FFFFFF;

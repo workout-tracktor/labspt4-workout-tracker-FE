@@ -21,7 +21,7 @@ const StyledButton = styled.button`
     color: ${props => props.color || "#FFFFFF"};
     font-size: 18px;
     line-height: 23px;
-    font-family: "aktiv-grotesk-condensed",sans-serif;
+    font-family: Roboto Condensed, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
