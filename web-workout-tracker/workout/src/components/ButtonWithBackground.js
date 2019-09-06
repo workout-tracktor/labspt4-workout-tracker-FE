@@ -52,7 +52,8 @@ const Text = styled.div`
     position: absolute;
     bottom: 5px;
     right: 15px;
-    font-family: "aktiv-grotesk-condensed",sans-serif;
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: bold;
     font-size: 36px;
     line-height: 46px;
     color: #FFFFFF;

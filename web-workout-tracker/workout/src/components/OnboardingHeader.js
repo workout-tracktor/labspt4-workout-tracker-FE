@@ -19,7 +19,7 @@ const Header = styled.div`
 `;
 
 const HeaderText = styled.h1`
-    font-family: "aktiv-grotesk-condensed",sans-serif;
+    font-family: Roboto Condensed, sans-serif;
     font-size: 24px;
     line-height: 31px;
     font-weight: bold;
