@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Profile from './Profile'
+// import Profile from './Profile'
 
 class Landing extends React.Component {
   state = {};
@@ -16,13 +16,14 @@ class Landing extends React.Component {
       });
   }
 
-    render(){
-        return (
-            <>
-                <Profile />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        {this.state.api}
+        {/* <Profile /> */}
+      </>
+    );
+  }
 }
 
 export default Landing;
