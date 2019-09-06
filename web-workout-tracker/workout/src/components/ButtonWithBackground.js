@@ -4,6 +4,7 @@ import styled from "styled-components";
 export default function ButtonWithBackground(props) {
     return (
         <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient}>
+            <img alt="" src={props.icon} style={{position: "absolute", left: "12px", top: "12px", width: "19px", height: "18px" }} />
             <Text>{props.text}</Text>
         </Button>
     )
@@ -24,7 +25,9 @@ const Button = styled.button`
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center; 
-
+    img {
+        display: none;
+    }
     &:hover {
         cursor: pointer;
         border: 2px solid #03A3F3;
@@ -39,6 +42,9 @@ const Button = styled.button`
         background-repeat: no-repeat;
         background-position: center; 
         border: none;
+        img {
+            display: block;
+        }
     };
 `;
 

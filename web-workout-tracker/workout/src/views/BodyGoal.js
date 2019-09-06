@@ -10,6 +10,7 @@ import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
 
 import TrophyIcon from "../assets/icons/Trophy.svg";
+import CheckMark from "../assets/icons/CheckMark.svg";
 
 
 class BodyGoal extends React.Component {
@@ -26,7 +27,7 @@ class BodyGoal extends React.Component {
 
     render() {
         console.log(this.state.buttonPressed);
-        // @TO-DO: change to real data, when design will be finalized, make it separate file as well
+        // @TO-DO: add different urls for mobile and desktop, make it separate file as well
         const dummyData = [
             {
                 id: 1,
@@ -56,19 +57,18 @@ class BodyGoal extends React.Component {
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
                 {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
-                @TO-DO: add checkmark on active button
                 */}
 
                 {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {dummyData.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} icon={CheckMark} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
                     {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
-                    <Button text="I'll do this later" background="transparent" padding={0} />
+                    <Button text="I'll do this later" background="transparent" padding="7px 0px" />
 
                     {/* "Select" Button
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
