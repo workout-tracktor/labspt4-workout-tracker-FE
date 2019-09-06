@@ -61,20 +61,18 @@ const Container = styled.div`
     align-items: space-around;
     margin: 0 auto;
     width: 294px;
-`;
-
+`
 const Nav = styled.span`
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 10px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
-
 const Logo = styled.img`
     width: 20rem;
-` 
-
+`
 const RightNav = styled.div`
     display: flex;
     flex-direction: row;
@@ -97,7 +95,6 @@ const NavText = styled.div`
     font-weight: bold;
     font-size: 18px;
 `
-
 const LogoutContainer = styled.div`
     display: flex;
     flex-direction: row;
