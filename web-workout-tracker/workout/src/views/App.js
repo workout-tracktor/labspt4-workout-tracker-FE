@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import { useAuth0 } from "../components/auth0-wrapper";
 
 import NavBar from "../components/Navbar";
 import Landing from "./Landing";
@@ -8,17 +7,17 @@ import BodyGoal from "./BodyGoal";
 
 import UserSettings from "./user_settings";
 // import PrivateRoute from "../components/PrivateRoute";
-// import Profile from "./Profile";
+
 import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
 import InputWorkoutForm from "./InputWorkoutForm";
 
 function App() {
-  const { loading } = useAuth0();
+  //   const { loading } = useAuth0();
 
-  if (loading) {
-    return <Loading />;
-  }
+  //   if (loading) {
+  //     return <Loading />;
+  //   }
   return (
     <div className="App">
       <BrowserRouter>
@@ -33,7 +32,6 @@ function App() {
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />
 
-          {/* <Route path="/profile" component={Profile}/> */}
           <Route path="/input-workout" component={InputWorkoutForm} />
         </Switch>
       </BrowserRouter>
