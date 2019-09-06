@@ -20,8 +20,7 @@ class Landing extends React.Component {
     render(){
         return (
             <>
-            {this.state.api}
-            <Profile />
+                <Profile />
             </>
         )
     }
