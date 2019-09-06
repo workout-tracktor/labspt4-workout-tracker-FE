@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function ButtonWithBackground(props) {
     return (
-        // onTouchStart={() => {}} is for re-enabling active pseudo classes (By default Mobile Safari disables CSS active pseudo styles on web pages)
+        // onTouchStart={() => {}} is for re-enabling active pseudo classe (By default Mobile Safari disables CSS active pseudo styles on web pages)
         <Button url={props.url} onClick={props.onClick} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
             <img alt="" src={props.icon} style={{position: "absolute", left: "12px", top: "12px", width: "19px", height: "18px" }} />
             <Text>{props.text}</Text>
@@ -33,7 +33,7 @@ const Button = styled.button`
         cursor: pointer;
         border: 2px solid #03A3F3;
     }
-    &:focus, &:active {
+    &:focus, &:active, &:focus-within {
         background: linear-gradient(180deg, rgba(47, 221, 228, 0.8) -18.64%, rgba(35, 103, 255, 0.8) 75.02%),
         url(${props => props.url || "white"});
         outline: none;
