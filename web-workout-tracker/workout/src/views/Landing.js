@@ -25,10 +25,8 @@ class Landing extends React.Component {
   render() {
     return (
       <Container>
-        <Group> 
           <Calendar onChange={this.onChange} value={this.state.date} />
           <Workouts />
-        </Group>
       </Container>
     );
   }
@@ -36,14 +34,17 @@ class Landing extends React.Component {
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
-    margin: 40px 0;
-    height: 700px;
-`
-const Group = styled.div`
-    display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 40px 0;
+    width: 100%;
+
+    @media (max-width: 1040px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }  
+
 `
 
 export default Landing;

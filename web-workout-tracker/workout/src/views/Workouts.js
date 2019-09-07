@@ -44,7 +44,7 @@ render() {
                 <TitleText> {this.state.month} {this.state.date},  {this.state.year}</TitleText>
                 <TitleText>{this.state.time}</TitleText>
             </Title>
-            
+
          {   this.state.addWorkout? 
                 <InputWorkoutForm />
                 :
@@ -72,6 +72,11 @@ const Container = styled.div`
     width: 600px;
     margin: 0 20px ;
     height: 100%;
+    
+    @media (max-width: 1040px) {
+        width: 100%; 
+    }  
+
 `
 
 const Title = styled.div`
@@ -80,6 +85,13 @@ const Title = styled.div`
     justify-content: space-between;
     padding: 0 0 15px 0;
     border-bottom: 1px solid gray;
+    
+    @media (max-width: 1040px) {
+        margin-top: 25px;
+        width: 100%;
+        justify-content: center;
+        
+    }  
 `
 
 const TitleText = styled.p`
