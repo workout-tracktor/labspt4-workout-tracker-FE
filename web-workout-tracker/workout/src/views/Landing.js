@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
-// import Profile from './Profile'
+import styled from "styled-components";
 import InputWorkoutForm from "./InputWorkoutForm";
 import Calendar from "react-calendar";
+import NoWorkouts from './NoWorkouts'
 
 class Landing extends React.Component {
   state = {
@@ -23,13 +24,28 @@ class Landing extends React.Component {
   onChange = date => this.setState({ date });
   render() {
     return (
-      <>
-        <Calendar onChange={this.onChange} value={this.state.date} />
-        {/* {this.state.api} */}
+      <Container>
+        <Group> 
+          <Calendar onChange={this.onChange} value={this.state.date} />
+          <NoWorkouts />
+        </Group>
+        
         <InputWorkoutForm />
-      </>
+
+      </Container>
     );
   }
 }
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+`
+const Group = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+`
 
 export default Landing;
