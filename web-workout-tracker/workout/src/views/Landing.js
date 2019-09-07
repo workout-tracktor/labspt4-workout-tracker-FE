@@ -1,9 +1,14 @@
 import React from "react";
 import axios from "axios";
-// import Profile from './Profile'
+import styled from "styled-components";
+import Calendar from "react-calendar";
+
+import Workouts from './Workouts'
 
 class Landing extends React.Component {
-  state = {};
+  state = {
+    date: new Date()
+  };
 
   componentDidMount() {
     axios
@@ -16,14 +21,30 @@ class Landing extends React.Component {
       });
   }
 
+  onChange = date => this.setState({ date });
   render() {
     return (
-      <>
-        {this.state.api}
-        {/* <Profile /> */}
-      </>
+      <Container>
+          <Calendar onChange={this.onChange} value={this.state.date} />
+          <Workouts />
+      </Container>
     );
   }
 }
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 40px 0;
+    width: 100%;
+
+    @media (max-width: 1040px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }  
+
+`
 
 export default Landing;

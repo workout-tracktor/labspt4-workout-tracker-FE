@@ -69,6 +69,12 @@ const Nav = styled.span`
     justify-content: space-between;
     padding: 10px 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}  
 `
 const Logo = styled.img`
     width: 20rem;
@@ -78,6 +84,12 @@ const RightNav = styled.div`
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+
+    @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
 `
 const Gear = styled.img`
     margin: 5px;
@@ -104,5 +116,7 @@ const LogoutContainer = styled.div`
         cursor: pointer;
     }
 ` 
+
+
 
 export default NavBar;
