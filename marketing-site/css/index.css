@@ -192,7 +192,7 @@ body {
     position: relative;
     width: 500px;
     margin-top: 70px;
-    margin-left: 40px;
+    /*margin-left: 40px; centers running girl*/
   }
   .lower-market .feature-graphic {
     width: 90%;
