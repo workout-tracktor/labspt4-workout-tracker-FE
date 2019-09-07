@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import InputWorkoutForm from "./InputWorkoutForm";
 import Calendar from "react-calendar";
+
 import NoWorkouts from './NoWorkouts'
 
 class Landing extends React.Component {
@@ -41,11 +42,12 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin: 40px 0;
+    height: 700px;
 `
 const Group = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 `
 
 export default Landing;
