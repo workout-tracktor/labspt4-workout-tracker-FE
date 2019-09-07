@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import InputWorkoutForm from "./InputWorkoutForm";
 import Calendar from "react-calendar";
 
-import NoWorkouts from './NoWorkouts'
+import Workouts from './Workouts'
 
 class Landing extends React.Component {
   state = {
@@ -28,11 +27,8 @@ class Landing extends React.Component {
       <Container>
         <Group> 
           <Calendar onChange={this.onChange} value={this.state.date} />
-          <NoWorkouts />
+          <Workouts />
         </Group>
-        
-        <InputWorkoutForm />
-
       </Container>
     );
   }
