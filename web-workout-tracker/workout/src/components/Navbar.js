@@ -15,7 +15,7 @@ const NavBar = () => {
 
     return (
         <div>
-            {/* {!isAuthenticated && (
+            {!isAuthenticated && (
                 <Container >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
                     <Button 
@@ -25,9 +25,9 @@ const NavBar = () => {
                         text = {"LOGIN"}
                         />
                 </Container>
-            )} */}
+            )}
 
-            {!isAuthenticated && (
+            {isAuthenticated && (
                 <Nav>
                         <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav> 

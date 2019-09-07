@@ -56,11 +56,9 @@ render() {
                     </TextContainer>    
                 </NoWorkout>}
             
-            <Button
-            onClick = {this.addWorkoutToggler}
-            >
-            <img src = {plus} alt= 'plus' />
-            ADD A WORKOUT
+            <Button onClick = {this.addWorkoutToggler}>
+                <img src = {plus} alt= 'plus' />
+                ADD A WORKOUT
             </Button>
         </Container>
     )
