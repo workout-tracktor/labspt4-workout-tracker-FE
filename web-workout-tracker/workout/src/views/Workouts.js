@@ -1,37 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 //moment is used to get the time and set AM or PM
-import moment from 'moment';
 import InputWorkoutForm from "./InputWorkoutForm";
 import emoji from '../assets/images/ThinkingEmoji.svg'
 import plus from '../assets/icons/Plus.svg'
-
-let monthNames = ["January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December"
-];
 
 class Workouts extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            month: ``,
-            date: ``,
-            year: ``,
-            time: ``,
-            addWorkout: false
         }
     }
-
-
-componentDidMount() {
-    const d = new Date();
-    this.setState({
-        month: monthNames[d.getMonth()],
-        date: d.getDate(),
-        year: d.getFullYear(),
-        time: moment().format(`hh:mm a`)
-    })
-}
 
 addWorkoutToggler = () =>{
     this.setState({addWorkout: !this.state.addWorkout})
@@ -41,8 +20,7 @@ render() {
     return(
         <Container>
             <Title> 
-                <TitleText> {this.state.month} {this.state.date},  {this.state.year}</TitleText>
-                <TitleText>{this.state.time}</TitleText>
+                <TitleText> FITTER FASTER FURTHER </TitleText>
             </Title>
 
          {   this.state.addWorkout? 
@@ -95,11 +73,13 @@ const Title = styled.div`
 `
 
 const TitleText = styled.p`
+    margin: 0 auto;
+    justify-content: center;
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    color: white;
+    color: #03A3F3;
 `
 const NoWorkout = styled. div`
     display: flex;
