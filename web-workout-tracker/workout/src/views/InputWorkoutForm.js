@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import DatePicker from "../views/DatePicker";
 
 const InputWorkoutForm = props => {
   const [workoutType, setWorkoutType] = useState("");
 
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    console.log('hi')
+  })
 
   return (
     <div className="input-workout-form">
