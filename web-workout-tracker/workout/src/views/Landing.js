@@ -22,6 +22,7 @@ class Landing extends React.Component {
   }
 
   onChange = date => this.setState({ date });
+  
   render() {
     return (
       <Container>
@@ -37,7 +38,6 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     margin: 40px 0;
-    width: 100%;
 
     @media (max-width: 1040px) {
       display: flex;
