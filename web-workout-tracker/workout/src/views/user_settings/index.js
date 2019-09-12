@@ -52,12 +52,12 @@ class UserSettings extends React.Component {
 
 const Section = styled.div`
   width: 375px;
-  margin: auto 0;
+  margin: 0 auto;
 `;
 const Header = styled.div`
   display: flex;
   align-items: center;
-  margin: 20px 10px;
+  margin: 50px 10px 20px;
 `;
 const Img = styled.img`
   margin-right: 10px;
