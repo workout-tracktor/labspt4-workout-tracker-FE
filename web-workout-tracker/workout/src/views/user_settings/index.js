@@ -1,91 +1,107 @@
 import React from "react";
 // import { useAuth0 } from "../react-auth0-wrapper"
 import Profile from "../Profile";
-import SECTION from "./style";
+import styled from "styled-components";
+import ProfileIcon from "./ProfileIcon.png";
 
 class UserSettings extends React.Component {
   state = {
-    first_name: "Gordon",
-    last_name: "Clark",
-    ideal_body_type: "Slenderman",
-    body_types: [
-      { name: "Slenderman", src: "1.png" },
-      { name: "Boringman", src: "2.png" },
-      { name: "Incredibly Big Man", src: "3.png" }
-    ],
+    goal: ""
+  };
 
-    setting_selected: ""
-  };
-  componentDidUpdate = () => {};
-  update_field = e => this.setState({ [e.target.id]: e.target.value });
-  update_active_setting = e =>
-    this.setState({ setting_selected: e.currentTarget.id });
-  update_body_type = e => {
-    if (this.state.setting_selected === "ideal-body-type") {
-      e.stopPropagation();
-      this.setState({
-        ideal_body_type: e.currentTarget.id,
-        setting_selected: ""
-      });
-    }
-  };
   render = () => (
-    <SECTION className="user-settings">
-      <div>
-        <Profile />
-      </div>
+    <Section>
+      <Header>
+        <Img src={ProfileIcon} alt="profileIcon" />
+        <ProfileHeading>USER PROFILE</ProfileHeading>
+      </Header>
 
-      <div
-        id="ideal-body-type"
-        className="field"
-        onClick={this.update_active_setting}
-      >
-        <span className="title">Ideal Body Type</span>
-        <div className="value">
-          {this.state.body_types
-            .filter(type =>
-              this.state.setting_selected === "ideal-body-type"
-                ? true
-                : type.name === this.state.ideal_body_type
-            )
-            .map((type, idx) => (
-              <div
-                className="type"
-                key={idx}
-                id={type.name}
-                onClick={this.update_body_type}
-              >
-                <img src={`/img/${type.src}`} alt={type.name} />
-                <span>{type.name}</span>
-              </div>
-            ))}
-        </div>
-      </div>
-      <div
-        id="units-of-measurment"
-        className="field"
-        onClick={this.update_active_setting}
-      >
-        <span className="title">Units of Measurment</span>
-        <div className="value">
-          <div className="unit-types">
-            <input type="radio" name="unit-type" value="us" id="us"></input>
-            <label htmlFor="us">US Standard</label>
-          </div>
-          <div className="unit-types">
-            <input
+      <ProfileDiv>
+        <Profile />
+      </ProfileDiv>
+
+      <Div>
+        <Span>Goal</Span>
+
+        <GoalValueDiv>{this.state.goal}</GoalValueDiv>
+      </Div>
+
+      <Div onClick={this.update_active_setting}>
+        <Span className="title">Units</Span>
+        <Unit>
+          <UnitDiv className="unit-types">
+            <Input type="radio" name="unit-type" value="us" id="us"></Input>
+            <Label htmlFor="us">US Standard</Label>
+          </UnitDiv>
+
+          <UnitDiv>
+            <Input
               type="radio"
               name="unit-type"
               value="metric"
               id="metric"
               defaultChecked
-            ></input>
-            <label htmlFor="metric">Metric</label>
-          </div>
-        </div>
-      </div>
-    </SECTION>
+            ></Input>
+            <Label htmlFor="metric">Metric</Label>
+          </UnitDiv>
+        </Unit>
+      </Div>
+    </Section>
   );
 }
+
+const Section = styled.div`
+  width: 375px;
+  margin: auto 0;
+`;
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 20px 10px;
+`;
+const Img = styled.img`
+  margin-right: 10px;
+`;
+const ProfileHeading = styled.h2`
+  color: white;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+`;
+const ProfileDiv = styled.div``;
+const Span = styled.span`
+  color: white;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+`;
+const GoalValueDiv = styled.div``;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin: 10px;
+  border-bottom: 1px solid rgba(88, 91, 95, 0.2);
+`;
+
+const Unit = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const UnitDiv = styled.div`
+  margin-right: 20px;
+`;
+
+const Input = styled.input``;
+const Label = styled.label`
+  color: white;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-size: 16px;
+  margin-left: 5px;
+`;
 
 export default UserSettings;
