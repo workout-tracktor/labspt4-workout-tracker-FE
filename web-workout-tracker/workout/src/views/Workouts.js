@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 //moment is used to get the time and set AM or PM
-import InputWorkoutForm from "./InputWorkoutForm";
+import WorkoutForm from "./workout_form/WorkoutForm";
 import emoji from '../assets/images/ThinkingEmoji.svg'
 import plus from '../assets/icons/Plus.svg'
 import {Link} from "react-router-dom";
@@ -25,7 +25,7 @@ render() {
             </Title>
 
          {   this.state.addWorkout? 
-                <InputWorkoutForm />
+                <WorkoutForm />
                 :
                 <NoWorkout> 
                     <Plus src = {emoji} alt = 'thinking emoji' />
