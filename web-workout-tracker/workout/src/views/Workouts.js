@@ -4,6 +4,7 @@ import styled from "styled-components";
 import InputWorkoutForm from "./InputWorkoutForm";
 import emoji from '../assets/images/ThinkingEmoji.svg'
 import plus from '../assets/icons/Plus.svg'
+import {Link} from "react-router-dom";
 
 class Workouts extends React.Component {
     constructor(props){
@@ -36,7 +37,7 @@ render() {
             
             <Button onClick = {this.addWorkoutToggler}>
                 <img src = {plus} alt= 'plus' />
-                ADD A WORKOUT
+                <Link to='/input-workout'>ADD A WORKOUT</Link>
             </Button>
         </Container>
     )
