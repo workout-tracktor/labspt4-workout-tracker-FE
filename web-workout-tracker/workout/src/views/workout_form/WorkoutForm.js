@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import DatePicker from "../DatePicker";
+import React from "react";
 import WorkoutTypeForm from './WorkoutTypeForm'
 import WorkoutInputForm from "./WorkoutInputForm";
 
@@ -16,21 +15,22 @@ class WorkoutForm extends React.Component {
         this.setState({workoutType: workoutType})
     };
 
-    setData = (data) => {
-        let newData = [...this.state.data, data]
+    uploadData = (data) => {
+        let newData = [...this.state.data, data];
         this.setState({data: newData})
     };
 
     render() {
         return (
             <div className="input-workout-form">
+                {console.log(this.state.data)}
                 {this.state.workoutType === "" ? (
                     <WorkoutTypeForm setWorkoutType={this.setWorkoutType}/>
                 ) : (
                     <WorkoutInputForm
                         workoutType={this.state.workoutType}
                         setWorkoutType={this.setWorkoutType}
-                        setData={this.setData}
+                        uploadData={this.uploadData}
                         data={this.state.data}
                     />
                 )}
