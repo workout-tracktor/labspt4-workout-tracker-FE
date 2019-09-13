@@ -3,7 +3,7 @@ import styled from "styled-components";
 //moment is used to get the time and set AM or PM
 import InputWorkoutForm from "./InputWorkoutForm";
 import emoji from '../assets/images/ThinkingEmoji.svg'
-import plus from '../assets/icons/Plus.svg'
+
 
 class Workouts extends React.Component {
     constructor(props){
@@ -11,10 +11,6 @@ class Workouts extends React.Component {
         this.state = {
         }
     }
-
-addWorkoutToggler = () =>{
-    this.setState({addWorkout: !this.state.addWorkout})
-}
 
 render() {
     return(
@@ -33,11 +29,6 @@ render() {
                         <Text> LOGGED TODAY</Text>
                     </TextContainer>    
                 </NoWorkout>}
-            
-            <Button onClick = {this.addWorkoutToggler}>
-                <img src = {plus} alt= 'plus' />
-                ADD A WORKOUT
-            </Button>
         </Container>
     )
   }
@@ -102,29 +93,5 @@ const Plus = styled.img`
     display: flex;
     justify-content: flex-start;
 ` 
-const Button = styled.button`
-    background:linear-gradient(#2FDDE4, #2367FF);
-    color: white;
-    font-size: 24px;
-    line-height: 23px;
-    font-family: Roboto Condensed, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 2px;
-    padding: 7px 15px;
-    width: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
-
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus, &:active {
-        outline: none;
-    };
-`;
 
 export default Workouts;

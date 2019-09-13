@@ -6,13 +6,19 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import liftQuestTitle from '../assets/images/LiftQuestTitle.png'
 import GearIcon from '../assets/icons/Gear.svg'
+import plus from '../assets/icons/Plus.svg'
 import PersonIcon from '../assets/icons/Person.svg'
 
 import Button from '../components/Button'
 
-const NavBar = () => {
+const NavBar = (props) => {
+
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
+    const addWorkoutToggler = () => {
+        console.log('take me somewhere')
+    }
+    
     return (
         <div>
             {!isAuthenticated && (
@@ -30,7 +36,15 @@ const NavBar = () => {
             {isAuthenticated && (
                 <Nav>
                         <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
-                    <RightNav> 
+                    <RightNav>
+                        <AddWorkoutContainer> 
+                            <WorkoutButton onClick = {addWorkoutToggler}>
+                                <Plus src = {plus} alt= 'plus' />
+                                <ButtonText> 
+                                    NEW WORKOUT
+                                </ButtonText>
+                            </WorkoutButton>
+                        </AddWorkoutContainer> 
                         <Link to="/user-settings" >
                         <NavText> 
                             <Gear src = {GearIcon} alt= 'gear'/>
@@ -116,7 +130,38 @@ const LogoutContainer = styled.div`
         cursor: pointer;
     }
 ` 
+const AddWorkoutContainer = styled.div`
+    margin-right: 8px;
+` 
+const Plus = styled.img`
+    width: 2rem;
+    display: flex;
+    align-items: center;
+` 
+const WorkoutButton = styled.button`
+    background:linear-gradient(#2FDDE4, #2367FF);
+    line-height: 23px;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 10px;
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
 
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus, &:active {
+        outline: none;
+    };
+`;
+const ButtonText = styled.p `
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+`
 
 
 export default NavBar;
