@@ -7,6 +7,7 @@ class DropdownLogs extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            //DUMMY Data
             logs: [
                 {
                     exerciseName: "Bench Press",
@@ -85,8 +86,8 @@ class DropdownLogs extends React.Component {
                     ]
                 },
             ],
+            //Units would set to proper units when pulled from backend
             unit: 'lbs',
-            openLogs: false,
             selectedValue: [],
             rotate: false
         }
@@ -95,13 +96,13 @@ class DropdownLogs extends React.Component {
     dropDownToggler = (workoutIndex) => {
         this.state.selectedValue.includes(workoutIndex)?
             this.setState({
-                selectedValue: [this.state.selectedValue.slice(workoutIndex)]
+                selectedValue: [this.state.selectedValue.slice(workoutIndex)],
+                rotate: !this.state.rotate, 
             })
             : 
             this.setState({
                 selectedValue: [...this.state.selectedValue, workoutIndex], 
                 rotate: !this.state.rotate, 
-                openLogs: !this.state.openLogs
             })
 }
 
@@ -117,7 +118,7 @@ class DropdownLogs extends React.Component {
                         <TitleLeft> 
                             <Arrow 
                                 src = {DropdownArrow}  
-                                // rotate= {this.state.selectedValue.find(place => place === workoutIndex)? this.state.rotate : null}
+                                rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.rotate : null}
                                 alt = "arrow"
                             />
                             <Text> {workout.exerciseName}</Text>
