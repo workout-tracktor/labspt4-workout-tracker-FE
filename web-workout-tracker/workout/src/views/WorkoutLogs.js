@@ -46,8 +46,8 @@ const Title = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 0 0 15px 0;
-    border-bottom: 1px solid gray;
     
     @media (max-width: 1040px) {
         margin-top: 25px;
