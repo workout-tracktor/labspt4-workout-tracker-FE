@@ -101,7 +101,9 @@ class DropdownLogs extends React.Component {
         //false. That way it tells the conditionals to not show that id workout log
         //data and rotate the arrow back to its original position.
             this.setState({
-                selectedValue: [this.state.selectedValue.slice(workoutIndex)],
+                selectedValue: this.state.selectedValue.filter( function(data) {
+                    return data !== workoutIndex
+                }),
                 rotate: !this.state.rotate, 
             })
             : 
@@ -131,8 +133,8 @@ class DropdownLogs extends React.Component {
                             <TitleLeft> 
                                 <Arrow 
                                     src = {DropdownArrow}  
-                                    //checks to see if rotate state is true, then sets the animation prop for it to rotate
-                                    rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.rotate : null}
+                                    //checks to see if rotate state is true, then sets the animation prop for it to rotate, WIP
+                                    // rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.rotate : null}
                                     alt = "arrow"
                                 />
                                 <Text> {workout.exerciseName}</Text>
