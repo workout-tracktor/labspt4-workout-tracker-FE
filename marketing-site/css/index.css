@@ -163,8 +163,8 @@ body {
   }
   .upper-mid-market .onboarding-mock {
     margin-top: 20px;
-    margin-left: 90px;
-    width: 300px;
+    margin-left: 0px;
+    width: 500px;
   }
   .upper-mid-market .tablet-mock {
     margin-top: 50px;
@@ -211,6 +211,18 @@ body {
   .lower-market .trips {
     margin-left: 10px;
     width: 450px;
+  }
+  .boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 10px;
+  }
+
+  .box {
+    width: 400px;
   }
 }
 @media (min-width: 800px) {
