@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
+import DropDownInfo from './DropDownInfo'
 
 class DropdownLogs extends React.Component {
     constructor(props){
@@ -11,14 +12,17 @@ class DropdownLogs extends React.Component {
                     exerciseName: "Bench Press",
                     sets: [
                         {
+                            id: 0,
                             weight: 160,
                             reps: 14
                         },
                         {
+                            id: 1,
                             weight: 160,
                             reps: 14
                         },
                         {
+                            id: 2,
                             weight: 160,
                             reps: 14
                         }
@@ -29,14 +33,17 @@ class DropdownLogs extends React.Component {
                     exerciseName: "DB Incline Press",
                     sets: [
                         {
+                            id: 1,
                             weight: 180,
                             reps: 9
                         },
                         {
+                            id: 2,
                             weight: 180,
                             reps: 9
                         },
                         {
+                            id: 3,
                             weight: 180,
                             reps: 9
                         }
@@ -46,14 +53,17 @@ class DropdownLogs extends React.Component {
                     exerciseName: "DB Flyers",
                     sets: [
                         {
+                            id: 1,
                             weight: 205,
                             reps: 11
                         },
                         {
+                            id: 2,
                             weight: 205,
                             reps: 11
                         },
                         {
+                            id: 3,
                             weight: 205,
                             reps: 11
                         }
@@ -63,64 +73,72 @@ class DropdownLogs extends React.Component {
                     exerciseName: "Treadmill",
                     sets: [
                         {
+                            id: 1,
                             weight: 205,
                             reps: 10
                         },
                         {
+                            id: 2,
                             weight: 205,
                             reps: 10
                         },
-                        {
-                            weight: 205,
-                            reps: 10
-                        }
                     ]
                 },
             ],
             unit: 'lbs',
             openLogs: false,
-            selectedValue: '',
+            selectedValue: [],
             rotate: false
         }
     }
 
-    dropDownToggler = (i) => {
-        this.setState({selectedValue: i, rotate: !this.state.rotate, openLogs: !this.state.openLogs})
-    }
+    dropDownToggler = (workoutIndex) => {
+        this.state.selectedValue.includes(workoutIndex)?
+            this.setState({
+                selectedValue: [this.state.selectedValue.slice(workoutIndex)]
+            })
+            : 
+            this.setState({
+                selectedValue: [...this.state.selectedValue, workoutIndex], 
+                rotate: !this.state.rotate, 
+                openLogs: !this.state.openLogs
+            })
+}
+
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
             <Container>
-            {this.state.logs.map((workout, i) => {
+            {this.state.logs.map((workout, workoutIndex) => {
+                console.log(this.state.selectedValue)
                 return(
                     <>
-                    <Dropdown key= {i} onClick = {() => this.dropDownToggler(i)}>
+                    <Dropdown key= {workoutIndex} onClick = {() => this.dropDownToggler(workoutIndex)}>
                         <TitleLeft> 
                             <Arrow 
                                 src = {DropdownArrow}  
-                                rotate= {i === this.state.selectedValue? this.state.rotate : null}
+                                // rotate= {this.state.selectedValue.find(place => place === workoutIndex)? this.state.rotate : null}
                                 alt = "arrow"
                             />
                             <Text> {workout.exerciseName}</Text>
                         </TitleLeft>
                         <Text> {workout.sets.length} Excercises</Text>
                     </Dropdown>
-                    {this.state.openLogs? 
-                     i === this.state.selectedValue? 
-                        this.state.logs[this.state.selectedValue].sets.map((set, i) => {
+                    {
+                        this.state.selectedValue.includes(workoutIndex) ? 
+                        workout.sets.map((set, index) => {
                             return(
-                                <Row>
-                                    <GrayText> Set {i + 1}</GrayText>
-                                    <Text> {set.weight} {this.state.unit}</Text>
-                                    <GrayText> X </GrayText>
-                                    <Text>{set.reps} reps</Text>
-                                </Row>
-                                )
-                            })
-                    : null
+                                <DropDownInfo 
+                                    set = {set} 
+                                    key = {index} 
+                                    unit = {this.state.unit}
+                                    />
+                            )
+                    })
+                        : null
+                    }
 
-                    : null
-                    }                    
+                 
                     </>
                 )
             })}
@@ -157,21 +175,6 @@ const TitleLeft = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: center;
-`
-const Row = styled.div `
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin: 10px 0;
-`
-const GrayText = styled.p `
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    color: #636774;
-    text-transform: uppercase;
 `
 const Text = styled.p `
     font-family: Roboto Condensed;

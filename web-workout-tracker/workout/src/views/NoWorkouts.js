@@ -35,7 +35,7 @@ const Container = styled.div`
         width: 100%; 
     }  
 `
-const NoWorkout = styled. div`
+const NoWorkout = styled.div`
     display: flex;
     flex-direction: column;
     margin: 50px 0;
