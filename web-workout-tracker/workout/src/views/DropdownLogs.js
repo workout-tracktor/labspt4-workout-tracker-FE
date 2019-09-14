@@ -13,17 +13,17 @@ class DropdownLogs extends React.Component {
                     exerciseName: "Bench Press",
                     sets: [
                         {
-                            id: 0,
-                            weight: 160,
-                            reps: 14
-                        },
-                        {
                             id: 1,
                             weight: 160,
                             reps: 14
                         },
                         {
                             id: 2,
+                            weight: 160,
+                            reps: 14
+                        },
+                        {
+                            id: 3,
                             weight: 160,
                             reps: 14
                         }
@@ -89,7 +89,7 @@ class DropdownLogs extends React.Component {
             //Units would set to proper units when pulled from backend
             unit: 'lbs',
             selectedValue: [],
-            //Rotate helps check to see if the arrow image would roatate when clicked
+            //Rotate helps check to see if the arrow image would roatate when clicked WIP
             rotate: false
         }
     }
@@ -121,7 +121,6 @@ class DropdownLogs extends React.Component {
         return(
             <Container>
                 {this.state.logs.map((workout, workoutIndex) => {
-                    console.log(this.state.selectedValue)
                     return(
                         <>
                         <Dropdown 
