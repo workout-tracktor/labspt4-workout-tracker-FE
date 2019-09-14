@@ -1,34 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 //moment is used to get the time and set AM or PM
-import InputWorkoutForm from "./InputWorkoutForm";
-import emoji from '../assets/images/ThinkingEmoji.svg'
+import WorkoutLogs from "./WorkoutLogs";
+import NoWorkouts from "./NoWorkouts";
+
 
 
 class Workouts extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            //Boolean to switch if the user does have a workout logged
+            workout: false
         }
     }
 
 render() {
     return(
         <Container>
-            <Title> 
-                <TitleText> FITTER FASTER FURTHER </TitleText>
-            </Title>
-
-         {   this.state.addWorkout? 
-                <InputWorkoutForm />
-                :
-                <NoWorkout> 
-                    <Plus src = {emoji} alt = 'thinking emoji' />
-                    <TextContainer>
-                        <Text> NO WORKOUTS</Text>
-                        <Text> LOGGED TODAY</Text>
-                    </TextContainer>    
-                </NoWorkout>}
+         { !this.state.workout? <WorkoutLogs /> : <NoWorkouts /> }
         </Container>
     )
   }
@@ -47,51 +37,5 @@ const Container = styled.div`
     }  
 
 `
-
-const Title = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 0 15px 0;
-    border-bottom: 1px solid gray;
-    
-    @media (max-width: 1040px) {
-        margin-top: 25px;
-        width: 100%;
-        justify-content: center;
-        
-    }  
-`
-
-const TitleText = styled.p`
-    margin: 0 auto;
-    justify-content: center;
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    color: #03A3F3;
-`
-const NoWorkout = styled. div`
-    display: flex;
-    flex-direction: column;
-    margin: 50px 0;
-`
-const TextContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 25px auto;
-`
-const Text = styled.p `
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    color: gray;
-`
-const Plus = styled.img`
-    display: flex;
-    justify-content: flex-start;
-` 
 
 export default Workouts;
