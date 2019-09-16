@@ -7,7 +7,6 @@ const WorkoutTypeForm = ({setWorkoutType}) => {
     };
     return (
         <form onSubmit={chooseHandler}>
-            <legend>What kind of workout did you do?</legend>
             <button value="weightlifting" onClick={chooseHandler}>
                 Weightlifting?
             </button>

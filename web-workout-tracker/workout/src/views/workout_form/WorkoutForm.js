@@ -7,6 +7,8 @@ class WorkoutForm extends React.Component {
         super(props);
         this.state = {
             workoutType: "",
+            name: "",
+            date:{},
             data: [],
         }
     }
@@ -15,25 +17,47 @@ class WorkoutForm extends React.Component {
         this.setState({workoutType: workoutType})
     };
 
-    uploadData = (data) => {
-        let newData = [...this.state.data, data];
-        this.setState({data: newData})
+    setData = (arr) => {
+        this.setState({data: arr})
     };
+
+    changeDate = (date) => {
+        this.setState({date: date})
+    };
+    changeName = (name) => {
+        this.setState({name: name})
+    };
+
+
 
     render() {
         return (
             <div className="input-workout-form">
-                {console.log(this.state.data)}
                 {this.state.workoutType === "" ? (
                     <WorkoutTypeForm setWorkoutType={this.setWorkoutType}/>
                 ) : (
                     <WorkoutInputForm
                         workoutType={this.state.workoutType}
                         setWorkoutType={this.setWorkoutType}
-                        uploadData={this.uploadData}
-                        data={this.state.data}
+                        setData={this.setData}
+                        changeDate={this.changeDate}
+                        changeName={this.changeName}
                     />
                 )}
+
+                <p>{this.state.name}</p>
+                {console.log(this.state.date)}
+
+                {this.state.data.map((exercise, idx) => {
+                    return (
+                        <div>
+                            Weight: <div>{exercise[`weight${idx}`]}</div>
+                            Unit: <div>{exercise[`unit${idx}`]}</div>
+                            Reps: <div>{exercise[`rep${idx}`]}</div>
+                        </div>
+
+                    )
+                })}
             </div>
         )
     }

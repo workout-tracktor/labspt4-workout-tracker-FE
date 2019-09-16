@@ -1,24 +1,26 @@
 import React from "react";
 import DateTimePicker from "react-datetime-picker";
 
-class DatePicker extends React.Component {
-  state = {
-    date: new Date()
+const DatePicker = ({date, setDate}) => {
+  const onChangeHandler = date => {
+
+    setDate(date)
   };
+/*    onChange = date => {
+        console.log(typeof date);
+        this.setState({date});
+    };*/
 
-  onChange = date => this.setState({ date });
-
-  render() {
     return (
-      <div>
         <DateTimePicker
-          disableClock="false"
-          onChange={this.onChange}
-          value={this.state.date}
+            disableClock="false"
+            onChange={onChangeHandler}
+            value={date}
+            defaultValue={date}
+            required
         />
-      </div>
     );
-  }
-}
+};
+
 
 export default DatePicker;
