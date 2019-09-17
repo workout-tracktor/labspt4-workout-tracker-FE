@@ -9,7 +9,7 @@ class Landing extends React.Component {
   state = {
     date: new Date(),
     //when date is clicked on, 
-    workouts: false,
+    workouts: true,
     //selectedDate is the date that is selected on the calendar
     //which will then be sent to back end to check to see if there was workout data
     selectedDate: null
@@ -32,7 +32,7 @@ class Landing extends React.Component {
     return (
       <Container>
           <Calendar onChange={this.onChange} value={this.state.date} />
-          {this.state.Workouts? 
+          {this.state.workouts? 
             <Workouts 
               //Once connected to backend, if there is workout data on the selected date, passes it as props.
             />

@@ -75,19 +75,14 @@ class DropdownLogs extends React.Component {
                     sets: [
                         {
                             id: 1,
-                            weight: 205,
-                            reps: 10
-                        },
-                        {
-                            id: 2,
-                            weight: 205,
-                            reps: 10
+                            distance: 3,
                         },
                     ]
                 },
             ],
             //Units would set to proper units when pulled from backend
             unit: 'lbs',
+            distanceUnits: 'miles',
             selectedValue: [],
             //Rotate helps check to see if the arrow image would roatate when clicked WIP
             rotate: false
@@ -150,6 +145,10 @@ class DropdownLogs extends React.Component {
                                         set = {set} 
                                         key = {index} 
                                         unit = {this.state.unit}
+                                        //type checks to see if distance key is in mapped object
+                                        //it passes a true prop to render the distance data
+                                        type = {'distance' in set? false : true }
+                                        distanceUnits = {this.state.distanceUnits}
                                         />
                                 )
                         })
@@ -192,7 +191,7 @@ const TitleLeft = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: center;
-    transition: all 0.3s ease-out;
+    
 `
 const Text = styled.p `
     font-family: Roboto Condensed;

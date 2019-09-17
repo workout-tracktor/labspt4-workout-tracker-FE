@@ -11,10 +11,20 @@ class DropDownInfo extends React.Component {
     render(){
         return (
             <Row>
-                <GrayText> Set {this.props.set.id}</GrayText>
-                <Text> {this.props.set.weight} {this.props.unit}</Text>
-                <GrayText> X </GrayText>
-                <Text>{this.props.set.reps} reps</Text>
+                {this.props.type?
+                        <>
+                        <GrayText> Set {this.props.set.id}</GrayText>
+                        <Text> {this.props.set.weight} {this.props.unit}</Text>
+                        <GrayText> X </GrayText>
+                        <Text>{this.props.set.reps} reps</Text>
+                        </>
+                    :
+                        <>
+                        <GrayText> Distance </GrayText>
+                        <Text>{this.props.set.distance} {this.props.distanceUnits}</Text>
+                        </>
+                }
+
             </Row>
             )
     }
