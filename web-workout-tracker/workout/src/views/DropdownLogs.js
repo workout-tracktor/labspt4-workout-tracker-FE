@@ -132,8 +132,8 @@ class DropdownLogs extends React.Component {
                             <TitleLeft> 
                                 <Arrow 
                                     src = {DropdownArrow}  
-                                    //checks to see if rotate state is true, then sets the animation prop for it to rotate, WIP
-                                    // rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.rotate : null}
+                                    //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
+                                    rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
                                     alt = "arrow"
                                 />
                                 <Text> {workout.exerciseName}</Text>
@@ -169,6 +169,7 @@ const Container = styled.div `
       display: flex;
       flex-direction: column;
       align-items: center;
+
 `
 const Dropdown = styled.div `
     width: 100%;
@@ -176,7 +177,6 @@ const Dropdown = styled.div `
     flex-direction: row;
     justify-content: space-between;
     border-top: 1px solid #636774;
-    margin: 15px 0;
     padding: 20px 0;
 `
 const Arrow = styled.img `
@@ -192,6 +192,7 @@ const TitleLeft = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: center;
+    transition: all 0.3s ease-out;
 `
 const Text = styled.p `
     font-family: Roboto Condensed;
