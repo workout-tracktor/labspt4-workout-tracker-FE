@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 export default function Button(props) {
     return (
-        <StyledButton onClick={props.onClick} background={props.background} color={props.color}>
+        <StyledButton onClick={props.onClick} background={props.background} color={props.color} padding={props.padding}>
             {props.text}
         </StyledButton>
     )
@@ -21,7 +21,7 @@ const StyledButton = styled.button`
     color: ${props => props.color || "#FFFFFF"};
     font-size: 18px;
     line-height: 23px;
-    font-family: "aktiv-grotesk-condensed",sans-serif;
+    font-family: Roboto Condensed, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     border: none;

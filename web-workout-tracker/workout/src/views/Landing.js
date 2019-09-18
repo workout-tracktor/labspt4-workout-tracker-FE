@@ -1,30 +1,50 @@
-import React from 'react'
-import axios from 'axios'
-import Profile from './Profile'
+import React from "react";
+import axios from "axios";
+import styled from "styled-components";
+import Calendar from "react-calendar";
+
+import Workouts from './Workouts'
 
 class Landing extends React.Component {
+  state = {
+    date: new Date()
+  };
 
-    state= {
-    }
-    
-    componentDidMount(){
-        axios.get("https://workouttrackerprod.herokuapp.com/")
-            .then(res => {
-                this.setState( res.data)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
-    }
+  componentDidMount() {
+    axios
+      .get("https://workouttrackerprod.herokuapp.com/")
+      .then(res => {
+        this.setState(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
-    render(){
-        return (
-            <>
-            {this.state.api}
-            <Profile />
-            </>
-        )
-    }
+  onChange = date => this.setState({ date });
+  
+  render() {
+    return (
+      <Container>
+          <Calendar onChange={this.onChange} value={this.state.date} />
+          <Workouts />
+      </Container>
+    );
+  }
 }
 
-export default Landing
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 40px 0;
+
+    @media (max-width: 1040px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }  
+
+`
+
+export default Landing;
