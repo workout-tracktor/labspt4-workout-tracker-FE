@@ -1,6 +1,6 @@
 import React from "react";
 import DateTimePicker from "react-datetime-picker";
-
+import "./Calendar.less";
 class DatePicker extends React.Component {
   state = {
     date: new Date()
