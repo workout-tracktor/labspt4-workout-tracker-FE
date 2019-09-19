@@ -10,7 +10,7 @@ import UserSettings from "./user_settings";
 
 import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
-import InputWorkoutForm from "./InputWorkoutForm";
+import WorkoutForm from "./workout_form/WorkoutForm";
 
 function App() {
   const { loading } = useAuth0();
@@ -32,7 +32,7 @@ function App() {
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />
 
-          <Route path="/input-workout" component={InputWorkoutForm} />
+          <Route path="/input-workout" component={WorkoutForm} />
         </Switch>
       </BrowserRouter>
     </div>
