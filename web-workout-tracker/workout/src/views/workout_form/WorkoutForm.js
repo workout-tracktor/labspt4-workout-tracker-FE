@@ -46,7 +46,6 @@ class WorkoutForm extends React.Component {
                 )}
 
                 <p>{this.state.name}</p>
-                {console.log(this.state.date)}
 
                 {this.state.data.map((exercise, idx) => {
                     return (
