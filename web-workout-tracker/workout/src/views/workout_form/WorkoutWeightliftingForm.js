@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const WorkoutSetForm = ({setData, set, setSet}) => {
+const WorkoutWeightliftingForm = ({setData, set, setSet}) => {
 
     const addASet = (e) => {
         e.preventDefault();
@@ -80,4 +80,4 @@ const WorkoutSetForm = ({setData, set, setSet}) => {
     )
 };
 
-export default WorkoutSetForm
+export default WorkoutWeightliftingForm

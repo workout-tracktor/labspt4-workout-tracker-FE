@@ -8,7 +8,7 @@ class WorkoutForm extends React.Component {
         this.state = {
             workoutType: "",
             name: "",
-            date:{},
+            date: {},
             data: [],
         }
     }
@@ -27,7 +27,6 @@ class WorkoutForm extends React.Component {
     changeName = (name) => {
         this.setState({name: name})
     };
-
 
 
     render() {
@@ -50,17 +49,26 @@ class WorkoutForm extends React.Component {
                 {this.state.data.map((exercise, idx) => {
                     return (
                         <div>
-                            Weight: <div>{exercise[`weight${idx}`]}</div>
-                            Unit: <div>{exercise[`unit${idx}`]}</div>
-                            Reps: <div>{exercise[`rep${idx}`]}</div>
+                            {this.state.workoutType === "cardio" ?
+                                <div>
+                                    Time : <div>{exercise[`time${idx}`]}</div>
+                                    Time Unit: <div>{exercise[`timeUnit${idx}`]}</div>
+                                    Distance: <div>{exercise[`distance${idx}`]}</div>
+                                    Distance Unit: <div>{exercise[`distanceUnit${idx}`]}</div>
+                                </div>
+                                :
+                                <div>
+                                    Weight: <div>{exercise[`weight${idx}`]}</div>
+                                    Unit: <div>{exercise[`unit${idx}`]}</div>
+                                    Reps: <div>{exercise[`rep${idx}`]}</div>
+                                </div>
+                            }
                         </div>
-
                     )
                 })}
             </div>
         )
     }
-
 }
 
 export default WorkoutForm;
