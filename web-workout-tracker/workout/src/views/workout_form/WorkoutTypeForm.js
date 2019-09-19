@@ -1,21 +1,28 @@
 import React from "react";
+import styled from "styled-components";
 
-const WorkoutTypeForm = ({setWorkoutType}) => {
-    const chooseHandler = event => {
-        event.preventDefault();
-        setWorkoutType(event.target.value);
-    };
-    return (
-        <form onSubmit={chooseHandler}>
-            <button value="weightlifting" onClick={chooseHandler}>
-                Weightlifting?
-            </button>
-            <button value="cardio" onClick={chooseHandler}>
-                Cardio?
-            </button>
-        </form>
-    );
+const WorkoutTypeForm = ({ setWorkoutType }) => {
+  const chooseHandler = event => {
+    event.preventDefault();
+    setWorkoutType(event.target.value);
+  };
+  return (
+    <Div>
+      <Form onSubmit={chooseHandler}>
+        <WeightButton value="weightlifting" onClick={chooseHandler}>
+          Weightlifting?
+        </WeightButton>
+        <CardioButton value="cardio" onClick={chooseHandler}>
+          Cardio?
+        </CardioButton>
+      </Form>
+    </Div>
+  );
 };
 
-export default WorkoutTypeForm;
+const Div = styled.div``;
+const Form = styled.form``;
+const WeightButton = styled.button``;
+const CardioButton = styled.button``;
 
+export default WorkoutTypeForm;
