@@ -1,53 +1,117 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import WorkoutCardioForm from "./WorkoutCardioForm";
 import WorkoutWeightliftingForm from "./WorkoutWeightliftingForm";
 import DatePicker from "../DatePicker";
-import WorkoutCardioForm from "./WorkoutCardioForm";
+import styled from "styled-components";
 
+const WorkoutInputForm = ({
+  workoutType,
+  setWorkoutType,
+  setData,
+  changeDate,
+  changeName
+}) => {
+  const backHandler = event => {
+    event.preventDefault();
+    setWorkoutType("");
+  };
 
-const WorkoutInputForm = ({workoutType, setWorkoutType, setData, changeDate, changeName}) => {
-    const backHandler = event => {
-        event.preventDefault();
-        setWorkoutType("");
-    };
+  const submitHandler = e => {
+    e.preventDefault();
+    setData(set);
+    changeDate(date);
+    changeName(name);
+  };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        setData(set);
-        changeDate(date);
-        changeName(name);
-    };
+  const [name, setName] = useState("");
 
-    const [name, setName] = useState("");
+  const [date, setDate] = useState(new Date());
 
-    const [date, setDate] = useState(new Date());
+  const [set, setSet] = useState([]);
 
-    const [set, setSet] = useState([]);
+  return (
+    <Container>
+      <Form onSubmit={submitHandler}>
+        <ButtonDiv>
+          <BackInput type="button" value="< Back" onClick={backHandler} />
 
-    return (
-        <>
-            <input type='button' value="Go Back" onClick={backHandler}/>
-            <form onSubmit={submitHandler}>
-                NAME OF EXERCISE:
-                <input type='text' value={name} onChange={e => setName(e.target.value)} required/>
-                <DatePicker date={date} setDate={setDate}/>
-                <input type='submit'/>
-                <hr/>
+          <SubmitInput type="submit" />
+        </ButtonDiv>
 
-                {workoutType === 'cardio' ?
-                    <WorkoutCardioForm setData={setData}
-                                       submitHandler={submitHandler}
-                                       set={set}
-                                       setSet={setSet}/>
-                    :
-                    <WorkoutWeightliftingForm setData={setData}
-                                       submitHandler={submitHandler}
-                                       set={set}
-                                       setSet={setSet}/>
-                }
+        <Header>NAME OF EXERCISE:</Header>
 
-            </form>
-        </>
-    )
+        <Div>
+          <ExerciseInput
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            required
+          />
+        </Div>
+
+        <Div>
+          <DatePicker date={date} setDate={setDate} />
+        </Div>
+
+        <Div>
+          {workoutType === "cardio" ? (
+            <WorkoutCardioForm
+              setData={setData}
+              submitHandler={submitHandler}
+              set={set}
+              setSet={setSet}
+            />
+          ) : (
+            <WorkoutWeightliftingForm
+              setData={setData}
+              submitHandler={submitHandler}
+              set={set}
+              setSet={setSet}
+            />
+          )}
+        </Div>
+      </Form>
+    </Container>
+  );
 };
 
-export default WorkoutInputForm
+const Container = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Div = styled.div`
+  height: 30px;
+  margin-bottom: 20px;
+`;
+const ButtonDiv = styled.div`
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+`;
+const BackInput = styled.input``;
+const ExerciseInput = styled.input`
+  width: 300px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+`;
+const SubmitInput = styled.input``;
+const Header = styled.h1`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+`;
+const Form = styled.form``;
+
+export default WorkoutInputForm;
