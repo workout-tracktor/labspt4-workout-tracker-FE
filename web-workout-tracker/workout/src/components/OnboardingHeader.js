@@ -5,7 +5,7 @@ export default function OnboardingHeader(props) {
     return (
         <Header>
             <img alt={props.text} src={props.url} style={{width: "20px", "marginRight": "7px"}}/>
-            <HeaderText>{props.text}</HeaderText>
+            <HeaderText data-testid="body-goal-header">{props.text}</HeaderText>
         </Header>
     )
 }

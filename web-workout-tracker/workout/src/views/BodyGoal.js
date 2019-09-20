@@ -14,7 +14,7 @@ import TrophyIcon from "../assets/icons/Trophy.svg";
 import CheckMark from "../assets/icons/CheckMark.svg";
 
 
-class BodyGoal extends React.Component {
+export class BodyGoal extends React.Component {
     state= {
         goal: "",
         buttonPressed: false
