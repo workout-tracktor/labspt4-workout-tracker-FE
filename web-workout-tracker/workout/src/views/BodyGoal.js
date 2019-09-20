@@ -13,7 +13,7 @@ import data from "../assets/data/ButtonWithBackgroundData.js";
 import TrophyIcon from "../assets/icons/Trophy.svg";
 import CheckMark from "../assets/icons/CheckMark.svg";
 
-
+// this export is for testing purposes
 export class BodyGoal extends React.Component {
     state= {
         goal: "",

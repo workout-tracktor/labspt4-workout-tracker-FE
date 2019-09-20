@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
+// BodyGoal uses Redux store so should be imported like seporate component ot through default import
 import { BodyGoal } from '../views/BodyGoal.js';
 
 it('should render', () => {
