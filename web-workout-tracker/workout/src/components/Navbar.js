@@ -12,7 +12,7 @@ import PersonIcon from '../assets/icons/Person.svg'
 import Button from '../components/Button'
 
 const NavBar = (props) => {
-
+    const [textToggler, settextToggler] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
@@ -48,7 +48,7 @@ const NavBar = (props) => {
                         <Link to="/user-settings" >
                         <NavText> 
                             <Gear src = {GearIcon} alt= 'gear'/>
-                            SETTINGS
+                            <SettingText> SETTINGS </SettingText>
                         </NavText>
                         </Link>
                         {isAuthenticated && 
@@ -84,26 +84,27 @@ const Nav = styled.span`
     padding: 10px 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    @media (max-width: 600px) {
+    @media (max-width: 669px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }  
 `
 const Logo = styled.img`
     width: 20rem;
+    transition: .5s ease; 
+
+    @media (max-width: 669px) {
+    width: 14rem;
+}  
 `
 const RightNav = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-
-    @media (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
 `
 const Gear = styled.img`
     margin: 5px;
@@ -121,13 +122,36 @@ const NavText = styled.div`
     font-weight: bold;
     font-size: 18px;
 `
+const SettingText = styled.p `
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+
+    @media (max-width: 669px) {
+        display: none;
+    }
+    @media (min-width: 670px) {
+        display: block;
+    }
+
+`
 const LogoutContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 8px;
-    &:hover{
-        cursor: pointer;
+
+    @media (max-width: 669px) {
+        display: none;
+    }
+    @media (min-width: 670px) {
+        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 8px;
+        &:hover{
+            cursor: pointer;
+        }
     }
 ` 
 const AddWorkoutContainer = styled.div`
@@ -148,19 +172,25 @@ const WorkoutButton = styled.button`
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-
+    transition: .5s ease; 
     &:hover {
         cursor: pointer;
     }
     &:focus, &:active {
         outline: none;
     };
+    @media (max-width: 669px) {
+    width: 14rem;
+}  
 `;
 const ButtonText = styled.p `
     font-family: Roboto Condensed, sans-serif;
     font-weight: bold;
     color: white;
     font-size: 18px;
+    @media (max-width: 669px) {
+        font-size: 14px;
+}  
 `
 
 

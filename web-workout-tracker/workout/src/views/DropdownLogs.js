@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
+import PencilEdit from '../assets/icons/PencilEdit.svg'
 
 class DropdownLogs extends React.Component {
     constructor(props){
@@ -15,19 +16,19 @@ class DropdownLogs extends React.Component {
                         {
                             id: 1,
                             weight: 160,
-                            reps: 14
+                            reps: 14,
                         },
                         {
                             id: 2,
                             weight: 160,
-                            reps: 14
+                            reps: 14,
                         },
                         {
                             id: 3,
                             weight: 160,
-                            reps: 14
+                            reps: 14,
                         }
-                    ]
+                    ],
 
                 },
                 {
@@ -36,19 +37,19 @@ class DropdownLogs extends React.Component {
                         {
                             id: 1,
                             weight: 180,
-                            reps: 9
+                            reps: 9,
                         },
                         {
                             id: 2,
                             weight: 180,
-                            reps: 9
+                            reps: 9,
                         },
                         {
                             id: 3,
                             weight: 180,
-                            reps: 9
+                            reps: 9,
                         }
-                    ]
+                    ],
                 },
                 {
                     exerciseName: "DB Flyers",
@@ -56,7 +57,7 @@ class DropdownLogs extends React.Component {
                         {
                             id: 1,
                             weight: 205,
-                            reps: 11
+                            reps: 11,
                         },
                         {
                             id: 2,
@@ -67,8 +68,14 @@ class DropdownLogs extends React.Component {
                             id: 3,
                             weight: 205,
                             reps: 11
+                        },
+                        {
+                            id: 4,
+                            weight: 300,
+                            reps: 11,
+
                         }
-                    ]
+                    ],
                 },
                 {
                     exerciseName: "Treadmill",
@@ -77,7 +84,7 @@ class DropdownLogs extends React.Component {
                             id: 1,
                             distance: 3,
                         },
-                    ]
+                    ],
                 },
             ],
             //Units would set to proper units when pulled from backend
@@ -85,8 +92,13 @@ class DropdownLogs extends React.Component {
             distanceUnits: 'miles',
             selectedValue: [],
             //Rotate helps check to see if the arrow image would roatate when clicked WIP
-            rotate: false
+            rotate: false,
+            Workouts: []
         }
+    }
+
+    componentDidMount(){
+
     }
 
     dropDownToggler = (workoutIndex) => {
@@ -113,8 +125,20 @@ class DropdownLogs extends React.Component {
 
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
+        console.log(this.state.Workouts)
         return(
             <Container>
+                        <Title>
+                            <TitleText>FITTER FASTER FURTHER </TitleText>
+                            <Button>
+                                <EditIcon 
+                                    src = {PencilEdit} 
+                                    alt = 'edit icon'
+                                    onClick = {this.editHandler}
+                                    />
+                                <ButtonText>EDIT</ButtonText>
+                            </Button>
+                        </Title>
                 {this.state.logs.map((workout, workoutIndex) => {
                     return(
                         <>
@@ -168,7 +192,8 @@ const Container = styled.div `
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      width: 100%;
+      padding: 15px;
 `
 const Dropdown = styled.div `
     width: 100%;
@@ -177,6 +202,9 @@ const Dropdown = styled.div `
     justify-content: space-between;
     border-top: 1px solid #636774;
     padding: 20px 0;
+    &:hover {
+        cursor: pointer;
+    }
 `
 const Arrow = styled.img `
     padding: 0 5px;
@@ -193,6 +221,15 @@ const TitleLeft = styled.div `
     justify-content: center;
     
 `
+const TitleText = styled.p `
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #03A3F3;
+    text-transform: uppercase;
+    
+` 
 const Text = styled.p `
     font-family: Roboto Condensed;
     font-style: normal;
@@ -201,5 +238,49 @@ const Text = styled.p `
     color: white;
     text-transform: uppercase;
 `
+const Title = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 15px 0;
+    width: 100%;
 
+    @media (max-width: 1040px) {
+        margin-top: 25px;
+        width: 100%;
+        justify-content: space-between;
+        
+    }  
+`
+
+const EditIcon = styled.img `
+    display: flex;
+    align-items: center;
+    width: 1.3rem;
+`
+const ButtonText = styled.p`
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+`
+const Button = styled.button`
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    padding: 7px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70px;
+
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus, &:active {
+        outline: none;
+    };
+`
 export default DropdownLogs;

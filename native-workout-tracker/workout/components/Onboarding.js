@@ -29,9 +29,6 @@ class Onboarding extends React.Component {
         }
     }
 
-
-
-
     generateCards() {
         return data.dummyData.map((elem, index) =>
             <TypeCard key={index} url={elem.url} text={elem.text} />
