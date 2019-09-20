@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { render, fireEvent } from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
@@ -7,6 +8,11 @@ import { BodyGoal } from '../views/BodyGoal.js';
 
 it('should render', () => {
     render(<BodyGoal />);
+});
+
+it('matches snapshot', () => {
+    const tree = renderer.create(<BodyGoal />);
+    expect(tree.toJSON()).toMatchSnapshot();
 });
 
 it('renders a header "What\'s your goal?"', () => {
