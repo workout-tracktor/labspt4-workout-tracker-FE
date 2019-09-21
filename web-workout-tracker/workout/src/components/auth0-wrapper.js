@@ -1,6 +1,9 @@
 // src/react-auth0-wrapper.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
+import Axios from "axios";
+import { dispatch } from "rxjs/internal/observable/pairs";
+import { addUser } from "../actions";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -35,6 +38,7 @@ export const Auth0Provider = ({
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
         setUser(user);
+        addUser(user)
       }
 
       setLoading(false);

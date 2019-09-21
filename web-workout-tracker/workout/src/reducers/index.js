@@ -2,7 +2,8 @@ import {
     /* action imports here */
     ADD_GOAL_START,
     ADD_GOAL_SUCCESS,
-    ADD_GOAL_FAILURE
+    ADD_GOAL_FAILURE,
+    ADD_USER_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -31,9 +32,17 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 savingGoal: false
             };
+        case ADD_USER_SUCCESS:
+            return {
+                user: action.payload
+            }
         default:
             return state;
-    }
+
+    };
 }
+
+
+
 
 export default reducer;
