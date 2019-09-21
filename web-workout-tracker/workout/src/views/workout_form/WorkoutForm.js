@@ -49,6 +49,7 @@ class WorkoutForm extends React.Component {
                 {this.state.data.map((exercise, idx) => {
                     return (
                         <div>
+
                             {this.state.workoutType === "cardio" ?
                                 <div>
                                     Time : <div>{exercise[`time${idx}`]}</div>

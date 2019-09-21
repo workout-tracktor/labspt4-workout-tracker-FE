@@ -7,14 +7,15 @@ import Workouts from "./Workouts";
 
 class Landing extends React.Component {
   state = {
-    date: new Date()
+    date: new Date(),
+    response:null
   };
 
   componentDidMount() {
     axios
-      .get("https://workouttrackerprod.herokuapp.com/")
+      .get("https://workouttrackerprod.herokuapp.com/api/user")
       .then(res => {
-        this.setState(res.data);
+        this.setState({...this.state, response:res.data});
       })
       .catch(err => {
         console.log(err);
@@ -26,6 +27,7 @@ class Landing extends React.Component {
   render() {
     return (
       <Container>
+        {console.log(this.state.response)}
         <Calendar onChange={this.onChange} value={this.state.date} />
         <Workouts />
       </Container>

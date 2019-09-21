@@ -1,5 +1,4 @@
 import axios from "axios";
-import { dispatch } from "rxjs/internal/observable/pairs";
 
 // ADD goal
 export const ADD_GOAL_START = 'ADD_GOAL_START';
@@ -27,16 +26,3 @@ export const addGoal = newGoal => dispatch => {
     });
 };
 
-export const addUser = dispatch => {
-  axios
-  .post('https://workouttrackerprod.herokuapp.com/api/user/register', { withCredentials: true } )
-  .then(res => {
-    console.log(res);
-    dispatch({
-      type: ADD_USER_SUCCESS,
-      payload: {
-        user: res.data
-      }
-    })
-  })
-}
