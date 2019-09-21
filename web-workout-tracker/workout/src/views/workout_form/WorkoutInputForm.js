@@ -49,9 +49,10 @@ const WorkoutInputForm = ({
           />
         </Div>
 
-        <Div>
+        <DateDiv>
+          <Text>Date</Text>
           <DatePicker date={date} setDate={setDate} />
-        </Div>
+        </DateDiv>
 
         <Div>
           {workoutType === "cardio" ? (
@@ -76,8 +77,8 @@ const WorkoutInputForm = ({
 };
 
 const Container = styled.div`
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 20px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,14 +87,33 @@ const Div = styled.div`
   height: 30px;
   margin-bottom: 20px;
 `;
+
+const DateDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  margin-bottom: 20px;
+`;
 const ButtonDiv = styled.div`
   height: 50px;
   display: flex;
   justify-content: space-between;
 `;
-const BackInput = styled.input``;
+const BackInput = styled.input`
+  background: none;
+  border: none;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #03a3f3;
+  opacity: 0.7;
+  cursor: pointer;
+`;
 const ExerciseInput = styled.input`
-  width: 300px;
+  width: 600px;
   background: none;
   border: none;
   border-bottom: 1px solid #ffffff;
@@ -102,8 +122,24 @@ const ExerciseInput = styled.input`
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
-const SubmitInput = styled.input``;
+const SubmitInput = styled.input`
+  /* background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px; */
+  background: none;
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 23px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+`;
 const Header = styled.h1`
   font-family: Roboto Condensed;
   font-style: normal;
@@ -112,6 +148,17 @@ const Header = styled.h1`
   color: #ffffff;
   margin-bottom: 10px;
 `;
+
+const Text = styled.h3`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.5;
+`;
+
 const Form = styled.form``;
 
 export default WorkoutInputForm;

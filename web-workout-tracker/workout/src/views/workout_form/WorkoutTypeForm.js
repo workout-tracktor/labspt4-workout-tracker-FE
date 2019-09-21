@@ -50,6 +50,11 @@ const Header = styled.h1`
 `;
 const Form = styled.form`
   margin-top: 50px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
