@@ -84,7 +84,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 const Div = styled.div`
-  height: 30px;
+  /* height: 30px; */
   margin-bottom: 20px;
 `;
 
@@ -93,6 +93,7 @@ const DateDiv = styled.div`
   justify-content: space-between;
   height: 30px;
   margin-bottom: 20px;
+  border-bottom: 1px solid rgba(225, 233, 241, 0.1);
 `;
 const ButtonDiv = styled.div`
   height: 50px;
@@ -114,14 +115,14 @@ const BackInput = styled.input`
 `;
 const ExerciseInput = styled.input`
   width: 600px;
+  height: 40px;
   background: none;
   border: none;
   border-bottom: 1px solid #ffffff;
   color: #ffffff;
   font-family: Roboto Condensed;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 200;
 
   @media (max-width: 600px) {
     width: 300px;
