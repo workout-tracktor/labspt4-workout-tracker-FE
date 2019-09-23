@@ -118,8 +118,12 @@ const WorkoutCardioForm = ({ set, setSet }) => {
       })}
 
       <ButtonDiv>
-        <Button type="button" value="+ ADD A SET" onClick={addASet} />
-        <Button type="button" value="- REMOVE LAST SET" onClick={deleteASet} />
+        <ButtonAdd type="button" value="ADD A SET" onClick={addASet} />
+        <ButtonDelete
+          type="button"
+          value="REMOVE LAST SET"
+          onClick={deleteASet}
+        />
       </ButtonDiv>
     </>
   );
@@ -176,7 +180,35 @@ const Option = styled.option`
   font-size: 14px;
   text-transform: uppercase;
 `;
-const Button = styled.input``;
-const ButtonDiv = styled.div``;
+
+const ButtonAdd = styled.input`
+  height: 30px;
+  width: 100px;
+  margin-left: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+
+const ButtonDelete = styled.input`
+  height: 30px;
+  width: 150px;
+  margin-left: 15px;
+  background: rgba(255, 53, 53, 0.5);
+  border: none;
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export default WorkoutCardioForm;
