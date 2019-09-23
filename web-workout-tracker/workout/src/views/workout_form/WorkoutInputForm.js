@@ -91,7 +91,8 @@ const Div = styled.div`
 const DateDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 30px;
+  height: 40px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(225, 233, 241, 0.1);
 `;
