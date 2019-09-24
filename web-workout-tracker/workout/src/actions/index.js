@@ -5,7 +5,7 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
-export const register = (credentials) => dispatch => {
+export const register = (user) => dispatch => {
   dispatch({ type: REGISTER_START});
   // localStorage.removeItem("token");
   return axios
