@@ -10,13 +10,16 @@
   border-radius: 16px;
   border: none;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto Condensed;
+  font-size: 14px;
   line-height: 1.125em;
   color: rgba(255, 255, 255, 0.867782);
 }
 
 .react-calendar__month-view__days__day--weekend {
   color: rgba(255, 255, 255, 0.867782);
+  font-family: Roboto Condensed;
+  font-size: 14px;
 }
 .react-calendar__tile--active {
   background: linear-gradient(
@@ -26,6 +29,8 @@
     #2367ff 77.05%
   );
   color: white;
+  font-family: Roboto Condensed;
+  font-size: 14px;
 }
 
 .react-calendar__tile {
@@ -34,9 +39,10 @@
 
 button {
   color: rgba(255, 255, 255, 0.867782);
+  font-family: Roboto Condensed;
+  font-size: 14px;
 }
 
-.react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
   background: linear-gradient(
     229.21deg,
@@ -46,6 +52,6 @@ button {
   );
 }
 
-:hover {
+.react-calendar__tile:hover {
   color: #757575;
 }
