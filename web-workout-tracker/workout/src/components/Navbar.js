@@ -54,13 +54,17 @@ const NavBar = (props) => {
                         </NavText>
                         </Link>
                         {isAuthenticated && 
-                            <LogoutContainer>
-                                <Person src = {PersonIcon} alt= 'person'/>
-                                <NavText 
+                            <LogoutContainer  >
+                            <NavText 
                                     onClick={() => logout()}
+                                    href="https://compassionate-kalam-d8e461.netlify.com/"
                                 >
+                                <Person src = {PersonIcon} alt= 'person'/>
+                            
+
                                     LOGOUT
                                 </NavText>
+                               
                             </LogoutContainer>
                         }
                     </RightNav>
@@ -114,7 +118,7 @@ const Gear = styled.img`
 const Person = styled.img`
     margin: 5px;
 ` 
-const NavText = styled.div`
+const NavText = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;

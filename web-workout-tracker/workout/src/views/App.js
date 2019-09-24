@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import ValidateUser from './ValidateUser';
 import NavBar from "../components/Navbar";
 import Landing from "./Landing";
 import BodyGoal from "./BodyGoal";
@@ -25,7 +25,8 @@ function App() {
           <NavBar />
         </header>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={ValidateUser} />
+          <Route exact path="/Landing" component={Landing} />
           <Route exact path="/user-settings" component={UserSettings} />
 
           {/* On boarding - choose the body goal */}
