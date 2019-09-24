@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { addGoal } from '../actions';
+import { updateUser } from '../actions';
 
 import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
@@ -90,4 +90,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {addGoal})(BodyGoal);
+export default connect(mapStateToProps, {updateUser})(BodyGoal);

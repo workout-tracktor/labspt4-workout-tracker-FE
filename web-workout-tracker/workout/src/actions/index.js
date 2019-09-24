@@ -47,28 +47,24 @@ export const login = (user) => dispatch => {
         });
 }
 
-// @TO-DO: make it update user
-// ADD goal
-export const ADD_GOAL_START = 'ADD_GOAL_START';
-export const ADD_GOAL_SUCCESS = 'ADD_GOAL_SUCCESS';
-export const ADD_GOAL_FAILURE = 'ADD_GOAL_FAILURE';
+/* UPDATE user */
+export const UPDATE_USER_START = 'UPDATE_USER_START';
+export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
+export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
-
-export const addGoal = newGoal => dispatch => {
-  dispatch({ type: ADD_GOAL_START });
+// user should have a user_id in the body of the object
+export const updateUser = updatedUser => dispatch => {
+  dispatch({ type: UPDATE_USER_START });
   axios
-    .post(/*link for the request here,*/ newGoal)
+    .put("https://workouttrackerprod.herokuapp.com/api/user", updatedUser)
     .then(res => {
       console.log(res);
       dispatch({
-        type: ADD_GOAL_SUCCESS,
-        payload: {
-          id: res.data[0],
-          ...newGoal
-        }
+        type: UPDATE_USER_SUCCESS,
+        payload: res.data
       });
     })
     .catch(err => {
-      dispatch({ type: ADD_GOAL_FAILURE, payload: err.response });
+      dispatch({ type: UPDATE_USER_FAILURE, payload: err });
     });
 };

@@ -71,7 +71,7 @@ const TitleText = styled.p`
     font-size: 18px;
     color: #03A3F3;
 `
-const NoWorkout = styled. div`
+const NoWorkout = styled.div`
     display: flex;
     flex-direction: column;
     margin: 50px 0;
