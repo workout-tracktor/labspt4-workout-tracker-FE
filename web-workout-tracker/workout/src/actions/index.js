@@ -11,13 +11,13 @@ export const register = (credentials) => dispatch => {
   return axios
         .post("https://workouttrackerprod.herokuapp.com/api/user/register", user)
         .then(res => {
-            localStorage.setItem('token', res.data.user_id);
+            // localStorage.setItem('token', res.data.user_id);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data, user: user});
         })
         .catch(err => {
-            if (err.response.status === 403) {
-                localStorage.removeItem("user_id");
-            }
+            // if (err.response.status === 403) {
+            //     localStorage.removeItem("user_id");
+            // }
             dispatch({ type: REGISTER_FAILURE, payload: err.response.message });
         });
 }
@@ -40,9 +40,9 @@ export const login = (user) => dispatch => {
         })
         .catch(err => {
             console.log(`ERROR LOGIN: ${err.message}`);
-            if (err.response.status === 403) {
-                // localStorage.removeItem("token");
-            }
+            // if (err.response.status === 403) {
+            //     localStorage.removeItem("token");
+            // }
             dispatch({ type: LOGIN_FAILURE, payload: err });
         });
 }
