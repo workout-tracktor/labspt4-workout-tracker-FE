@@ -6,15 +6,14 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
-    ADD_GOAL_START,
-    ADD_GOAL_SUCCESS,
-    ADD_GOAL_FAILURE
+    UPDATE_USER_START,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_FAILURE
 } from '../actions';
 
 const initialState = {
     user: [],
-    goal: "",
-    savingGoal: false,
+    updatingUser: false,
     error: "",
     isLoggingIn: false,
     isSigningIn: false
@@ -51,7 +50,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
-                credentials: action.payload
+                user: action.payload
             };
         }
         case LOGIN_FAILURE: {
@@ -60,23 +59,23 @@ const reducer = (state = initialState, action) => {
                 isLoggingIn: false
             };
         }
-        case ADD_GOAL_START:
+        case UPDATE_USER_START:
             return {
                 ...state,
                 error: "",
-                savingGoal: true,
+                updatingUser: true,
             }
-        case ADD_GOAL_SUCCESS:
+        case UPDATE_USER_SUCCESS:
             return {
                 ...state,
-                savingGoal: false,
-                goal: action.payload
+                updatingUser: false,
+                user: action.payload
             };
-        case ADD_GOAL_FAILURE:
+        case UPDATE_USER_FAILURE:
             return {
                 ...state,
                 error: action.payload,
-                savingGoal: false
+                updatingUser: false
             };
         default:
             return state;
