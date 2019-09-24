@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import WorkoutSetForm from "./WorkoutSetForm";
+import WorkoutWeightliftingForm from "./WorkoutWeightliftingForm";
 import DatePicker from "../DatePicker";
+import WorkoutCardioForm from "./WorkoutCardioForm";
 
 
-const WorkoutInputForm = ({setWorkoutType, setData, changeDate, changeName}) => {
+const WorkoutInputForm = ({workoutType, setWorkoutType, setData, changeDate, changeName}) => {
     const backHandler = event => {
         event.preventDefault();
         setWorkoutType("");
@@ -32,10 +33,18 @@ const WorkoutInputForm = ({setWorkoutType, setData, changeDate, changeName}) => 
                 <input type='submit'/>
                 <hr/>
 
-                <WorkoutSetForm setData={setData}
-                                submitHandler={submitHandler}
-                                set={set}
-                                setSet={setSet}/>
+                {workoutType === 'cardio' ?
+                    <WorkoutCardioForm setData={setData}
+                                       submitHandler={submitHandler}
+                                       set={set}
+                                       setSet={setSet}/>
+                    :
+                    <WorkoutWeightliftingForm setData={setData}
+                                       submitHandler={submitHandler}
+                                       set={set}
+                                       setSet={setSet}/>
+                }
+
             </form>
         </>
     )
