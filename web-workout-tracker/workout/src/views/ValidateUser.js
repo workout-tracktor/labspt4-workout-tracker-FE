@@ -14,8 +14,8 @@ const ValidateUser = (props) => {
       .get(`https://workouttrackerprod.herokuapp.com/api/user?username=${user.nickname}`)
       .then(res => {
         //If successful GET by username, sends to dashboard
+        localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
-        
       })
       .catch(err => {
         //If failed 404 Not Found nickname, sends to onboarding
