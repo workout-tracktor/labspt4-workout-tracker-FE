@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 export default function Button(props) {
     return (
-        <StyledButton onClick={props.onClick} background={props.background} color={props.color} padding={props.padding}>
+        <StyledButton data-testid="option-button" onClick={props.onClick} background={props.background} color={props.color} padding={props.padding}>
             {props.text}
         </StyledButton>
     )
