@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="sc-EHOje fsnBf"
+>
+  <div
+    className="sc-bdVaJa dkPazZ"
+  >
+    <img
+      alt="What's your goal?"
+      src="Trophy.svg"
+      style={
+        Object {
+          "marginRight": "7px",
+          "width": "20px",
+        }
+      }
+    />
+    <h1
+      className="sc-bwzfXH iHOuhs"
+      data-testid="body-goal-header"
+    >
+      What's your goal?
+    </h1>
+  </div>
+  <div
+    className="sc-bZQynM iZmoKX"
+  >
+    <button
+      className="sc-htpNat eISZRH"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="desktop"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Slim down
+      </div>
+    </button>
+    <button
+      className="sc-htpNat cdigah"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="mobile"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Slim down
+      </div>
+    </button>
+    <button
+      className="sc-htpNat hneIYw"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="desktop"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Get big
+      </div>
+    </button>
+    <button
+      className="sc-htpNat gCToSQ"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="mobile"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Get big
+      </div>
+    </button>
+    <button
+      className="sc-htpNat iKvSkk"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="desktop"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Maintain
+      </div>
+    </button>
+    <button
+      className="sc-htpNat jSRHaN"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="mobile"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Maintain
+      </div>
+    </button>
+    <button
+      className="sc-htpNat jbMiBB"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="desktop"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Athletic
+      </div>
+    </button>
+    <button
+      className="sc-htpNat khPDjk"
+      data-testid="body-goal"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onTouchStart={[Function]}
+      opacity="0.7"
+      type="mobile"
+    >
+      <img
+        alt=""
+        src="CheckMark.svg"
+        style={
+          Object {
+            "height": "18px",
+            "left": "12px",
+            "position": "absolute",
+            "top": "12px",
+            "width": "19px",
+          }
+        }
+      />
+      <div
+        className="sc-bxivhb jrRmzq"
+      >
+        Athletic
+      </div>
+    </button>
+  </div>
+  <div
+    className="sc-gzVnrw ihfQly"
+  >
+    <button
+      className="sc-ifAKCX BYpoi"
+      data-testid="option-button"
+    >
+      I'll do this later
+    </button>
+  </div>
+</div>
+`;
