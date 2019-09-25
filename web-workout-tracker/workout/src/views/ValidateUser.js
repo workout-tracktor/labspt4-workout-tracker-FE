@@ -30,7 +30,6 @@ const ValidateUser = (props) => {
         // props.isRegistered()
         axios.post(`https://workouttrackerprod.herokuapp.com/api/user`, userData)
         .then(res => {
-          console.log(res.data.user_id)
           localStorage.setItem("user_id", res.data.user_id )
           props.history.push("/onboarding/body-goal" )
         })
