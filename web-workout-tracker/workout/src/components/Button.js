@@ -2,31 +2,31 @@ import React from "react";
 import styled from "styled-components";
 
 // PROPS:
-// color (default: white)
-// background (default: #03A3F3)
-// width 
+// color (default: #FFFFFF)
+// background (default: #2367FF)
 // text
 // onClick
-// alt
-// icon (for src attribute)
+// padding (default: "7px 15px")
 
 export default function Button(props) {
     return (
-        <StyledButton onClick={props.onClick} background={props.background} color={props.color}>
-            <img alt={props.alt} src={props.icon} />{props.text}
+        <StyledButton data-testid="option-button" onClick={props.onClick} background={props.background} color={props.color} padding={props.padding}>
+            {props.text}
         </StyledButton>
     )
 };
 
 const StyledButton = styled.button`
-    background: ${props => props.background || "#03A3F3"};
-    color: ${props => props.color || "white"};
+    background: ${props => props.background || "#2367FF"};
+    color: ${props => props.color || "#FFFFFF"};
     font-size: 18px;
+    line-height: 23px;
+    font-family: Roboto Condensed, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
-    border-radius: 5px;
-    padding: 7px 15px;
+    border-radius: 2px;
+    padding: ${props => props.padding || "7px 15px"};
     min-width: 30%;
     display: flex;
     align-items: center;
@@ -34,6 +34,8 @@ const StyledButton = styled.button`
 
     &:hover {
         cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #03A3F3;
     }
     &:focus, &:active {
         outline: none;

@@ -1,4 +1,5 @@
 {
   "domain": "dev-zjd-v4vy.auth0.com",
-  "clientId": "XD6opWKU0WgWHXJVwp2lkZuSujgVp2ix"
+  "clientId": "XD6opWKU0WgWHXJVwp2lkZuSujgVp2ix",
+  "responseType": "id_token token"
 }

@@ -1,35 +1,81 @@
 import { 
     /* action imports here */
-    ADD_GOAL_START,
-    ADD_GOAL_SUCCESS,
-    ADD_GOAL_FAILURE
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+    UPDATE_USER_START,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_FAILURE
 } from '../actions';
 
 const initialState = {
-    goal: "",
-    savingGoal: false,
-    error: ""
+    user: [],
+    updatingUser: false,
+    error: "",
+    isLoggingIn: false,
+    isSigningIn: false
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_GOAL_START:
+        case REGISTER_START: {
+            return {
+                ...state,
+                isSigningIn: true
+            };
+        }
+        case REGISTER_SUCCESS: {
+            return {
+                ...state,
+                isSigningIn: false,
+                user: action.payload
+            };
+        }
+        case REGISTER_FAILURE: {
+            return {
+                ...state,
+                isSigningIn: false
+            };
+        }
+        case LOGIN_START: {
+            return {
+                ...state,
+                isLoggingIn: true
+            };
+        }
+        case LOGIN_SUCCESS: {
+            return {
+                ...state,
+                isLoggingIn: false,
+                user: action.payload
+            };
+        }
+        case LOGIN_FAILURE: {
+            return {
+                ...state,
+                isLoggingIn: false
+            };
+        }
+        case UPDATE_USER_START:
             return {
                 ...state,
                 error: "",
-                savingGoal: true,
+                updatingUser: true,
             }
-        case ADD_GOAL_SUCCESS:
+        case UPDATE_USER_SUCCESS:
             return {
                 ...state,
-                savingGoal: false,
-                goal: action.payload
+                updatingUser: false,
+                user: action.payload
             };
-        case ADD_GOAL_FAILURE:
+        case UPDATE_USER_FAILURE:
             return {
                 ...state,
                 error: action.payload,
-                savingGoal: false
+                updatingUser: false
             };
         default:
             return state;

@@ -3,68 +3,56 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { addGoal } from '../actions';
+import { updateUser } from '../actions';
 
 import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
 import Button from "../components/Button";
 
+import data from "../assets/data/ButtonWithBackgroundData.js";
+import TrophyIcon from "../assets/icons/Trophy.svg";
+import CheckMark from "../assets/icons/CheckMark.svg";
 
-class BodyGoal extends React.Component {
+// this export is for testing purposes
+export class BodyGoal extends React.Component {
     state= {
         goal: "",
         buttonPressed: false
     }
+    clickOptionHandler = (goal) => {
+        this.setState({ goal, buttonPressed: true });
+    }
+    handleBlur = () => {
+        this.setState({ buttonPressed: false });
+    }
 
     render() {
-        // change to real data, when design will be finalized
-        const dummyData = [
-            {
-                id: 1,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
-                text: "Slim down"
-            },
-            {
-                id: 2,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
-                text: "Get big"
-            },
-            {
-                id: 3,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
-                text: "Maintain"
-            },
-            {
-                id: 4,
-                url: "https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=375&w=630",
-                text: "Athletic"
-            }
-        ]
         return (
             <PageWrapper>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
-                <OnboardingHeader url="https://img.icons8.com/carbon-copy/100/000000/uefa-euro-trophy.png" text="What's your goal?" />
+                <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
 
-                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick change filter, save goal to state 
-                @TO-DO: change styling for non-active buttons when one of the buttons is active; add clickHandler function?
+                {/* Reusable button with background component (background image + text). Needs props for text and image source, onClick and onBlur change filter, onClick also saves goal to state 
                 */}
+                {/* url prop is for desktop/tablet, urlMobile for mobile only */}
+
+                {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
-                    {dummyData.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} text={elem.text} onClick={this.clickHandler} />
+                    {data.data.map(elem =>
+                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app) */}
-                    <Button text="I'll do this later" background="white" color="#03A3F3" width="1" />
+                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
+                    <Button text="I'll do this later" background="transparent" padding="7px 0px" />
 
                     {/* "Select" Button
-                    @TO-DO: should be rendering only when user made a choice for his/her body goal (button with background is active) 
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
                     */}
                     {
-                        !this.state.buttonPressed && <Button icon="https://img.icons8.com/ios/20/ffffff/checked-2.png"  alt="check mark" text="Select"  width="1" />
+                        this.state.buttonPressed && <Button text="Select" />
                     }
                 </ButtonsWrapper>
 
@@ -79,18 +67,22 @@ const mapStateToProps = state => ({
 });
 
 const PageWrapper = styled.div`
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
 `;
 
 const OptionsWrapper = styled.div`
-    width: 100%;
+    width: 90%;
+    max-width: 510px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 `;
 
 const ButtonsWrapper = styled.div`
-    width: 100%;
+    width: 90%;
+    max-width: 510px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -98,4 +90,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {addGoal})(BodyGoal);
+export default connect(mapStateToProps, {updateUser})(BodyGoal);
