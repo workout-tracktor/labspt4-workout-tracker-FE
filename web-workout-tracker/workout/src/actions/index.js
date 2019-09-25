@@ -68,3 +68,11 @@ export const updateUser = updatedUser => dispatch => {
       dispatch({ type: UPDATE_USER_FAILURE, payload: err });
     });
 };
+
+
+export const SET_USER_STORE_SUCCESS = 'SET_USER_STORE_SUCCESS';
+
+export const sendUserData = userData => dispatch => { 
+  //sends user data that is pulled from auth0 to redux store
+  dispatch({type: SET_USER_STORE_SUCCESS, payload: userData})
+}

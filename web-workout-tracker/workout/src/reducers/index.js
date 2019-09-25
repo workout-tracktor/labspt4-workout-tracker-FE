@@ -8,10 +8,12 @@ import {
     LOGIN_FAILURE,
     UPDATE_USER_START,
     UPDATE_USER_SUCCESS,
-    UPDATE_USER_FAILURE
+    UPDATE_USER_FAILURE,
+    SET_USER_STORE_SUCCESS
 } from '../actions';
 
 const initialState = {
+    thisUser: [],
     user: [],
     updatingUser: false,
     error: "",
@@ -77,6 +79,11 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 updatingUser: false
             };
+            case SET_USER_STORE_SUCCESS:
+                return {
+                    ...state,
+                    thisUser: action.payload
+                };
         default:
             return state;
     }

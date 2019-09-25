@@ -43,7 +43,6 @@ class Landing extends React.Component {
   onChange = date => this.setState({ date });
 
   render() {
-    console.log(this.state.isLoggedin)
     return (
       <Container>
       {this.state.isLoggedin? 
