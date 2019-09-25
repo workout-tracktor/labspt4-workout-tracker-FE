@@ -1,5 +1,4 @@
 // src/components/NavBar.js
-
 import React from "react";
 import {useAuth0} from "../components/auth0-wrapper";
 import styled from "styled-components";
@@ -8,41 +7,49 @@ import liftQuestTitle from '../assets/images/LiftQuestTitle.png'
 import GearIcon from '../assets/icons/Gear.svg'
 import plus from '../assets/icons/Plus.svg'
 import PersonIcon from '../assets/icons/Person.svg'
-
 import Button from '../components/Button'
 
 const NavBar = (props) => {
-    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
         console.log('take me somewhere')
     }
-    
+
     return (
         <div>
-        {/* if user is not registered, does not display settings or add workout button */}
             {!props.Registered && isAuthenticated &&(
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
                     <LogoutContainer  >
                             <NavText 
                                     onClick={() => logout()}
-                                    href="https://compassionate-kalam-d8e461.netlify.com/"
                                 >
                                 <Person src = {PersonIcon} alt= 'person'/>
                                     LOGOUT
                                 </NavText>
-                               
+
                             </LogoutContainer>
                 </Nav>
             )}
 
-            
-        {/* if user is  registered, displays all buttons */}
-            {props.Registered && (
+
+            {!isAuthenticated && (
+                <Nav >
+                    <img src = {liftQuestTitle} alt = 'liftquest'/>
+                    <Button 
+                        onClick={() => loginWithRedirect({})} 
+                        color = {'white'}
+                        background = {' linear-gradient(#2FDDE4, #2367FF)'}
+                        text = {"LOGIN"}
+                        />
+                </Nav>
+            )}
+            )}
+
+            {isAuthenticated && props.Registered && (
                 <Nav>
-                        <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
+                        <Link to="/Landing"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
                         <AddWorkoutContainer> 
                         <Link to="/input-workout"> 
@@ -61,14 +68,14 @@ const NavBar = (props) => {
                         </NavText>
                         </Link>
                         {isAuthenticated && 
-                            <LogoutContainer  >
+                            <LogoutContainer  
+                            onClick = {() => localStorage.removeItem("user_id")}
+                            >
                             <NavText 
                                     onClick={() => logout()}
-                                    href="https://compassionate-kalam-d8e461.netlify.com/"
-                                >
+                            >
                                 <Person src = {PersonIcon} alt= 'person'/>
                             
-
                                     LOGOUT
                                 </NavText>
                                
@@ -81,14 +88,6 @@ const NavBar = (props) => {
     );
 };
 
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    margin: 0 auto;
-    width: 294px;
-`
 const Nav = styled.span`
     width: 100%;
     display: flex;
@@ -96,7 +95,6 @@ const Nav = styled.span`
     justify-content: space-between;
     padding: 10px 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
     @media (max-width: 669px) {
     display: flex;
     flex-direction: row;
@@ -108,7 +106,6 @@ const Nav = styled.span`
 const Logo = styled.img`
     width: 20rem;
     transition: .5s ease; 
-
     @media (max-width: 669px) {
     width: 14rem;
 }  
@@ -125,7 +122,7 @@ const Gear = styled.img`
 const Person = styled.img`
     margin: 5px;
 ` 
-const NavText = styled.a`
+const NavText = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,17 +139,14 @@ const SettingText = styled.p `
     font-size: 18px;
     color: white;
     text-transform: uppercase;
-
     @media (max-width: 669px) {
         display: none;
     }
     @media (min-width: 670px) {
         display: block;
     }
-
 `
 const LogoutContainer = styled.div`
-
     @media (max-width: 669px) {
         display: none;
     }
@@ -205,6 +199,4 @@ const ButtonText = styled.p `
         font-size: 14px;
 }  
 `
-
-
 export default NavBar;

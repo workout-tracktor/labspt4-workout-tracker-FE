@@ -14,7 +14,8 @@ class Landing extends React.Component {
         workouts: true,
         //selectedDate is the date that is selected on the calendar
         //which will then be sent to back end to check to see if there was workout data
-        selectedDate: null
+        selectedDate: null,
+        isLoggedin: false
       };
   }
 
@@ -22,14 +23,21 @@ class Landing extends React.Component {
   componentDidMount() {
     //Toggles navbar component prop to render new workout and settings button
     this.props.isRegistered()
+
+    //checks to see if user is logged in by checking local storage to render components
+    if("user_id" in localStorage){
+     this.setState({isLoggedin: !this.state.isLoggedin})
+    } else {this.setState({isLoggedin: false})}
     axios
       .get("https://workouttrackerprod.herokuapp.com/")
       .then(res => {
+       
         this.setState(res.data);
       })
       .catch(err => {
         console.log(err);
       });
+    
   }
 
   onChange = date => this.setState({ date });
@@ -37,8 +45,14 @@ class Landing extends React.Component {
   render() {
     return (
       <Container>
-        <Calendar onChange={this.onChange} value={this.state.date} />
-        <Workouts />
+      {this.state.isLoggedin? 
+      <>
+      <Calendar onChange={this.onChange} value={this.state.date} />
+      <Workouts />
+      </>
+      : null}
+        
+      
       </Container>
     );
   }
