@@ -10,15 +10,20 @@ const ValidateUser = (props) => {
   
   useEffect(() => {
     // Update the document title using the browser API
-    axios
+    if(user === undefined){
+       props.history.push("/Landing")    
+    } else {
+      axios
       //sends GET request to backend to retrieve user information by username,
       .get(`https://workouttrackerprod.herokuapp.com/api/user?username=${user.nickname}`)
       .then(res => {
         //If successful GET by username, sends to dashboard
+        console.log(user)
+        localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
       })
       .catch(err => {
-        console.log(user)
+      
         const userData = {
           first_name: user.given_name,
           last_name: user.family_name,
@@ -34,7 +39,8 @@ const ValidateUser = (props) => {
           localStorage.setItem("user_id", res.data.user_id )
           props.history.push("/onboarding/body-goal" )
         })
-      });
+      })
+      }
   });
   return (
     <>
