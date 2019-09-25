@@ -10,8 +10,6 @@ import PersonIcon from '../assets/icons/Person.svg'
 import Button from '../components/Button'
 
 const NavBar = (props) => {
-    const [textToggler, settextToggler] = React.useState(!false)
-    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
@@ -89,13 +87,7 @@ const NavBar = (props) => {
         </div>
     );
 };
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    margin: 0 auto;
-    width: 294px;
-`
+
 const Nav = styled.span`
     width: 100%;
     display: flex;
