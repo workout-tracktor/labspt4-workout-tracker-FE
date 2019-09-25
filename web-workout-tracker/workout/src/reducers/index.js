@@ -1,15 +1,17 @@
-import { 
+import {
     /* action imports here */
     ADD_GOAL_START,
     ADD_GOAL_SUCCESS,
     ADD_GOAL_FAILURE,
-    ADD_USER_SUCCESS
+    ADD_USER_SUCCESS,
+    ADD_WORKOUT
 } from '../actions';
 
 const initialState = {
     goal: "",
     savingGoal: false,
-    error: ""
+    error: "",
+    workoutData: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -36,13 +38,18 @@ const reducer = (state = initialState, action) => {
             return {
                 user: action.payload
             }
+            
+        case ADD_WORKOUT:
+            console.log(state.workoutData);
+            return {
+                ...state,
+                workoutData: [...state.workoutData, action.payload]
+            }
         default:
             return state;
 
-    };
+    }
 }
-
-
 
 
 export default reducer;

@@ -1,0 +1,16 @@
+.react-datetime-picker {
+  background-color: white;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.react-datetime-picker__inputGroup__input {
+  width: 50px;
+  font-size: 16px;
+  margin-right: 1px;
+  font-family: Roboto Condensed;
+}
+
+.react-datetime-picker__inputGroup__month {
+  width: 40px;
+}

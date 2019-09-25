@@ -1,31 +1,24 @@
 import React from "react";
 import WorkoutTypeForm from './WorkoutTypeForm'
 import WorkoutInputForm from "./WorkoutInputForm";
+import {connect} from 'react-redux'
+import {addWorkoutToState} from "../../actions";
 
 class WorkoutForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            workoutType: "",
-            name: "",
-            date: {},
-            data: [],
+            workoutType: ""
         }
     }
+
 
     setWorkoutType = (workoutType) => {
         this.setState({workoutType: workoutType})
     };
 
-    setData = (arr) => {
-        this.setState({data: arr})
-    };
-
-    changeDate = (date) => {
-        this.setState({date: date})
-    };
-    changeName = (name) => {
-        this.setState({name: name})
+    addWorkoutToState = (workout) => {
+        this.props.addWorkoutToState(workout)
     };
 
 
@@ -38,38 +31,19 @@ class WorkoutForm extends React.Component {
                     <WorkoutInputForm
                         workoutType={this.state.workoutType}
                         setWorkoutType={this.setWorkoutType}
-                        setData={this.setData}
-                        changeDate={this.changeDate}
-                        changeName={this.changeName}
+                        addWorkoutToState={this.addWorkoutToState}
                     />
                 )}
-
-                <p>{this.state.name}</p>
-
-                {this.state.data.map((exercise, idx) => {
-                    return (
-                        <div>
-
-                            {this.state.workoutType === "cardio" ?
-                                <div>
-                                    Time : <div>{exercise[`time${idx}`]}</div>
-                                    Time Unit: <div>{exercise[`timeUnit${idx}`]}</div>
-                                    Distance: <div>{exercise[`distance${idx}`]}</div>
-                                    Distance Unit: <div>{exercise[`distanceUnit${idx}`]}</div>
-                                </div>
-                                :
-                                <div>
-                                    Weight: <div>{exercise[`weight${idx}`]}</div>
-                                    Unit: <div>{exercise[`unit${idx}`]}</div>
-                                    Reps: <div>{exercise[`rep${idx}`]}</div>
-                                </div>
-                            }
-                        </div>
-                    )
-                })}
             </div>
         )
     }
 }
 
-export default WorkoutForm;
+const mapStateToProps = state => {
+    return {
+        workoutData: state.workoutData
+    }
+};
+
+
+export default connect(mapStateToProps, {addWorkoutToState})(WorkoutForm);
