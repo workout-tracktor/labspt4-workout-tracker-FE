@@ -21,6 +21,7 @@ const NavBar = (props) => {
     
     return (
         <div>
+        {/* if user is not registered, does not display settings or add workout button */}
             {!props.Registered && isAuthenticated &&(
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
@@ -38,19 +39,7 @@ const NavBar = (props) => {
             )}
 
             
-            {/* Uncomment to log back in
-            {!isAuthenticated && (
-                <Container >
-                    <img src = {liftQuestTitle} alt = 'liftquest'/>
-                    <Button 
-                        onClick={() => loginWithRedirect({})} 
-                        color = {'white'}
-                        background = {' linear-gradient(#2FDDE4, #2367FF)'}
-                        text = {"LOGIN"}
-                        />
-                </Container>
-            )} */}
-
+        {/* if user is  registered, displays all buttons */}
             {props.Registered && (
                 <Nav>
                         <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
