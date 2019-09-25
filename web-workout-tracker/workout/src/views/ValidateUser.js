@@ -14,12 +14,25 @@ const ValidateUser = (props) => {
       .get(`https://workouttrackerprod.herokuapp.com/api/user?username=${user.nickname}`)
       .then(res => {
         //If successful GET by username, sends to dashboard
-        localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
       })
       .catch(err => {
+        console.log(user)
+        const userData = {
+          first_name: user.given_name,
+          last_name: user.family_name,
+          username: user.nickname,
+          email: user.email,
+          avatar: user.picture
+        }
+
         //If failed 404 Not Found nickname, sends to onboarding
-        props.history.push("/onboarding/body-goal")
+        // props.isRegistered()
+        axios.post(`https://workouttrackerprod.herokuapp.com/api/user`, userData)
+        .then(res => {
+          localStorage.setItem("user_id", res.data.user_id )
+          props.history.push("/onboarding/body-goal" )
+        })
       });
   });
   return (

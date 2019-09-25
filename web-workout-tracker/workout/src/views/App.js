@@ -14,19 +14,26 @@ import WorkoutForm from "./workout_form/WorkoutForm";
 
 function App() {
   const { loading } = useAuth0();
+  const [Registered, setRegistered] = React.useState(false)
 
   if (loading) {
     return <Loading />;
   }
+
+  const registerToggler = () => {
+    //toggles the state to render certain Navbar buttons if in the onboarding or dashboard
+    setRegistered(!Registered)
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         <header>
-          <NavBar />
+          <NavBar Registered = {Registered}/>
         </header>
         <Switch>
-          <Route exact path="/" component={ValidateUser} />
-          <Route exact path="/Landing" component={Landing} />
+          <Route exact path="/" render = {(props) => <ValidateUser {...props} isRegistered={registerToggler} />} />
+          <Route exact path="/Landing" render = {(props) => <Landing {...props} isRegistered={registerToggler} />}/>
           <Route exact path="/user-settings" component={UserSettings} />
 
           {/* On boarding - choose the body goal */}

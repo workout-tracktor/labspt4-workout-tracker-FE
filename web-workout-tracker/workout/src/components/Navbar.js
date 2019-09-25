@@ -12,7 +12,7 @@ import PersonIcon from '../assets/icons/Person.svg'
 import Button from '../components/Button'
 
 const NavBar = (props) => {
-    const [textToggler, settextToggler] = React.useState(!false)
+    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
@@ -21,19 +21,26 @@ const NavBar = (props) => {
     
     return (
         <div>
-            {!isAuthenticated && (
-                <Container >
+        {/* if user is not registered, does not display settings or add workout button */}
+            {!props.Registered && isAuthenticated &&(
+                <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
-                    <Button 
-                        onClick={() => loginWithRedirect({})} 
-                        color = {'white'}
-                        background = {' linear-gradient(#2FDDE4, #2367FF)'}
-                        text = {"LOGIN"}
-                        />
-                </Container>
+                    <LogoutContainer  >
+                            <NavText 
+                                    onClick={() => logout()}
+                                    href="https://compassionate-kalam-d8e461.netlify.com/"
+                                >
+                                <Person src = {PersonIcon} alt= 'person'/>
+                                    LOGOUT
+                                </NavText>
+                               
+                            </LogoutContainer>
+                </Nav>
             )}
 
-            {isAuthenticated && (
+            
+        {/* if user is  registered, displays all buttons */}
+            {props.Registered && (
                 <Nav>
                         <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
