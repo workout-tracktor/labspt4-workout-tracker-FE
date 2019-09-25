@@ -77,7 +77,7 @@
   }
 }
 body {
-  background-image: url("/marketing-site/resources/img/tactile_noise.png");
+  background-image: url("/resources/img/tactile_noise.png");
   background-repeat: repeat-y-x;
   margin: 0 auto;
   font-family: aktiv-grotesk;
@@ -163,8 +163,8 @@ body {
   }
   .upper-mid-market .onboarding-mock {
     margin-top: 20px;
-    margin-left: 90px;
-    width: 300px;
+    margin-left: 0px;
+    width: 500px;
   }
   .upper-mid-market .tablet-mock {
     margin-top: 50px;
@@ -192,7 +192,7 @@ body {
     position: relative;
     width: 500px;
     margin-top: 70px;
-    margin-left: 40px;
+    /*margin-left: 40px; centers running girl*/
   }
   .lower-market .feature-graphic {
     width: 90%;
@@ -211,6 +211,19 @@ body {
   .lower-market .trips {
     margin-left: 10px;
     width: 450px;
+  }
+  /* splits the boxes evenly*/
+  .boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 10px;
+  }
+
+  .box {
+    width: 400px;
   }
 }
 @media (min-width: 800px) {
@@ -348,7 +361,8 @@ body {
   .top-market .top-cta {
     position: absolute;
     text-align: center;
-    margin-left: 95px;
+    /*margin-left: 95px;  removing for now*/
+    padding-top: 250px;/* adds padding between text and navbar*/
     margin-top: -1050px;
     line-height: 160px;
     font-size: 135px;
@@ -394,15 +408,19 @@ body {
   }
   .top-market .google-download {
     position: absolute;
-    margin-top: -599px;
+    /*margin-top: -599px; drops download button below text*/
     left: 565px;
     width: 310px;
+    margin-left: 50px; /* adds space between apple button */
+    padding-top: 40px; /* add space between text */
   }
   .top-market .apple-download {
     position: absolute;
-    margin-top: -580px;
+    /*margin-top: -580px; drops download button below text*/
     right: 570px;
     width: 250px;
+    margin-right: 50px; /* adds space between google button */
+    padding-top: 40px; /* add space between text */
   }
   .upper-mid-market {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(3, 163, 243, 0.753));
@@ -422,9 +440,9 @@ body {
     text-align: center;
   }
   .upper-mid-market .onboarding-mock {
-    margin-top: 80px;
-    margin-left: 1090px;
-    width: 400px;
+    margin-top: 150px;
+    margin-left: 500px;
+    width: 650px;
     position: absolute;
     display: block;
   }
@@ -443,8 +461,9 @@ body {
   }
   .upper-mid-market .tablet-mock {
     margin-top: 50px;
-    margin-left: 250px;
-    width: 1000px;
+    /*margin-left: 100px; Not needed*/
+    margin-right: 30px;
+    width: 850px;
     display: block;
   }
   .lower-market {
@@ -470,14 +489,14 @@ body {
     margin-left: 1200px;
   }
   .lower-market .feature-graphic {
-    width: 40%;
-    margin-top: -800px;
-    margin-left: 235px;
+    width: 23%;
+    margin-top: -150px;
+    margin-left: 100px;
     position: absolute;
   }
   .lower-market .trips {
-    margin-top: 440px;
-    margin-left: 1130px;
+    /*margin-top: 440px;  removing for right now*/
+    margin-left: 450px;
     width: 700px;
   }
 }
@@ -555,12 +574,14 @@ body {
     margin-top: -99px;
     left: 565px;
     width: 310px;
+    margin-left: 50px; /* adds space between apple  button */
   }
   .footer .apple-download {
     position: absolute;
     margin-top: -80px;
     right: 570px;
     width: 250px;
+    margin-right: 50px; /* adds space between google button */
   }
   .copyright {
     margin-top: 40px;
