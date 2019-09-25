@@ -1,9 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Button, 
+  Alert,
+  ActivityIndicator,
+   } from "react-native";
 
 import MyAppNav from './Navigation/MainNavigator' 
 import { AuthSession } from "expo";
 import jwtDecode from "jwt-decode";
+import * as Font from 'expo-font'
 
 //linking auth0 account info
 const auth0ClientId = "SC50FcSQGQUTThJvrl40XzSZ5E6NqT5l";
@@ -24,6 +32,14 @@ function toQueryString(params) {
 
 export default class App extends React.Component {
   state = { name: null };
+  
+  async componentDidMount(){
+    //Font.loadAsync is used for expo to utilize custom fonts withink the app.
+    //it points to the folder that holds the font files
+    await Font.loadAsync({
+        'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro-Regular.ttf')
+    })
+}
 
   login = async () => {
     // retrieve the redirect URL, add this tot he callback in Auth0
