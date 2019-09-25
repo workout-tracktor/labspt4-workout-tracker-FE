@@ -212,6 +212,7 @@ body {
     margin-left: 10px;
     width: 450px;
   }
+  /* splits the boxes evenly*/
   .boxes {
     display: flex;
     flex-direction: row;
