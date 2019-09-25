@@ -6,16 +6,22 @@ import "./Calendar.css";
 import Workouts from "./Workouts";
 
 class Landing extends React.Component {
-  state = {
-    date: new Date(),
-    //when date is clicked on, 
-    workouts: true,
-    //selectedDate is the date that is selected on the calendar
-    //which will then be sent to back end to check to see if there was workout data
-    selectedDate: null
-  };
+  constructor(props){
+    super(props)
+      this.state = {
+        date: new Date(),
+        //when date is clicked on, 
+        workouts: true,
+        //selectedDate is the date that is selected on the calendar
+        //which will then be sent to back end to check to see if there was workout data
+        selectedDate: null
+      };
+  }
+
 
   componentDidMount() {
+    //Toggles navbar component prop to render new workout and settings button
+    this.props.isRegistered()
     axios
       .get("https://workouttrackerprod.herokuapp.com/")
       .then(res => {
