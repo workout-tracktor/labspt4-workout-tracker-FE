@@ -3,7 +3,8 @@
 import React, {useEffect, useState} from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import axios from "axios";
-
+import { connect } from "react-redux";
+// import {post}
 const ValidateUser = (props) => {
   const { loading, user } = useAuth0();
   
@@ -41,4 +42,4 @@ const ValidateUser = (props) => {
   );
 };
 
-export default ValidateUser;
+export default ValidateUser

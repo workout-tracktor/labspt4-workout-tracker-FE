@@ -9,10 +9,9 @@ import GearIcon from '../assets/icons/Gear.svg'
 import plus from '../assets/icons/Plus.svg'
 import PersonIcon from '../assets/icons/Person.svg'
 
-import Button from '../components/Button'
+export const {loginWithRedirect} = useAuth0();
 
 const NavBar = (props) => {
-    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
