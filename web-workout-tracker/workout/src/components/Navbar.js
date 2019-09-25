@@ -20,7 +20,7 @@ const NavBar = (props) => {
         <div>
             {!props.Registered && isAuthenticated &&(
                 <Nav >
-                    <img src = {liftQuestTitle} alt = 'liftquest'/>
+                    <Link to={'/landing'} ><img src = {liftQuestTitle} alt = 'liftquest'/></Link>
                     <LogoutContainer  >
                             <NavText 
                                     onClick={() => logout()}

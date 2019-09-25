@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ValidateUser from './ValidateUser';
 import NavBar from "../components/Navbar";
-import Landing from "./Landing";
+import Landing from "./landing/Landing";
 import BodyGoal from "./BodyGoal";
 
 import UserSettings from "./user_settings";
