@@ -9,9 +9,10 @@ import GearIcon from '../assets/icons/Gear.svg'
 import plus from '../assets/icons/Plus.svg'
 import PersonIcon from '../assets/icons/Person.svg'
 
-export const {loginWithRedirect} = useAuth0();
+import Button from '../components/Button'
 
 const NavBar = (props) => {
+    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
@@ -20,8 +21,7 @@ const NavBar = (props) => {
     
     return (
         <div>
-        {/* if user is not registered, does not display settings or add workout button */}
-            {!props.Registered && isAuthenticated &&(
+            {/* {!props.Registered && isAuthenticated &&(
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
                     <LogoutContainer  >
@@ -35,10 +35,21 @@ const NavBar = (props) => {
                                
                             </LogoutContainer>
                 </Nav>
-            )}
+            )} */}
 
-            
-        {/* if user is  registered, displays all buttons */}
+
+ {!isAuthenticated && (
+                <Container >
+                    <img src = {liftQuestTitle} alt = 'liftquest'/>
+                    <Button 
+                        onClick={() => loginWithRedirect({})} 
+                        color = {'white'}
+                        background = {' linear-gradient(#2FDDE4, #2367FF)'}
+                        text = {"LOGIN"}
+                        />
+                </Container>
+            )} 
+
             {props.Registered && (
                 <Nav>
                         <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
