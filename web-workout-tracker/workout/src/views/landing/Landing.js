@@ -27,7 +27,6 @@ class Landing extends React.Component {
     render() {
         return (
             <Container>
-                {console.log(this.state.response)}
                 <Calendar onChange={this.onChange} value={this.state.date}/>
                 <Workouts/>
             </Container>

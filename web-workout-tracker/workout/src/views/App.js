@@ -40,7 +40,7 @@ function App() {
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />
 
-          <Route path="/input-workout" component={WorkoutForm} />
+          <Route path="/input-workout"  render = {(props) => <WorkoutForm {...props}/>} />
         </Switch>
       </BrowserRouter>
     </div>

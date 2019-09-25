@@ -25,6 +25,7 @@ class WorkoutForm extends React.Component {
     render() {
         return (
             <div className="input-workout-form">
+
                 {this.state.workoutType === "" ? (
                     <WorkoutTypeForm setWorkoutType={this.setWorkoutType}/>
                 ) : (
@@ -32,6 +33,7 @@ class WorkoutForm extends React.Component {
                         workoutType={this.state.workoutType}
                         setWorkoutType={this.setWorkoutType}
                         addWorkoutToState={this.addWorkoutToState}
+                        history={this.props.history}
                     />
                 )}
             </div>

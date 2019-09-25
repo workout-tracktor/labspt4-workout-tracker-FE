@@ -9,6 +9,7 @@ const WorkoutInputForm = ({
                               workoutType,
                               setWorkoutType,
                               addWorkoutToState,
+    history
                           }) => {
 
 
@@ -24,6 +25,7 @@ const WorkoutInputForm = ({
         e.preventDefault();
         const newWorkout = {name, date, set, completed, workoutType: workoutTypeVar};
         addWorkoutToState(newWorkout);
+        history.push('/landing')
     };
 
     const [name, setName] = useState("");
@@ -37,7 +39,6 @@ const WorkoutInputForm = ({
 
     return (
         <Container>
-            {console.log(workoutType)}
             <Form onSubmit={submitHandler}>
                 <ButtonDiv>
                     <BackInput type="button" value="< Back" onClick={backHandler}/>

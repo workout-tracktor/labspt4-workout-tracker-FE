@@ -18,7 +18,6 @@ class Workouts extends React.Component {
     render() {
         return (
             <Container>
-                {console.log(this.props.workoutData)}
                 <Title>
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
