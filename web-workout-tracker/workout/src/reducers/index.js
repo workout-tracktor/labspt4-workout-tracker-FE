@@ -92,6 +92,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 bodyGoal: action.payload
+            };
         case ADD_WORKOUT:
             console.log(state.workoutData);
             return {
