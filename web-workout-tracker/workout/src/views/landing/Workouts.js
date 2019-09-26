@@ -5,8 +5,6 @@ import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import CardioSet from "./CardioSet";
-import WeightliftingSet from "./WeightliftingSet";
 import DrownDownLogs from '../DropdownLogs';
 
 class Workouts extends React.Component {

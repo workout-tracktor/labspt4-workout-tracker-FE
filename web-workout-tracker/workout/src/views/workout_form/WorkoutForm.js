@@ -5,6 +5,7 @@ import DatePicker from "../DatePicker";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import {addWorkoutToState} from "../../actions";
+import axios from 'axios'
 
 
 const WorkoutForm = (props) => {
@@ -16,12 +17,24 @@ const WorkoutForm = (props) => {
     };
 
     const submitHandler = e => {
+        const user_id = localStorage.getItem('user_id');
+        const data = {name, date, completed, user_id, set:setObject};
+        axios.post(`https://workouttrackerprod.herokuapp.com/api/log`, data)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
         e.preventDefault();
         const newWorkout = {name, date, set, completed, workoutType};
-        props.addWorkoutToState(newWorkout)
+
+        props.addWorkoutToState(newWorkout);
         props.history.push('/Landing')
 
     };
+
 
 
     const [name, setName] = useState("");
@@ -31,6 +44,16 @@ const WorkoutForm = (props) => {
     const [set, setSet] = useState([]);
 
     const [completed, setCompleted] = useState(false);
+
+    let setObject = {}
+
+    for(let i=0; i<set.length; i++) {
+        let setD = set[i];
+        setObject = {...setObject, ...setD}
+        console.log(setObject)
+    }
+
+
 
 
     return (
