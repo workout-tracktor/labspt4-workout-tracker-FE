@@ -23,7 +23,7 @@ export default function ButtonWithBackground(props) {
 
 const Button = styled.button`
     width: 100%;
-    height: 120px;
+    height: 110px;
     position: relative;
     margin: 0 0 15px 0;
     padding: 0;
