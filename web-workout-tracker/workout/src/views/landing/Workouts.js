@@ -39,7 +39,7 @@ class Workouts extends React.Component {
 
                 <Button>
                     <img src={plus} alt="plus"/>
-                    <Link to="/input-workout">ADD A WORKOUT</Link>
+                    <Link to="/workout-form">ADD A WORKOUT</Link>
                 </Button>
             </Container>
         );

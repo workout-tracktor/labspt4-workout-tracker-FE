@@ -54,7 +54,7 @@ const NavBar = (props) => {
                         <Link to="/Landing"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
                         <AddWorkoutContainer> 
-                        <Link to="/input-workout"> 
+                        <Link to="/workout-form">
                             <WorkoutButton >
                                 <Plus src = {plus} alt= 'plus' />
                                 <ButtonText> 

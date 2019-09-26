@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const WorkoutWeightliftingForm = ({ setData, set, setSet }) => {
+const WorkoutWeightliftingForm = ({ set, setSet }) => {
   const addASet = e => {
     e.preventDefault();
     let newData = {};
