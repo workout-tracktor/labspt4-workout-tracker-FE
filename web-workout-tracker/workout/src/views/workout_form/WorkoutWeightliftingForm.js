@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -9,7 +10,6 @@ const WorkoutWeightliftingForm = ({ setData, set, setSet }) => {
     newData[`unit${set.length}`] = "lbs";
     newData[`rep${set.length}`] = 0;
     setSet([...set, newData]);
-    console.log(set);
   };
 
   const deleteASet = e => {
@@ -24,7 +24,6 @@ const WorkoutWeightliftingForm = ({ setData, set, setSet }) => {
     let setCopy = [...set];
     setCopy[idx][e.target.name] = e.target.value;
     setSet(setCopy);
-    console.log(set);
   };
 
   return (
