@@ -5,6 +5,9 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
+//Add workout data to global state
+export const ADD_WORKOUT = 'ADD_WORKOUT';
+
 export const register = (user) => dispatch => {
   dispatch({ type: REGISTER_START});
   // localStorage.removeItem("token");
@@ -79,7 +82,6 @@ export const sendUserData = userData => dispatch => {
 
 /* Save body goal */
 
-
 export const SET_USER_GOAL_SUCCESS = 'SET_USER_GOAL_SUCCESS';
 
 export const sendUserGoal = bodyGoal => dispatch => { 
@@ -87,3 +89,11 @@ export const sendUserGoal = bodyGoal => dispatch => {
   dispatch({type: SET_USER_GOAL_SUCCESS, payload: bodyGoal})
   console.log(bodyGoal);
 } 
+
+export const addWorkoutToState = newWorkout  => {
+    return {
+        type: ADD_WORKOUT,
+        payload: newWorkout
+    }
+}
+

@@ -14,6 +14,7 @@ const ValidateUser = (props) => {
     // Update the document title using the browser API
 
     if(user === undefined){
+      console.log('tre')
        props.history.push("/Landing")    
     } else {
       const userData = {
@@ -21,7 +22,8 @@ const ValidateUser = (props) => {
         last_name: user.family_name,
         username: user.nickname,
         email: user.email,
-        avatar: user.picture
+        avatar: user.picture,
+        password: user.sub
       }
 
       axios

@@ -9,6 +9,7 @@ const WorkoutTypeForm = ({ setWorkoutType }) => {
   };
   return (
     <Div>
+
       <Form onSubmit={chooseHandler}>
         <Header>What Type of Workout?</Header>
         <Button value="weightlifting" onClick={chooseHandler}>

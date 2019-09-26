@@ -9,6 +9,7 @@ const WorkoutCardioForm = ({ set, setSet }) => {
     newData[`timeUnit${set.length}`] = "sec";
     newData[`distance${set.length}`] = 0;
     newData[`distanceUnit${set.length}`] = "m";
+
     setSet([...set, newData]);
     console.log(set);
   };
@@ -103,11 +104,11 @@ const WorkoutCardioForm = ({ set, setSet }) => {
             <InputDiv>
               <InputLabel>Unit: </InputLabel>
               <Select
-                name={`distanceUnits${idx}`}
+                name={`distanceUnit${idx}`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                defaultValue={set[idx][`distanceUnits${idx}`]}
+                defaultValue={set[idx][`distanceUnit${idx}`]}
               >
                 <Option value="m">m</Option>
                 <Option value="km">km</Option>

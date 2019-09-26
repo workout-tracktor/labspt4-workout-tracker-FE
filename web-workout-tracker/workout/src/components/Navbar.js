@@ -10,12 +10,13 @@ import PersonIcon from '../assets/icons/Person.svg'
 import Button from '../components/Button'
 
 const NavBar = (props) => {
+    const [textToggler, settextToggler] = React.useState(!false)
+    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
         console.log('take me somewhere')
     }
-
     return (
         <div>
             {!props.Registered && isAuthenticated &&(
@@ -28,12 +29,9 @@ const NavBar = (props) => {
                                 <Person src = {PersonIcon} alt= 'person'/>
                                     LOGOUT
                                 </NavText>
-
                             </LogoutContainer>
                 </Nav>
             )}
-
-
             {!isAuthenticated && (
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
@@ -45,8 +43,6 @@ const NavBar = (props) => {
                         />
                 </Nav>
             )}
-            )}
-
             {isAuthenticated && props.Registered && (
                 <Nav>
                         <Link to="/Landing"> <Logo src = {liftQuestTitle}/> </Link>
@@ -87,6 +83,13 @@ const NavBar = (props) => {
         </div>
     );
 };
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    margin: 0 auto;
+    width: 294px;
+`
 
 const Nav = styled.span`
     width: 100%;

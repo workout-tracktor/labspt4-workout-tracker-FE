@@ -10,7 +10,8 @@ import {
     UPDATE_USER_SUCCESS,
     UPDATE_USER_FAILURE,
     SET_USER_STORE_SUCCESS,
-    SET_USER_GOAL_SUCCESS
+    SET_USER_GOAL_SUCCESS,
+    ADD_WORKOUT
 } from '../actions';
 
 const initialState = {
@@ -20,7 +21,8 @@ const initialState = {
     updatingUser: false,
     error: "",
     isLoggingIn: false,
-    isSigningIn: false
+    isSigningIn: false,
+    workoutData: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -90,6 +92,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 bodyGoal: action.payload
+        case ADD_WORKOUT:
+            console.log(state.workoutData);
+            return {
+                ...state,
+                workoutData: [...state.workoutData, action.payload]
             }
         default:
             return state;
