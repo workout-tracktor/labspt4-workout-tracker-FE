@@ -80,9 +80,20 @@ export const sendUserData = userData => dispatch => {
   dispatch({type: SET_USER_STORE_SUCCESS, payload: userData})
 }
 
+/* Save body goal */
+
+export const SET_USER_GOAL_SUCCESS = 'SET_USER_GOAL_SUCCESS';
+
+export const sendUserGoal = bodyGoal => dispatch => { 
+  //sends body goal that is active now, before pressing Select button. TEMPORARY storage
+  dispatch({type: SET_USER_GOAL_SUCCESS, payload: bodyGoal})
+  console.log(bodyGoal);
+} 
+
 export const addWorkoutToState = newWorkout  => {
     return {
         type: ADD_WORKOUT,
         payload: newWorkout
     }
 }
+

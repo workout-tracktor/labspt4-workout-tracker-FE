@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { updateUser } from '../actions';
+import { updateUser, sendUserGoal } from '../actions';
+
+import axios from "axios";
 
 import OnboardingHeader from "../components/OnboardingHeader";
 import ButtonWithBackground from "../components/ButtonWithBackground";
@@ -17,16 +19,39 @@ import CheckMark from "../assets/icons/CheckMark.svg";
 export class BodyGoal extends React.Component {
     state= {
         goal: "",
-        buttonPressed: false
+        buttonPressed: false,
+        user_id: ""
     }
-    clickOptionHandler = (goal) => {
+    componentDidMount() {
+        const id = localStorage.getItem("user_id");
+        this.setState({user_id: id});
+    }
+    clickOptionHandler = (goal, props) => {
         this.setState({ goal, buttonPressed: true });
+        this.props.sendUserGoal(goal);
     }
-    handleBlur = () => {
-        this.setState({ buttonPressed: false });
+    // handleBlur = () => {
+    //     this.setState({ buttonPressed: false });
+    // }
+
+    setGoal = (props) => {
+        console.log(`Goal: ${this.props.bodyGoal}`);
+        axios
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
+            .then(res => {
+                console.log(res);
+                // localStorage.removeItem("body_goal");
+                localStorage.setItem("body_goal", res.data.body_goal);
+                this.props.history.push("/Landing");
+            })
+            .catch(err => {
+                console.log(err);
+                this.props.history.push("/onboarding/body-goal");
+            })
     }
 
     render() {
+        console.log(this.state.user_id);
         return (
             <PageWrapper>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
@@ -40,7 +65,7 @@ export class BodyGoal extends React.Component {
                 {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {data.data.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={() => this.clickOptionHandler(elem.text)} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 
@@ -52,7 +77,7 @@ export class BodyGoal extends React.Component {
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
                     */}
                     {
-                        this.state.buttonPressed && <Button text="Select" />
+                        this.state.buttonPressed && <Button text="Select" setGoal={this.setGoal} />
                     }
                 </ButtonsWrapper>
 
@@ -62,8 +87,7 @@ export class BodyGoal extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    goal: state.goal,
-    savingGoal: state.savingGoal
+    bodyGoal: state.bodyGoal
 });
 
 const PageWrapper = styled.div`
@@ -90,4 +114,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {updateUser})(BodyGoal);
+export default connect(mapStateToProps, {updateUser, sendUserGoal})(BodyGoal);
