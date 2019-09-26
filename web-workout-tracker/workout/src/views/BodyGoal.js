@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { updateUser } from '../actions';
+import { updateUser, sendUserGoal } from '../actions';
 
 import axios from "axios";
 
@@ -26,22 +26,18 @@ export class BodyGoal extends React.Component {
         const id = localStorage.getItem("user_id");
         this.setState({user_id: id});
     }
-    clickOptionHandler = (goal) => {
+    clickOptionHandler = (goal, props) => {
         this.setState({ goal, buttonPressed: true });
+        this.props.sendUserGoal(goal);
     }
-    handleBlur = () => {
-        this.setState({ buttonPressed: false });
-    }
+    // handleBlur = () => {
+    //     this.setState({ buttonPressed: false });
+    // }
 
-    setGoal = () => {
-        console.log(`Goal: ${this.state.goal}`);
-        // const user = {
-        //     user_id: this.state.user_id,
-        //     body_goal: this.state.goal
-        // };
-        console.log(this.state.buttonPressed);
+    setGoal = (props) => {
+        console.log(`Goal: ${this.props.bodyGoal}`);
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.state.goal })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
                 console.log(res);
                 localStorage.setItem("body_goal", res.data.body_goal);
@@ -79,9 +75,9 @@ export class BodyGoal extends React.Component {
                     {/* "Select" Button
                     @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
                     */}
-                    {/*{
-                        this.state.buttonPressed && */}<Button text="Select" setGoal={this.setGoal} />
-                    {/*}*/}
+                    {
+                        this.state.buttonPressed && <Button text="Select" setGoal={this.setGoal} />
+                    }
                 </ButtonsWrapper>
 
             </PageWrapper>
@@ -90,8 +86,7 @@ export class BodyGoal extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    goal: state.goal,
-    savingGoal: state.savingGoal
+    bodyGoal: state.bodyGoal
 });
 
 const PageWrapper = styled.div`
@@ -118,4 +113,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {updateUser})(BodyGoal);
+export default connect(mapStateToProps, {updateUser, sendUserGoal})(BodyGoal);

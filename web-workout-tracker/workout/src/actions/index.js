@@ -76,3 +76,14 @@ export const sendUserData = userData => dispatch => {
   //sends user data that is pulled from auth0 to redux store
   dispatch({type: SET_USER_STORE_SUCCESS, payload: userData})
 }
+
+/* Save body goal */
+
+
+export const SET_USER_GOAL_SUCCESS = 'SET_USER_GOAL_SUCCESS';
+
+export const sendUserGoal = bodyGoal => dispatch => { 
+  //sends body goal that is active now, before pressing Select button. TEMPORARY storage
+  dispatch({type: SET_USER_GOAL_SUCCESS, payload: bodyGoal})
+  console.log(bodyGoal);
+} 

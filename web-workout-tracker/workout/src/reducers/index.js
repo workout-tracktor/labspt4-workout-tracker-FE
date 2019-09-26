@@ -9,12 +9,14 @@ import {
     UPDATE_USER_START,
     UPDATE_USER_SUCCESS,
     UPDATE_USER_FAILURE,
-    SET_USER_STORE_SUCCESS
+    SET_USER_STORE_SUCCESS,
+    SET_USER_GOAL_SUCCESS
 } from '../actions';
 
 const initialState = {
     thisUser: [],
-    user: [],
+    // bodyGoal - is temporary storage, changing with every click. If user submited his choice, bodyGoal should go to thisUser object
+    bodyGoal: "",
     updatingUser: false,
     error: "",
     isLoggingIn: false,
@@ -33,7 +35,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isSigningIn: false,
-                user: action.payload
+                thisUser: action.payload
             };
         }
         case REGISTER_FAILURE: {
@@ -52,7 +54,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
-                user: action.payload
+                thisUser: action.payload
             };
         }
         case LOGIN_FAILURE: {
@@ -71,7 +73,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 updatingUser: false,
-                user: action.payload
+                thisUser: action.payload
             };
         case UPDATE_USER_FAILURE:
             return {
@@ -79,11 +81,16 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 updatingUser: false
             };
-            case SET_USER_STORE_SUCCESS:
-                return {
-                    ...state,
-                    thisUser: action.payload
-                };
+        case SET_USER_STORE_SUCCESS:
+            return {
+                ...state,
+                thisUser: action.payload
+            };
+        case SET_USER_GOAL_SUCCESS:
+            return {
+                ...state,
+                bodyGoal: action.payload
+            }
         default:
             return state;
     }
