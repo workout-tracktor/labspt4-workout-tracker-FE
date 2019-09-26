@@ -65,7 +65,6 @@ export class BodyGoal extends React.Component {
                 */}
                 {/* url prop is for desktop/tablet, urlMobile for mobile only */}
 
-                {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {data.data.map(elem =>
                         <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
@@ -73,12 +72,10 @@ export class BodyGoal extends React.Component {
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
+                     {/* Skip on boarding Button*/}
                     <Button text="I'll do this later" background="transparent" padding="7px 0px" />
 
-                    {/* "Select" Button
-                    @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
-                    */}
+                    {/* "Select" Button*/}
                     {
                         this.state.buttonPressed && <Button text="Select" setGoal={this.setGoal} />
                     }
