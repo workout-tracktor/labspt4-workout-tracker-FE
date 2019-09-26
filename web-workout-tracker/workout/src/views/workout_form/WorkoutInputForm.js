@@ -1,80 +1,91 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import WorkoutCardioForm from "./WorkoutCardioForm";
 import WorkoutWeightliftingForm from "./WorkoutWeightliftingForm";
 import DatePicker from "../DatePicker";
 import styled from "styled-components";
 
+
 const WorkoutInputForm = ({
-  workoutType,
-  setWorkoutType,
-  setData,
-  changeDate,
-  changeName
-}) => {
-  const backHandler = event => {
-    event.preventDefault();
-    setWorkoutType("");
-  };
+                              workoutType,
+                              setWorkoutType,
+                              addWorkoutToState,
+    history
+                          }) => {
 
-  const submitHandler = e => {
-    e.preventDefault();
-    setData(set);
-    changeDate(date);
-    changeName(name);
-  };
 
-  const [name, setName] = useState("");
+    const backHandler = event => {
+        event.preventDefault();
+        setWorkoutType("");
+    };
 
-  const [date, setDate] = useState(new Date());
+    const workoutTypeVar = workoutType;
 
-  const [set, setSet] = useState([]);
 
-  return (
-    <Container>
-      <Form onSubmit={submitHandler}>
-        <ButtonDiv>
-          <BackInput type="button" value="< Back" onClick={backHandler} />
+    const submitHandler = e => {
+        e.preventDefault();
+        const newWorkout = {name, date, set, completed, workoutType: workoutTypeVar};
+        addWorkoutToState(newWorkout);
+        history.push('/landing')
+    };
 
-          <SubmitInput type="submit" />
-        </ButtonDiv>
+    const [name, setName] = useState("");
 
-        <Header>NAME OF EXERCISE:</Header>
+    const [date, setDate] = useState(new Date());
 
-        <Div>
-          <ExerciseInput
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            required
-          />
-        </Div>
+    const [set, setSet] = useState([]);
 
-        <DateDiv>
-          <Text>Date</Text>
-          <DatePicker date={date} setDate={setDate} />
-        </DateDiv>
+    const [completed, setCompleted] = useState(false);
 
-        <Div>
-          {workoutType === "cardio" ? (
-            <WorkoutCardioForm
-              setData={setData}
-              submitHandler={submitHandler}
-              set={set}
-              setSet={setSet}
-            />
-          ) : (
-            <WorkoutWeightliftingForm
-              setData={setData}
-              submitHandler={submitHandler}
-              set={set}
-              setSet={setSet}
-            />
-          )}
-        </Div>
-      </Form>
-    </Container>
-  );
+
+    return (
+        <Container>
+            <Form onSubmit={submitHandler}>
+                <ButtonDiv>
+                    <BackInput type="button" value="< Back" onClick={backHandler}/>
+
+                    <SubmitInput type="submit"/>
+                </ButtonDiv>
+
+                <Header>NAME OF EXERCISE:</Header>
+
+                <Div>
+                    <ExerciseInput
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        required
+                    />
+                </Div>
+
+                <DateDiv>
+                    <Text>Date</Text>
+                    <DatePicker date={date} setDate={setDate}/>
+                </DateDiv>
+
+                <Div>
+                    {workoutType === "cardio" ? (
+                        <WorkoutCardioForm
+                            submitHandler={submitHandler}
+                            set={set}
+                            setSet={setSet}
+                        />
+                    ) : (
+                        <WorkoutWeightliftingForm
+                            submitHandler={submitHandler}
+                            set={set}
+                            setSet={setSet}
+                        />
+                    )}
+                </Div>
+                Completed? <input type='checkbox' onChange={(e) => {
+                if (e.target.checked === true) setCompleted(true)
+                else if (e.target.checked === false) setCompleted(false)
+            }}/>
+            </Form>
+        </Container>
+    );
 };
+
 
 const Container = styled.div`
   width: 90%;

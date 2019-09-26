@@ -5,6 +5,9 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
+//Add workout data to global state
+export const ADD_WORKOUT = 'ADD_WORKOUT';
+
 export const register = (user) => dispatch => {
   dispatch({ type: REGISTER_START});
   // localStorage.removeItem("token");
@@ -75,4 +78,11 @@ export const SET_USER_STORE_SUCCESS = 'SET_USER_STORE_SUCCESS';
 export const sendUserData = userData => dispatch => { 
   //sends user data that is pulled from auth0 to redux store
   dispatch({type: SET_USER_STORE_SUCCESS, payload: userData})
+}
+
+export const addWorkoutToState = newWorkout  => {
+    return {
+        type: ADD_WORKOUT,
+        payload: newWorkout
+    }
 }
