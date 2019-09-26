@@ -4,10 +4,10 @@ LyftQuest is a workout tracker app that helps users keep track of their progress
 
 [Deployed website](https://compassionate-kalam-d8e461.netlify.com)
 
-### Technologies Used
-- Auth0
-- React 
-- PostgreSQL
+### Table of Contents
+- [Installation](#installation)
+- [Tech Stack](#tech-stack)
+
 
 ## Installation
 
@@ -19,3 +19,7 @@ Run the following commands to install LyftQuest from source:
 
 + Run yarn start to start the API server.
 
+## Tech Stack
++ Auth0
++ React 
++ PostgreSQL
