@@ -21,7 +21,7 @@ const NavBar = (props) => {
             {!props.Registered && isAuthenticated &&(
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
-                    <LogoutContainer  >
+                    <LogoutContainer>
                             <NavText 
                                     onClick={() => logout()}
                                 >
@@ -35,10 +35,12 @@ const NavBar = (props) => {
 
 
             {!isAuthenticated && (
-                <Nav >
-                    <img src = {liftQuestTitle} alt = 'liftquest'/>
+                <Nav 
+                onClick={() => loginWithRedirect({})} >
+                    <div> 
+                        <img src = {liftQuestTitle} alt = 'liftquest'/>
+                    </div>
                     <Button 
-                        onClick={() => loginWithRedirect({})} 
                         color = {'white'}
                         background = {' linear-gradient(#2FDDE4, #2367FF)'}
                         text = {"LOGIN"}
@@ -53,7 +55,7 @@ const NavBar = (props) => {
                     <RightNav>
                         <AddWorkoutContainer> 
                         <Link to="/input-workout"> 
-                            <WorkoutButton onClick = {addWorkoutToggler}>
+                            <WorkoutButton >
                                 <Plus src = {plus} alt= 'plus' />
                                 <ButtonText> 
                                     NEW WORKOUT
