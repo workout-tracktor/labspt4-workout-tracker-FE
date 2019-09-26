@@ -3,11 +3,13 @@ import React from "react";
 import Profile from "../Profile";
 import styled from "styled-components";
 import ProfileIcon from "./ProfileIcon.png";
+import { connect } from "react-redux";
 
 class UserSettings extends React.Component {
-  state = {
-    goal: ""
-  };
+  // state = {
+  //   thisUser: [],
+  //   body_goal: ""
+  // };
 
   render = () => (
     <Section>
@@ -23,7 +25,7 @@ class UserSettings extends React.Component {
       <Div>
         <Span>Goal</Span>
 
-        <GoalValueDiv>{this.state.goal}</GoalValueDiv>
+        <GoalValueDiv>{this.props.bodyGoal}</GoalValueDiv>
       </Div>
 
       <Div onClick={this.update_active_setting}>
@@ -77,7 +79,13 @@ const Span = styled.span`
   font-weight: bold;
   font-size: 18px;
 `;
-const GoalValueDiv = styled.div``;
+const GoalValueDiv = styled.div`
+  color: white;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-size: 16px;
+  margin-right: 10px;
+`;
 
 const Div = styled.div`
   display: flex;
@@ -104,4 +112,10 @@ const Label = styled.label`
   margin-left: 5px;
 `;
 
-export default UserSettings;
+const mapStateToProps = state => {
+  return {
+    thisUser: state.thisUser,
+    bodyGoal: state.bodyGoal
+  };
+};
+export default connect(mapStateToProps)(UserSettings);
