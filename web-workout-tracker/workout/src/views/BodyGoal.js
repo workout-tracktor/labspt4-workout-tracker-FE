@@ -30,12 +30,18 @@ export class BodyGoal extends React.Component {
         this.setState({ goal, buttonPressed: true });
         this.props.sendUserGoal(goal);
     }
-    // handleBlur = () => {
-    //     this.setState({ buttonPressed: false });
-    // }
+    hideSelectButton(e) {
+        if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
+            this.setState({ buttonPressed: false });
+        }
+        // if(e.target.dataset.txt === "Select") {
+        //     this.setState({ buttonPressed: false });
+        // }
+    }
 
-    setGoal = (props) => {
+    setGoal = (e, props) => {
         console.log(`Goal: ${this.props.bodyGoal}`);
+        console.log(e.target.dataset);
         axios
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
@@ -52,7 +58,7 @@ export class BodyGoal extends React.Component {
 
     render() {
         return (
-            <PageWrapper>
+            <PageWrapper onClick={ e => this.hideSelectButton(e)}>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
@@ -64,7 +70,7 @@ export class BodyGoal extends React.Component {
                 {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {data.data.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 

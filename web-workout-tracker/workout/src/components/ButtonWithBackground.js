@@ -7,13 +7,13 @@ export default function ButtonWithBackground(props) {
             {/* onTouchStart={() => {}} is for re-enabling active pseudo class (By default Mobile Safari disables CSS active pseudo styles on web pages) */}
 
             {/* Desktop/tablet */}
-            <Button data-testid="body-goal" type="desktop" url={props.url} onClick={() => props.onClick(props.text)} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
+            <Button data-testid="body-goal" type="desktop" url={props.url} onClick={() => props.onClick(props.text)} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
                 <img alt="" src={props.icon} style={{position: "absolute", left: "12px", top: "12px", width: "19px", height: "18px" }} />
                 <Text>{props.text}</Text>
             </Button>
 
             {/* Mobile only */}
-            <Button data-testid="body-goal" type="mobile" url={props.urlMobile} onClick={() => props.onClick(props.text)} onBlur={props.onBlur} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
+            <Button data-testid="body-goal" type="mobile" url={props.urlMobile} onClick={() => props.onClick(props.text)} opacity={props.opacity} gradient={props.gradient} onTouchStart={() => {}}>
                 <img alt="" src={props.icon} style={{position: "absolute", left: "12px", top: "12px", width: "19px", height: "18px" }} />
                 <Text>{props.text}</Text>
             </Button>
