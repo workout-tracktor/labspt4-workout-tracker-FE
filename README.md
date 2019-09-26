@@ -20,6 +20,7 @@ Run the following commands to install LyftQuest from source:
 + Run yarn start to start the API server.
 
 ## Tech Stack
-+ Auth0
-+ React 
-+ PostgreSQL
++ [Auth0](https://auth0.com/) is used to handle secure authentication logins/registration of users.
++ [React](https://reactjs.org/) is used for UI.
++ [PostgreSQL](https://www.postgresql.org/) handles persisting backend data, which can be found [here](https://github.com/workout-tracktor/labspt4-workout-tracker-BE).
++ [Styled-Components](https://www.styled-components.com/) assisted in producing clean and easy to read code to help style componenents.
