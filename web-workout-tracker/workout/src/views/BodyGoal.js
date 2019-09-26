@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { updateUser, sendUserGoal } from '../actions';
+import { sendUserData, sendUserGoal } from '../actions';
 
 import axios from "axios";
 
@@ -26,21 +26,25 @@ export class BodyGoal extends React.Component {
         const id = localStorage.getItem("user_id");
         this.setState({user_id: id});
     }
-    clickOptionHandler = (goal, props) => {
+    clickOptionHandler = (goal) => {
         this.setState({ goal, buttonPressed: true });
         this.props.sendUserGoal(goal);
     }
-    // handleBlur = () => {
-    //     this.setState({ buttonPressed: false });
-    // }
+    // eventListener for the window, hide Select button when user isn't pressing on body options or Select button itself
+    hideSelectButton(e) {
+        if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
+            this.setState({ buttonPressed: false });
+        }
+        if(e.target.dataset.txt === "I'll do this later") {
+            this.props.history.push("/Landing");
+        }
+    }
 
-    setGoal = (props) => {
-        console.log(`Goal: ${this.props.bodyGoal}`);
+    setGoal = (e, props) => {
         axios
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
-                console.log(res);
-                // localStorage.removeItem("body_goal");
+                this.props.sendUserData(res.data);
                 localStorage.setItem("body_goal", res.data.body_goal);
                 this.props.history.push("/Landing");
             })
@@ -51,9 +55,8 @@ export class BodyGoal extends React.Component {
     }
 
     render() {
-        console.log(this.state.user_id);
         return (
-            <PageWrapper>
+            <PageWrapper onClick={ e => this.hideSelectButton(e)}>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
                 <OnboardingHeader url={TrophyIcon} text="What's your goal?" />
@@ -62,20 +65,17 @@ export class BodyGoal extends React.Component {
                 */}
                 {/* url prop is for desktop/tablet, urlMobile for mobile only */}
 
-                {/* onBlur event occurs when component lose focus */}
                 <OptionsWrapper>
                     {data.data.map(elem =>
-                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} onBlur={this.handleBlur} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
+                        <ButtonWithBackground key={elem.id} url={elem.url} urlMobile={elem.urlMobile} icon={CheckMark} text={elem.text} onClick={this.clickOptionHandler} opacity={this.state.buttonPressed ? "0.3" : "0.7"} gradient={!this.state.buttonPressed ? "rgba(22, 26, 41, 0.5)" : "transparent"} />
                     )}
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                    {/* @TO-DO: Uncomment button element below (possibility to skip onboarding when it grows in next versions of the app)? */}
+                     {/* Skip on boarding Button*/}
                     <Button text="I'll do this later" background="transparent" padding="7px 0px" />
 
-                    {/* "Select" Button
-                    @TO-DO: For Canvas 1 it's the only screen for on boarding, so SELECT button will be === SUBMIT button. And onSubmit events which saves body goal in the db and change it in Redux store and then redirects to the right page
-                    */}
+                    {/* "Select" Button*/}
                     {
                         this.state.buttonPressed && <Button text="Select" setGoal={this.setGoal} />
                     }
@@ -114,4 +114,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {updateUser, sendUserGoal})(BodyGoal);
+export default connect(mapStateToProps, {sendUserData, sendUserGoal})(BodyGoal);
