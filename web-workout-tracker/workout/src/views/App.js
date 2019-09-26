@@ -22,7 +22,7 @@ function App() {
 
   const registerToggler = () => {
     //toggles the state to render certain Navbar buttons if in the onboarding or dashboard
-    setRegistered(!Registered)
+    setRegistered(true)
   }
 
   return (
