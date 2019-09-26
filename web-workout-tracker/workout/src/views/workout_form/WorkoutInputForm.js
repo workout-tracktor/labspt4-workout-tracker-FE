@@ -25,7 +25,7 @@ const WorkoutInputForm = ({
         e.preventDefault();
         const newWorkout = {name, date, set, completed, workoutType: workoutTypeVar};
         addWorkoutToState(newWorkout);
-        history.push('/landing')
+        history.push('/Landing')
     };
 
     const [name, setName] = useState("");
