@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { updateUser, sendUserGoal } from '../actions';
+import { sendUserData, sendUserGoal } from '../actions';
 
 import axios from "axios";
 
@@ -26,7 +26,7 @@ export class BodyGoal extends React.Component {
         const id = localStorage.getItem("user_id");
         this.setState({user_id: id});
     }
-    clickOptionHandler = (goal, props) => {
+    clickOptionHandler = (goal) => {
         this.setState({ goal, buttonPressed: true });
         this.props.sendUserGoal(goal);
     }
@@ -40,7 +40,7 @@ export class BodyGoal extends React.Component {
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
                 console.log(res);
-                // localStorage.removeItem("body_goal");
+                this.props.sendUserData(res.data);
                 localStorage.setItem("body_goal", res.data.body_goal);
                 this.props.history.push("/Landing");
             })
@@ -51,7 +51,6 @@ export class BodyGoal extends React.Component {
     }
 
     render() {
-        console.log(this.state.user_id);
         return (
             <PageWrapper>
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
@@ -114,4 +113,4 @@ const ButtonsWrapper = styled.div`
 `;
 
 
-export default connect(mapStateToProps, {updateUser, sendUserGoal})(BodyGoal);
+export default connect(mapStateToProps, {sendUserData, sendUserGoal})(BodyGoal);
