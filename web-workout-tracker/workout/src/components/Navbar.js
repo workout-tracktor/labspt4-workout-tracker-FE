@@ -47,7 +47,6 @@ const NavBar = (props) => {
                         />
                 </Nav>
             )}
-            )}
 
             {isAuthenticated && props.Registered && (
                 <Nav>
