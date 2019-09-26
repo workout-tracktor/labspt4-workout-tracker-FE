@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import CardioSet from "./CardioSet";
 import WeightliftingSet from "./WeightliftingSet";
+import DrownDownLogs from '../DropdownLogs';
 
 class Workouts extends React.Component {
     constructor(props) {
@@ -23,9 +24,11 @@ class Workouts extends React.Component {
                 </Title>
 
                 {this.props.workoutData.length !== 0 ?
-                    this.props.workoutData.map(workout => {
-                        return (
-                            <div>
+                    <DrownDownLogs workout={this.props.workoutData}/>
+                  
+                          
+                
+                            /* <div>
                                 <p>{workout.name}</p>
                                 <p>{workout.date.toString()}</p>
 
@@ -35,9 +38,10 @@ class Workouts extends React.Component {
                                 <p>{workout.completed}</p>
 
 
-                            </div>
-                        )
-                    })
+                            </div> */
+                            
+                        
+            
 
                     :
                     (
