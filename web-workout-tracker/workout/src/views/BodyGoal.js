@@ -30,22 +30,17 @@ export class BodyGoal extends React.Component {
         this.setState({ goal, buttonPressed: true });
         this.props.sendUserGoal(goal);
     }
+    // eventListener for the window, hide Select button when user isn't pressing on body options or Select button itself
     hideSelectButton(e) {
         if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
             this.setState({ buttonPressed: false });
         }
-        // if(e.target.dataset.txt === "Select") {
-        //     this.setState({ buttonPressed: false });
-        // }
     }
 
     setGoal = (e, props) => {
-        console.log(`Goal: ${this.props.bodyGoal}`);
-        console.log(e.target.dataset);
         axios
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
-                console.log(res);
                 this.props.sendUserData(res.data);
                 localStorage.setItem("body_goal", res.data.body_goal);
                 this.props.history.push("/Landing");
