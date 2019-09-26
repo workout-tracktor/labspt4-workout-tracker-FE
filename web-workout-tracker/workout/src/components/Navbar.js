@@ -10,46 +10,51 @@ import PersonIcon from '../assets/icons/Person.svg'
 import Button from '../components/Button'
 
 const NavBar = (props) => {
-    const [textToggler, settextToggler] = React.useState(!false)
-    const [newUser, setnewUser] = React.useState(!false)
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
     const addWorkoutToggler = () => {
         console.log('take me somewhere')
     }
+
     return (
         <div>
             {!props.Registered && isAuthenticated &&(
                 <Nav >
                     <img src = {liftQuestTitle} alt = 'liftquest'/>
-                    <LogoutContainer  >
+                    <LogoutContainer>
                             <NavText 
                                     onClick={() => logout()}
                                 >
                                 <Person src = {PersonIcon} alt= 'person'/>
                                     LOGOUT
                                 </NavText>
+
                             </LogoutContainer>
                 </Nav>
             )}
+
+
             {!isAuthenticated && (
-                <Nav >
-                    <img src = {liftQuestTitle} alt = 'liftquest'/>
+                <Nav 
+                onClick={() => loginWithRedirect({})} >
+                    <div> 
+                        <img src = {liftQuestTitle} alt = 'liftquest'/>
+                    </div>
                     <Button 
-                        onClick={() => loginWithRedirect({})} 
                         color = {'white'}
                         background = {' linear-gradient(#2FDDE4, #2367FF)'}
                         text = {"LOGIN"}
                         />
                 </Nav>
             )}
+
             {isAuthenticated && props.Registered && (
                 <Nav>
                         <Link to="/Landing"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
                         <AddWorkoutContainer> 
                         <Link to="/input-workout"> 
-                            <WorkoutButton onClick = {addWorkoutToggler}>
+                            <WorkoutButton >
                                 <Plus src = {plus} alt= 'plus' />
                                 <ButtonText> 
                                     NEW WORKOUT
@@ -83,13 +88,6 @@ const NavBar = (props) => {
         </div>
     );
 };
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    margin: 0 auto;
-    width: 294px;
-`
 
 const Nav = styled.span`
     width: 100%;

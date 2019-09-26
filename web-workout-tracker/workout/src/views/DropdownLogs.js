@@ -9,84 +9,6 @@ class DropdownLogs extends React.Component {
         super(props)
         this.state = {
             //DUMMY Data
-            logs: [
-                {
-                    exerciseName: "Bench Press",
-                    sets: [
-                        {
-                            id: 1,
-                            weight: 160,
-                            reps: 14,
-                        },
-                        {
-                            id: 2,
-                            weight: 160,
-                            reps: 14,
-                        },
-                        {
-                            id: 3,
-                            weight: 160,
-                            reps: 14,
-                        }
-                    ],
-
-                },
-                {
-                    exerciseName: "DB Incline Press",
-                    sets: [
-                        {
-                            id: 1,
-                            weight: 180,
-                            reps: 9,
-                        },
-                        {
-                            id: 2,
-                            weight: 180,
-                            reps: 9,
-                        },
-                        {
-                            id: 3,
-                            weight: 180,
-                            reps: 9,
-                        }
-                    ],
-                },
-                {
-                    exerciseName: "DB Flyers",
-                    sets: [
-                        {
-                            id: 1,
-                            weight: 205,
-                            reps: 11,
-                        },
-                        {
-                            id: 2,
-                            weight: 205,
-                            reps: 11
-                        },
-                        {
-                            id: 3,
-                            weight: 205,
-                            reps: 11
-                        },
-                        {
-                            id: 4,
-                            weight: 300,
-                            reps: 11,
-
-                        }
-                    ],
-                },
-                {
-                    exerciseName: "Treadmill",
-                    sets: [
-                        {
-                            id: 1,
-                            distance: 3,
-                        },
-                    ],
-                },
-            ],
             //Units would set to proper units when pulled from backend
             unit: 'lbs',
             distanceUnits: 'miles',
@@ -125,11 +47,9 @@ class DropdownLogs extends React.Component {
 
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
-        console.log(this.state.Workouts)
         return(
             <Container>
                         <Title>
-                            <TitleText>FITTER FASTER FURTHER </TitleText>
                             <Button>
                                 <EditIcon 
                                     src = {PencilEdit} 
@@ -139,7 +59,7 @@ class DropdownLogs extends React.Component {
                                 <ButtonText>EDIT</ButtonText>
                             </Button>
                         </Title>
-                {this.state.logs.map((workout, workoutIndex) => {
+                {this.props.workout.map((workout, workoutIndex) => {
                     return(
                         <>
                         <Dropdown 
@@ -155,24 +75,25 @@ class DropdownLogs extends React.Component {
                                     rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
                                     alt = "arrow"
                                 />
-                                <Text> {workout.exerciseName}</Text>
+                                <Text> {workout.name}</Text>
                             </TitleLeft>
-                            <Text> {workout.sets.length} Excercises</Text>
+                            <Text> {workout.set.length} Excercises</Text>
                         </Dropdown>
                         {
                             //checks to see if the mappped id is is included in the selectedValue state to render 
                             //workout log data.
                             this.state.selectedValue.includes(workoutIndex) ? 
-                            workout.sets.map((set, index) => {
+                            workout.set.map((sets, index) => {
                                 return(
                                     <DropDownInfo 
-                                        set = {set} 
-                                        key = {index} 
-                                        unit = {this.state.unit}
+                                        weight = {sets[`weight${index}`]} 
+                                        thisIndex = {index+1} 
+                                        reps = {sets[`rep${index}`]}
                                         //type checks to see if distance key is in mapped object
                                         //it passes a true prop to render the distance data
-                                        type = {'distance' in set? false : true }
+                                        type = {sets[`distance${index}`] ? false : true }
                                         distanceUnits = {this.state.distanceUnits}
+                                        distance = { sets[`distance${index}`] }
                                         />
                                 )
                         })

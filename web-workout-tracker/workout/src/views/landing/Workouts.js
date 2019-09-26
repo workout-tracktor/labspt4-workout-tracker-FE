@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import CardioSet from "./CardioSet";
 import WeightliftingSet from "./WeightliftingSet";
+import DrownDownLogs from '../DropdownLogs';
 
 class Workouts extends React.Component {
     constructor(props) {
@@ -18,27 +19,13 @@ class Workouts extends React.Component {
     render() {
         return (
             <Container>
+            {}
                 <Title>
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
 
                 {this.props.workoutData.length !== 0 ?
-                    this.props.workoutData.map(workout => {
-                        return (
-                            <div>
-                                <p>{workout.name}</p>
-                                <p>{workout.date.toString()}</p>
-
-                                {workout.workoutType === 'cardio' ? <CardioSet setData={workout.set}/> :
-                                    <WeightliftingSet setData={workout.set}/>}
-
-                                <p>{workout.completed}</p>
-
-
-                            </div>
-                        )
-                    })
-
+                    <DrownDownLogs workout={this.props.workoutData}/>
                     :
                     (
                         <NoWorkout>

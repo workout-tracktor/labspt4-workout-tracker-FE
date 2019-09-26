@@ -47,6 +47,7 @@ const Name = styled.p`
   font-family: Roboto Condensed;
   font-style: normal;
   font-size: 16px;
+  margin-right: 10px;
 `;
 
 const Span = styled.span`
