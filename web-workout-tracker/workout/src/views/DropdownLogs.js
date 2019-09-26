@@ -50,7 +50,6 @@ class DropdownLogs extends React.Component {
         return(
             <Container>
                         <Title>
-                            <TitleText>FITTER FASTER FURTHER </TitleText>
                             <Button>
                                 <EditIcon 
                                     src = {PencilEdit} 
