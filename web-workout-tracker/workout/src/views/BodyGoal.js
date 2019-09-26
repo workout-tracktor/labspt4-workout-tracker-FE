@@ -35,6 +35,9 @@ export class BodyGoal extends React.Component {
         if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
             this.setState({ buttonPressed: false });
         }
+        if(e.target.dataset.txt === "I'll do this later") {
+            this.props.history.push("/Landing");
+        }
     }
 
     setGoal = (e, props) => {
