@@ -19,30 +19,13 @@ class Workouts extends React.Component {
     render() {
         return (
             <Container>
+            {}
                 <Title>
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
 
                 {this.props.workoutData.length !== 0 ?
                     <DrownDownLogs workout={this.props.workoutData}/>
-                  
-                          
-                
-                            /* <div>
-                                <p>{workout.name}</p>
-                                <p>{workout.date.toString()}</p>
-
-                                {workout.workoutType === 'cardio' ? <CardioSet setData={workout.set}/> :
-                                    <WeightliftingSet setData={workout.set}/>}
-
-                                <p>{workout.completed}</p>
-
-
-                            </div> */
-                            
-                        
-            
-
                     :
                     (
                         <NoWorkout>
