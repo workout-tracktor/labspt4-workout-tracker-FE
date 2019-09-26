@@ -6,11 +6,6 @@ import ProfileIcon from "./ProfileIcon.png";
 import { connect } from "react-redux";
 
 class UserSettings extends React.Component {
-  // state = {
-  //   thisUser: [],
-  //   body_goal: ""
-  // };
-
   render = () => (
     <Section>
       <Header>
