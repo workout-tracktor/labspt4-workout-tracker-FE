@@ -94,6 +94,7 @@ class DropdownLogs extends React.Component {
                                         type = {sets[`distance${index}`] ? false : true }
                                         distanceUnits = {this.state.distanceUnits}
                                         distance = { sets[`distance${index}`] }
+                                        unit = {this.state.unit}
                                         />
                                 )
                         })
