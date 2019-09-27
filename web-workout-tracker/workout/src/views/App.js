@@ -11,10 +11,11 @@ import UserSettings from "./user_settings";
 import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
 import WorkoutForm from "./workout_form/WorkoutForm";
+import WorkoutTypeForm from "./workout_form/WorkoutTypeForm";
 
 function App() {
   const { loading } = useAuth0();
-  const [Registered, setRegistered] = React.useState(false)
+  const [Registered, setRegistered] = React.useState(false);
 
   if (loading) {
     return <Loading />;
@@ -23,7 +24,7 @@ function App() {
   const registerToggler = () => {
     //toggles the state to render certain Navbar buttons if in the onboarding or dashboard
     setRegistered(true)
-  }
+  };
 
   return (
     <div className="App">
@@ -40,7 +41,9 @@ function App() {
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />
 
-          <Route path="/input-workout"  render = {(props) => <WorkoutForm {...props}/>} />
+          <Route exact path="/workout-form"  render = {(props) => <WorkoutTypeForm {...props}/>} />
+          <Route exact path="/workout-form/:exercise"  render = {(props) => <WorkoutForm {...props}/>} />
+
         </Switch>
       </BrowserRouter>
     </div>

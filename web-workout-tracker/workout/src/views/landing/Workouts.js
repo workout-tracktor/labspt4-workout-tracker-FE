@@ -5,9 +5,8 @@ import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import CardioSet from "./CardioSet";
-import WeightliftingSet from "./WeightliftingSet";
 import DrownDownLogs from '../DropdownLogs';
+import axios from 'axios'
 
 class Workouts extends React.Component {
     constructor(props) {
@@ -15,11 +14,23 @@ class Workouts extends React.Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        const user_id = localStorage.getItem('user_id');
+        console.log(user_id)
+        axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     render() {
         return (
             <Container>
-            {}
+                {}
                 <Title>
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
@@ -39,7 +50,7 @@ class Workouts extends React.Component {
 
                 <Button>
                     <img src={plus} alt="plus"/>
-                    <Link to="/input-workout">ADD A WORKOUT</Link>
+                    <Link to="/workout-form">ADD A WORKOUT</Link>
                 </Button>
             </Container>
         );

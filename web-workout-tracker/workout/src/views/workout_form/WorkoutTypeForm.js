@@ -2,31 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import weight from "../../assets/icons/Weightlifting.png";
 import cardio from "../../assets/icons/Cardio.png";
-const WorkoutTypeForm = ({ setWorkoutType }) => {
-  const chooseHandler = event => {
-    event.preventDefault();
-    setWorkoutType(event.target.value);
-  };
-  return (
-    <Div>
+import {Link} from "react-router-dom";
 
-      <Form onSubmit={chooseHandler}>
-        <Header>What Type of Workout?</Header>
-        <Button value="weightlifting" onClick={chooseHandler}>
-          <Div>
-            <img src={weight} alt="weight" />
-          </Div>
-          Weightlifting
-        </Button>
-        <Button value="cardio" onClick={chooseHandler}>
-          <Div>
-            <img src={cardio} alt="cardio" />
-          </Div>
-          Cardio
-        </Button>
-      </Form>
-    </Div>
-  );
+const WorkoutTypeForm = () => {
+    const onSubmitHandler = event => {
+        event.preventDefault();
+    };
+    return (
+        <Div>
+            <Form onSubmit={onSubmitHandler}>
+                <Header>What Type of Workout?</Header>
+                <Link to={'/workout-form/weightlifting'}>
+                    <Button value="weightlifting">
+                        <Div>
+                            <img src={weight} alt="weight"/>
+                        </Div>
+                        Weightlifting
+                    </Button>
+                </Link>
+                <Link to={'/workout-form/cardio'}>
+                    <Button value="cardio">
+                        <Div>
+                            <img src={cardio} alt="cardio"/>
+                        </Div>
+                        Cardio
+                    </Button>
+                </Link>
+            </Form>
+        </Div>
+    );
 };
 
 const Div = styled.div`
