@@ -30,7 +30,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat eISZRH"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -58,7 +57,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat cdigah"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -86,7 +84,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat hneIYw"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -114,7 +111,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat gCToSQ"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -142,7 +138,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat iKvSkk"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -170,7 +165,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat jSRHaN"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -198,7 +192,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat jbMiBB"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
@@ -226,7 +219,6 @@ exports[`matches snapshot 1`] = `
     <button
       className="sc-htpNat khPDjk"
       data-testid="body-goal"
-      onBlur={[Function]}
       onClick={[Function]}
       onTouchStart={[Function]}
       opacity="0.7"
