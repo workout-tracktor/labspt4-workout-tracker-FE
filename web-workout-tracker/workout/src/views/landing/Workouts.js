@@ -6,6 +6,7 @@ import plus from "../../assets/icons/Plus.svg";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import DrownDownLogs from '../DropdownLogs';
+import axios from 'axios'
 
 class Workouts extends React.Component {
     constructor(props) {
@@ -13,11 +14,23 @@ class Workouts extends React.Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        const user_id = localStorage.getItem('user_id');
+        console.log(user_id)
+        axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     render() {
         return (
             <Container>
-            {}
+                {}
                 <Title>
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>

@@ -15,7 +15,7 @@ import WorkoutTypeForm from "./workout_form/WorkoutTypeForm";
 
 function App() {
   const { loading } = useAuth0();
-  const [Registered, setRegistered] = React.useState(false)
+  const [Registered, setRegistered] = React.useState(false);
 
   if (loading) {
     return <Loading />;
@@ -24,7 +24,7 @@ function App() {
   const registerToggler = () => {
     //toggles the state to render certain Navbar buttons if in the onboarding or dashboard
     setRegistered(true)
-  }
+  };
 
   return (
     <div className="App">

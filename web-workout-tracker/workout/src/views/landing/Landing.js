@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
+
 class Landing extends React.Component {
   constructor(props){
     super(props)
