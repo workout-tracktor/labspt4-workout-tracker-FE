@@ -20,7 +20,7 @@ class UserSettings extends React.Component {
       <Div>
         <Span>Goal</Span>
 
-        <GoalValueDiv>{this.props.bodyGoal}</GoalValueDiv>
+        <GoalValueDiv>{this.props.thisUser.body_goal}</GoalValueDiv>
       </Div>
 
       <Div onClick={this.update_active_setting}>
@@ -109,7 +109,9 @@ const Label = styled.label`
 
 const mapStateToProps = state => {
   return {
+    // it's saved data for particular user
     thisUser: state.thisUser,
+    // it's a temporary storage for on boarding page purposes
     bodyGoal: state.bodyGoal
   };
 };
