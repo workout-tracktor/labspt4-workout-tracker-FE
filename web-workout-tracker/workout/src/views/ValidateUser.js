@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import axios from "axios";
-import {sendUserData} from '../actions'
+import {sendUserData, getBodyGoal} from '../actions'
 import { connect } from "react-redux";
 
 // import {post}
@@ -14,7 +14,6 @@ const ValidateUser = (props) => {
     // Update the document title using the browser API
 
     if(user === undefined){
-      console.log('tre')
        props.history.push("/Landing")    
     } else {
       const userData = {
@@ -27,11 +26,11 @@ const ValidateUser = (props) => {
       }
 
       axios
-      //sends GET request to backend to retrieve user information by username,
+      //sends GET request to send user backend data to Redux store
       .get(`https://workouttrackerprod.herokuapp.com/api/user?username=${user.nickname}`)
       .then(res => {
         //If successful GET by username, sends to dashboard
-        props.sendUserData(userData)
+        props.getBodyGoal(res.data)
         localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
       })
@@ -57,5 +56,8 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps, 
-  {sendUserData}
+  {
+    sendUserData,
+    getBodyGoal
+  }
   )(ValidateUser)

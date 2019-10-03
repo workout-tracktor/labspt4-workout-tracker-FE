@@ -36,7 +36,6 @@ function App() {
           <Route exact path="/" render = {(props) => <ValidateUser {...props} isRegistered={registerToggler} />} />
           <Route exact path="/Landing" render = {(props) => <Landing {...props} isRegistered={registerToggler} />}/>
           <Route exact path="/user-settings" component={UserSettings} />
-
           {/* On boarding - choose the body goal */}
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" component={BodyGoal} />

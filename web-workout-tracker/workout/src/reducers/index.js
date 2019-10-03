@@ -11,6 +11,8 @@ import {
     UPDATE_USER_FAILURE,
     SET_USER_STORE_SUCCESS,
     SET_USER_GOAL_SUCCESS,
+    GET_BODY_GOAL_SUCCESS,
+    GET_BODY_GOAL_FAIL,
     ADD_WORKOUT
 } from '../actions';
 
@@ -99,6 +101,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 workoutData: [...state.workoutData, action.payload]
             }
+            case GET_BODY_GOAL_SUCCESS:
+                return {
+                    ...state,
+                    thisUser: action.payload
+                }
         default:
             return state;
     }
