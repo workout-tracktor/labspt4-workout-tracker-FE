@@ -12,10 +12,6 @@ import Button from '../components/Button'
 const NavBar = (props) => {
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
-    const addWorkoutToggler = () => {
-        console.log('take me somewhere')
-    }
-
     return (
         <div>
             {!props.Registered && isAuthenticated &&(

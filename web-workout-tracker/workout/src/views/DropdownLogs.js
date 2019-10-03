@@ -15,7 +15,8 @@ class DropdownLogs extends React.Component {
             selectedValue: [],
             //Rotate helps check to see if the arrow image would roatate when clicked WIP
             rotate: false,
-            Workouts: []
+            Workouts: [],
+            editInfo: false
         }
     }
 
@@ -43,18 +44,25 @@ class DropdownLogs extends React.Component {
                 selectedValue: [...this.state.selectedValue, workoutIndex], 
                 rotate: !this.state.rotate, 
             })
-}
+    }
+
+    editHandler = (e)  => {
+        e.preventDefault()
+        this.setState({editInfo: !this.state.editInfo})
+    }
 
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
             <Container>
                         <Title>
-                            <Button>
+                            <Button 
+                                onClick = {this.editHandler}
+                            >
                                 <EditIcon 
                                     src = {PencilEdit} 
                                     alt = 'edit icon'
-                                    onClick = {this.editHandler}
+
                                     />
                                 <ButtonText>EDIT</ButtonText>
                             </Button>
@@ -95,6 +103,7 @@ class DropdownLogs extends React.Component {
                                         distanceUnits = {this.state.distanceUnits}
                                         distance = { sets[`distance${index}`] }
                                         unit = {this.state.unit}
+                                        edit = {this.state.editInfo}
                                         />
                                 )
                         })
@@ -163,7 +172,7 @@ const Text = styled.p `
 const Title = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 0 0 15px 0;
     width: 100%;
@@ -171,7 +180,7 @@ const Title = styled.div`
     @media (max-width: 1040px) {
         margin-top: 25px;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
         
     }  
 `
