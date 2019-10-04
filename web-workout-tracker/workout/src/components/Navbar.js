@@ -65,9 +65,7 @@ const NavBar = (props) => {
                         </NavText>
                         </Link>
                         {isAuthenticated && 
-                            <LogoutContainer  
-                            onClick = {() => localStorage.removeItem("user_id")}
-                            >
+                            <LogoutContainer>
                             <NavText 
                                     onClick={() => logout()}
                             >
