@@ -12,6 +12,7 @@ import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
 import WorkoutForm from "./workout_form/WorkoutForm";
 import WorkoutTypeForm from "./workout_form/WorkoutTypeForm";
+import { MarketingPage } from "./MarketingPage";
 
 function App() {
   const { loading } = useAuth0();
@@ -33,7 +34,8 @@ function App() {
           <NavBar Registered = {Registered}/>
         </header>
         <Switch>
-          <Route exact path="/" render = {(props) => <ValidateUser {...props} isRegistered={registerToggler} />} />
+          <Route exact path="/" component={MarketingPage} />
+          <Route exact path="/validate-user" render = {(props) => <ValidateUser {...props} isRegistered={registerToggler} />} />
           <Route exact path="/Landing" render = {(props) => <Landing {...props} isRegistered={registerToggler} />}/>
           <Route exact path="/user-settings" component={UserSettings} />
           {/* On boarding - choose the body goal */}
