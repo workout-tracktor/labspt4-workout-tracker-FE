@@ -7,6 +7,9 @@ import tabletMockup from '../assets/images/android-galaxy-tablet-with-android-ph
 import featureGraphic from '../assets/images/features.png';
 import tripleThreat from '../assets/images/3-black-android-phones-mockup-in-portrait-position-over-a-png-background-b11880.png';
 
+// CSS import
+import "../assets/index.css";
+
 class Marketing extends React.Component {
   render() {
     return (
