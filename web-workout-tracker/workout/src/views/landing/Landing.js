@@ -5,6 +5,9 @@ import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
 
+import { connect } from "react-redux";
+
+
 class Landing extends React.Component {
   constructor(props){
     super(props)
@@ -15,14 +18,16 @@ class Landing extends React.Component {
         //selectedDate is the date that is selected on the calendar
         //which will then be sent to back end to check to see if there was workout data
         selectedDate: null,
-        isLoggedin: false
+        isLoggedin: false,
+        user_id: ""
       };
   }
   componentDidMount() {
     //Toggles navbar component prop to render new workout and settings button
     this.props.isRegistered()
+
     //checks to see if user is logged in by checking local storage to render components
-    if("user_id" in localStorage){
+    if(this.props.thisUser.user_id){
      this.setState({isLoggedin: !this.state.isLoggedin})
     } else {this.setState({isLoggedin: false})}
     axios
@@ -51,6 +56,11 @@ class Landing extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  thisUser: state.thisUser
+});
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -62,4 +72,4 @@ const Container = styled.div`
     align-items: center;
   }
 `;
-export default Landing;
+export default connect(mapStateToProps, {})(Landing);

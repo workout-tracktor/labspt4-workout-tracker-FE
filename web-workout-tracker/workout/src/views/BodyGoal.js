@@ -19,13 +19,9 @@ import CheckMark from "../assets/icons/CheckMark.svg";
 export class BodyGoal extends React.Component {
     state= {
         goal: "",
-        buttonPressed: false,
-        user_id: ""
+        buttonPressed: false
     }
-    componentDidMount() {
-        const id = localStorage.getItem("user_id");
-        this.setState({user_id: id});
-    }
+    
     clickOptionHandler = (goal) => {
         this.setState({ goal, buttonPressed: true });
         this.props.sendUserGoal(goal);
@@ -41,12 +37,12 @@ export class BodyGoal extends React.Component {
     }
 
     setGoal = (e, props) => {
+        const id = this.props.thisUser.user_id;
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.state.user_id, body_goal: this.props.bodyGoal })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: id, body_goal: this.props.bodyGoal })
             .then(res => {
                 this.props.sendUserData(res.data);
-                localStorage.setItem("body_goal", res.data.body_goal);
-                this.props.history.push("/Landing");
+                this.props.history.goBack();
             })
             .catch(err => {
                 console.log(err);
@@ -87,7 +83,8 @@ export class BodyGoal extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    bodyGoal: state.bodyGoal
+    bodyGoal: state.bodyGoal,
+    thisUser: state.thisUser
 });
 
 const PageWrapper = styled.div`

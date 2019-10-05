@@ -6,6 +6,9 @@ import ProfileIcon from "./ProfileIcon.png";
 import { connect } from "react-redux";
 
 class UserSettings extends React.Component {
+  toOnboarding = (props) => {
+    this.props.history.push("/onboarding/body-goal");
+  } 
   render = () => (
     <Section>
       <Header>
@@ -18,9 +21,13 @@ class UserSettings extends React.Component {
       </ProfileDiv>
 
       <Div>
-        <Span>Goal</Span>
+        <GoalHeaderWrapper>
+          <Span>Goal</Span>
+          <Edit onClick={this.toOnboarding}>Edit</Edit>
+        </GoalHeaderWrapper>
 
         <GoalValueDiv>{this.props.thisUser.body_goal}</GoalValueDiv>
+       
       </Div>
 
       <Div onClick={this.update_active_setting}>
@@ -80,6 +87,29 @@ const GoalValueDiv = styled.div`
   font-style: normal;
   font-size: 16px;
   margin-right: 10px;
+`;
+
+// quick workaround for edit feature
+const GoalHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const Edit = styled.p`
+  color: #03A3F3;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-size: 10px;
+  border: 1px solid #03A3F3;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 3px;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, .1);
+  }
 `;
 
 const Div = styled.div`

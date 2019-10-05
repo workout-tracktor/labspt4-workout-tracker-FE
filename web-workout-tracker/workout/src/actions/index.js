@@ -72,6 +72,16 @@ export const updateUser = updatedUser => dispatch => {
     });
 };
 
+/* GET user body goal */
+
+export const GET_BODY_GOAL_SUCCESS = 'GET_BODY_GOAL_SUCCESS'
+export const GET_BODY_GOAL_FAIL = 'GET_BODY_GOAL_FAIL'
+
+export const getBodyGoal = user => dispatch => {
+  dispatch({type: GET_BODY_GOAL_SUCCESS, payload: user})
+}
+
+
 
 export const SET_USER_STORE_SUCCESS = 'SET_USER_STORE_SUCCESS';
 
