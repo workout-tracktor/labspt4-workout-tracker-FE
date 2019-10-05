@@ -8,7 +8,9 @@ class DropDownInfo extends React.Component {
             weight: this.props.weight,
             reps: this.props.reps,
             distance: this.props.distance,
-            id: this.props.id
+            workoutId: this.props.workoutId,
+            setId: this.props.setId,
+            workoutName: this.props.workoutName
         }
     }
 
@@ -19,7 +21,10 @@ class DropDownInfo extends React.Component {
             weight: this.state.weight,
             reps: this.state.reps,
             distance: this.state.distance,
-            id: this.state.id
+            id: this.state.id,
+            workoutId: this.state.workoutId,
+            setId: this.state.setId,
+            workoutName: this.state.workoutName
         }
         this.props.updatedWorkout(data)
     }
@@ -56,7 +61,6 @@ class DropDownInfo extends React.Component {
                             name = "distance" 
                             onChange={this.handleChange}/>
                         <Text> {this.props.distanceUnits}</Text>
-                        <Text  onClick={this.sendData}> Submit</Text>
                         </>
                 :                 
                 this.props.type?

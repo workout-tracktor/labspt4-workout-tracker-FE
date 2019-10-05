@@ -53,12 +53,38 @@ class DropdownLogs extends React.Component {
     }
 
     updatedWorkout = data => {
-        this.setState({...this.state, updatedSetData: {...this.state.updatedSetData, data}})
-        console.log(this.state.updatedSetData)
+        let newData = this.state.updatedSetData
+
+        if(this.state.updatedSetData.length > 0){
+            this.state.updatedSetData.map((prevData, index) => {
+            if( prevData.workoutName === data.workoutName) {
+                console.log(data)
+            let dataIndex = newData.findIndex(x => x.workoutName === data.workoutName) 
+            newData.forEach((obj, index) => {
+                if(obj.workoutName === data.workoutName){
+                    newData[dataIndex] = data
+                }
+            })
+            console.log(newData)
+            this.setState({ updatedSetData:  newData  })
+            }    else {
+                this.setState({
+                    updatedSetData: this.state.updatedSetData.concat(data)
+                    })
+            }
+        })
+        }
+            else {
+                this.setState({
+                    updatedSetData: this.state.updatedSetData.concat(data)
+                    })
+                }
     }
+
 
     sumbitHandler = () => {
         console.log(this.state.updatedSetData)
+        
     }
 
     render(){
@@ -72,7 +98,6 @@ class DropdownLogs extends React.Component {
                                 <EditIcon 
                                     src = {PencilEdit} 
                                     alt = 'edit icon'
-
                                     />
                                 <ButtonText>EDIT</ButtonText>
                             </Button>
@@ -110,7 +135,9 @@ class DropdownLogs extends React.Component {
                                 return(
                                     <DropDownInfo 
                                         weight = {sets[`weight${index}`]} 
-                                        id = {workoutIndex}
+                                        workoutId = {workoutIndex}
+                                        setId = {index}
+                                        workoutName= {workout.name}
                                         thisIndex = {index+1} 
                                         reps = {sets[`rep${index}`]}
                                         //type checks to see if distance key is in mapped object
@@ -223,6 +250,7 @@ const Button = styled.button`
     justify-content: space-around;
     align-items: center;
     width: 70px;
+    margin: 0 5px;
 
     &:hover {
         cursor: pointer;
