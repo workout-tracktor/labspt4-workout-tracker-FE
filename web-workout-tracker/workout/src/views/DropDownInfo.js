@@ -5,9 +5,25 @@ class DropDownInfo extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-
+            weight: this.props.weight,
+            reps: this.props.reps,
+            distance: this.props.distance,
+            id: this.props.id
         }
     }
+
+     handleChange = async e => {
+        e.preventDefault()
+        await this.setState({ ...this.state, [e.target.name]: e.target.value})
+        let data =  {            
+            weight: this.state.weight,
+            reps: this.state.reps,
+            distance: this.state.distance,
+            id: this.state.id
+        }
+        this.props.updatedWorkout(data)
+    }
+    
     render(){
         return (
            
@@ -16,16 +32,31 @@ class DropDownInfo extends React.Component {
                     this.props.type?
                         <>
                         <GrayText> Set {this.props.thisIndex }</GrayText>
-                        <Inputs type = "text" value = {this.props.weight} /> 
+                        <Inputs 
+                            type = "text" 
+                            value = {this.state.weight} 
+                            name= "weight" 
+                            onChange={this.handleChange}/> 
                         <Text>{this.props.unit}</Text>
                         <GrayText> X </GrayText>
-                        <Inputs type = "text" value = {this.props.weight} /> 
-                        <Text>{this.props.reps}</Text>
+                        <Inputs 
+                            type = "text" 
+                            value = {this.state.reps}  
+                            name = "reps" 
+                            onChange={this.handleChange}/> 
+                        <Text> reps</Text>
                         </>
+                        
                     :
                         <>
                         <GrayText> Distance </GrayText>
-                        <Text>{this.props.distance} {this.props.distanceUnits}</Text>
+                        <Inputs 
+                            type = "text" 
+                            value = {this.state.distance}  
+                            name = "distance" 
+                            onChange={this.handleChange}/>
+                        <Text> {this.props.distanceUnits}</Text>
+                        <Text  onClick={this.sendData}> Submit</Text>
                         </>
                 :                 
                 this.props.type?

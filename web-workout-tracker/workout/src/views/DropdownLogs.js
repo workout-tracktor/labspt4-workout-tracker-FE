@@ -16,7 +16,8 @@ class DropdownLogs extends React.Component {
             //Rotate helps check to see if the arrow image would roatate when clicked WIP
             rotate: false,
             Workouts: [],
-            editInfo: false
+            editInfo: false,
+            updatedSetData: []
         }
     }
 
@@ -51,6 +52,15 @@ class DropdownLogs extends React.Component {
         this.setState({editInfo: !this.state.editInfo})
     }
 
+    updatedWorkout = data => {
+        this.setState({...this.state, updatedSetData: {...this.state.updatedSetData, data}})
+        console.log(this.state.updatedSetData)
+    }
+
+    sumbitHandler = () => {
+        console.log(this.state.updatedSetData)
+    }
+
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
@@ -65,6 +75,11 @@ class DropdownLogs extends React.Component {
 
                                     />
                                 <ButtonText>EDIT</ButtonText>
+                            </Button>
+                            <Button 
+                                onClick = {this.sumbitHandler}
+                            >
+                                <ButtonText>SUBMIT</ButtonText>
                             </Button>
                         </Title>
                 {this.props.workout.map((workout, workoutIndex) => {
@@ -95,6 +110,7 @@ class DropdownLogs extends React.Component {
                                 return(
                                     <DropDownInfo 
                                         weight = {sets[`weight${index}`]} 
+                                        id = {workoutIndex}
                                         thisIndex = {index+1} 
                                         reps = {sets[`rep${index}`]}
                                         //type checks to see if distance key is in mapped object
@@ -104,6 +120,7 @@ class DropdownLogs extends React.Component {
                                         distance = { sets[`distance${index}`] }
                                         unit = {this.state.unit}
                                         edit = {this.state.editInfo}
+                                        updatedWorkout = {data => this.updatedWorkout(data)}
                                         />
                                 )
                         })
