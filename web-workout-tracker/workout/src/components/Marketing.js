@@ -1,5 +1,12 @@
 import React from "react";
 
+// Image imports
+import phoneGuy from '../assets/images/guy-with-phone.png';
+import iPhone from '../assets/images/frontal-mockup-of-a-white-iphone-6-plus-over-a-transparent-background-a11471.png';
+import tabletMockup from '../assets/images/android-galaxy-tablet-with-android-phone-responsive-mockup-over-a-png-background-a11881.png'
+import featureGraphic from '../assets/images/features.png';
+import tripleThreat from '../assets/images/3-black-android-phones-mockup-in-portrait-position-over-a-png-background-b11880.png';
+
 class Marketing extends React.Component {
   render() {
     return (
@@ -11,7 +18,7 @@ class Marketing extends React.Component {
         <link rel="manifest" href="site.webmanifest" />
         <link rel="apple-touch-icon" href="icon.png" />
         {/* Place favicon.ico in the root directory */}
-        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/index.css" />
         <link
           href="/resources/img/hamburgers-master/hamburgers-master/dist/hamburgers.css"
           rel="stylesheet"
@@ -28,7 +35,7 @@ class Marketing extends React.Component {
           <div className="top-market">
             <img
               className="guy-phone"
-              src="/resources/img/guy-with-phone.png"
+              src={phoneGuy}
               alt="Guy with a phone in the gym"
             />
             <h1 className="top-cta">
@@ -41,12 +48,6 @@ class Marketing extends React.Component {
           line 31
         <a href="#" class="signupButton">SIGNUP</a>
         */}
-              <a
-                href="https://peaceful-joliot-329a9c.netlify.com/"
-                className="loginButton"
-              >
-                LOGIN
-              </a>
             </div>
             {/*
       <img class="google-download" src="/resources/img/google-play-badge.png" alt="Download on GooglePlay" />
@@ -64,12 +65,12 @@ class Marketing extends React.Component {
             </p>
             <img
               className="onboarding-mock"
-              src="/resources/img/frontal-mockup-of-a-white-iphone-6-plus-over-a-transparent-background-a11471.png"
+              src={iPhone}
               alt="iPhone witha app"
             />
             <img
               className="tablet-mock"
-              src="/resources/img/android-galaxy-tablet-with-android-phone-responsive-mockup-over-a-png-background-a11881.png"
+              src={tabletMockup}
               alt="A tablet and a phone with LiftQuest"
             />
             <div className="boxes">
@@ -84,12 +85,12 @@ class Marketing extends React.Component {
         alt="Running Girl" /> Removes running girl for now */}
             <img
               className="feature-graphic"
-              src="/resources/img/features.png"
+              src={featureGraphic}
               alt="A list of Features"
             />
             <img
               className="trips"
-              src="/resources/img/3-black-android-phones-mockup-in-portrait-position-over-a-png-background-b11880.png"
+              src={tripleThreat}
               alt="Mock up screens"
             />
           </div>
