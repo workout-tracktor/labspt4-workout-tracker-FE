@@ -1,5 +1,6 @@
 import React from "react";
-
+import { useAuth0 } from "../components/auth0-wrapper";
+import { withRouter } from 'react-router'
 // Image imports
 import phoneGuy from '../assets/images/guy-with-phone.png';
 import iPhone from '../assets/images/frontal-mockup-of-a-white-iphone-6-plus-over-a-transparent-background-a11471.png';
@@ -10,8 +11,19 @@ import tripleThreat from '../assets/images/3-black-android-phones-mockup-in-port
 // CSS import
 import "../assets/index.css";
 
-class Marketing extends React.Component {
-  render() {
+
+const Marketing = (props) => {
+
+  const { user } = useAuth0();
+
+  React.useEffect(() => {
+    if(user !== undefined){
+      props.history.push("/validate-user")    
+    } 
+  })
+
+
+
     return (
       <div>
         <meta charSet="utf-8" />
@@ -116,6 +128,5 @@ class Marketing extends React.Component {
       </div>
     );
   }
-}
 
-export default Marketing;
+export default withRouter(Marketing);

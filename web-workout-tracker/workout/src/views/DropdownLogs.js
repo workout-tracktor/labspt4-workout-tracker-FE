@@ -16,7 +16,7 @@ class DropdownLogs extends React.Component {
             //Rotate helps check to see if the arrow image would roatate when clicked WIP
             rotate: false,
             Workouts: [],
-            editInfo: false
+            editInfo: false,
         }
     }
 
@@ -62,7 +62,6 @@ class DropdownLogs extends React.Component {
                                 <EditIcon 
                                     src = {PencilEdit} 
                                     alt = 'edit icon'
-
                                     />
                                 <ButtonText>EDIT</ButtonText>
                             </Button>
@@ -94,6 +93,7 @@ class DropdownLogs extends React.Component {
                             workout.set.map((sets, index) => {
                                 return(
                                     <DropDownInfo 
+                                        
                                         weight = {sets[`weight${index}`]} 
                                         thisIndex = {index+1} 
                                         reps = {sets[`rep${index}`]}
@@ -103,7 +103,6 @@ class DropdownLogs extends React.Component {
                                         distanceUnits = {this.state.distanceUnits}
                                         distance = { sets[`distance${index}`] }
                                         unit = {this.state.unit}
-                                        edit = {this.state.editInfo}
                                         />
                                 )
                         })
@@ -159,7 +158,6 @@ const TitleText = styled.p `
     font-size: 18px;
     color: #03A3F3;
     text-transform: uppercase;
-    
 ` 
 const Text = styled.p `
     font-family: Roboto Condensed;
@@ -206,6 +204,7 @@ const Button = styled.button`
     justify-content: space-around;
     align-items: center;
     width: 70px;
+    margin: 0 5px;
 
     &:hover {
         cursor: pointer;

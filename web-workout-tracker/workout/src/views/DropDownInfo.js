@@ -10,25 +10,8 @@ class DropDownInfo extends React.Component {
     }
     render(){
         return (
-           
-            <Row>
-                {this.props.edit?
-                    this.props.type?
-                        <>
-                        <GrayText> Set {this.props.thisIndex }</GrayText>
-                        <Inputs type = "text" value = {this.props.weight} /> 
-                        <Text>{this.props.unit}</Text>
-                        <GrayText> X </GrayText>
-                        <Inputs type = "text" value = {this.props.weight} /> 
-                        <Text>{this.props.reps}</Text>
-                        </>
-                    :
-                        <>
-                        <GrayText> Distance </GrayText>
-                        <Text>{this.props.distance} {this.props.distanceUnits}</Text>
-                        </>
-                :                 
-                this.props.type?
+            <Row>               
+                {this.props.type?
                         <>
                         <GrayText> Set {this.props.thisIndex }</GrayText>
                         <Text> {this.props.weight} {this.props.unit}</Text>
@@ -47,9 +30,6 @@ class DropDownInfo extends React.Component {
     }
 }
 
-const Inputs = styled.input `
-    display: flex;
-`
 const Row = styled.div `
     display: flex;
     flex-direction: row;
