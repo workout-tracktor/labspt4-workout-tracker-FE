@@ -27,7 +27,7 @@ class Landing extends React.Component {
     this.props.isRegistered()
 
     //checks to see if user is logged in by checking cookie to render components
-    if(document.cookie.indexOf( 'auth0.is.authenticated' ) != -1){
+    if(document.cookie.indexOf( 'auth0.is.authenticated' ) !== -1){
      this.setState({isLoggedin: !this.state.isLoggedin})
     } else {this.setState({isLoggedin: false})}
     axios
