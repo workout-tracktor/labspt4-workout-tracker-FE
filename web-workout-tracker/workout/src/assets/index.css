@@ -76,7 +76,7 @@
     color: #03a3f3;
   }
 }
-body {
+.container {
   background-image: url("/resources/img/tactile_noise.png");
   background-repeat: repeat-y-x;
   margin: 0 auto;
