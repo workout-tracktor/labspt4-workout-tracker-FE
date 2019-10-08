@@ -1,7 +1,7 @@
 # Lift Quest
 Lyft Quest is a workout tracker app that helps users keep track of their progression towards their body goal.
 
-[Deployed website](https://compassionate-kalam-d8e461.netlify.com)
+[Deployed website](https://peaceful-joliot-329a9c.netlify.com/)
 
 ### Table of Contents
 - [Installation](#installation)
