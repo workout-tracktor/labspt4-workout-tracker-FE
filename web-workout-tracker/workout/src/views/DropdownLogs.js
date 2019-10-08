@@ -17,7 +17,6 @@ class DropdownLogs extends React.Component {
             rotate: false,
             Workouts: [],
             editInfo: false,
-            updatedSetData: []
         }
     }
 
@@ -52,41 +51,6 @@ class DropdownLogs extends React.Component {
         this.setState({editInfo: !this.state.editInfo})
     }
 
-    updatedWorkout = data => {
-        let newData = this.state.updatedSetData
-
-        if(this.state.updatedSetData.length > 0){
-            this.state.updatedSetData.map((prevData, index) => {
-            if( prevData.workoutName === data.workoutName) {
-                console.log(data)
-            let dataIndex = newData.findIndex(x => x.workoutName === data.workoutName) 
-            newData.forEach((obj, index) => {
-                if(obj.workoutName === data.workoutName){
-                    newData[dataIndex] = data
-                }
-            })
-            console.log(newData)
-            this.setState({ updatedSetData:  newData  })
-            }    else {
-                this.setState({
-                    updatedSetData: this.state.updatedSetData.concat(data)
-                    })
-            }
-        })
-        }
-            else {
-                this.setState({
-                    updatedSetData: this.state.updatedSetData.concat(data)
-                    })
-                }
-    }
-
-
-    sumbitHandler = () => {
-        console.log(this.state.updatedSetData)
-        
-    }
-
     render(){
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
@@ -100,11 +64,6 @@ class DropdownLogs extends React.Component {
                                     alt = 'edit icon'
                                     />
                                 <ButtonText>EDIT</ButtonText>
-                            </Button>
-                            <Button 
-                                onClick = {this.sumbitHandler}
-                            >
-                                <ButtonText>SUBMIT</ButtonText>
                             </Button>
                         </Title>
                 {this.props.workout.map((workout, workoutIndex) => {
@@ -134,10 +93,8 @@ class DropdownLogs extends React.Component {
                             workout.set.map((sets, index) => {
                                 return(
                                     <DropDownInfo 
+                                        
                                         weight = {sets[`weight${index}`]} 
-                                        workoutId = {workoutIndex}
-                                        setId = {index}
-                                        workoutName= {workout.name}
                                         thisIndex = {index+1} 
                                         reps = {sets[`rep${index}`]}
                                         //type checks to see if distance key is in mapped object
@@ -146,8 +103,6 @@ class DropdownLogs extends React.Component {
                                         distanceUnits = {this.state.distanceUnits}
                                         distance = { sets[`distance${index}`] }
                                         unit = {this.state.unit}
-                                        edit = {this.state.editInfo}
-                                        updatedWorkout = {data => this.updatedWorkout(data)}
                                         />
                                 )
                         })
@@ -203,7 +158,6 @@ const TitleText = styled.p `
     font-size: 18px;
     color: #03A3F3;
     text-transform: uppercase;
-    
 ` 
 const Text = styled.p `
     font-family: Roboto Condensed;

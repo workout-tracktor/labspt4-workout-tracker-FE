@@ -46,7 +46,7 @@ const NavBar = (props) => {
 
             {isAuthenticated && props.Registered && (
                 <Nav>
-                        <Link to="/"> <Logo src = {liftQuestTitle}/> </Link>
+                        <Link to="/validate-user"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
                         <AddWorkoutContainer> 
                         <Link to="/workout-form">
