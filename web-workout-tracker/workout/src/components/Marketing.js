@@ -17,9 +17,15 @@ const Marketing = (props) => {
   const { user } = useAuth0();
 
   React.useEffect(() => {
-    if(user !== undefined){
+    // if(document.cookie.indexOf( 'auth0.is.authenticated' ) != -1){
+    //   console.log('works')
+    // }
+    if(document.cookie.indexOf( 'auth0.is.authenticated' ) == -1){
+      return null
+    } else {
       props.history.push("/validate-user")    
-    } 
+    }
+
   })
 
 

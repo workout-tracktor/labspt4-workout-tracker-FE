@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 
 // import {post}
 const ValidateUser = (props) => {
-  const { loading, user } = useAuth0();
+  const { user } = useAuth0();
   
   useEffect(() => {
     // Update the document title using the browser API
