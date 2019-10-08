@@ -14,12 +14,15 @@ import "../assets/index.css";
 
 const Marketing = (props) => {
 
-  const { user } = useAuth0();
-
   React.useEffect(() => {
-    if(user !== undefined){
+//checks to see if user is logged in by checking cookies, and routes them
+//to the dashboard if they have not logged out.
+    if(document.cookie.indexOf( 'auth0.is.authenticated' ) === -1){
+      return null
+    } else {
       props.history.push("/validate-user")    
-    } 
+    }
+
   })
 
 

@@ -26,8 +26,8 @@ class Landing extends React.Component {
     //Toggles navbar component prop to render new workout and settings button
     this.props.isRegistered()
 
-    //checks to see if user is logged in by checking local storage to render components
-    if(this.props.thisUser.user_id){
+    //checks to see if user is logged in by checking cookie to render components
+    if(document.cookie.indexOf( 'auth0.is.authenticated' ) !== -1){
      this.setState({isLoggedin: !this.state.isLoggedin})
     } else {this.setState({isLoggedin: false})}
     axios
