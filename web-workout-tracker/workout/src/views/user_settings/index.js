@@ -1,14 +1,15 @@
 import React from "react";
-// import { useAuth0 } from "../react-auth0-wrapper"
 import Profile from "../Profile";
 import styled from "styled-components";
 import ProfileIcon from "./ProfileIcon.png";
 import { connect } from "react-redux";
+import Logout from "./Logout";
 
 class UserSettings extends React.Component {
-  toOnboarding = (props) => {
+  toOnboarding = props => {
     this.props.history.push("/onboarding/body-goal");
-  } 
+  };
+
   render = () => (
     <Section>
       <Header>
@@ -27,7 +28,6 @@ class UserSettings extends React.Component {
         </GoalHeaderWrapper>
 
         <GoalValueDiv>{this.props.thisUser.body_goal}</GoalValueDiv>
-       
       </Div>
 
       <Div onClick={this.update_active_setting}>
@@ -50,6 +50,10 @@ class UserSettings extends React.Component {
           </UnitDiv>
         </Unit>
       </Div>
+
+      <LogoutDiv>
+        <Logout />
+      </LogoutDiv>
     </Section>
   );
 }
@@ -97,18 +101,18 @@ const GoalHeaderWrapper = styled.div`
 `;
 
 const Edit = styled.p`
-  color: #03A3F3;
+  color: #03a3f3;
   font-family: Roboto Condensed;
   font-style: normal;
   font-size: 10px;
-  border: 1px solid #03A3F3;
+  border: 1px solid #03a3f3;
   border-radius: 3px;
   margin-left: 10px;
   padding: 3px;
   text-transform: uppercase;
   &:hover {
     cursor: pointer;
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, 0.1);
   }
 `;
 
@@ -136,6 +140,7 @@ const Label = styled.label`
   font-size: 16px;
   margin-left: 5px;
 `;
+const LogoutDiv = styled.div``;
 
 const mapStateToProps = state => {
   return {
