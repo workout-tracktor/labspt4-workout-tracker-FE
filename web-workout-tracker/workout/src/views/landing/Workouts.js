@@ -3,59 +3,57 @@ import styled from "styled-components";
 //moment is used to get the time and set AM or PM
 import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-import DrownDownLogs from '../DropdownLogs';
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import DrownDownLogs from "../DropdownLogs";
+import axios from "axios";
 
 class Workouts extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    componentDidMount() {
-        // WIP to get workout data from backend
-        // const user_id = localStorage.getItem('user_id');
-        // console.log(user_id)
-        // axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
-    }
+  componentDidMount() {
+    // WIP to get workout data from backend
+    // const user_id = localStorage.getItem('user_id');
+    // console.log(user_id)
+    // axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+  }
 
+  render() {
+    return (
+      <Container>
+        {}
+        <Title>
+          <TitleText> FITTER FASTER FURTHER </TitleText>
+        </Title>
 
-    render() {
-        return (
-            <Container>
-                {}
-                <Title>
-                    <TitleText> FITTER FASTER FURTHER </TitleText>
-                </Title>
+        {this.props.workoutData.length !== 0 ? (
+          <DrownDownLogs workout={this.props.workoutData} />
+        ) : (
+          <NoWorkout>
+            <Plus src={emoji} alt="thinking emoji" />
+            <TextContainer>
+              <Text> NO WORKOUTS</Text>
+              <Text> LOGGED TODAY</Text>
+            </TextContainer>
+          </NoWorkout>
+        )}
 
-                {this.props.workoutData.length !== 0 ?
-                    <DrownDownLogs workout={this.props.workoutData}/>
-                    :
-                    (
-                        <NoWorkout>
-                            <Plus src={emoji} alt="thinking emoji"/>
-                            <TextContainer>
-                                <Text> NO WORKOUTS</Text>
-                                <Text> LOGGED TODAY</Text>
-                            </TextContainer>
-                        </NoWorkout>
-                    )}
-
-                <Button>
-                    <img src={plus} alt="plus"/>
-                    <Link to="/workout-form">ADD A WORKOUT</Link>
-                </Button>
-            </Container>
-        );
-    }
+        <Button>
+          <img src={plus} alt="plus" />
+          <Link to="/workout-form">ADD A WORKOUT</Link>
+        </Button>
+      </Container>
+    );
+  }
 }
 
 const Container = styled.div`
@@ -131,6 +129,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
+  margin-bottom: 20px;
 
   &:hover {
     cursor: pointer;
@@ -142,9 +141,9 @@ const Button = styled.button`
 `;
 
 const mapStateToProps = state => {
-    return {
-        workoutData: state.workoutData
-    }
+  return {
+    workoutData: state.workoutData
+  };
 };
 
 export default connect(mapStateToProps)(Workouts);

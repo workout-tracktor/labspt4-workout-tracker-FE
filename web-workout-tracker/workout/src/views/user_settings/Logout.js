@@ -4,7 +4,7 @@ import { useAuth0 } from "../../components/auth0-wrapper";
 import styled from "styled-components";
 
 const Logout = props => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, logout } = useAuth0();
   return (
     <LogoutDiv>
       {isAuthenticated && (
