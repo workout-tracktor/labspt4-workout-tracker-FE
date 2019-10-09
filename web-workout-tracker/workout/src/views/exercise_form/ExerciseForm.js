@@ -18,20 +18,20 @@ const ExerciseForm = (props) => {
 
     const submitHandler = e => {
         const user_id = localStorage.getItem('user_id');
-        const data = {name, date, completed, user_id, set:setObject};
-        console.log(data)
-        // axios.post(`https://workouttrackerprod.herokuapp.com/api/workout`, data)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
+
+        for(let i=0; i<set.length; i++) {
+            let setD = set[i];
+            setObject = {...setObject, ...setD}
+        }
+
+        const newExerciseObject = {name, date, completed, user_id, set:setObject};
+        console.log('DATA -----------------', newExerciseObject)
+
 
         e.preventDefault();
-        const newWorkout = {name, date, set, completed, workoutType: exerciseType};
+        const newExercise = {name, date, set, completed, workoutType: exerciseType};
 
-        props.addExerciseToState(newWorkout);
+        props.addExerciseToState(newExercise);
         props.history.push('/Landing')
 
     };
@@ -48,10 +48,7 @@ const ExerciseForm = (props) => {
 
     let setObject = {}
 
-    for(let i=0; i<set.length; i++) {
-        let setD = set[i];
-        setObject = {...setObject, ...setD}
-    }
+
 
 
 
