@@ -9,19 +9,16 @@ const GlobalStyle = createGlobalStyle`
     * {box-sizing: border-box}
     html {
         font-size: 62.5%;
-        @media (min-width: 768px) {
-        height: 100%
-  }
+        background: linear-gradient(#394366, #161A29);
+        background-attachment: fixed;  
         /* re-enabling active pseudo class (By default Mobile Safari disables CSS active pseudo styles on web pages) */
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
     body {
-        ${"" /* height: 100%; */}
         margin: 0;
-        background-repeat: no-repeat;
-        background-attachment: fixed; 
         background: linear-gradient(#394366, #161A29);
-    }
+        background-attachment: fixed;  
+         }
     a {
         color: inherit;
         text-decoration: none;
