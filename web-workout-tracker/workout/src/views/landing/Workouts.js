@@ -3,10 +3,10 @@ import styled from "styled-components";
 //moment is used to get the time and set AM or PM
 import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-import DrownDownLogs from '../DropdownLogs';
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import DrownDownLogs from "../DropdownLogs";
+import axios from "axios";
 
 class Workouts extends React.Component {
     constructor(props) {
@@ -27,7 +27,6 @@ class Workouts extends React.Component {
         //     })
     }
 
-
     render() {
         return (
             <Container>
@@ -36,21 +35,20 @@ class Workouts extends React.Component {
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
 
-                {this.props.exerciseData.length !== 0 ?
-                    <DrownDownLogs workout={this.props.exerciseData}/>
-                    :
-                    (
-                        <NoWorkout>
-                            <Plus src={emoji} alt="thinking emoji"/>
-                            <TextContainer>
-                                <Text> NO WORKOUTS</Text>
-                                <Text> LOGGED TODAY</Text>
-                            </TextContainer>
-                        </NoWorkout>
-                    )}
+                {this.props.exerciseData.length !== 0 ? (
+                    <DrownDownLogs workout={this.props.exerciseData} />
+                ) : (
+                    <NoWorkout>
+                        <Plus src={emoji} alt="thinking emoji" />
+                        <TextContainer>
+                            <Text> NO WORKOUTS</Text>
+                            <Text> LOGGED TODAY</Text>
+                        </TextContainer>
+                    </NoWorkout>
+                )}
 
                 <Button>
-                    <img src={plus} alt="plus"/>
+                    <img src={plus} alt="plus" />
                     <Link to="/exercise-form">ADD A WORKOUT</Link>
                 </Button>
             </Container>
@@ -65,7 +63,6 @@ const Container = styled.div`
   width: 600px;
   margin: 0 20px;
   height: 100%;
-
   @media (max-width: 1040px) {
     width: 100%;
   }
@@ -77,7 +74,6 @@ const Title = styled.div`
   justify-content: space-between;
   padding: 0 0 15px 0;
   border-bottom: 1px solid gray;
-
   @media (max-width: 1040px) {
     margin-top: 25px;
     width: 100%;
@@ -131,7 +127,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-
+  margin-bottom: 20px;
   &:hover {
     cursor: pointer;
   }
@@ -144,7 +140,7 @@ const Button = styled.button`
 const mapStateToProps = state => {
     return {
         exerciseData: state.exerciseData
-    }
+    };
 };
 
 export default connect(mapStateToProps)(Workouts);
