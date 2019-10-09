@@ -36,8 +36,8 @@ class Workouts extends React.Component {
                     <TitleText> FITTER FASTER FURTHER </TitleText>
                 </Title>
 
-                {this.props.workoutData.length !== 0 ?
-                    <DrownDownLogs workout={this.props.workoutData}/>
+                {this.props.exerciseData.length !== 0 ?
+                    <DrownDownLogs workout={this.props.exerciseData}/>
                     :
                     (
                         <NoWorkout>
@@ -51,7 +51,7 @@ class Workouts extends React.Component {
 
                 <Button>
                     <img src={plus} alt="plus"/>
-                    <Link to="/workout-form">ADD A WORKOUT</Link>
+                    <Link to="/exercise-form">ADD A WORKOUT</Link>
                 </Button>
             </Container>
         );
@@ -143,7 +143,7 @@ const Button = styled.button`
 
 const mapStateToProps = state => {
     return {
-        workoutData: state.workoutData
+        exerciseData: state.exerciseData
     }
 };
 

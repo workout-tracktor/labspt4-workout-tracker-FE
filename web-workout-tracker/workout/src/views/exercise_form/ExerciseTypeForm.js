@@ -4,15 +4,15 @@ import weight from "../../assets/icons/Weightlifting.png";
 import cardio from "../../assets/icons/Cardio.png";
 import {Link} from "react-router-dom";
 
-const WorkoutTypeForm = () => {
+const ExerciseTypeForm = () => {
     const onSubmitHandler = event => {
         event.preventDefault();
     };
     return (
         <Div>
             <Form onSubmit={onSubmitHandler}>
-                <Header>What Type of Workout?</Header>
-                <Link to={'/workout-form/weightlifting'}>
+                <Header>What Type of Exercise?</Header>
+                <Link to={'/exercise-form/weightlifting'}>
                     <Button value="weightlifting">
                         <Div>
                             <img src={weight} alt="weight"/>
@@ -20,7 +20,7 @@ const WorkoutTypeForm = () => {
                         Weightlifting
                     </Button>
                 </Link>
-                <Link to={'/workout-form/cardio'}>
+                <Link to={'/exercise-form/cardio'}>
                     <Button value="cardio">
                         <Div>
                             <img src={cardio} alt="cardio"/>
@@ -87,4 +87,4 @@ const Button = styled.button`
   }
 `;
 
-export default WorkoutTypeForm;
+export default ExerciseTypeForm;

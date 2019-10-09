@@ -1,19 +1,19 @@
 import React, {useState} from "react";
-import WorkoutCardioForm from "./WorkoutCardioForm";
-import WorkoutWeightliftingForm from "./WorkoutWeightliftingForm";
+import ExerciseCardioForm from "./ExerciseCardioForm";
+import ExerciseWeightliftingForm from "./ExerciseWeightliftingForm";
 import DatePicker from "../DatePicker";
 import styled from "styled-components";
 import {connect} from "react-redux";
-import {addWorkoutToState} from "../../actions";
+import {addExerciseToState} from "../../actions";
 import axios from 'axios'
 
 
-const WorkoutForm = (props) => {
-    const workoutType = props.match.params.exercise
+const ExerciseForm = (props) => {
+    const exerciseType = props.match.params.exercise
 
     const backHandler = event => {
         event.preventDefault();
-        props.history.push('/workout-form')
+        props.history.push('/exercise-form')
     };
 
     const submitHandler = e => {
@@ -29,9 +29,9 @@ const WorkoutForm = (props) => {
         //     })
 
         e.preventDefault();
-        const newWorkout = {name, date, set, completed, workoutType};
+        const newWorkout = {name, date, set, completed, workoutType: exerciseType};
 
-        props.addWorkoutToState(newWorkout);
+        props.addExerciseToState(newWorkout);
         props.history.push('/Landing')
 
     };
@@ -82,14 +82,14 @@ const WorkoutForm = (props) => {
                 </DateDiv>
 
                 <Div>
-                    {workoutType === "cardio" ?
-                        <WorkoutCardioForm
+                    {exerciseType === "cardio" ?
+                        <ExerciseCardioForm
                             submitHandler={submitHandler}
                             set={set}
                             setSet={setSet}
                         />
                         :
-                        <WorkoutWeightliftingForm
+                        <ExerciseWeightliftingForm
                             submitHandler={submitHandler}
                             set={set}
                             setSet={setSet}
@@ -194,9 +194,9 @@ const Form = styled.form``;
 
 const mapStateToProps = state => {
     return {
-        workoutData: state.workoutData
+        exerciseData: state.exerciseData
     }
 };
 
 
-export default connect(mapStateToProps, {addWorkoutToState})(WorkoutForm);
+export default connect(mapStateToProps, {addExerciseToState})(ExerciseForm);
