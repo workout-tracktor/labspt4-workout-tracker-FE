@@ -49,11 +49,11 @@ class UserSettings extends React.Component {
             <Label htmlFor="metric">Metric</Label>
           </UnitDiv>
         </Unit>
-
-        <Div>
-          <Logout />
-        </Div>
       </Div>
+
+      <LogoutDiv>
+        <Logout />
+      </LogoutDiv>
     </Section>
   );
 }
@@ -140,6 +140,7 @@ const Label = styled.label`
   font-size: 16px;
   margin-left: 5px;
 `;
+const LogoutDiv = styled.div``;
 
 const mapStateToProps = state => {
   return {

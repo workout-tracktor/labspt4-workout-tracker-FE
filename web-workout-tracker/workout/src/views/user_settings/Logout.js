@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Logout = props => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
-    <div>
+    <LogoutDiv>
       {isAuthenticated && (
         <LogoutContainer>
           <NavText onClick={() => logout()}>
@@ -15,15 +15,20 @@ const Logout = props => {
           </NavText>
         </LogoutContainer>
       )}
-    </div>
+    </LogoutDiv>
   );
 };
 
-const LogoutContainer = styled.div`
-  @media (max-width: 669px) {
-    display: none;
-  }
-  @media (min-width: 670px) {
+const LogoutDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 10px;
+  border-bottom: 1px solid rgba(88, 91, 95, 0.2);
+
+  display: none;
+
+  @media (max-width: 570px) {
     display: block;
     display: flex;
     flex-direction: row;
@@ -34,6 +39,8 @@ const LogoutContainer = styled.div`
     }
   }
 `;
+
+const LogoutContainer = styled.div``;
 
 const Person = styled.img`
   margin: 5px;
@@ -47,7 +54,7 @@ const NavText = styled.div`
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 export default Logout;
