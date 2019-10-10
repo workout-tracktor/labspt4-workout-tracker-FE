@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const WorkoutCardioForm = ({ set, setSet }) => {
+const ExerciseCardioForm = ({ set, setSet }) => {
   const addASet = e => {
     e.preventDefault();
     let newData = {};
@@ -212,4 +212,4 @@ const ButtonDiv = styled.div`
   justify-content: flex-end;
 `;
 
-export default WorkoutCardioForm;
+export default ExerciseCardioForm;

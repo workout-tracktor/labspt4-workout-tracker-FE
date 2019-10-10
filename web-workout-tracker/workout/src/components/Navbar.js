@@ -49,7 +49,7 @@ const NavBar = (props) => {
                         <Link to="/validate-user"> <Logo src = {liftQuestTitle}/> </Link>
                     <RightNav>
                         <AddWorkoutContainer> 
-                        <Link to="/workout-form">
+                        <Link to="/exercise-form">
                             <WorkoutButton >
                                 <Plus src = {plus} alt= 'plus' />
                                 <ButtonText> 

@@ -4,14 +4,14 @@ import ValidateUser from './ValidateUser';
 import NavBar from "../components/Navbar";
 import Landing from "./landing/Landing";
 import BodyGoal from "./BodyGoal";
+import ExerciseForm from "./exercise_form/ExerciseForm";
 
 import UserSettings from "./user_settings";
 // import PrivateRoute from "../components/PrivateRoute";
 
 import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
-import WorkoutForm from "./workout_form/WorkoutForm";
-import WorkoutTypeForm from "./workout_form/WorkoutTypeForm";
+import ExerciseTypeForm from "./exercise_form/ExerciseTypeForm";
 import { MarketingPage } from "./MarketingPage";
 
 function App() {
@@ -42,8 +42,9 @@ function App() {
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" render = { (props) => <BodyGoal {...props} newUserToggler={newUserToggler}/>} />
 
-          <Route exact path="/workout-form"  render = {(props) => <WorkoutTypeForm {...props}/>} />
-          <Route exact path="/workout-form/:exercise"  render = {(props) => <WorkoutForm {...props}/>} />
+          <Route exact path="/exercise-form"  render = {(props) => <ExerciseTypeForm {...props}/>} />
+          <Route exact path="/exercise-form/:exercise"  render = {(props) => <ExerciseForm {...props}/>} />
+
         </Switch>
       </BrowserRouter>
     </div>

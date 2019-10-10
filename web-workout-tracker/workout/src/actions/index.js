@@ -6,7 +6,7 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
 //Add workout data to global state
-export const ADD_WORKOUT = 'ADD_WORKOUT';
+export const ADD_EXERCISE = 'ADD_EXERCISE';
 
 export const register = (user) => dispatch => {
   dispatch({ type: REGISTER_START});
@@ -100,10 +100,10 @@ export const sendUserGoal = bodyGoal => dispatch => {
   console.log(bodyGoal);
 } 
 
-export const addWorkoutToState = newWorkout  => {
+export const addExerciseToState = newExercise  => {
     return {
-        type: ADD_WORKOUT,
-        payload: newWorkout
+        type: ADD_EXERCISE,
+        payload: newExercise
     }
 }
 
