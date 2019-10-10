@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const WorkoutWeightliftingForm = ({ set, setSet }) => {
+const ExerciseWeightliftingForm = ({ set, setSet }) => {
   const addASet = e => {
     e.preventDefault();
     let newData = {};
@@ -172,4 +172,4 @@ const ButtonDiv = styled.div`
   justify-content: flex-end;
 `;
 
-export default WorkoutWeightliftingForm;
+export default ExerciseWeightliftingForm;

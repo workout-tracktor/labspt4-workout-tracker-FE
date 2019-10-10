@@ -1,8 +1,8 @@
 // src/components/NavBar.js
 import React from "react";
-import { useAuth0 } from "../components/auth0-wrapper";
+import {useAuth0} from "../components/auth0-wrapper";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import liftQuestTitle from "../assets/images/LiftQuestTitle.png";
 import GearIcon from "../assets/icons/Gear.svg";
 import plus from "../assets/icons/Plus.svg";
@@ -10,69 +10,69 @@ import PersonIcon from "../assets/icons/Person.svg";
 import Button from "../components/Button";
 
 const NavBar = props => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
 
-  return (
-    <div>
-      {!props.Registered && isAuthenticated && (
-        <Nav>
-          <img src={liftQuestTitle} alt="liftquest" />
-          <LogoutContainer>
-            <NavText onClick={() => logout()}>
-              <Person src={PersonIcon} alt="person" />
-              LOGOUT
-            </NavText>
-          </LogoutContainer>
-        </Nav>
-      )}
-
-      {!isAuthenticated && (
-        <Nav onClick={() => loginWithRedirect({})}>
-          <div>
-            <img src={liftQuestTitle} alt="liftquest" />
-          </div>
-          <Button
-            color={"white"}
-            background={" linear-gradient(#2FDDE4, #2367FF)"}
-            text={"LOGIN"}
-          />
-        </Nav>
-      )}
-
-      {isAuthenticated && props.Registered && (
-        <Nav>
-          <Link to="/validate-user">
-            {" "}
-            <Logo src={liftQuestTitle} />{" "}
-          </Link>
-          <RightNav>
-            <AddWorkoutContainer>
-              <Link to="/workout-form">
-                <WorkoutButton>
-                  <Plus src={plus} alt="plus" />
-                  <ButtonText>NEW WORKOUT</ButtonText>
-                </WorkoutButton>
-              </Link>
-            </AddWorkoutContainer>
-            <Link to="/user-settings">
-              <NavText>
-                <Gear src={GearIcon} alt="gear" />
-                <SettingText> SETTINGS </SettingText>
-              </NavText>
-            </Link>
-            {isAuthenticated && (
-              <LogoutContainer>
-                <NavText onClick={() => logout()}>
-                  <Person src={PersonIcon} alt="person" />
-                  LOGOUT
-                </NavText>
-              </LogoutContainer>
+    return (
+        <div>
+            {!props.Registered && isAuthenticated && (
+                <Nav>
+                    <img src={liftQuestTitle} alt="liftquest"/>
+                    <LogoutContainer>
+                        <NavText onClick={() => logout()}>
+                            <Person src={PersonIcon} alt="person"/>
+                            LOGOUT
+                        </NavText>
+                    </LogoutContainer>
+                </Nav>
             )}
-          </RightNav>
-        </Nav>
-      )}
-    </div>
-  );
+
+            {!isAuthenticated && (
+                <Nav onClick={() => loginWithRedirect({})}>
+                    <div>
+                        <img src={liftQuestTitle} alt="liftquest"/>
+                    </div>
+                    <Button
+                        color={"white"}
+                        background={" linear-gradient(#2FDDE4, #2367FF)"}
+                        text={"LOGIN"}
+                    />
+                </Nav>
+            )}
+
+            {isAuthenticated && props.Registered && (
+                <Nav>
+                    <Link to="/validate-user">
+                        {" "}
+                        <Logo src={liftQuestTitle}/>{" "}
+                    </Link>
+                    <RightNav>
+                        <AddWorkoutContainer>
+                            <Link to="/exercise-form">
+                                <WorkoutButton>
+                                    <Plus src={plus} alt="plus"/>
+                                    <ButtonText>NEW EXERCISE</ButtonText>
+                                </WorkoutButton>
+                            </Link>
+                        </AddWorkoutContainer>
+                        <Link to="/user-settings">
+                            <NavText>
+                                <Gear src={GearIcon} alt="gear"/>
+                                <SettingText> SETTINGS </SettingText>
+                            </NavText>
+                        </Link>
+                        {isAuthenticated && (
+                            <LogoutContainer>
+                                <NavText onClick={() => logout()}>
+                                    <Person src={PersonIcon} alt="person"/>
+                                    LOGOUT
+                                </NavText>
+                            </LogoutContainer>
+                        )}
+                    </RightNav>
+                </Nav>
+            )}
+        </div>
+    );
 };
 
 const Nav = styled.span`

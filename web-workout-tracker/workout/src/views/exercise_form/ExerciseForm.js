@@ -1,37 +1,37 @@
 import React, {useState} from "react";
-import WorkoutCardioForm from "./WorkoutCardioForm";
-import WorkoutWeightliftingForm from "./WorkoutWeightliftingForm";
+import ExerciseCardioForm from "./ExerciseCardioForm";
+import ExerciseWeightliftingForm from "./ExerciseWeightliftingForm";
 import DatePicker from "../DatePicker";
 import styled from "styled-components";
 import {connect} from "react-redux";
-import {addWorkoutToState} from "../../actions";
+import {addExerciseToState} from "../../actions";
 import axios from 'axios'
 
 
-const WorkoutForm = (props) => {
-    const workoutType = props.match.params.exercise
+const ExerciseForm = (props) => {
+    const exerciseType = props.match.params.exercise
 
     const backHandler = event => {
         event.preventDefault();
-        props.history.push('/workout-form')
+        props.history.push('/exercise-form')
     };
 
     const submitHandler = e => {
         const user_id = localStorage.getItem('user_id');
-        const data = {name, date, completed, user_id, set:setObject};
-        console.log(data)
-        // axios.post(`https://workouttrackerprod.herokuapp.com/api/workout`, data)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
+
+        for(let i=0; i<set.length; i++) {
+            let setD = set[i];
+            setObject = {...setObject, ...setD}
+        }
+
+        const newExerciseObject = {name, date, completed, user_id, set:setObject};
+        console.log('DATA -----------------', newExerciseObject)
+
 
         e.preventDefault();
-        const newWorkout = {name, date, set, completed, workoutType};
+        const newExercise = {name, date, set, completed, workoutType: exerciseType};
 
-        props.addWorkoutToState(newWorkout);
+        props.addExerciseToState(newExercise);
         props.history.push('/Landing')
 
     };
@@ -48,10 +48,7 @@ const WorkoutForm = (props) => {
 
     let setObject = {}
 
-    for(let i=0; i<set.length; i++) {
-        let setD = set[i];
-        setObject = {...setObject, ...setD}
-    }
+
 
 
 
@@ -82,14 +79,14 @@ const WorkoutForm = (props) => {
                 </DateDiv>
 
                 <Div>
-                    {workoutType === "cardio" ?
-                        <WorkoutCardioForm
+                    {exerciseType === "cardio" ?
+                        <ExerciseCardioForm
                             submitHandler={submitHandler}
                             set={set}
                             setSet={setSet}
                         />
                         :
-                        <WorkoutWeightliftingForm
+                        <ExerciseWeightliftingForm
                             submitHandler={submitHandler}
                             set={set}
                             setSet={setSet}
@@ -194,9 +191,9 @@ const Form = styled.form``;
 
 const mapStateToProps = state => {
     return {
-        workoutData: state.workoutData
+        exerciseData: state.exerciseData
     }
 };
 
 
-export default connect(mapStateToProps, {addWorkoutToState})(WorkoutForm);
+export default connect(mapStateToProps, {addExerciseToState})(ExerciseForm);

@@ -13,7 +13,7 @@ import {
     SET_USER_GOAL_SUCCESS,
     GET_BODY_GOAL_SUCCESS,
     GET_BODY_GOAL_FAIL,
-    ADD_WORKOUT
+    ADD_EXERCISE
 } from '../actions';
 
 const initialState = {
@@ -24,8 +24,8 @@ const initialState = {
     error: "",
     isLoggingIn: false,
     isSigningIn: false,
-    workoutData: []
-}
+    exerciseData: []
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -95,20 +95,20 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 bodyGoal: action.payload
             };
-        case ADD_WORKOUT:
-            console.log(state.workoutData);
+        case ADD_EXERCISE:
+            console.log(state.exerciseData);
             return {
                 ...state,
-                workoutData: [...state.workoutData, action.payload]
-            }
+                exerciseData: [...state.exerciseData, action.payload]
+            };
             case GET_BODY_GOAL_SUCCESS:
                 return {
                     ...state,
                     thisUser: action.payload
-                }
+                };
         default:
             return state;
     }
-}
+};
 
 export default reducer;
