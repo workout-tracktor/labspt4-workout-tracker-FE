@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
-import PencilEdit from '../assets/icons/PencilEdit.svg'
+
 
 class DropdownLogs extends React.Component {
     constructor(props){
@@ -21,7 +21,8 @@ class DropdownLogs extends React.Component {
     }
 
     componentDidMount(){
-
+        //Notifies parent component to change the titling to include Edit button.
+        this.props.titleToggler(true)
     }
 
     dropDownToggler = (workoutIndex) => {
@@ -55,17 +56,7 @@ class DropdownLogs extends React.Component {
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
             <Container>
-                        <Title>
-                            <Button 
-                                onClick = {this.editHandler}
-                            >
-                                <EditIcon 
-                                    src = {PencilEdit} 
-                                    alt = 'edit icon'
-                                    />
-                                <ButtonText>EDIT</ButtonText>
-                            </Button>
-                        </Title>
+                      
                 {this.props.workout.map((workout, workoutIndex) => {
                     return(
                         <>
@@ -123,7 +114,6 @@ const Container = styled.div `
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 15px;
 `
 const Dropdown = styled.div `
     width: 100%;
@@ -166,51 +156,5 @@ const Text = styled.p `
     font-size: 18px;
     color: white;
     text-transform: uppercase;
-`
-const Title = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 0 15px 0;
-    width: 100%;
-
-    @media (max-width: 1040px) {
-        margin-top: 25px;
-        width: 100%;
-        justify-content: flex-end;
-        
-    }  
-`
-
-const EditIcon = styled.img `
-    display: flex;
-    align-items: center;
-    width: 1.3rem;
-`
-const ButtonText = styled.p`
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    color: white;
-`
-const Button = styled.button`
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 6px;
-    padding: 7px 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 70px;
-    margin: 0 5px;
-
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus, &:active {
-        outline: none;
-    };
 `
 export default DropdownLogs;

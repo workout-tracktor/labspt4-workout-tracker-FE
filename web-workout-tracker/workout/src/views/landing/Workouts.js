@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DrownDownLogs from "../DropdownLogs";
 import axios from "axios";
-
+import PencilEdit from '../../assets/icons/PencilEdit.svg'
 class Workouts extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+          displayingWorkouts: false
+        };
     }
 
     componentDidMount() {
@@ -27,18 +29,40 @@ class Workouts extends React.Component {
         //     })
     }
 
+    titleToggler(bool) {
+      //sets the state to rerender the prop titles depending if there is workout data to show user.
+      this.setState({displayingWorkouts: bool})
+    }
+
     render() {
         return (
             <Container>
-                {}
-                <Title>
-                    <TitleText> FITTER FASTER FURTHER </TitleText>
-                </Title>
+                
+                   
+                    {this.state.displayingWorkouts? 
+                    <TitleWithEdit> 
+                      <TitleTextWithEdit> FITTER FASTER FURTHER </TitleTextWithEdit>
+                        <EditButton 
+                                  onClick = {this.editHandler}
+                              >
+                                  <EditIcon 
+                                      src = {PencilEdit} 
+                                      alt = 'edit icon'
+                                      />
+                                  <ButtonText>EDIT</ButtonText>
+                        </EditButton>
+                      </TitleWithEdit>
+                    : 
+                    <Title>
+                      <TitleText> FITTER FASTER FURTHER </TitleText>
+                    </Title>
+                    }
+                
 
                 {this.props.exerciseData.length !== 0 ? (
-                    <DrownDownLogs workout={this.props.exerciseData} />
+                    <DrownDownLogs workout={this.props.exerciseData} titleToggler = {(bool) => this.titleToggler(bool)} />
                 ) : (
-                    <NoWorkout>
+                    <NoWorkout titleToggler = {(bool) => this.titleToggler(bool)}>
                         <Plus src={emoji} alt="thinking emoji" />
                         <TextContainer>
                             <Text> NO WORKOUTS</Text>
@@ -47,10 +71,6 @@ class Workouts extends React.Component {
                     </NoWorkout>
                 )}
 
-                <Button>
-                    <img src={plus} alt="plus" />
-                    <Link to="/exercise-form">ADD A WORKOUT</Link>
-                </Button>
             </Container>
         );
     }
@@ -71,9 +91,10 @@ const Container = styled.div`
 const Title = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 0 15px 0;
-  border-bottom: 1px solid gray;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #636774;
+  padding: 20px 0;
   @media (max-width: 1040px) {
     margin-top: 25px;
     width: 100%;
@@ -82,13 +103,27 @@ const Title = styled.div`
 `;
 
 const TitleText = styled.p`
+  display: flex;
+  width: 100%;
   margin: 0 auto;
   justify-content: center;
+  align-items: center;
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   color: #03a3f3;
+`;
+const TitleTextWithEdit = styled.p`
+width: 100%;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+font-family: Roboto Condensed;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+color: #03a3f3;
 `;
 const NoWorkout = styled.div`
   display: flex;
@@ -107,10 +142,56 @@ const Text = styled.p`
   font-size: 24px;
   color: gray;
 `;
+
+const TitleWithEdit =  styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 15px 0;
+    width: 100%;
+
+    @media (max-width: 1040px) {
+        margin-top: 25px;
+        width: 100%;
+        justify-content: flex-end;
+        
+    }  
+`
 const Plus = styled.img`
   display: flex;
   justify-content: flex-start;
 `;
+const EditIcon = styled.img `
+    display: flex;
+    align-items: center;
+    width: 1.3rem;
+`
+const ButtonText = styled.p`
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+`
+const EditButton = styled.button`
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    padding: 7px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70px;
+    margin: 0 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus, &:active {
+        outline: none;
+    };
+`
 const Button = styled.button`
   background: linear-gradient(#2fdde4, #2367ff);
   color: white;
