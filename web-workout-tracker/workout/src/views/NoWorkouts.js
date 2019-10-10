@@ -8,6 +8,11 @@ class NoWorkouts extends React.Component {
         this.state = {}
     }
 
+    componentDidMount(){
+        //Notifies parent component to keep the default titling.
+        this.props.titleToggler(false)
+    }
+
     render(){
         return(
             <Container>

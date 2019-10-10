@@ -29,20 +29,22 @@ const ValidateUser = (props) => {
       //sends GET request to send user backend data to Redux store
       .get(`https://workouttrackerprod.herokuapp.com/api/user?username=${user.nickname}`)
       .then(res => {
-        //If successful GET by username, sends to dashboard
-        console.log(res)
+        //If successful GET by username, sends to dashboard, and sets the navbar to render
+        //correct buttons
+        props.newUserToggler(false)
         props.getBodyGoal(res.data)
         localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
       })
       .catch(err => {
         //If failed 404 Not Found nickname, sends to onboarding
-        // props.isRegistered()
         axios.post(`https://workouttrackerprod.herokuapp.com/api/user`, userData)
         .then(res => {
           props.getBodyGoal(res.data)
           localStorage.setItem("user_id", res.data.user_id )
           props.history.push("/onboarding/body-goal" )
+          //sets the nav bar to hide certain buttons if new user
+          props.newUserToggler(true)
         })
       })
       }

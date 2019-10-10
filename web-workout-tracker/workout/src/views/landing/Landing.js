@@ -7,50 +7,48 @@ import Workouts from "./Workouts";
 
 import { connect } from "react-redux";
 
+
 class Landing extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      date: new Date(),
-      //when date is clicked on,
-      workouts: true,
-      //selectedDate is the date that is selected on the calendar
-      //which will then be sent to back end to check to see if there was workout data
-      selectedDate: null,
-      isLoggedin: false,
-      user_id: ""
-    };
+  constructor(props){
+    super(props)
+      this.state = {
+        date: new Date(),
+        //when date is clicked on, 
+        workouts: true,
+        //selectedDate is the date that is selected on the calendar
+        //which will then be sent to back end to check to see if there was workout data
+        selectedDate: null,
+        isLoggedin: false,
+        user_id: ""
+      };
   }
   componentDidMount() {
-    //Toggles navbar component prop to render new workout and settings button
-    this.props.isRegistered();
-
     //checks to see if user is logged in by checking cookie to render components
-    if (document.cookie.indexOf("auth0.is.authenticated") !== -1) {
-      this.setState({ isLoggedin: !this.state.isLoggedin });
-    } else {
-      this.setState({ isLoggedin: false });
-    }
+    if(document.cookie.indexOf( 'auth0.is.authenticated' ) !== -1){
+     this.setState({isLoggedin: !this.state.isLoggedin})
+    } else {this.setState({isLoggedin: false})}
     axios
       .get("https://workouttrackerprod.herokuapp.com/")
       .then(res => {
+       
         this.setState(res.data);
       })
       .catch(err => {
         console.log(err);
       });
+    
   }
   onChange = date => this.setState({ date });
 
   render() {
     return (
       <Container>
-        {this.state.isLoggedin ? (
-          <>
-            <Calendar onChange={this.onChange} value={this.state.date} />
-            <Workouts />
-          </>
-        ) : null}
+      {this.state.isLoggedin? 
+      <>
+      <Calendar onChange={this.onChange} value={this.state.date} />
+      <Workouts />
+      </>
+      : null}
       </Container>
     );
   }
@@ -62,7 +60,6 @@ const mapStateToProps = state => ({
 
 const Container = styled.div`
   display: flex;
-  height: 100%;
   flex-direction: row;
   justify-content: center;
   margin: 40px 0;
@@ -72,7 +69,4 @@ const Container = styled.div`
     align-items: center;
   }
 `;
-export default connect(
-  mapStateToProps,
-  {}
-)(Landing);
+export default connect(mapStateToProps, {})(Landing);
