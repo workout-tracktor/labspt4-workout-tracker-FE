@@ -110,10 +110,10 @@ const Marketing = props => {
         */}
             <h1>Fitter Faster Further</h1>
             {/* <a href="https://peaceful-joliot-329a9c.netlify.com/">Login</a> */}
-            <p>
+            {/* <p>
               "You must expect great things of yourself before you can do them."
               ~ Michael Jordan
-            </p>
+            </p> */}
           </footer>
         </div>
         <div className="copyright">
