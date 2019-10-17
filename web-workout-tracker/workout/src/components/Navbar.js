@@ -90,7 +90,7 @@ const Nav = styled.span`
     align-items: center;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     flex-direction: column;
   }
 `;
