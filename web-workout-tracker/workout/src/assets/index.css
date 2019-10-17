@@ -247,9 +247,9 @@
     text-align: center;
   }
   .upper-mid-market .onboarding-mock {
-    margin-top: 330px;
-    margin-left: 53%;
-    width: 45%;
+    margin-top: 150px;
+    margin-left: 43%;
+    width: 34%;
     position: absolute;
     display: block;
   }
@@ -262,13 +262,15 @@
   }
   .upper-mid-market .boxes .box {
     margin-top: 20px;
-    margin-bottom: 20px;
+    height: 400px;
+    width: 400px;
+    margin-bottom: 0px;
   }
   .upper-mid-market .tablet-mock {
-    /* margin-top: 50px; */
+    margin-top: 50px;
     /*margin-left: 100px; Not needed*/
-    margin-left: 5%;
-    width: 80%;
+    margin-left: 20%;
+    width: 44%;
     display: block;
   }
   .lower-market {
@@ -301,12 +303,15 @@
     margin-left: 1200px;
   }
   .lower-market .feature-graphic {
-    width: 90%;
-    margin-left: 70px;
+    width: 17%;
+    margin-top: -150px;
+    margin-left: 16%;
+    position: absolute;
   }
   .lower-market .trips {
-    width: 100%;
-    margin-left: 0;
+    /*margin-top: 440px;  removing for right now*/
+    margin-left: 50%;
+    width: 40%;
   }
 }
 @media (min-width: 300px) {
@@ -422,13 +427,5 @@
   .top-market .top-cta {
     margin-left: 30%;
     margin-top: -400px;
-  }
-  .upper-mid-market .onboarding-mock {
-    margin-top: 485px;
-    margin-left: 53%;
-  }
-  .lower-market .feature-graphic {
-    width: 90%;
-    margin-left: 100px;
   }
 }
