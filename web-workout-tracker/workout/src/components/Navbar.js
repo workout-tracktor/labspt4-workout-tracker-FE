@@ -31,13 +31,11 @@ const NavBar = props => {
           <div>
             <img src={liftQuestTitle} alt="liftquest" />
           </div>
-          <ButtonDiv>
-            <Button
-              color={"white"}
-              background={" linear-gradient(#2FDDE4, #2367FF)"}
-              text={"LOGIN"}
-            />
-          </ButtonDiv>
+          <Button
+            color={"white"}
+            background={" linear-gradient(#2FDDE4, #2367FF)"}
+            text={"LOGIN"}
+          />
         </Nav>
       )}
 
@@ -94,12 +92,6 @@ const Nav = styled.span`
 
   @media (max-width: 400px) {
     flex-direction: column;
-  }
-`;
-
-const ButtonDiv = styled.div`
-  @media (max-width: 400px) {
-    margin-top: 10px;
   }
 `;
 const Logo = styled.img`
