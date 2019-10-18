@@ -14,11 +14,7 @@
   .top-market .top-cta {
     position: absolute;
     text-align: center;
-<<<<<<< HEAD
-    margin-top: -240px;
-=======
     margin-top: -100px;
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
     margin-left: 40px;
     font-size: 30px;
     font-family: Roboto Condensed;
@@ -41,13 +37,9 @@
     margin: 0 auto;
     margin-top: 10px;
     text-align: center;
-<<<<<<< HEAD
-    padding: 0px 4% 0px 4%;
-=======
     font-family: Roboto Condensed;
     font-style: normal;
     /* font-weight: bold; */
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
   }
   .upper-mid-market h1 {
     margin-top: 30px;
@@ -105,12 +97,7 @@
     margin-top: 10px;
   }
   .lower-market .trips {
-<<<<<<< HEAD
-    margin-left: 3.5%;
-    width: 450px;
-=======
     width: 100%;
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
   }
   /* splits the boxes evenly*/
   .boxes {
@@ -135,12 +122,6 @@
   .top-market .top-cta {
     position: absolute;
     text-align: center;
-<<<<<<< HEAD
-    margin-left: 10%;
-    margin-top: -400px;
-    line-height: 100px;
-    font-size: 55px;
-=======
     margin-left: 90px;
     margin-top: -200px;
     line-height: 55px;
@@ -148,7 +129,6 @@
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
     color: white;
   }
 
@@ -164,13 +144,6 @@
   }
   .upper-mid-market p {
     color: white;
-<<<<<<< HEAD
-    line-height: 50px;
-    font-size: 30px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    padding: 0 3% 0 3%;
-=======
     font-family: Roboto Condensed;
     font-style: normal;
     /* font-weight: bold; */
@@ -179,7 +152,6 @@
     /* margin-top: 10px; */
     margin-bottom: 35px;
     padding: 0 10px;
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
     text-align: center;
   }
   .upper-mid-market h1 {
@@ -228,13 +200,8 @@
     margin-left: 200px;
   }
   .lower-market .feature-graphic {
-<<<<<<< HEAD
-    width: 78%;
-    margin-left: 11%;
-=======
     width: 700px;
     margin-left: 30px;
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
   }
   .lower-market .boxes {
     display: flex;
@@ -465,100 +432,4 @@
     margin-left: 30%;
     margin-top: -400px;
   }
-<<<<<<< HEAD
-
-  .upper-mid-market .onboarding-mock {
-    width: 36%;
-  }
 }
-
-.footer h1 {
-  font-size: 4em;
-  padding-bottom: 20px;
-}
-
-.footer a {
-  font-size: 2em;
-  color: #03a3f3;
-  background-color: white;
-  cursor: pointer;
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 0px 15px 0 15px;
-}
-
-/*Team page*/
-.team {
-  margin: 0 auto;
-  width: 100px;
-  max-width: 100%;
-  display: flex; 
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 40px;
-}
-
-.member {
-  margin-top: 90px;
-  width: 20em;
-  border-radius: 10px;
-  background-color: white;
-}
-
-.member img {
-  width: 79%;
-  height: 180px;
-  border-radius: 60%;
-  margin: 10%;
-  margin-top: -70px;
-  position: relative;
-}
-
-.member h2 {
-  text-align: center;
-  letter-spacing: 3px;
-  font-size: 1.5em;
-  background-color: white;
-  font-family: sans-serif;
-}
-
-.member h3 {
-  text-align: center;
-  font-weight: lighter;
-  font-size: 11px;
-  background-color: white;
-  font-family: sans-serif;
-}
-
-.member p {
-  padding-top: 25px;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 20px;
-  width: 20em;
-  text-align: center;
-  background-color: white;
-  font-size: 10px;
-  font-weight: lighter;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 12px;
-}
-
-.member .icons {
-  background-color: #ffffff;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: 100%;
-  padding: 15px 0 15px 0;
-  padding-left: 1.4em;
-}
-
-.member i {
-  background-color: #ffffff;
-  margin: 4px 4px 0px 4px;
-  cursor: pointer;
-}
-=======
-}
->>>>>>> f7bc3e64ac2104081f997fc0118591bd1096059f
