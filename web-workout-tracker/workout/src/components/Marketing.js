@@ -1,14 +1,15 @@
 import React from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+import { Team } from "../components/Team";
+
 // Image imports
 import phoneGuy from "../assets/images/guyWithPhone.jpg";
 import iPhone from "../assets/images/applePhone.png";
 import tabletMockup from "../assets/images/tabletAndPhone.png";
 import featureGraphic from "../assets/images/infographic.jpg";
 import tripleThreat from "../assets/images/threePhones.png";
-
-import Team from '../components/Team.js';
 
 // CSS import
 import "../assets/index.css";
@@ -119,6 +120,7 @@ const Marketing = props => {
           </footer>
         </div>
         <div className="copyright">
+          <Link to={'/team'}>Team</Link>
           <p>© 2019 LiftQuest</p>
         </div>
       </div>

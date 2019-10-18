@@ -26,6 +26,7 @@ const Team = (props) => {
 
     return (
         <div className="team">
+            <h1>Team</h1>
             <div className="member">
                 <img className="selfie" src={Tevvin} alt="Selfie of Tevvin" />
                 <h2>Tevvin strong</h2>
@@ -40,11 +41,11 @@ const Team = (props) => {
                     <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
-            {/* 
+
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -56,8 +57,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -69,8 +70,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -82,8 +83,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -95,8 +96,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -108,8 +109,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -121,8 +122,8 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h3>Tevvin strong</h3>
-                <h4>Full-stack developer</h4>
+                <h2>Tevvin strong</h2>
+                <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
                     dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
@@ -132,7 +133,6 @@ const Team = (props) => {
                     <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
-            */}
         </div>
     );
 }
