@@ -13,6 +13,7 @@ import { useAuth0 } from "../components/auth0-wrapper";
 import Loading from "../components/Loading";
 import ExerciseTypeForm from "./exercise_form/ExerciseTypeForm";
 import { MarketingPage } from "./MarketingPage";
+import { TeamPage } from "./TeamPage";
 
 function App() {
   const { loading } = useAuth0();
@@ -31,19 +32,20 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <header>
-          <NavBar newUser={newUser}/>
+          <NavBar newUser={newUser} />
         </header>
         <Switch>
+          <Route exact path="/team" component={TeamPage} />
           <Route exact path="/" component={MarketingPage} />
-          <Route exact path="/validate-user" render = {(props) => <ValidateUser {...props} newUserToggler={newUserToggler}/>} />
-          <Route exact path="/Landing" render = {(props) => <Landing {...props} />} />}/>
+          <Route exact path="/validate-user" render={(props) => <ValidateUser {...props} newUserToggler={newUserToggler} />} />
+          <Route exact path="/Landing" render={(props) => <Landing {...props} />} />}/>
           <Route exact path="/user-settings" component={UserSettings} />
           {/* On boarding - choose the body goal */}
           {/* @TO-DO: Make route private */}
-          <Route exact path="/onboarding/body-goal" render = { (props) => <BodyGoal {...props} newUserToggler={newUserToggler}/>} />
+          <Route exact path="/onboarding/body-goal" render={(props) => <BodyGoal {...props} newUserToggler={newUserToggler} />} />
 
-          <Route exact path="/exercise-form"  render = {(props) => <ExerciseTypeForm {...props}/>} />
-          <Route exact path="/exercise-form/:exercise"  render = {(props) => <ExerciseForm {...props}/>} />
+          <Route exact path="/exercise-form" render={(props) => <ExerciseTypeForm {...props} />} />
+          <Route exact path="/exercise-form/:exercise" render={(props) => <ExerciseForm {...props} />} />
 
         </Switch>
       </BrowserRouter>

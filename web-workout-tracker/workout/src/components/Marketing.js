@@ -1,12 +1,15 @@
 import React from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom';
 // Image imports
 import phoneGuy from '../assets/images/guy-with-phone.webp';
 import iPhone from '../assets/images/frontal-mockup-of-a-white-iphone-6-plus-over-a-transparent-background-a11471.webp';
 import tabletMockup from '../assets/images/android-galaxy-tablet-with-android-phone-responsive-mockup-over-a-png-background-a11881.webp'
 import featureGraphic from '../assets/images/features.webp';
 import tripleThreat from '../assets/images/3-black-android-phones-mockup-in-portrait-position-over-a-png-background-b11880.webp';
+
+import Team from '../components/Team.js';
 
 // CSS import
 import "../assets/index.css";
@@ -123,7 +126,7 @@ const Marketing = (props) => {
             <br />
             <br />
             <br />
-            <a href="#">Team</a>
+            <Link to={"/team"}>Team</Link>
           </footer>
         </div>
         <div className="copyright">
