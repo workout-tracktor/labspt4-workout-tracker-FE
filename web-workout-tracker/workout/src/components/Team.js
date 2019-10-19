@@ -2,6 +2,8 @@ import React from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import { connect } from 'react-redux'
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
+import { Link } from 'react-router-dom';
+import Home from '../components/Marketing';
 
 // Team images
 import Tevvin from '../assets/images/Tevvin.jpg';
@@ -26,7 +28,7 @@ const Team = (props) => {
 
     return (
         <div className="team">
-            <h1>Team</h1>
+            {/*h1>About Us:</h1>*/}
             <div className="member">
                 <img className="selfie" src={Tevvin} alt="Selfie of Tevvin" />
                 <h2>Tevvin strong</h2>
@@ -132,6 +134,11 @@ const Team = (props) => {
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
                 </div>
+            </div>
+            <div className="link">
+                <button>
+                    <Link to={'/'}>HOME</Link>
+                </button>
             </div>
         </div>
     );

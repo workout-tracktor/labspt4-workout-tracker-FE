@@ -120,7 +120,9 @@ const Marketing = props => {
           </footer>
         </div>
         <div className="copyright">
-          <Link to={'/team'}>Team</Link>
+          <button>
+            <Link to={'/team'}>TEAM</Link>
+          </button>
           <p>© 2019 LiftQuest</p>
         </div>
       </div>

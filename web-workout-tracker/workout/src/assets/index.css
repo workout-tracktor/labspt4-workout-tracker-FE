@@ -429,7 +429,7 @@
 }
 @media (min-width: 1918px) {
   .top-market .top-cta {
-    margin-left: 30%;
+    margin-left: 27.5%;
     margin-top: -400px;
   }
 }
@@ -500,16 +500,52 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
-  padding: 15px 0 15px 0;
-  padding-left: 18.9%;
+  padding: 10px 0 0 0;
+  padding-left: 9%;
 }
 
 .member i {
   background-color: #ffffff;
   margin: 5px;
   cursor: pointer;
+  padding: 3%;
 }
 
 .fa {
   margin-left: 20px;
+}
+
+/*Team page link*/
+.link button {
+  background-image: linear-gradient(to right, #236cfe , #2ed7e5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 176px;
+  height: 25px;
+  margin-top: 40px;
+  font-weight: bold;
+  border: none;
+  margin-right: 8px;
+}
+
+.link button link {
+  cursor: pointer;
+}
+
+/*Marketing page link*/
+.copyright button  {
+  background-image: linear-gradient(to right, #236cfe , #2ed7e5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  margin-left: 46%;
+  margin-bottom: 30px;
+  padding: 5px 50px 5px 50px;
+}
+
+.copyright button link {
+  cursor: pointer;
 }
