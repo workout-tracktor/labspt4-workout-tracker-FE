@@ -37,10 +37,9 @@ const Team = (props) => {
                     Software Developer with experience in full stack web and computer science. Looking to meet more people, work on growing my network.
                 </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
 
@@ -51,10 +50,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -64,10 +62,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -77,10 +74,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -90,10 +86,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -103,10 +98,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -116,10 +110,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="member">
@@ -129,10 +122,9 @@ const Team = (props) => {
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
                     dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-github-square fa-4x" aria-hidden="true" />
                     <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
                 </div>
             </div>
             <div className="link">

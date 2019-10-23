@@ -429,7 +429,7 @@
 }
 @media (min-width: 1918px) {
   .top-market .top-cta {
-    margin-left: 27.5%;
+    margin-left: 26%;
     margin-top: -400px;
   }
 }
@@ -459,7 +459,7 @@
 }
 
 .member img {
-  width: 70%;
+  width: 215px;
   height: 200px;
   border-radius: 60%;
   margin: 10%;
@@ -501,7 +501,7 @@
   border-bottom-right-radius: 10px;
   width: 100%;
   padding: 10px 0 0 0;
-  padding-left: 9%;
+  padding-left: 19%;
 }
 
 .member i {
