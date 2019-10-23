@@ -101,8 +101,8 @@ const Logo = styled.img`
     width: 14rem;
   }
 
-  @media (max-width: 400px) {
-    margin-bottom: 120px;
+  @media (max-width: 500px) {
+    margin-bottom: 20px;
   }
 `;
 const RightNav = styled.div`
