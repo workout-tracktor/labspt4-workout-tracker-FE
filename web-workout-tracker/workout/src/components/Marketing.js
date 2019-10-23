@@ -1,6 +1,9 @@
 import React from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
-import { withRouter } from "react-router";
+import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+import { Team } from "../components/Team";
+
 // Image imports
 import phoneGuy from "../assets/images/guyWithPhone.jpg";
 import iPhone from "../assets/images/applePhone.png";
@@ -117,6 +120,9 @@ const Marketing = props => {
           </footer>
         </div>
         <div className="copyright">
+          <button>
+            <Link to={'/team'}>TEAM</Link>
+          </button>
           <p>© 2019 LiftQuest</p>
         </div>
       </div>
@@ -125,4 +131,4 @@ const Marketing = props => {
   );
 };
 
-export default withRouter(Marketing);
+export default connect()(Marketing);
