@@ -350,6 +350,10 @@
     right: 60px;
     width: 150px;
   }
+
+  .copyright {
+    text-align: center;
+  }
   .copyright p {
     text-align: center;
     margin-top: 20px;
@@ -434,14 +438,13 @@
   }
 }
 
-
 /*Team Page*/
 
 .team {
   margin: 0 auto;
   width: 1810px;
   max-width: 100%;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -516,17 +519,21 @@
 }
 
 /*Team page link*/
+.link {
+  text-align: center;
+  margin-bottom: 20px;
+}
 .link button {
-  background-image: linear-gradient(to right, #236cfe , #2ed7e5);
+  background-image: linear-gradient(to right, #236cfe, #2ed7e5);
   color: white;
   font-size: 20px;
   border-radius: 5px;
-  width: 176px;
-  height: 25px;
-  margin-top: 40px;
   font-weight: bold;
   border: none;
-  margin-right: 8px;
+
+  /* margin-left: 46%; */
+  /* margin-bottom: 30px; */
+  padding: 5px 50px 5px 50px;
 }
 
 .link button link {
@@ -534,15 +541,16 @@
 }
 
 /*Marketing page link*/
-.copyright button  {
-  background-image: linear-gradient(to right, #236cfe , #2ed7e5);
+.copyright button {
+  background-image: linear-gradient(to right, #236cfe, #2ed7e5);
   color: white;
   font-size: 20px;
   border-radius: 5px;
   font-weight: bold;
   border: none;
-  margin-left: 46%;
-  margin-bottom: 30px;
+
+  /* margin-left: 46%; */
+  /* margin-bottom: 30px; */
   padding: 5px 50px 5px 50px;
 }
 

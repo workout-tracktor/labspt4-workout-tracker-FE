@@ -23,170 +23,173 @@ const Team = props => {
   //   });
 
   return (
-    <div className="team">
-      {/*h1>About Us:</h1>*/}
-      <div className="member">
-        <img className="selfie" src={Tevvin} alt="Selfie of Tevvin" />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          Software Developer with experience in full stack web and computer
-          science. Looking to meet more people, work on growing my network.
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+    <>
+      <div className="team">
+        {/*h1>About Us:</h1>*/}
+        <div className="member">
+          <img className="selfie" src={Tevvin} alt="Selfie of Tevvin" />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            Software Developer with experience in full stack web and computer
+            science. Looking to meet more people, work on growing my network.
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="member">
+          <img
+            className="selfie"
+            src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Selfie of Tevvin"
+          />
+          <h2>Tevvin strong</h2>
+          <h3>Full-stack developer</h3>
+          <p>
+            {" "}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
+          </p>
+          <div className="icons">
+            <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-github-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
+            <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
+          </div>
         </div>
       </div>
 
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
-      <div className="member">
-        <img
-          className="selfie"
-          src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Selfie of Tevvin"
-        />
-        <h2>Tevvin strong</h2>
-        <h3>Full-stack developer</h3>
-        <p>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-          sapiente laboriosam dicta voluptas doloremque mollitia veniam iste,{" "}
-        </p>
-        <div className="icons">
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-          <i className="fa fa-facebook-square fa-4x" aria-hidden="true" />
-        </div>
-      </div>
       <div className="link">
         <button>
           <Link to={"/"}>HOME</Link>
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
