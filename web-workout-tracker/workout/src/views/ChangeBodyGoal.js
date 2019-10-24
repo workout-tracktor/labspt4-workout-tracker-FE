@@ -31,9 +31,9 @@ export class BodyGoal extends React.Component {
         if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
             this.setState({ buttonPressed: false });
         }
-        if(e.target.dataset.txt === "I'll do this later") {
-            this.props.history.push("/Landing");
-        }
+        // if(e.target.dataset.txt === "I'll do this later") {
+        //     this.props.history.push("/Landing");
+        // }
     }
 
     setGoal = (e, props) => {
@@ -42,11 +42,11 @@ export class BodyGoal extends React.Component {
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: id, body_goal: this.props.bodyGoal })
             .then(res => {
                 this.props.sendUserData(res.data);
-                this.props.history.push("/Landing");
+                this.props.history.goBack();
             })
             .catch(err => {
                 console.log(err);
-                this.props.history.push("/onboarding/body-goal");
+                this.props.history.push("/change-body-goal");
             })
     }
 
@@ -69,7 +69,7 @@ export class BodyGoal extends React.Component {
                 
                 <ButtonsWrapper>
                      {/* Skip on boarding Button*/}
-                    <Button text="I'll do this later" background="transparent" padding="7px 0px" />
+                    {/* <Button text="I'll do this later" background="transparent" padding="7px 0px" /> */}
 
                     {/* "Select" Button*/}
                     {
@@ -107,7 +107,7 @@ const ButtonsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
 `;
 
 

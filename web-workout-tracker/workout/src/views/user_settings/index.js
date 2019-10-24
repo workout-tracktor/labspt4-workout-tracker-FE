@@ -7,7 +7,7 @@ import Logout from "./Logout";
 
 class UserSettings extends React.Component {
   toOnboarding = props => {
-    this.props.history.push("/onboarding/body-goal");
+    this.props.history.push("/change-body-goal");
   };
 
   render = () => (
