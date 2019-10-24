@@ -12,15 +12,15 @@ import Tevvin from "../assets/images/Tevvin.jpg";
 import "../assets/index.css";
 
 const Team = props => {
-  React.useEffect(() => {
-    //checks to see if user is logged in by checking cookies, and routes them
-    //to the dashboard if they have not logged out.
-    if (document.cookie.indexOf("auth0.is.authenticated") === -1) {
-      return null;
-    } else {
-      props.history.push("/validate-user");
-    }
-  });
+  //   React.useEffect(() => {
+  //     //checks to see if user is logged in by checking cookies, and routes them
+  //     //to the dashboard if they have not logged out.
+  //     if (document.cookie.indexOf("auth0.is.authenticated") === -1) {
+  //       return null;
+  //     } else {
+  //       props.history.push("/validate-user");
+  //     }
+  //   });
 
   return (
     <div className="team">
