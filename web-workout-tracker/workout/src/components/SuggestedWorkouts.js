@@ -4,13 +4,15 @@ import SuggestedModal from "./SuggestedModal";
 
 class SuggestedWorkouts extends React.Component {
   state = {
-    show: false
+    show: false,
+    query: ""
   };
 
-  showModal = e => {
+  showModal = query => {
     if (this.state.show === false) {
       this.setState({
-        show: true
+        show: true,
+        query: query
       });
     } else {
       this.setState({
@@ -24,53 +26,47 @@ class SuggestedWorkouts extends React.Component {
       <Container>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(8);
           }}
         >
           <CardText>ARMS</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(11);
           }}
         >
           <CardText>CHEST</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(12);
           }}
         >
           <CardText>BACK</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(9);
           }}
         >
           <CardText>LEGS</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(13);
           }}
         >
           <CardText>SHOULDERS</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
         <SuggestedCard
           onClick={e => {
-            this.showModal();
+            this.showModal(10);
           }}
         >
           <CardText>ABS</CardText>
-          <SuggestedModal show={this.state.show} />
         </SuggestedCard>
-        
+        <SuggestedModal show={this.state.show} query={this.state.query} />
       </Container>
     );
   }
