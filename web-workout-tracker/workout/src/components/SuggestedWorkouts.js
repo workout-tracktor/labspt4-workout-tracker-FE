@@ -16,7 +16,8 @@ class SuggestedWorkouts extends React.Component {
       });
     } else {
       this.setState({
-        show: false
+        show: false,
+        query: query
       });
     }
   };
