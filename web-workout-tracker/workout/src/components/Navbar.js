@@ -102,7 +102,7 @@ const Logo = styled.img`
   }
 
   @media (max-width: 400px) {
-    margin-bottom: 120px;
+    margin-bottom: 20px;
   }
 `;
 const RightNav = styled.div`
