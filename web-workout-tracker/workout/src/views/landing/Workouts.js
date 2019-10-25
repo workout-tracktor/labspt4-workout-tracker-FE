@@ -68,7 +68,7 @@ class Workouts extends React.Component {
           </NoWorkout>
         )}
         <SuggestedWorkouts />
-        {/* Bring in the suggestions here I believe. Check with Miguel. */}
+        {/* Bring in the suggestions here I believe. Check with Super Awesome Miguel. */}
       </Container>
     );
   }

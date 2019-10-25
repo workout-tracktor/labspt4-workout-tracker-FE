@@ -1,39 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 import parse from "html-react-parser";
 
 export default class SuggestedModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      exercises: []
-    };
-  }
-  getRequest() {
-    axios
-      .get(
-        `https://wger.de/api/v2/exercise/?language=2&category=${this.props.query}&status=2&limit=5`
-      )
-      .then(res => {
-        this.setState({ exercises: res.data.results });
-      });
-  }
-
   render() {
-    console.log(this.props.query);
-    if (!this.props.show) {
-      return null;
-    }
     return (
       <Modal>
-        {this.getRequest()}
-        {this.state.exercises.map((exercise, id) => {
+        {this.props.exercises.map((exercise, id) => {
           return (
-            <div key={id}>
-              <h1> {exercise.name}</h1>
-              <Works>{parse(exercise.description)}</Works>
-            </div>
+            <Exercise key={id}>
+              <Name> {exercise.name}</Name>
+              <Description>
+                {parse(exercise.description)}
+                <button>Add Workout</button>
+              </Description>
+            </Exercise>
           );
         })}
       </Modal>
@@ -42,11 +23,43 @@ export default class SuggestedModal extends React.Component {
 }
 
 const Modal = styled.div`
-  width: 600px;
-  height: 800px;
-  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  height: auto;
+  margin: 0;
+  background: radial-gradient(
+    360.51px at 64.26% 22.01%,
+    #394366 0%,
+    #29304a 100%
+  );
+  border-radius: 16px;
+  border: none;
 `;
 
-const Works = styled.div`
+const Exercise = styled.details`
+  width: 94%;
+  border-radius: 16px;
+  margin-bottom: 15px;
+`;
+
+const Name = styled.summary`
+  margin-top: 5px;
+  font-family: Roboto Condensed, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  font-size: 40px;
+`;
+
+const Description = styled.div`
+margin: 15px 0px
+padding: 0px 25px;
+line-height: 19px;
+font-family: Roboto Condensed, sans-serif;
+  font-size: 16px;
   color: white;
 `;
