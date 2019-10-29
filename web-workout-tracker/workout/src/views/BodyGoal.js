@@ -42,7 +42,7 @@ export class BodyGoal extends React.Component {
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: id, body_goal: this.props.bodyGoal })
             .then(res => {
                 this.props.sendUserData(res.data);
-                this.props.history.push("/Landing");
+                this.props.history.push("/onboarding/units");
             })
             .catch(err => {
                 console.log(err);

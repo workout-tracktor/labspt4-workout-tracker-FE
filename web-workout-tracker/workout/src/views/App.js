@@ -5,6 +5,7 @@ import NavBar from "../components/Navbar";
 import Landing from "./landing/Landing";
 import BodyGoal from "./BodyGoal";
 import ChangeBodyGoal from "./ChangeBodyGoal";
+import ChooseUnits from "./ChooseUnits";
 
 import ExerciseForm from "./exercise_form/ExerciseForm";
 
@@ -43,8 +44,10 @@ function App() {
           {/* On boarding - choose the body goal */}
           {/* @TO-DO: Make route private */}
           <Route exact path="/onboarding/body-goal" render = { (props) => <BodyGoal {...props} newUserToggler={newUserToggler}/>} />
-
+          {/* change body goal from settings */}
           <Route exact path="/change-body-goal" render = { (props) => <ChangeBodyGoal {...props} newUserToggler={newUserToggler}/>} />
+          {/* On boarding - choose units */}
+          <Route exact path="/onboarding/choose-units" render = { (props) => <ChooseUnits {...props} newUserToggler={newUserToggler}/>} />
 
           <Route exact path="/exercise-form"  render = {(props) => <ExerciseTypeForm {...props}/>} />
           <Route exact path="/exercise-form/:exercise"  render = {(props) => <ExerciseForm {...props}/>} />
