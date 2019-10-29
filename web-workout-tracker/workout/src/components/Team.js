@@ -9,6 +9,7 @@ import Home from '../components/Marketing';
 import Tevvin from '../assets/images/Tevvin.jpg';
 import Kristea from '../assets/images/Kristea.jpg';
 import Miguel from '../assets//images/Miguel.jpeg';
+import Dustin from '../assets//images/Dustin.jpeg';
 
 // CSS import
 import "../assets/index.css";
@@ -72,7 +73,7 @@ const Team = (props) => {
                 </div>
             </div>
             <div className="member">
-                <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
+                <img className="selfie" src={Dustin} alt="Selfie of Dustin" />
                 <h2>Dustin Snoap</h2>
                 <h3>Full-stack developer</h3>
                 <p>
