@@ -14,39 +14,40 @@ class SuggestedWorkouts extends React.Component {
     back: false,
     legs: false,
     shoulders: false,
-    abs: false
+    abs: false,
+    min: 1,
+    max: 1
   };
 
-  dropDown = query => {
+  dropDown(query, min, max) {
     this.setState({
       query: query,
       exercises: [],
-      noDuplicates: []
+      noDuplicates: [],
+      min: min,
+      max: max
     });
 
+    function randomOffset(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + 1);
+    }
+    let page = randomOffset(this.state.min, this.state.max);
     axios
       .get(
-        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2&offset=15`
+        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2`
       )
       .then(res => {
+        
+        const theseWorkouts = Array.from(new Set(res.data.results.map(JSON.stringify))).map(JSON.parse)
+        
         this.setState({
-          exercises: res.data.results
+          noDuplicates: theseWorkouts
         })
 
-        res.data.results.map((exercise, index) => {
-            if(this.state.noDuplicates.some(stateWorkout => stateWorkout.name === exercise.name) ) {
-              console.log('same')
-            } else {
-              if(this.state.noDuplicates.length !== 5){
-              this.setState({
-                noDuplicates:[ ...this.state.noDuplicates, exercise]
-              })} else {
-                console.log('Done pulling data')
-              }
-            }
-        })
+        
+
+      });
   }
-)}
 
   render() {
     console.log(this.state.noDuplicates)
@@ -54,9 +55,9 @@ class SuggestedWorkouts extends React.Component {
       <Container>
         <CardBody>
           <SuggestedCard
-            onClick={ () => { 
-              this.setState({arms: !this.state.arms});
-              this.dropDown(8) ;
+            onClick={() => {
+              this.setState({ arms: !this.state.arms });
+              this.dropDown(8, 1, 5);
             }}
           >
             <CardText>ARMS</CardText>
@@ -68,8 +69,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({chest: !this.state.chest});
-              this.dropDown(11);
+              this.setState({ chest: !this.state.chest });
+              this.dropDown(11, 1, 5);
             }}
           >
             <CardText>CHEST</CardText>
@@ -81,8 +82,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({back: !this.state.back});
-              this.dropDown(12);
+              this.setState({ back: !this.state.back });
+              this.dropDown(12, 1, 5);
             }}
           >
             <CardText>BACK</CardText>
@@ -94,8 +95,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({legs: !this.state.legs});
-              this.dropDown(9);
+              this.setState({ legs: !this.state.legs });
+              this.dropDown(9, 1, 5);
             }}
           >
             <CardText>LEGS</CardText>
@@ -107,8 +108,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({shoulders: !this.state.shoulders});
-              this.dropDown(13);
+              this.setState({ shoulders: !this.state.shoulders });
+              this.dropDown(13, 1, 5);
             }}
           >
             <CardText>SHOULDERS</CardText>
@@ -120,8 +121,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({abs: !this.state.abs});
-              this.dropDown(10);
+              this.setState({ abs: !this.state.abs });
+              this.dropDown(10, 1, 5);
             }}
           >
             <CardText>ABS</CardText>
@@ -164,6 +165,7 @@ const CardBody = styled.details`
   );
   border-radius: 16px;
   border: none;
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.3);
 `;
 
 const SuggestedCard = styled.summary`
@@ -171,13 +173,16 @@ const SuggestedCard = styled.summary`
   align-items: center;
   justify-content: center;
   width: 90%;
-  margin: 0px 15px 15px 15px;
+  margin: 15px;
+  margin-left: 30px;
   height: auto;
   background: radial-gradient(
     360.51px at 64.26% 22.01%,
     #394366 0%,
     #29304a 100%
   );
+  font-size: 30px;
+  color: white;
   border-radius: 16px;
   border: none;
 `;
@@ -186,7 +191,7 @@ const CardText = styled.div`
   font-family: Roboto Condensed, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
   text-align: center;
 `;

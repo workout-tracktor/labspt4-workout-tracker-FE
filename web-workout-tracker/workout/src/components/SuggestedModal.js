@@ -43,16 +43,20 @@ const Modal = styled.div`
 const Exercise = styled.details`
   width: 94%;
   border-radius: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 15px;  
+  &::-webkit-details-marker: {
+    display: "none",
+  }
 `;
 
 const Name = styled.summary`
   margin-top: 5px;
+  font-size: 18px;
+  opacity: 0.7;
   font-family: Roboto Condensed, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
-  font-size: 40px;
 `;
 
 const Description = styled.div`
@@ -60,6 +64,6 @@ margin: 15px 0px
 padding: 0px 25px;
 line-height: 19px;
 font-family: Roboto Condensed, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 `;
