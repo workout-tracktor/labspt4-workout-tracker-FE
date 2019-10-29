@@ -10,6 +10,7 @@ import Tevvin from '../assets/images/Tevvin.jpg';
 import Kristea from '../assets/images/Kristea.jpg';
 import Miguel from '../assets//images/Miguel.jpeg';
 import Dustin from '../assets//images/Dustin.jpeg';
+import Gabe from '../assets//images/Gabe.png';
 
 // CSS import
 import "../assets/index.css";
@@ -64,7 +65,7 @@ const Team = (props) => {
                 <h2>Miguel Diaz</h2>
                 <h3>Full-Stack Developer</h3>
                 <p>
-                    Enjoys encountering challenges, debugging, and applying those experiences to solve complex problems. Values include collaboration, involvement and a happy healthy relationship with team members.
+                    Enjoys encountering challenges and applying those experiences to solve complex problems. Values include collaboration, and a healthy relationship with team members.
                 </p>
                 <div className="icons">
                     <a href="https://github.com/diaz4674"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
@@ -86,15 +87,15 @@ const Team = (props) => {
                 </div>
             </div>
             <div className="member">
-                <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h2>Tevvin strong</h2>
+                <img className="selfie" src={Gabe} alt="Selfie of Gabe" />
+                <h2>Gabe Samaniego</h2>
                 <h3>Full-stack developer</h3>
                 <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
             dicta voluptas doloremque mollitia veniam iste, </p>
                 <div className="icons">
-                    <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
+                    <a href="https://github.com/gsamaniego41"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
+                    <a href="https://linkedin.com/in/gabriel-samaniego/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
+                    <a href="mailto:gsamaniego41@gmail.com"><i className="fa fa-envelope-square fa-4x" aria-hidden="true" /></a>
                 </div>
             </div>
             <div className="member">
