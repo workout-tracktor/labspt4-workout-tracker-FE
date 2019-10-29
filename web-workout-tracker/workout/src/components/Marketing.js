@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { Team } from "../components/Team";
+import { withRouter } from "react-router-dom";
 
 // Image imports
 import phoneGuy from "../assets/images/guyWithPhone.jpg";
@@ -128,4 +129,4 @@ const Marketing = props => {
   );
 };
 
-export default connect()(Marketing);
+export default withRouter(connect()(Marketing));
