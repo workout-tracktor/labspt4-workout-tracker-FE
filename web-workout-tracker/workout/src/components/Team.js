@@ -73,14 +73,15 @@ const Team = (props) => {
             </div>
             <div className="member">
                 <img className="selfie" src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Selfie of Tevvin" />
-                <h2>Tevvin strong</h2>
+                <h2>Dustin Snoap</h2>
                 <h3>Full-stack developer</h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
-            dicta voluptas doloremque mollitia veniam iste, </p>
+                <p>
+                    Pirate Ninja turned Full Stack Web Developer in search of booty. Specializes in Computer Science and the Backend.
+                </p>
                 <div className="icons">
-                    <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
+                    <a href="https://github.com/dustinsnoap"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/in/dustinsnoap/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
+                    <a href="mailto:dustinsnoap@gmail.com"><i className="fa fa-envelope-square fa-4x" aria-hidden="true" /></a>
                 </div>
             </div>
             <div className="member">
