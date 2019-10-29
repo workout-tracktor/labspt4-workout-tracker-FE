@@ -39,9 +39,9 @@ const Team = (props) => {
                     Software Developer with experience in full stack web and computer science. Looking to meet more people, work on growing my network.
                 </p>
                 <div className="icons">
-                    <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
+                    <a href="https://github.com/TevvinStrong"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/in/tevvinstrong/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
+                    <a href="mailto:strong.tevvin7395@gmail.com"><i className="fa fa-envelope-square fa-4x" aria-hidden="true" /></a>
                 </div>
             </div>
 
@@ -53,21 +53,22 @@ const Team = (props) => {
                     Kristea has a background in Marketing and enjoys the creative aspect of Web Development. She is obsessed with halloween and fall.
                 </p>
                 <div className="icons">
-                    <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" href="https://www.linkedin.com/in/kristeagamel/" />
-                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
+                    <a href="https://github.com/bykristea"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/in/kristeagamel/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
+                    <a href="mailto:krgamel@gamil.com"><i className="fa fa-envelope-square fa-4x" aria-hidden="true" /></a>
                 </div>
             </div>
             <div className="member">
                 <img className="selfie" src={Miguel} alt="Selfie of Miguel" />
                 <h2>Miguel Diaz</h2>
                 <h3>Full-Stack Developer</h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
-            dicta voluptas doloremque mollitia veniam iste, </p>
+                <p>
+                    Enjoys encountering challenges, debugging, and applying those experiences to solve complex problems. Values include collaboration, involvement and a happy healthy relationship with team members.
+                </p>
                 <div className="icons">
-                    <i className="fa fa-github-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
-                    <i className="fa fa-envelope-square fa-4x" aria-hidden="true" />
+                    <a href="https://github.com/diaz4674"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/in/diaz4674/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
+                    <a href="mailto:diaz4674@gmail.com"><i className="fa fa-envelope-square fa-4x" aria-hidden="true" /></a>
                 </div>
             </div>
             <div className="member">

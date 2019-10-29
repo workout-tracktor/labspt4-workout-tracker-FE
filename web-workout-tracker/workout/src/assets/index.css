@@ -500,8 +500,8 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
-  padding: 10px 0 0 0;
-  padding-left: 19%;
+  padding: 15px;
+  padding-left: 22%;
 }
 
 .member i {
@@ -509,6 +509,10 @@
   margin: 5px;
   cursor: pointer;
   padding: 3%;
+}
+
+FontAwesomeIcon {
+  width: 2em;
 }
 
 .fa {
