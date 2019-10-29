@@ -7,73 +7,71 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DrownDownLogs from "../DropdownLogs";
 import axios from "axios";
-import PencilEdit from '../../assets/icons/PencilEdit.svg'
+import PencilEdit from "../../assets/icons/PencilEdit.svg";
+import SuggestedWorkouts from "../../components/SuggestedWorkouts";
+
 class Workouts extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          displayingWorkouts: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayingWorkouts: false
+    };
+  }
 
-    componentDidMount() {
-        // WIP to get workout data from backend
-        // const user_id = localStorage.getItem('user_id');
-        // console.log(user_id)
-        // axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
-    }
+  componentDidMount() {
+    // WIP to get workout data from backend
+    // const user_id = localStorage.getItem('user_id');
+    // console.log(user_id)
+    // axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+  }
 
-    titleToggler(bool) {
-      //sets the state to rerender the prop titles depending if there is workout data to show user.
-      this.setState({displayingWorkouts: bool})
-    }
+  titleToggler(bool) {
+    //sets the state to rerender the prop titles depending if there is workout data to show user.
+    this.setState({ displayingWorkouts: bool });
+  }
 
-    render() {
-        return (
-            <Container>
-                
-                   
-                    {this.state.displayingWorkouts? 
-                    <TitleWithEdit> 
-                      <TitleTextWithEdit> FITTER FASTER FURTHER </TitleTextWithEdit>
-                        <EditButton 
-                                  onClick = {this.editHandler}
-                              >
-                                  <EditIcon 
-                                      src = {PencilEdit} 
-                                      alt = 'edit icon'
-                                      />
-                                  <ButtonText>EDIT</ButtonText>
-                        </EditButton>
-                      </TitleWithEdit>
-                    : 
-                    <Title>
-                      <TitleText> FITTER FASTER FURTHER </TitleText>
-                    </Title>
-                    }
-                
+  render() {
+    return (
+      <Container>
+        {this.state.displayingWorkouts ? (
+          <TitleWithEdit>
+            <TitleTextWithEdit> FITTER FASTER FURTHER </TitleTextWithEdit>
+            <EditButton onClick={this.editHandler}>
+              <EditIcon src={PencilEdit} alt="edit icon" />
+              <ButtonText>EDIT</ButtonText>
+            </EditButton>
+          </TitleWithEdit>
+        ) : (
+          <Title>
+            <TitleText> FITTER FASTER FURTHER </TitleText>
+          </Title>
+        )}
 
-                {this.props.exerciseData.length !== 0 ? (
-                    <DrownDownLogs workout={this.props.exerciseData} titleToggler = {(bool) => this.titleToggler(bool)} />
-                ) : (
-                    <NoWorkout titleToggler = {(bool) => this.titleToggler(bool)}>
-                        <Plus src={emoji} alt="thinking emoji" />
-                        <TextContainer>
-                            <Text> NO WORKOUTS</Text>
-                            <Text> LOGGED TODAY</Text>
-                        </TextContainer>
-                    </NoWorkout>
-                )}
-
-            </Container>
-        );
-    }
+        {this.props.exerciseData.length !== 0 ? (
+          <DrownDownLogs
+            workout={this.props.exerciseData}
+            titleToggler={bool => this.titleToggler(bool)}
+          />
+        ) : (
+          <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
+            <Plus src={emoji} alt="thinking emoji" />
+            <TextContainer>
+              <Text> NO WORKOUTS</Text>
+              <Text> LOGGED TODAY</Text>
+            </TextContainer>
+          </NoWorkout>
+        )}
+        <SuggestedWorkouts />
+        {/* Bring in the suggestions here I believe. Check with Super Awesome Miguel. */}
+      </Container>
+    );
+  }
 }
 
 const Container = styled.div`
@@ -115,15 +113,15 @@ const TitleText = styled.p`
   color: #03a3f3;
 `;
 const TitleTextWithEdit = styled.p`
-width: 100%;
-margin: 0 auto;
-justify-content: center;
-align-items: center;
-font-family: Roboto Condensed;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-color: #03a3f3;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #03a3f3;
 `;
 const NoWorkout = styled.div`
   display: flex;
@@ -143,55 +141,55 @@ const Text = styled.p`
   color: gray;
 `;
 
-const TitleWithEdit =  styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0 15px 0;
-    width: 100%;
+const TitleWithEdit = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 15px 0;
+  width: 100%;
 
-    @media (max-width: 1040px) {
-        margin-top: 25px;
-        width: 100%;
-        justify-content: flex-end;
-        
-    }  
-`
+  @media (max-width: 1040px) {
+    margin-top: 25px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+`;
 const Plus = styled.img`
   display: flex;
   justify-content: flex-start;
 `;
-const EditIcon = styled.img `
-    display: flex;
-    align-items: center;
-    width: 1.3rem;
-`
+const EditIcon = styled.img`
+  display: flex;
+  align-items: center;
+  width: 1.3rem;
+`;
 const ButtonText = styled.p`
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    color: white;
-`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+`;
 const EditButton = styled.button`
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 6px;
-    padding: 7px 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 70px;
-    margin: 0 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70px;
+  margin: 0 5px;
 
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus, &:active {
-        outline: none;
-    };
-`
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+`;
 const Button = styled.button`
   background: linear-gradient(#2fdde4, #2367ff);
   color: white;
@@ -219,9 +217,9 @@ const Button = styled.button`
 `;
 
 const mapStateToProps = state => {
-    return {
-        exerciseData: state.exerciseData
-    };
+  return {
+    exerciseData: state.exerciseData
+  };
 };
 
 export default connect(mapStateToProps)(Workouts);

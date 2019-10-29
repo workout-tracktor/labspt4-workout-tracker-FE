@@ -4,9 +4,7 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
-
 import { connect } from "react-redux";
-
 
 class Landing extends React.Component {
   constructor(props) {
