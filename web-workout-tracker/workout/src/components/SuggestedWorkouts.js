@@ -13,42 +13,40 @@ class SuggestedWorkouts extends React.Component {
     back: false,
     legs: false,
     shoulders: false,
-    abs: false
+    abs: false,
+    min: 1,
+    max: 1
   };
 
-  dropDown = query => {
+  dropDown(query, min, max) {
     this.setState({
       query: query,
-      exercises: []
+      exercises: [],
+      min: min,
+      max: max
     });
 
+    function randomOffset(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + 1);
+    }
+    let page = randomOffset(this.state.min, this.state.max);
     axios
       .get(
-        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2&limit=5&offset=15`
+        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2&limit=5&page=${page}`
       )
       .then(res => {
         this.setState({ exercises: res.data.results });
-        // {
-        //   this.state.exercises.map((exercise, id) => {
-        //     return (
-        //       <Name key={id}>
-        //         {exercise.Name}
-        //         <button>Add Workout</button>
-        //       </Name>
-        //     );
-        //   });
-        // }
       });
-  };
+  }
 
   render() {
     return (
       <Container>
         <CardBody>
           <SuggestedCard
-            onClick={ () => { 
-              this.setState({arms: !this.state.arms});
-              this.dropDown(8) ;
+            onClick={() => {
+              this.setState({ arms: !this.state.arms });
+              this.dropDown(8, 1, 5);
             }}
           >
             <CardText>ARMS</CardText>
@@ -60,8 +58,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({chest: !this.state.chest});
-              this.dropDown(11);
+              this.setState({ chest: !this.state.chest });
+              this.dropDown(11, 1, 5);
             }}
           >
             <CardText>CHEST</CardText>
@@ -73,8 +71,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({back: !this.state.back});
-              this.dropDown(12);
+              this.setState({ back: !this.state.back });
+              this.dropDown(12, 1, 5);
             }}
           >
             <CardText>BACK</CardText>
@@ -86,8 +84,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({legs: !this.state.legs});
-              this.dropDown(9);
+              this.setState({ legs: !this.state.legs });
+              this.dropDown(9, 1, 5);
             }}
           >
             <CardText>LEGS</CardText>
@@ -99,8 +97,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({shoulders: !this.state.shoulders});
-              this.dropDown(13);
+              this.setState({ shoulders: !this.state.shoulders });
+              this.dropDown(13, 1, 5);
             }}
           >
             <CardText>SHOULDERS</CardText>
@@ -112,8 +110,8 @@ class SuggestedWorkouts extends React.Component {
         <CardBody>
           <SuggestedCard
             onClick={e => {
-              this.setState({abs: !this.state.abs});
-              this.dropDown(10);
+              this.setState({ abs: !this.state.abs });
+              this.dropDown(10, 1, 5);
             }}
           >
             <CardText>ABS</CardText>
@@ -156,6 +154,7 @@ const CardBody = styled.details`
   );
   border-radius: 16px;
   border: none;
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.3);
 `;
 
 const SuggestedCard = styled.summary`
@@ -163,13 +162,16 @@ const SuggestedCard = styled.summary`
   align-items: center;
   justify-content: center;
   width: 90%;
-  margin: 0px 15px 15px 15px;
+  margin: 15px;
+  margin-left: 30px;
   height: auto;
   background: radial-gradient(
     360.51px at 64.26% 22.01%,
     #394366 0%,
     #29304a 100%
   );
+  font-size: 30px;
+  color: white;
   border-radius: 16px;
   border: none;
 `;
@@ -178,7 +180,7 @@ const CardText = styled.div`
   font-family: Roboto Condensed, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
   text-align: center;
 `;
