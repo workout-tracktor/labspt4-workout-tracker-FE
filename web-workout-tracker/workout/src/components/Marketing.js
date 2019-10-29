@@ -23,7 +23,7 @@ const Marketing = props => {
     if (document.cookie.indexOf("auth0.is.authenticated") === -1) {
       return null;
     } else {
-      this.props.router.push("/validate-user");
+      props.history.push("/validate-user");
     }
   });
 
@@ -129,4 +129,4 @@ const Marketing = props => {
   );
 };
 
-export default withRouter(connect()(Marketing));
+export default withRouter(Marketing)

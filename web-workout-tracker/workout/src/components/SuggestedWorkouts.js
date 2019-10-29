@@ -8,6 +8,7 @@ class SuggestedWorkouts extends React.Component {
   state = {
     query: "",
     exercises: [],
+    noDuplicates:[],
     arms: false,
     chest: false,
     back: false,
@@ -19,29 +20,36 @@ class SuggestedWorkouts extends React.Component {
   dropDown = query => {
     this.setState({
       query: query,
-      exercises: []
+      exercises: [],
+      noDuplicates: []
     });
 
     axios
       .get(
-        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2&limit=5&offset=15`
+        `https://wger.de/api/v2/exercise/?language=2&category=${this.state.query}&status=2&offset=15`
       )
       .then(res => {
-        this.setState({ exercises: res.data.results });
-        // {
-        //   this.state.exercises.map((exercise, id) => {
-        //     return (
-        //       <Name key={id}>
-        //         {exercise.Name}
-        //         <button>Add Workout</button>
-        //       </Name>
-        //     );
-        //   });
-        // }
-      });
-  };
+        this.setState({
+          exercises: res.data.results
+        })
+
+        res.data.results.map((exercise, index) => {
+            if(this.state.noDuplicates.some(stateWorkout => stateWorkout.name === exercise.name) ) {
+              console.log('same')
+            } else {
+              if(this.state.noDuplicates.length !== 5){
+              this.setState({
+                noDuplicates:[ ...this.state.noDuplicates, exercise]
+              })} else {
+                console.log('Done pulling data')
+              }
+            }
+        })
+  }
+)}
 
   render() {
+    console.log(this.state.noDuplicates)
     return (
       <Container>
         <CardBody>
@@ -54,7 +62,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>ARMS</CardText>
           </SuggestedCard>
           {this.state.arms ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
         <CardBody>
@@ -67,7 +75,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>CHEST</CardText>
           </SuggestedCard>
           {this.state.chest ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
         <CardBody>
@@ -80,7 +88,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>BACK</CardText>
           </SuggestedCard>
           {this.state.back ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
         <CardBody>
@@ -93,7 +101,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>LEGS</CardText>
           </SuggestedCard>
           {this.state.legs ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
         <CardBody>
@@ -106,7 +114,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>SHOULDERS</CardText>
           </SuggestedCard>
           {this.state.shoulders ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
         <CardBody>
@@ -119,7 +127,7 @@ class SuggestedWorkouts extends React.Component {
             <CardText>ABS</CardText>
           </SuggestedCard>
           {this.state.abs ? (
-            <SuggestedModal exercises={this.state.exercises} />
+            <SuggestedModal exercises={this.state.noDuplicates} />
           ) : null}
         </CardBody>
       </Container>
