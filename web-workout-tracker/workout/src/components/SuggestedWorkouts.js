@@ -57,7 +57,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={() => {
               this.setState({ arms: !this.state.arms });
-              this.dropDown(8, 1, 5);
+              this.dropDown(8, 1, 8);
             }}
           >
             <CardText>ARMS</CardText>
@@ -70,7 +70,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={e => {
               this.setState({ chest: !this.state.chest });
-              this.dropDown(11, 1, 5);
+              this.dropDown(11, 1, 6);
             }}
           >
             <CardText>CHEST</CardText>
@@ -83,7 +83,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={e => {
               this.setState({ back: !this.state.back });
-              this.dropDown(12, 1, 5);
+              this.dropDown(12, 1, 7);
             }}
           >
             <CardText>BACK</CardText>
@@ -96,7 +96,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={e => {
               this.setState({ legs: !this.state.legs });
-              this.dropDown(9, 1, 5);
+              this.dropDown(9, 1, 8);
             }}
           >
             <CardText>LEGS</CardText>
@@ -109,7 +109,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={e => {
               this.setState({ shoulders: !this.state.shoulders });
-              this.dropDown(13, 1, 5);
+              this.dropDown(13, 1, 6);
             }}
           >
             <CardText>SHOULDERS</CardText>
@@ -122,7 +122,7 @@ class SuggestedWorkouts extends React.Component {
           <SuggestedCard
             onClick={e => {
               this.setState({ abs: !this.state.abs });
-              this.dropDown(10, 1, 5);
+              this.dropDown(10, 1, 6);
             }}
           >
             <CardText>ABS</CardText>
@@ -170,11 +170,8 @@ const CardBody = styled.details`
 
 const SuggestedCard = styled.summary`
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 90%;
   margin: 15px;
-  margin-left: 30px;
   height: auto;
   background: radial-gradient(
     360.51px at 64.26% 22.01%,
@@ -185,6 +182,7 @@ const SuggestedCard = styled.summary`
   color: white;
   border-radius: 16px;
   border: none;
+  padding: 20px;
 `;
 
 const CardText = styled.div`
@@ -193,5 +191,5 @@ const CardText = styled.div`
   text-transform: uppercase;
   font-size: 24px;
   color: white;
-  text-align: center;
+  text-align: left;
 `;

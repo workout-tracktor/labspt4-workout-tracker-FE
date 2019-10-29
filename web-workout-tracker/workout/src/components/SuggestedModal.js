@@ -12,7 +12,7 @@ export default class SuggestedModal extends React.Component {
               <Name> {exercise.name}</Name>
               <Description>
                 {parse(exercise.description)}
-                <button>Add Workout</button>
+                <Button>Add Workout</Button>
               </Description>
             </Exercise>
           );
@@ -60,10 +60,27 @@ const Name = styled.summary`
 `;
 
 const Description = styled.div`
+
+justify-content: center;
+ p {
+   margin-bottom: 18px;
+ }
 margin: 15px 0px
 padding: 0px 25px;
-line-height: 19px;
+line-height: 24px;
 font-family: Roboto Condensed, sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   color: white;
+`;
+
+const Button = styled.button`
+ margin-left: 38%;
+ font-size: 14px;
+ font-weight: bold;
+ border: 2px solid #03a3f3;
+ color: #03a3f3;
+ border-radius: 4px;
+ text-transform: uppercase;
+ background: rgba(3, 163, 243, 0.1);
+ padding: 9px 10px;
 `;
