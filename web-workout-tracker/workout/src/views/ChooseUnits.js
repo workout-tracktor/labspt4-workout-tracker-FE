@@ -31,11 +31,29 @@ export class ChooseUnits extends React.Component {
         if(e.target.dataset.txt === "I'll do this later") {
             this.props.history.push("/Landing");
         }
+        if(e.target.dataset.txt === "< Go back") {
+            this.props.history.push("/onboarding/body-goal");
+        }
+    }
+
+    setUnits = (e, props) => {
+        axios
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: this.props.unit_system })
+            .then(res => {
+                // save updated user object in Redux store (state.thisUser)
+                this.props.sendUserData(res.data);
+                // go to the next on boarding screen (choose default units)
+                this.props.history.push("/Landing");
+            })
+            .catch(err => {
+                console.log(err);
+                this.props.history.push("/onboarding/choose-units");
+            })
     }
 
     render() {
         return (
-            <PageWrapper onClick={ e => this.hideSelectButton(e)}>
+            <PageWrapper onClick={e => this.hideSelectButton(e)}>
 
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
@@ -44,7 +62,7 @@ export class ChooseUnits extends React.Component {
                 <OptionsWrapper>
                     <OptionButton data-testid="units" onClick={this.clickOptionHandler}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-us-outlying-islands.svg" alt="US flag" data-testid="units" />
-                        <OptionsRightContent>
+                        <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
                                 U.S.
                             </OptionsHeader>
@@ -60,7 +78,7 @@ export class ChooseUnits extends React.Component {
 
                     <OptionButton data-testid="units" onClick={this.clickOptionHandler}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-european-union.svg" alt="EU flag" data-testid="units" />
-                        <OptionsRightContent>
+                        <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
                                 European
                             </OptionsHeader>
@@ -73,13 +91,20 @@ export class ChooseUnits extends React.Component {
                 </OptionsWrapper>
 
                 <ButtonsWrapper>
-                        {/* Skip on boarding Button*/}
-                        <Button text="I'll do this later" background="transparent" padding="7px 0px" />
+                    {/* Go back button */}
+                    {
+                        this.state.buttonPressed && <Button text="< Go back" background="transparent" />
+                    }
 
-                        {/* "Select" Button*/}
-                        {
-                            this.state.buttonPressed && <Button text="I'm done" />
-                        }
+                    {/* Skip on boarding Button*/}
+                    {
+                        !this.state.buttonPressed && <Button text="I'll do this later" background="transparent" padding="7px 0px" />
+                    }
+
+                    {/* "Select" Button*/}
+                    {
+                        this.state.buttonPressed && <Button text="I'm done" onClick={this.setUnits} />
+                    }
                 </ButtonsWrapper>
 
             </PageWrapper>
@@ -94,6 +119,7 @@ const mapStateToProps = state => ({
 
 const PageWrapper = styled.div`
     width: 100%;
+    height: 100vh;
     margin: 0 auto;
 `;
 
@@ -132,11 +158,11 @@ const OptionButton = styled.button`
 const OptionsRightContent = styled.div`
     height: 119px;
     display: flex;
+    z-index: 111;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     margin-left: 23px;
-    border: 1px solid red;
 `;
 
 const OptionsHeader = styled.h1`
@@ -175,6 +201,7 @@ const InvisibleLine = styled.div`
 const ButtonsWrapper = styled.div`
     width: 90%;
     max-width: 510px;
+    z-index: 333;
     margin: 0 auto;
     display: flex;
     flex-direction: row;

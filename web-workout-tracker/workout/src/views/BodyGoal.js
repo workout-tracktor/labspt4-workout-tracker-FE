@@ -37,12 +37,14 @@ export class BodyGoal extends React.Component {
     }
 
     setGoal = (e, props) => {
-        const id = this.props.thisUser.user_id;
+        // const id = this.props.thisUser.user_id;
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: id, body_goal: this.props.bodyGoal })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
+                // save updated user object in Redux store (state.thisUser)
                 this.props.sendUserData(res.data);
-                this.props.history.push("/onboarding/units");
+                // go to the next on boarding screen (choose default units)
+                this.props.history.push("/onboarding/choose-units");
             })
             .catch(err => {
                 console.log(err);
@@ -73,7 +75,7 @@ export class BodyGoal extends React.Component {
 
                     {/* "Select" Button*/}
                     {
-                        this.state.buttonPressed && <Button text="Select" setGoal={this.setGoal} />
+                        this.state.buttonPressed && <Button text="Select" onClick={this.setGoal} />
                     }
                 </ButtonsWrapper>
 
