@@ -30,6 +30,13 @@ class DropDownInfo extends React.Component {
     }
 }
 
+const Container = styled.div `
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 10-0
+`
+
 const Row = styled.div `
     display: flex;
     flex-direction: row;
@@ -53,5 +60,4 @@ const Text = styled.p `
     color: white;
     text-transform: uppercase;
 `
-
 export default DropDownInfo
