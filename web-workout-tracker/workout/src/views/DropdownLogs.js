@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
@@ -6,40 +6,39 @@ import { withRouter } from "react-router-dom";
 import PencilEdit from "../assets/icons/PencilEdit.svg";
 
 class DropdownLogs extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            //DUMMY Data
-            //Units would set to proper units when pulled from backend
-            unit: 'lbs',
-            distanceUnits: 'miles',
-            selectedValue: [],
-            //Rotate helps check to see if the arrow image would roatate when clicked WIP
-            rotate: false,
-            Workouts: [],
-            editInfo: false,
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      //DUMMY Data
+      //Units would set to proper units when pulled from backend
+      unit: "lbs",
+      distanceUnits: "miles",
+      selectedValue: [],
+      //Rotate helps check to see if the arrow image would roatate when clicked WIP
+      rotate: false,
+      Workouts: [],
+      editInfo: false
+    };
+  }
 
-    componentDidMount(){
-        //Notifies parent component to change the titling to include Edit button.
-        this.props.titleToggler(true)
-    }
+  componentDidMount() {
+    //Notifies parent component to change the titling to include Edit button.
+    this.props.titleToggler(true);
+  }
 
-    dropDownToggler = (workoutIndex) => {
-        //checks to see if selectedValue state already includes the passed index
-        this.state.selectedValue.includes(workoutIndex)?
-        //if the passed id is already in selectedValue state, it removes it, and sets rotate to
+  dropDownToggler = workoutIndex => {
+    //checks to see if selectedValue state already includes the passed index
+    this.state.selectedValue.includes(workoutIndex)
+      ? //if the passed id is already in selectedValue state, it removes it, and sets rotate to
         //false. That way it tells the conditionals to not show that id workout log
         //data and rotate the arrow back to its original position.
-            this.setState({
-                selectedValue: this.state.selectedValue.filter( function(data) {
-                    return data !== workoutIndex
-                }),
-                rotate: !this.state.rotate, 
-            })
-            : 
-        //if passed id is not in selectedValue state, then it add it to that array,
+        this.setState({
+          selectedValue: this.state.selectedValue.filter(function(data) {
+            return data !== workoutIndex;
+          }),
+          rotate: !this.state.rotate
+        })
+      : //if passed id is not in selectedValue state, then it add it to that array,
         //which then lets the conditional know to render that workout log data.
         //it also sets rotate to true, so it passes a prop to properly animate arrow image.
             this.setState({
