@@ -55,25 +55,29 @@ const ExerciseForm = (props) => {
     React.useEffect(() => {
       // Update the document title using the browser API
       // console.log(props.location.workout)
-      axios
-      .get(`https://workouttrackerprod.herokuapp.com/api/exercises`)
-      .then(res => {
-        let resData = res.data;
-        let filtered = [];
-        for (let i in resData) {
-          filtered.push(resData[i].name);
-        }
-        setInitialName(filtered);
-      });
+      const autocomplete = () =>  {
+        axios
+        .get(`https://workouttrackerprod.herokuapp.com/api/exercises`)
+        .then(res => {
+          let resData = res.data;
+          let filtered = [];
+          for (let i in resData) {
+            filtered.push(resData[i].name);
+          }
+          setInitialName(filtered);
+        });
+      }
+      
       if(props.location.workout) {
+        autocomplete()
         console.log(props.location.workout)
         setName(props.location.workout.name)   
         setSet(props.location.workout.set)
         setEdit(true)
-      } 
+      } else {
+        autocomplete()
+      }
     }, []);
-
-
 
     return (
         <Container>
