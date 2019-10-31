@@ -17,39 +17,50 @@ const ExerciseForm = (props) => {
     };
 
     const submitHandler = e => {
-        const user_id = localStorage.getItem('user_id');
+      e.preventDefault()
+      const user_id = localStorage.getItem('user_id');
+      const newExercise = {name, date, set, completed, workoutType: exerciseType};
 
-        for(let i=0; i<set.length; i++) {
-            let setD = set[i];
-            setObject = {...setObject, ...setD}
-        }
-
-        const newExerciseObject = {name, date, completed, user_id, set:setObject};
-        console.log('DATA -----------------', newExerciseObject)
-
-
-        e.preventDefault();
-        const newExercise = {name, date, set, completed, workoutType: exerciseType};
-
+      if(edit === true){
+        axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, newExercise)
+      } else {
+        //MAKE SURE TO REPLACE FOR AXIOS CALL
         props.addExerciseToState(newExercise);
-        props.history.push('/Landing')
-
-    };
-
-
+      }
+      props.history.push('/Landing')
+};
 
     const [name, setName] = useState("");
 
     const [date, setDate] = useState(new Date());
 
-    const [set, setSet] = useState([]);
+    const [set, setSet] = useState(() => {
+      if(props.location.workout){
+        return [props.location.workout.set]
+      } else {
+        return []
+      }
+    });
 
     const [completed, setCompleted] = useState(false);
 
     let setObject = {}
 
+    const [editWorkout, setEditWorkout] = useState(props.workout)
+
+    const[edit, setEdit] = useState(false)
 
 
+    React.useEffect(() => {
+      // Update the document title using the browser API
+      // console.log(props.location.workout)
+      if(props.location.workout) {
+        console.log(props.location.workout)
+        setName(props.location.workout.name)   
+        setSet(props.location.workout.set)
+        setEdit(true)
+      } 
+    }, []);
 
 
 
