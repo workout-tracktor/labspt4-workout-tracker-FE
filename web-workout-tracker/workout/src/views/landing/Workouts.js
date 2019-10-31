@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DrownDownLogs from "../DropdownLogs";
 import axios from "axios";
-import PencilEdit from "../../assets/icons/PencilEdit.svg";
 import SuggestedWorkouts from "../../components/SuggestedWorkouts";
 
 class Workouts extends React.Component {
@@ -40,13 +39,9 @@ class Workouts extends React.Component {
     return (
       <Container>
         {this.state.displayingWorkouts ? (
-          <TitleWithEdit>
-            <TitleTextWithEdit> FITTER FASTER FURTHER </TitleTextWithEdit>
-            <EditButton onClick={this.editHandler}>
-              <EditIcon src={PencilEdit} alt="edit icon" />
-              <ButtonText>EDIT</ButtonText>
-            </EditButton>
-          </TitleWithEdit>
+          <Title>
+            <TitleText> FITTER FASTER FURTHER </TitleText>
+          </Title>
         ) : (
           <Title>
             <TitleText> FITTER FASTER FURTHER </TitleText>
@@ -158,62 +153,6 @@ const TitleWithEdit = styled.div`
 const Plus = styled.img`
   display: flex;
   justify-content: flex-start;
-`;
-const EditIcon = styled.img`
-  display: flex;
-  align-items: center;
-  width: 1.3rem;
-`;
-const ButtonText = styled.p`
-  font-family: Roboto Condensed;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  color: white;
-`;
-const EditButton = styled.button`
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 6px;
-  padding: 7px 5px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 70px;
-  margin: 0 5px;
-
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
-const Button = styled.button`
-  background: linear-gradient(#2fdde4, #2367ff);
-  color: white;
-  font-size: 24px;
-  line-height: 23px;
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 2px;
-  padding: 7px 15px;
-  width: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
 `;
 
 const mapStateToProps = state => {

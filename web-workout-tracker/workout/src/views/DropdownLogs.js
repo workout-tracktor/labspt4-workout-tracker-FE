@@ -2,7 +2,8 @@ import React from 'react'
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
-
+import { withRouter } from "react-router-dom";
+import PencilEdit from "../assets/icons/PencilEdit.svg";
 
 class DropdownLogs extends React.Component {
     constructor(props){
@@ -47,9 +48,17 @@ class DropdownLogs extends React.Component {
             })
     }
 
-    editHandler = (e)  => {
+    editHandler = workout => e =>{
         e.preventDefault()
-        this.setState({editInfo: !this.state.editInfo})
+        this.props.history.push({
+         pathname:   `/exercise-form/${workout.workoutType}`,
+         workout: workout
+        })
+    }
+
+    deleteHandler = exerciseId => {
+        console.log('Wait for backend to resolve GET to get the exercise ID to delete')
+        // axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, exerciseId)
     }
 
     render(){
@@ -59,7 +68,7 @@ class DropdownLogs extends React.Component {
                       
                 {this.props.workout.map((workout, workoutIndex) => {
                     return(
-                        <>
+                        <TopContainer>
                         <Dropdown 
                         key= {workoutIndex} 
                         onClick = {() => this.dropDownToggler(workoutIndex)}
@@ -74,15 +83,28 @@ class DropdownLogs extends React.Component {
                                     alt = "arrow"
                                 />
                                 <Text> {workout.name}</Text>
+                                <EditButton onClick={this.editHandler(workout)}>
+                                <EditIcon src={PencilEdit} alt="edit icon" />
+                                <ButtonText>EDIT</ButtonText>
+                                </EditButton>
+
+                                <EditButton onClick={this.deleteHandler(
+                                    //When GET is functional from backend, insert the exerciseId
+                                    // exerciseId
+                                    )}>
+                                <ButtonText>DELETE</ButtonText>
+                                </EditButton>
+
                             </TitleLeft>
                             <Text> {workout.set.length} Excercises</Text>
                         </Dropdown>
                         {
                             //checks to see if the mappped id is is included in the selectedValue state to render 
                             //workout log data.
-                            this.state.selectedValue.includes(workoutIndex) ? 
+                            this.state.selectedValue.includes(workoutIndex) ?
                             workout.set.map((sets, index) => {
                                 return(
+                                    <>
                                     <DropDownInfo 
                                         
                                         weight = {sets[`weight${index}`]} 
@@ -95,13 +117,14 @@ class DropdownLogs extends React.Component {
                                         distance = { sets[`distance${index}`] }
                                         unit = {this.state.unit}
                                         />
+                                    </>
                                 )
                         })
                             : null
                         }
 
                     
-                        </>
+                        </TopContainer>
                     )
                 })}
             </Container>
@@ -110,6 +133,12 @@ class DropdownLogs extends React.Component {
 }
 
 const Container = styled.div `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+`
+const TopContainer = styled.div `
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -139,7 +168,7 @@ const TitleLeft = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+    align-items: center;
 `
 const TitleText = styled.p `
     font-family: Roboto Condensed;
@@ -157,4 +186,61 @@ const Text = styled.p `
     color: white;
     text-transform: uppercase;
 `
-export default DropdownLogs;
+const EditIcon = styled.img`
+  display: flex;
+  align-items: center;
+  width: 1.3rem;
+`;
+const ButtonText = styled.p`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+`;
+const EditButton = styled.button`
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70px;
+  margin: 0 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+`;
+const Button = styled.button`
+  background: linear-gradient(#2fdde4, #2367ff);
+  color: white;
+  font-size: 24px;
+  line-height: 23px;
+  font-family: Roboto Condensed, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  padding: 7px 15px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+`;
+
+export default withRouter(DropdownLogs);
