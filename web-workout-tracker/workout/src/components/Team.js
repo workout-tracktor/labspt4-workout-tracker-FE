@@ -131,8 +131,9 @@ const Team = (props) => {
                 <img className="selfie" src={Kasia} alt="Selfie of Kasia" />
                 <h2>Kasia Bondarava</h2>
                 <h3>Full-stack developer</h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
-                    dicta voluptas doloremque mollitia veniam iste, </p>
+                <p>
+                    Solving problems: in the past as a teacher, now as a developer. Restoring old things for fun. Love design, music and coffee.
+                </p>
                 <div className="icons">
                     <a href="https://github.com/nia-ja"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
                     <a href="https://www.linkedin.com/in/kasia-bondarava-9a777718a"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
