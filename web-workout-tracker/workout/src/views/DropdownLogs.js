@@ -30,14 +30,14 @@ class DropdownLogs extends React.Component {
     //checks to see if selectedValue state already includes the passed index
     this.state.selectedValue.includes(workoutIndex)
       ? //if the passed id is already in selectedValue state, it removes it, and sets rotate to
-        //false. That way it tells the conditionals to not show that id workout log
-        //data and rotate the arrow back to its original position.
-        this.setState({
-          selectedValue: this.state.selectedValue.filter(function(data) {
-            return data !== workoutIndex;
-          }),
-          rotate: !this.state.rotate
-        })
+      //false. That way it tells the conditionals to not show that id workout log
+      //data and rotate the arrow back to its original position.
+      this.setState({
+        selectedValue: this.state.selectedValue.filter(function (data) {
+          return data !== workoutIndex;
+        }),
+        rotate: !this.state.rotate
+      })
       : //if passed id is not in selectedValue state, then it add it to that array,
         //which then lets the conditional know to render that workout log data.
         //it also sets rotate to true, so it passes a prop to properly animate arrow image.
@@ -137,13 +137,13 @@ const Container = styled.div `
       align-items: center;
       width: 100%;
 `
-const TopContainer = styled.div `
+const TopContainer = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
 `
-const Dropdown = styled.div `
+const Dropdown = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -154,7 +154,7 @@ const Dropdown = styled.div `
         cursor: pointer;
     }
 `
-const Arrow = styled.img `
+const Arrow = styled.img`
     padding: 0 5px;
     float: right;
    transform: rotate(0deg);
@@ -163,21 +163,21 @@ const Arrow = styled.img `
    transform: ${props => (props.rotate ? `rotate(90deg)` : "")};
     ${'' /* checks to see if props are passed to the css to determine if it will rotate button */}
 `
-const TitleLeft = styled.div `
+const TitleLeft = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 `
-const TitleText = styled.p `
+const TitleText = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     color: #03A3F3;
     text-transform: uppercase;
-` 
-const Text = styled.p `
+`
+const Text = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
