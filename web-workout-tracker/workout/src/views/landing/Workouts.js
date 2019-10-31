@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 //moment is used to get the time and set AM or PM
-import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -43,10 +42,10 @@ class Workouts extends React.Component {
             <TitleText> FITTER FASTER FURTHER </TitleText>
           </Title>
         ) : (
-          <Title>
-            <TitleText> FITTER FASTER FURTHER </TitleText>
-          </Title>
-        )}
+            <Title>
+              <TitleText> FITTER FASTER FURTHER </TitleText>
+            </Title>
+          )}
 
         {this.props.exerciseData.length !== 0 ? (
           <DrownDownLogs
@@ -54,14 +53,13 @@ class Workouts extends React.Component {
             titleToggler={bool => this.titleToggler(bool)}
           />
         ) : (
-          <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
-            <Plus src={emoji} alt="thinking emoji" />
-            <TextContainer>
-              <Text> NO WORKOUTS</Text>
-              <Text> LOGGED TODAY</Text>
-            </TextContainer>
-          </NoWorkout>
-        )}
+            <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
+              <TextContainer>
+                <Text> NO WORKOUTS LOGGED</Text>
+                <Caption>What would you like to workout today?</Caption>
+              </TextContainer>
+            </NoWorkout>
+          )}
         <SuggestedWorkouts />
         {/* Bring in the suggestions here I believe. Check with Super Awesome Miguel. */}
       </Container>
@@ -121,21 +119,29 @@ const TitleTextWithEdit = styled.p`
 const NoWorkout = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 40px 0;
 `;
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 25px auto;
 `;
 const Text = styled.p`
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  color: gray;
+  color: white;
+  opacity: 0.3;
 `;
-
+const Caption = styled.p`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 10px;
+  color: white;
+  opacity: 0.3;
+`
 const TitleWithEdit = styled.div`
   display: flex;
   flex-direction: row;

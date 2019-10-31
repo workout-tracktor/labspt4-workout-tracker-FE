@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
@@ -6,145 +6,144 @@ import { withRouter } from "react-router-dom";
 import PencilEdit from "../assets/icons/PencilEdit.svg";
 
 class DropdownLogs extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            //DUMMY Data
-            //Units would set to proper units when pulled from backend
-            unit: 'lbs',
-            distanceUnits: 'miles',
-            selectedValue: [],
-            //Rotate helps check to see if the arrow image would roatate when clicked WIP
-            rotate: false,
-            Workouts: [],
-            editInfo: false,
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      //DUMMY Data
+      //Units would set to proper units when pulled from backend
+      unit: "lbs",
+      distanceUnits: "miles",
+      selectedValue: [],
+      //Rotate helps check to see if the arrow image would roatate when clicked WIP
+      rotate: false,
+      Workouts: [],
+      editInfo: false
+    };
+  }
 
-    componentDidMount(){
-        //Notifies parent component to change the titling to include Edit button.
-        this.props.titleToggler(true)
-    }
+  componentDidMount() {
+    //Notifies parent component to change the titling to include Edit button.
+    this.props.titleToggler(true);
+  }
 
-    dropDownToggler = (workoutIndex) => {
-        //checks to see if selectedValue state already includes the passed index
-        this.state.selectedValue.includes(workoutIndex)?
-        //if the passed id is already in selectedValue state, it removes it, and sets rotate to
-        //false. That way it tells the conditionals to not show that id workout log
-        //data and rotate the arrow back to its original position.
-            this.setState({
-                selectedValue: this.state.selectedValue.filter( function(data) {
-                    return data !== workoutIndex
-                }),
-                rotate: !this.state.rotate, 
-            })
-            : 
-        //if passed id is not in selectedValue state, then it add it to that array,
-        //which then lets the conditional know to render that workout log data.
-        //it also sets rotate to true, so it passes a prop to properly animate arrow image.
-            this.setState({
-                selectedValue: [...this.state.selectedValue, workoutIndex], 
-                rotate: !this.state.rotate, 
-            })
-    }
+  dropDownToggler = workoutIndex => {
+    //checks to see if selectedValue state already includes the passed index
+    this.state.selectedValue.includes(workoutIndex)
+      ? //if the passed id is already in selectedValue state, it removes it, and sets rotate to
+      //false. That way it tells the conditionals to not show that id workout log
+      //data and rotate the arrow back to its original position.
+      this.setState({
+        selectedValue: this.state.selectedValue.filter(function (data) {
+          return data !== workoutIndex;
+        }),
+        rotate: !this.state.rotate
+      })
+      : //if passed id is not in selectedValue state, then it add it to that array,
+      //which then lets the conditional know to render that workout log data.
+      //it also sets rotate to true, so it passes a prop to properly animate arrow image.
+      this.setState({
+        selectedValue: [...this.state.selectedValue, workoutIndex],
+        rotate: !this.state.rotate,
+      })
+  }
 
-    editHandler = workout => e =>{
-        e.preventDefault()
-        this.props.history.push({
-         pathname:   `/exercise-form/${workout.workoutType}`,
-         workout: workout
-        })
-    }
+  editHandler = workout => e => {
+    e.preventDefault()
+    this.props.history.push({
+      pathname: `/exercise-form/${workout.workoutType}`,
+      workout: workout
+    })
+  }
 
-    deleteHandler = exerciseId => {
-        console.log('Wait for backend to resolve GET to get the exercise ID to delete')
-        // axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, exerciseId)
-    }
+  deleteHandler = exerciseId => {
+    console.log('Wait for backend to resolve GET to get the exercise ID to delete')
+    // axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, exerciseId)
+  }
 
-    render(){
-        // const {exerciseName, sets, weights, unit, reps} = this.state.logs
-        return(
-            <Container>
-                      
-                {this.props.workout.map((workout, workoutIndex) => {
-                    return(
-                        <TopContainer>
-                        <Dropdown 
-                        key= {workoutIndex} 
-                        onClick = {() => this.dropDownToggler(workoutIndex)}
-                        //onClick sends the id of the current workout to the selectedValue array, which then is passed
-                        //to the conditional below to see if it should render the workout log data
-                        >
-                            <TitleLeft> 
-                                <Arrow 
-                                    src = {DropdownArrow}  
-                                    //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
-                                    rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
-                                    alt = "arrow"
-                                />
-                                <Text> {workout.name}</Text>
-                                <EditButton onClick={this.editHandler(workout)}>
-                                <EditIcon src={PencilEdit} alt="edit icon" />
-                                <ButtonText>EDIT</ButtonText>
-                                </EditButton>
+  render() {
+    // const {exerciseName, sets, weights, unit, reps} = this.state.logs
+    return (
+      <Container>
 
-                                <EditButton onClick={this.deleteHandler(
-                                    //When GET is functional from backend, insert the exerciseId
-                                    // exerciseId
-                                    )}>
-                                <ButtonText>DELETE</ButtonText>
-                                </EditButton>
+        {this.props.workout.map((workout, workoutIndex) => {
+          return (
+            <TopContainer>
+              <Dropdown
+                key={workoutIndex}
+                onClick={() => this.dropDownToggler(workoutIndex)}
+              //onClick sends the id of the current workout to the selectedValue array, which then is passed
+              //to the conditional below to see if it should render the workout log data
+              >
+                <TitleLeft>
+                  <Arrow
+                    src={DropdownArrow}
+                    //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
+                    rotate={this.state.selectedValue.includes(workoutIndex) ? this.state.selectedValue.includes(workoutIndex) : null}
+                    alt="arrow"
+                  />
+                  <Text> {workout.name}</Text>
+                  <EditButton onClick={this.editHandler(workout)}>
+                    <EditIcon src={PencilEdit} alt="edit icon" />
+                    <ButtonText>EDIT</ButtonText>
+                  </EditButton>
 
-                            </TitleLeft>
-                            <Text> {workout.set.length} Excercises</Text>
-                        </Dropdown>
-                        {
-                            //checks to see if the mappped id is is included in the selectedValue state to render 
-                            //workout log data.
-                            this.state.selectedValue.includes(workoutIndex) ?
-                            workout.set.map((sets, index) => {
-                                return(
-                                    <>
-                                    <DropDownInfo 
-                                        
-                                        weight = {sets[`weight${index}`]} 
-                                        thisIndex = {index+1} 
-                                        reps = {sets[`rep${index}`]}
-                                        //type checks to see if distance key is in mapped object
-                                        //it passes a true prop to render the distance data
-                                        type = {sets[`distance${index}`] ? false : true }
-                                        distanceUnits = {this.state.distanceUnits}
-                                        distance = { sets[`distance${index}`] }
-                                        unit = {this.state.unit}
-                                        />
-                                    </>
-                                )
-                        })
-                            : null
-                        }
+                  <EditButton onClick={this.deleteHandler(
+                    //When GET is functional from backend, insert the exerciseId
+                    // exerciseId
+                  )}>
+                    <ButtonText>DELETE</ButtonText>
+                  </EditButton>
 
-                    
-                        </TopContainer>
+                </TitleLeft>
+                <Text> {workout.set.length} Excercises</Text>
+              </Dropdown>
+              {
+                //checks to see if the mappped id is is included in the selectedValue state to render 
+                //workout log data.
+                this.state.selectedValue.includes(workoutIndex) ?
+                  workout.set.map((sets, index) => {
+                    return (
+                      <>
+                        <DropDownInfo
+
+                          weight={sets[`weight${index}`]}
+                          thisIndex={index + 1}
+                          reps={sets[`rep${index}`]}
+                          //type checks to see if distance key is in mapped object
+                          //it passes a true prop to render the distance data
+                          type={sets[`distance${index}`] ? false : true}
+                          distanceUnits={this.state.distanceUnits}
+                          distance={sets[`distance${index}`]}
+                          unit={this.state.unit}
+                        />
+                      </>
                     )
-                })}
-            </Container>
-        )
-    }
+                  })
+                  : null
+              }
+
+
+            </TopContainer>
+          )
+        })}
+      </Container>
+    )
+  }
 }
 
-const Container = styled.div `
+const Container = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
 `
-const TopContainer = styled.div `
+const TopContainer = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
 `
-const Dropdown = styled.div `
+const Dropdown = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -155,7 +154,7 @@ const Dropdown = styled.div `
         cursor: pointer;
     }
 `
-const Arrow = styled.img `
+const Arrow = styled.img`
     padding: 0 5px;
     float: right;
    transform: rotate(0deg);
@@ -164,21 +163,21 @@ const Arrow = styled.img `
    transform: ${props => (props.rotate ? `rotate(90deg)` : "")};
     ${'' /* checks to see if props are passed to the css to determine if it will rotate button */}
 `
-const TitleLeft = styled.div `
+const TitleLeft = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 `
-const TitleText = styled.p `
+const TitleText = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     color: #03A3F3;
     text-transform: uppercase;
-` 
-const Text = styled.p `
+`
+const Text = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;

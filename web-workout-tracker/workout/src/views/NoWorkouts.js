@@ -3,25 +3,25 @@ import styled from "styled-components";
 import emoji from '../assets/images/ThinkingEmoji.svg'
 
 class NoWorkouts extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {}
     }
 
-    componentDidMount(){
+    componentDidMount() {
         //Notifies parent component to keep the default titling.
         this.props.titleToggler(false)
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Container>
-                <NoWorkout> 
-                <Plus src = {emoji} alt = 'thinking emoji' />
+                <NoWorkout>
+                    {/* <Plus src = {emoji} alt = 'thinking emoji' /> */}
                     <TextContainer>
                         <Text> NO WORKOUTS</Text>
                         <Text> LOGGED TODAY</Text>
-                    </TextContainer>    
+                    </TextContainer>
                 </NoWorkout>
             </Container>
         )
@@ -50,7 +50,7 @@ const TextContainer = styled.div`
     flex-direction: column;
     margin: 25px auto;
 `
-const Text = styled.p `
+const Text = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
@@ -60,6 +60,6 @@ const Text = styled.p `
 const Plus = styled.img`
     display: flex;
     justify-content: flex-start;
-` 
+`
 
 export default NoWorkouts;
