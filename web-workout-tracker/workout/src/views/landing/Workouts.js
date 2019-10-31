@@ -53,14 +53,16 @@ class Workouts extends React.Component {
             titleToggler={bool => this.titleToggler(bool)}
           />
         ) : (
+          <>
             <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
               <TextContainer>
                 <Text> NO WORKOUTS LOGGED</Text>
                 <Caption>What would you like to workout today?</Caption>
               </TextContainer>
             </NoWorkout>
+            <SuggestedWorkouts />
+            </>
           )}
-        <SuggestedWorkouts />
         {/* Bring in the suggestions here I believe. Check with Super Awesome Miguel. */}
       </Container>
     );
