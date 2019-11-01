@@ -6,9 +6,9 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
   const addASet = e => {
     e.preventDefault();
     let newData = {};
-    newData[`weight${set.length}`] = 0;
-    newData[`unit${set.length}`] = "lbs";
-    newData[`rep${set.length}`] = 0;
+    newData[`weight`] = 0;
+    newData[`weight_units`] = "lbs";
+    newData[`reps`] = 0;
     setSet([...set, newData]);
   };
 
@@ -24,6 +24,8 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
     let setCopy = [...set];
     setCopy[idx][e.target.name] = e.target.value;
     setSet(setCopy);
+    console.log(set);
+
   };
 
   return (
@@ -38,11 +40,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
                 type="number"
                 min="1"
                 max="1000"
-                name={`rep${idx}`}
+                name={`rep`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                value={setData[`rep${idx}`]}
+                value={setData[`rep`]}
                 required
               />
             </InputDiv>
@@ -53,11 +55,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
                 type="number"
                 min="1"
                 max="1000"
-                name={`weight${idx}`}
+                name={`weight`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                value={setData[`weight${idx}`]}
+                value={setData[`weight`]}
                 required
               />
             </InputDiv>
@@ -73,11 +75,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
             <InputDiv>
               <InputLabel>Unit: </InputLabel>
               <Select
-                name={`unit${idx}`}
+                name={`unit`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                defaultValue={set[idx][`unit${idx}`]}
+                defaultValue={set[idx][`unit`]}
               >
                 <Option value="lbs">lbs</Option>
                 <Option value="kg">kg</Option>
