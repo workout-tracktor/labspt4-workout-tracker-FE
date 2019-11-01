@@ -30,6 +30,7 @@ const ExerciseForm = (props) => {
       props.history.push('/Landing')
 };
 
+    const [InitialName, setInitialName] = useState([]);
     const [name, setName] = useState("");
 
     const [date, setDate] = useState(new Date());
@@ -54,15 +55,29 @@ const ExerciseForm = (props) => {
     React.useEffect(() => {
       // Update the document title using the browser API
       // console.log(props.location.workout)
+      const autocomplete = () =>  {
+        axios
+        .get(`https://workouttrackerprod.herokuapp.com/api/exercises`)
+        .then(res => {
+          let resData = res.data;
+          let filtered = [];
+          for (let i in resData) {
+            filtered.push(resData[i].name);
+          }
+          setInitialName(filtered);
+        });
+      }
+      
       if(props.location.workout) {
+        autocomplete()
         console.log(props.location.workout)
         setName(props.location.workout.name)   
         setSet(props.location.workout.set)
         setEdit(true)
-      } 
+      } else {
+        autocomplete()
+      }
     }, []);
-
-
 
     return (
         <Container>
@@ -76,12 +91,22 @@ const ExerciseForm = (props) => {
                 <Header>NAME OF EXERCISE:</Header>
 
                 <Div>
-                    <ExerciseInput
-                        type="text"
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        required
-                    />
+                <ExerciseInput
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+                list="whatever"
+                />
+                <datalist id="whatever">
+                  {
+                    InitialName.map(filtered => {
+                      return(
+                      <option value={filtered}></option>
+                      )
+                    })
+                  }
+                </datalist>
                 </Div>
 
                 <DateDiv>
