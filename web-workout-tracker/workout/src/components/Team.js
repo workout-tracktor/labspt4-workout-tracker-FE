@@ -41,7 +41,7 @@ const Team = (props) => {
                 <h2>Tevvin strong</h2>
                 <h3>Full-Stack Developer</h3>
                 <p>
-                    Software Developer with experience in full stack web and computer science. Looking to meet more people, work on growing my network.
+                    Software engineer based in the Gainesville, Florida area. With an interest in design and backend technologies.
                 </p>
                 <div className="icons">
                     <a href="https://github.com/TevvinStrong"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
@@ -93,8 +93,9 @@ const Team = (props) => {
                 <img className="selfie" src={Gabe} alt="Selfie of Gabe" />
                 <h2>Gabe Samaniego</h2>
                 <h3>Full-stack developer</h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi sapiente laboriosam
-            dicta voluptas doloremque mollitia veniam iste, </p>
+                <p>
+                    Gabe is passionate about making people's lives easier by building beautiful and functional software. He specializes in frontend development and UI/UX design.
+                </p>
                 <div className="icons">
                     <a href="https://github.com/gsamaniego41"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
                     <a href="https://linkedin.com/in/gabriel-samaniego/"><i className="fa fa-linkedin-square fa-4x" aria-hidden="true" /></a>
