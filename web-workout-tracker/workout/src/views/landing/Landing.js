@@ -20,23 +20,44 @@ class Landing extends React.Component {
       user_id: ""
     };
   }
+
+  get_date = (dateObject) => {
+    const date = dateObject
+    const year = date.getFullYear()
+    const month = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+    return `${year}-${month}-${day}`
+  }
+
   componentDidMount() {
     //checks to see if user is logged in by checking cookie to render components
     if (document.cookie.indexOf('auth0.is.authenticated') !== -1) {
       this.setState({ isLoggedin: !this.state.isLoggedin })
     } else { this.setState({ isLoggedin: false }) }
-    axios
-      .get("https://workouttrackerprod.herokuapp.com/")
-      .then(res => {
 
-        this.setState(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // const user_id = localStorage.getItem('user_id');
+    // const date = this.get_date(this.state.date)
+    //
+
 
   }
-  onChange = date => this.setState({ date });
+  onChange = date => {
+    this.setState({ date })
+    const user_id = localStorage.getItem('user_id');
+    const todayDate = this.get_date(date)
+    console.log('Today Date'+ todayDate)
+
+    axios.get(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}&date=${todayDate}`)
+        .then(res => {
+          this.setState(res.data);
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+
+  }
 
   render() {
     return (
