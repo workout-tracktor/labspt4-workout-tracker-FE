@@ -43,7 +43,6 @@ const ExerciseForm = (props) => {
             if (newSet[i]['time_units'] === 'hours') newSet[i]['time_units'] = 5
         }
 
-        const date = new Date()
         const get_date = (dateObject) => {
             const date = dateObject
             const year = date.getFullYear()
