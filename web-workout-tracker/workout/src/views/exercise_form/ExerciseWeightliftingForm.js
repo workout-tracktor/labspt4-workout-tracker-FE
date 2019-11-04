@@ -24,8 +24,6 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
     let setCopy = [...set];
     setCopy[idx][e.target.name] = e.target.value;
     setSet(setCopy);
-    console.log(set);
-
   };
 
   return (
@@ -40,11 +38,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
                 type="number"
                 min="1"
                 max="1000"
-                name={`rep`}
+                name={`reps`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                value={setData[`rep`]}
+                value={setData[`reps`]}
                 required
               />
             </InputDiv>
@@ -75,11 +73,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
             <InputDiv>
               <InputLabel>Unit: </InputLabel>
               <Select
-                name={`unit`}
+                name={`weight_units`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                defaultValue={set[idx][`unit`]}
+                defaultValue={set[idx][`weight_units`]}
               >
                 <Option value="lbs">lbs</Option>
                 <Option value="kg">kg</Option>

@@ -4,39 +4,17 @@ import ExerciseWeightliftingForm from "./ExerciseWeightliftingForm";
 import DatePicker from "../DatePicker";
 import styled from "styled-components";
 import {connect} from "react-redux";
-import {addExerciseToState} from "../../actions";
 import axios from 'axios'
 
 
 const ExerciseForm = (props) => {
+    //exercise info
+    const [name, setName] = useState("");
+    const [date, setDate] = useState(new Date());
+    const [completed, setCompleted] = useState(false);
     const exerciseType = props.match.params.exercise
 
-    const backHandler = event => {
-        event.preventDefault();
-        props.history.push('/exercise-form')
-    };
-
-    const submitHandler = e => {
-
-
-
-        e.preventDefault()
-        const user_id = localStorage.getItem('user_id');
-        const newExercise = {name, date, set, completed, workoutType: exerciseType};
-
-        if (edit === true) {
-            axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, newExercise)
-        } else {
-            //axios.post
-        }
-        props.history.push('/Landing')
-    };
-
-    const [InitialName, setInitialName] = useState([]);
-    const [name, setName] = useState("");
-
-    const [date, setDate] = useState(new Date());
-
+    //set info
     const [set, setSet] = useState(() => {
         if (props.location.workout) {
             return [props.location.workout.set]
@@ -45,15 +23,62 @@ const ExerciseForm = (props) => {
         }
     });
 
-    const [completed, setCompleted] = useState(false);
+    //Event handler functions
+    const backHandler = event => {
+        event.preventDefault();
+        props.history.push('/exercise-form')
+    };
 
+    const submitHandler = e => {
+        e.preventDefault();
+        const user_id = localStorage.getItem('user_id');
+        let newSet = [...set]
+        for (let i = 0; i < newSet.length; i++) {
+            if (newSet[i]['distance_units'] === 'm') newSet[i]['distance_units'] = 6
+            if (newSet[i]['distance_units'] === 'km') newSet[i]['distance_units'] = 7
+            if (newSet[i]['weight_units'] === 'lbs') newSet[i]['weight_units'] = 1
+            if (newSet[i]['weight_units'] === 'kg') newSet[i]['weight_units'] = 2
+            if (newSet[i]['time_units'] === 'sec') newSet[i]['time_units'] = 3
+            if (newSet[i]['time_units'] === 'min') newSet[i]['time_units'] = 4
+            if (newSet[i]['time_units'] === 'hours') newSet[i]['time_units'] = 5
+        }
+
+        const date = new Date()
+        const get_date = (dateObject) => {
+            const date = dateObject
+            const year = date.getFullYear()
+            const month = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1
+            const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+            return `${year}-${month}-${day}`
+        }
+
+
+        const newExercise = {name, date: get_date(date), sets: newSet, completed, workout_type: exerciseType, user_id};
+        console.log(newExercise)
+        if (edit === true) {
+            axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises`, newExercise)
+        } else {
+            axios.post('https://workouttrackerprod.herokuapp.com/api/exercises', newExercise)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
+        }
+        props.history.push('/Landing')
+    };
+
+    const [InitialName, setInitialName] = useState([]);
 
     const [editWorkout, setEditWorkout] = useState(props.workout)
 
     const [edit, setEdit] = useState(false)
 
 
+    const [unitIndex, setUnitIndex] = useState([])
     React.useEffect(() => {
+
+        axios.get('https://workouttrackerprod.herokuapp.com/api/units')
+            .then(res => setUnitIndex(res.data))
+            .catch(err => console.log(err))
+
         // Update the document title using the browser API
         // console.log(props.location.workout)
         const autocomplete = () => {
@@ -71,7 +96,6 @@ const ExerciseForm = (props) => {
 
         if (props.location.workout) {
             autocomplete()
-            console.log(props.location.workout)
             setName(props.location.workout.name)
             setSet(props.location.workout.set)
             setEdit(true)
@@ -233,4 +257,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, {addExerciseToState})(ExerciseForm);
+export default connect(mapStateToProps, null)(ExerciseForm);

@@ -11,7 +11,6 @@ const ExerciseCardioForm = ({ set, setSet }) => {
     newData[`distance_units`] = "m";
 
     setSet([...set, newData]);
-    console.log(set);
   };
 
   const deleteASet = e => {
@@ -26,7 +25,6 @@ const ExerciseCardioForm = ({ set, setSet }) => {
     let setCopy = [...set];
     setCopy[idx][e.target.name] = e.target.value;
     setSet(setCopy);
-    console.log(set);
   };
 
   return (
