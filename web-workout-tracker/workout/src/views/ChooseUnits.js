@@ -79,7 +79,7 @@ export class ChooseUnits extends React.Component {
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-us-outlying-islands.svg" alt="US flag" data-testid="units" />
                         <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
-                            Imperial
+                            US Standard
                             </OptionsHeader>
                             <OptionsBody data-testid="units">
                                 miles, feet, pounds

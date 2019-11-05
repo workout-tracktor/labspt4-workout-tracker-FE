@@ -4,11 +4,26 @@ import styled from "styled-components";
 import ProfileIcon from "./ProfileIcon.png";
 import { connect } from "react-redux";
 import Logout from "./Logout";
+import axios from "axios";
+import { sendUserData } from '../../actions';
+
 
 class UserSettings extends React.Component {
   toOnboarding = props => {
     this.props.history.push("/change-body-goal");
   };
+
+  updateUser = units => {
+    axios
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: units })
+        .then(res => {
+            // save updated user object in Redux store (state.thisUser)
+            this.props.sendUserData(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+  }
 
   render = () => (
     <Section>
@@ -30,15 +45,15 @@ class UserSettings extends React.Component {
         <GoalValueDiv>{this.props.thisUser.body_goal}</GoalValueDiv>
       </Div>
 
-      <Div onClick={this.update_active_setting}>
+      <Div  onClick={this.update_active_setting}>
         <Span className="title">Units</Span>
         <Unit>
-          <UnitDiv className="unit-types">
+          <UnitDiv className="unit-types" onClick={() => this.updateUser("Imperial")}>
             <Input type="radio" name="unit-type" value="us" id="us"></Input>
             <Label htmlFor="us">US Standard</Label>
           </UnitDiv>
 
-          <UnitDiv>
+          <UnitDiv onClick={() => this.updateUser("Metric")}>
             <Input
               type="radio"
               name="unit-type"
@@ -147,7 +162,8 @@ const mapStateToProps = state => {
     // it's saved data for particular user
     thisUser: state.thisUser,
     // it's a temporary storage for on boarding page purposes
-    bodyGoal: state.bodyGoal
+    bodyGoal: state.bodyGoal,
+    units: state.units
   };
 };
-export default connect(mapStateToProps)(UserSettings);
+export default connect(mapStateToProps, {sendUserData})(UserSettings);
