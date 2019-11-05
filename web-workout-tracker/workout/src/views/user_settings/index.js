@@ -9,9 +9,29 @@ import { sendUserData } from '../../actions';
 
 
 class UserSettings extends React.Component {
+  state = {
+    metric: false,
+    us: false
+  }
+
+  componentDidMount(props) {
+    if(this.props.thisUser.unit_system === "metric") {
+      this.setState({metric: true});
+    } else if (this.props.thisUser.unit_system === "standard") {
+      this.setState({us: true});
+    }
+  }
+
   toOnboarding = props => {
     this.props.history.push("/change-body-goal");
   };
+
+  handleCheckBoxClick = () => {
+    this.setState({
+      metric: !this.state.metric,
+      us: !this.state.us
+    });
+  } 
 
   updateUser = units => {
     axios
@@ -48,18 +68,26 @@ class UserSettings extends React.Component {
       <Div  onClick={this.update_active_setting}>
         <Span className="title">Units</Span>
         <Unit>
-          <UnitDiv className="unit-types" onClick={() => this.updateUser("Imperial")}>
-            <Input type="radio" name="unit-type" value="us" id="us"></Input>
+          <UnitDiv className="unit-types" onClick={() => this.updateUser("standard")}>
+            <Input
+              type="radio"
+              name="unit-type"
+              value="us"
+              id="us"
+              checked={this.state.us}
+              onClick={this.handleCheckBoxClick}
+            ></Input>
             <Label htmlFor="us">US Standard</Label>
           </UnitDiv>
 
-          <UnitDiv onClick={() => this.updateUser("Metric")}>
+          <UnitDiv onClick={() => this.updateUser("metric")}>
             <Input
               type="radio"
               name="unit-type"
               value="metric"
               id="metric"
-              defaultChecked
+              checked={this.state.metric}
+              onClick={this.handleCheckBoxClick}
             ></Input>
             <Label htmlFor="metric">Metric</Label>
           </UnitDiv>

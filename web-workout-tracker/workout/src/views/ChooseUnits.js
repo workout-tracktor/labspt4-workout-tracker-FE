@@ -38,7 +38,7 @@ export class ChooseUnits extends React.Component {
 
     setDefault = () => {
         axios
-        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "Imperial" })
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "standard" })
         .then(res => {
             // save updated user object in Redux store (state.thisUser)
             this.props.sendUserData(res.data);
@@ -75,7 +75,7 @@ export class ChooseUnits extends React.Component {
                 <OnboardingHeader url={TrophyIcon} text="Choose a metric system" />
 
                 <OptionsWrapper>
-                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("Imperial")}>
+                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("standard")}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-us-outlying-islands.svg" alt="US flag" data-testid="units" />
                         <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
@@ -91,7 +91,7 @@ export class ChooseUnits extends React.Component {
 
                     {this.state.buttonPressed && <InvisibleLine />}
 
-                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("Metric")}>
+                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("metric")}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-european-union.svg" alt="EU flag" data-testid="units" />
                         <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
