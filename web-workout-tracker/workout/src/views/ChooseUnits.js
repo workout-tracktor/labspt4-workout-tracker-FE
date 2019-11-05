@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Redux
 import { connect } from "react-redux";
-import { sendUserData, sendUserGoal } from '../actions';
+import { sendUserData, sendUserUnits } from '../actions';
 
 import axios from "axios";
 
@@ -18,9 +18,9 @@ export class ChooseUnits extends React.Component {
         buttonPressed: false
     }
 
-    clickOptionHandler = () => {
+    clickOptionHandler = (units) => {
         this.setState({ buttonPressed: true });
-        // this.props.sendUserGoal(goal);
+        this.props.sendUserUnits(units);
     }
 
     // eventListener for the window, hide Select button when user isn't pressing on body options or Select button itself
@@ -36,9 +36,24 @@ export class ChooseUnits extends React.Component {
         }
     }
 
+    setDefault = () => {
+        axios
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "Imperial" })
+        .then(res => {
+            // save updated user object in Redux store (state.thisUser)
+            this.props.sendUserData(res.data);
+            // go to the next on boarding screen (choose default units)
+            this.props.history.push("/Landing");
+        })
+        .catch(err => {
+            console.log(err);
+            this.props.history.push("/onboarding/choose-units");
+        })
+    }
+
     setUnits = (e, props) => {
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: this.props.unit_system })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: this.props.units })
             .then(res => {
                 // save updated user object in Redux store (state.thisUser)
                 this.props.sendUserData(res.data);
@@ -60,11 +75,11 @@ export class ChooseUnits extends React.Component {
                 <OnboardingHeader url={TrophyIcon} text="Choose a metric system" />
 
                 <OptionsWrapper>
-                    <OptionButton data-testid="units" onClick={this.clickOptionHandler}>
+                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("Imperial")}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-us-outlying-islands.svg" alt="US flag" data-testid="units" />
                         <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
-                                U.S.
+                            Imperial
                             </OptionsHeader>
                             <OptionsBody data-testid="units">
                                 miles, feet, pounds
@@ -76,11 +91,11 @@ export class ChooseUnits extends React.Component {
 
                     {this.state.buttonPressed && <InvisibleLine />}
 
-                    <OptionButton data-testid="units" onClick={this.clickOptionHandler}>
+                    <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("Metric")}>
                         <img src="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/emojione-flag-for-flag-european-union.svg" alt="EU flag" data-testid="units" />
                         <OptionsRightContent data-testid="units">
                             <OptionsHeader data-testid="units">
-                                European
+                            Metric
                             </OptionsHeader>
                             <OptionsBody data-testid="units">
                                 kilometers, meters, kilograms
@@ -98,7 +113,7 @@ export class ChooseUnits extends React.Component {
 
                     {/* Skip on boarding Button*/}
                     {
-                        !this.state.buttonPressed && <Button text="I'll do this later" background="transparent" padding="7px 0px" />
+                        !this.state.buttonPressed && <Button text="I'll do this later" background="transparent" padding="7px 0px" onClick={this.setDefault} />
                     }
 
                     {/* "Select" Button*/}
@@ -113,7 +128,7 @@ export class ChooseUnits extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    bodyGoal: state.bodyGoal,
+    units: state.units,
     thisUser: state.thisUser
 });
 
@@ -209,4 +224,4 @@ const ButtonsWrapper = styled.div`
     justify-content: space-between;
 `;
 
-export default connect(mapStateToProps, {sendUserData, sendUserGoal})(ChooseUnits);
+export default connect(mapStateToProps, {sendUserData, sendUserUnits})(ChooseUnits);
