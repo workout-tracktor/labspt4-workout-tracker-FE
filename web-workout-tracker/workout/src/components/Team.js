@@ -41,7 +41,7 @@ const Team = (props) => {
                 <h2>Tevvin strong</h2>
                 <h3>Full-Stack Developer</h3>
                 <p>
-                    Software engineer based in the Gainesville, Florida area. With an interest in design and backend technologies.
+                    Software engineer based in the Gainesville, Florida area. With a passion for improving lives with technology and specializes in front and backend development.
                 </p>
                 <div className="icons">
                     <a href="https://github.com/TevvinStrong"><i className="fa fa-github-square fa-4x" aria-hidden="true" /></a>
