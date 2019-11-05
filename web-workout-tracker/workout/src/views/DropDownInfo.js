@@ -11,7 +11,7 @@ class DropDownInfo extends React.Component {
     render(){
         return (
             <Row>               
-                {this.props.type?
+                {this.props.workout_type?
                         <>
                         <GrayText> Set {this.props.thisIndex }</GrayText>
                         <Text> {this.props.weight} {this.props.unit}</Text>

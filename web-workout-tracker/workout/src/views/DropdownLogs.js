@@ -56,7 +56,6 @@ class DropdownLogs extends React.Component {
     }
 
     deleteHandler = exerciseId => {
-        console.log('Wait for backend to resolve GET to get the exercise ID to delete')
         // axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, exerciseId)
     }
 
@@ -75,12 +74,12 @@ class DropdownLogs extends React.Component {
                         //to the conditional below to see if it should render the workout log data
                         >
                             <TitleLeft> 
-                                <Arrow 
+                                {/* <Arrow 
                                     src = {DropdownArrow}  
                                     //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
                                     rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
                                     alt = "arrow"
-                                />
+                                /> */}
                                 <Text> {workout.name}</Text>
                                 <EditButton onClick={this.editHandler(workout)}>
                                 <EditIcon src={PencilEdit} alt="edit icon" />
@@ -95,31 +94,32 @@ class DropdownLogs extends React.Component {
                                 </EditButton>
 
                             </TitleLeft>
-                            <Text> {workout.set.length} Excercises</Text>
+                            <Text> {this.props.sets.length} Excercises</Text>
                         </Dropdown>
                         {
                             //checks to see if the mappped id is is included in the selectedValue state to render 
                             //workout log data.
-                            this.state.selectedValue.includes(workoutIndex) ?
-                            workout.set.map((sets, index) => {
+                          this.props.sets ?
+                            this.props.sets.map((sets, index) => {
+                              if(workout.id === sets["exercise_id"]){   
                                 return(
                                     <>
                                     <DropDownInfo 
-                                        
-                                        weight = {sets[`weight${index}`]} 
+                                        weight = {sets.weight} 
                                         thisIndex = {index+1} 
-                                        reps = {sets[`rep${index}`]}
-                                        //type checks to see if distance key is in mapped object
+                                        reps = {sets.reps}
+                                        //type checks to see if cardio key is in mapped object
                                         //it passes a true prop to render the distance data
-                                        type = {sets[`distance${index}`] ? false : true }
+                                        workout_type = {sets.distance === null ? true : false }
                                         distanceUnits = {this.state.distanceUnits}
-                                        distance = { sets[`distance${index}`] }
-                                        unit = {this.state.unit}
+                                        distance = { sets.distance }
+                                        unit = {sets.distance_units}
                                         />
                                     </>
-                                )
+                                )}
                         })
-                            : null
+                        : null
+
                         }
 
                     

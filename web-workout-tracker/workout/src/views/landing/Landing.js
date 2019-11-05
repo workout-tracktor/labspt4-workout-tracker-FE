@@ -19,7 +19,8 @@ class Landing extends React.Component {
             isLoggedin: false,
             user_id: "",
             exercises: [],
-            sets: []
+            sets: [],
+            todaysExercises: []
 
         };
     }
@@ -44,7 +45,6 @@ class Landing extends React.Component {
         axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/exercises?user_id=${user_id}`)
             .then(res => {
                 this.setState({exercises: res.data})
-                console.log(this.state)
             })
             .catch(err => console.log(err))
     }
@@ -55,23 +55,23 @@ class Landing extends React.Component {
         this.state.exercises.filter(exercise => {
             if (exercise.date === dateSelected && exercise.id) {
                 axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
-                    .then(res => this.setState({sets:res.data}))
+                    .then(res => this.setState({sets:res.data, todaysExercises: exercise}))
                     .catch(err => console.log(err))
             }
             else this.setState({sets:[]})
 
         })
-        console.log(this.state.sets)
     }
 
 
     render() {
+        console.log(this.state.sets)
         return (
             <Container>
                 {this.state.isLoggedin ?
                     <>
                         <Calendar onChange={this.onChange} value={this.state.date}/>
-                        <Workouts/>
+                        <Workouts workouts = {this.state.exercises} sets = {this.state.sets}/>
                     </>
                     : null}
             </Container>
