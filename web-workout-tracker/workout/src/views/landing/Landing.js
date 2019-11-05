@@ -5,6 +5,7 @@ import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
 import { connect } from "react-redux";
+import { StripeProvider } from "react-stripe-elements";
 import CheckoutForm from "../../components/CheckoutForm";
 
 class Landing extends React.Component {

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ValidateUser from './ValidateUser';
+import ValidateUser from "./ValidateUser";
 import NavBar from "../components/Navbar";
 import Landing from "./landing/Landing";
 import BodyGoal from "./BodyGoal";
@@ -17,16 +17,15 @@ import { TeamPage } from "./TeamPage";
 
 function App() {
   const { loading } = useAuth0();
-  const [newUser, setnewUser] = React.useState(false)
+  const [newUser, setnewUser] = React.useState(false);
 
   if (loading) {
     return <Loading />;
   }
 
-
   const newUserToggler = bool => {
-    setnewUser(bool)
-  }
+    setnewUser(bool);
+  };
 
   return (
     <div className="App">
@@ -37,16 +36,39 @@ function App() {
         <Switch>
           <Route exact path="/team" component={TeamPage} />
           <Route exact path="/" component={MarketingPage} />
-          <Route exact path="/validate-user" render={(props) => <ValidateUser {...props} newUserToggler={newUserToggler} />} />
-          <Route exact path="/Landing" render={(props) => <Landing {...props} />} />/>
+          <Route
+            exact
+            path="/validate-user"
+            render={props => (
+              <ValidateUser {...props} newUserToggler={newUserToggler} />
+            )}
+          />
+          <Route
+            exact
+            path="/Landing"
+            render={props => <Landing {...props} />}
+          />
+          />
           <Route exact path="/user-settings" component={UserSettings} />
           {/* On boarding - choose the body goal */}
           {/* @TO-DO: Make route private */}
-          <Route exact path="/onboarding/body-goal" render={(props) => <BodyGoal {...props} newUserToggler={newUserToggler} />} />
-
-          <Route exact path="/exercise-form" render={(props) => <ExerciseTypeForm {...props} />} />
-          <Route exact path="/exercise-form/:exercise" render={(props) => <ExerciseForm {...props} />} />
-
+          <Route
+            exact
+            path="/onboarding/body-goal"
+            render={props => (
+              <BodyGoal {...props} newUserToggler={newUserToggler} />
+            )}
+          />
+          <Route
+            exact
+            path="/exercise-form"
+            render={props => <ExerciseTypeForm {...props} />}
+          />
+          <Route
+            exact
+            path="/exercise-form/:exercise"
+            render={props => <ExerciseForm {...props} />}
+          />
         </Switch>
       </BrowserRouter>
     </div>

@@ -21,7 +21,7 @@ export default class CheckoutForm extends React.Component {
         label="Additional Features" // text inside the Stripe button
         panelLabel="Pay with 💳"
         description="Special Features"
-        image="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/horizontal.svg"
+        image="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/lift-logo.png"
         locale="auto"
         name="LiftQuest"
         stripeKey="pk_test_1MMw6F4AwE6N02FyRrmMDgUw00jBG44S6s"
