@@ -4,75 +4,83 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
 class Landing extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      date: new Date(),
-      //when date is clicked on, 
-      workouts: true,
-      //selectedDate is the date that is selected on the calendar
-      //which will then be sent to back end to check to see if there was workout data
-      selectedDate: null,
-      isLoggedin: false,
-      user_id: ""
-    };
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            date: new Date(),
+            //when date is clicked on,
+            workouts: true,
+            //selectedDate is the date that is selected on the calendar
+            //which will then be sent to back end to check to see if there was workout data
+            selectedDate: null,
+            isLoggedin: false,
+            user_id: "",
+            exercises: [],
+            sets: []
 
-  get_date = (dateObject) => {
-    const date = dateObject
-    const year = date.getFullYear()
-    const month = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
-    return `${year}-${month}-${day}`
-  }
+        };
+    }
 
-  componentDidMount() {
-    //checks to see if user is logged in by checking cookie to render components
-    if (document.cookie.indexOf('auth0.is.authenticated') !== -1) {
-      this.setState({ isLoggedin: !this.state.isLoggedin })
-    } else { this.setState({ isLoggedin: false }) }
+    get_date = (dateObject) => {
+        const date = dateObject
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+        return `${year}-${month}-${day}`
+    }
 
-    // const user_id = localStorage.getItem('user_id');
-    // const date = this.get_date(this.state.date)
-    //
+    componentDidMount() {
+        //checks to see if user is logged in by checking cookie to render components
+        if (document.cookie.indexOf('auth0.is.authenticated') !== -1) {
+            this.setState({isLoggedin: !this.state.isLoggedin})
+        } else {
+            this.setState({isLoggedin: false})
+        }
 
+        const user_id = localStorage.getItem('user_id');
+        axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/exercises?user_id=${user_id}`)
+            .then(res => {
+                this.setState({exercises: res.data})
+                console.log(this.state)
+            })
+            .catch(err => console.log(err))
+    }
 
-  }
-  onChange = date => {
-    this.setState({ date })
-    const user_id = localStorage.getItem('user_id');
-    const todayDate = this.get_date(date)
-    console.log('Today Date'+ todayDate)
+    onChange = date => {
+        const dateSelected = this.get_date(date)
+        //filter through exercise state by date
+        this.state.exercises.filter(exercise => {
+            if (exercise.date === dateSelected && exercise.id) {
+                axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
+                    .then(res => this.setState({sets:res.data}))
+                    .catch(err => console.log(err))
+            }
+            else this.setState({sets:[]})
 
-    axios.get(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}&date=${todayDate}`)
-        .then(res => {
-          this.setState(res.data);
-          console.log(res.data)
         })
-        .catch(err => {
-          console.log(err);
-        });
-  }
+        console.log(this.state.sets)
+    }
 
-  render() {
-    return (
-      <Container>
-        {this.state.isLoggedin ?
-          <>
-            <Calendar onChange={this.onChange} value={this.state.date} />
-            <Workouts />
-          </>
-          : null}
-      </Container>
-    );
-  }
+
+    render() {
+        return (
+            <Container>
+                {this.state.isLoggedin ?
+                    <>
+                        <Calendar onChange={this.onChange} value={this.state.date}/>
+                        <Workouts/>
+                    </>
+                    : null}
+            </Container>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  thisUser: state.thisUser
+    thisUser: state.thisUser
 });
 
 const Container = styled.div`

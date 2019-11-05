@@ -53,12 +53,11 @@ const ExerciseForm = (props) => {
 
 
         const newExercise = {name, date: get_date(date), sets: newSet, completed, workout_type: exerciseType, user_id};
-        console.log(newExercise)
         if (edit === true) {
             axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises`, newExercise)
         } else {
-            axios.post('https://workouttrackerprod.herokuapp.com/api/exercises', newExercise)
-                .then(res => console.log(res))
+            axios.post('https://workouttrackerstaging-2.herokuapp.com/api/exercises', newExercise)
+                .then(res => console.log(res.data))
                 .catch(err => console.log(err))
         }
         props.history.push('/Landing')
