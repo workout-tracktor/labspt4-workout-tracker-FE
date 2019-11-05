@@ -20,8 +20,6 @@ class Landing extends React.Component {
             user_id: "",
             exercises: [],
             sets: [],
-            todaysExercises: []
-
         };
     }
 
@@ -55,7 +53,7 @@ class Landing extends React.Component {
         this.state.exercises.filter(exercise => {
             if (exercise.date === dateSelected && exercise.id) {
                 axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
-                    .then(res => this.setState({sets:res.data, todaysExercises: exercise}))
+                    .then(res => this.setState({sets:res.data}))
                     .catch(err => console.log(err))
             }
             else this.setState({sets:[]})
@@ -65,7 +63,6 @@ class Landing extends React.Component {
 
 
     render() {
-        console.log(this.state.sets)
         return (
             <Container>
                 {this.state.isLoggedin ?
