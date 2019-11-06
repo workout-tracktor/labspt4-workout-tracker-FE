@@ -11,6 +11,7 @@ import {
     UPDATE_USER_FAILURE,
     SET_USER_STORE_SUCCESS,
     SET_USER_GOAL_SUCCESS,
+    SET_USER_UNITS_SUCCESS,
     GET_BODY_GOAL_SUCCESS,
     GET_BODY_GOAL_FAIL,
     ADD_EXERCISE
@@ -20,6 +21,7 @@ const initialState = {
     thisUser: [],
     // bodyGoal - is temporary storage, changing with every click. If user submited his choice, bodyGoal should go to thisUser object
     bodyGoal: "",
+    units: "",
     updatingUser: false,
     error: "",
     isLoggingIn: false,
@@ -94,6 +96,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 bodyGoal: action.payload
+            };
+        case SET_USER_UNITS_SUCCESS:
+            return {
+                ...state,
+                units: action.payload
             };
         case ADD_EXERCISE:
             console.log(state.exerciseData);
