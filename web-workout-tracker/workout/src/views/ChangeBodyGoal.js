@@ -1,3 +1,5 @@
+// This view is from changing body goal from the settings.
+
 import React from "react"
 import styled from "styled-components";
 
@@ -17,7 +19,7 @@ import CheckMark from "../assets/icons/CheckMark.svg";
 
 // this export is for testing purposes
 export class BodyGoal extends React.Component {
-    state= {
+    state = {
         goal: "",
         buttonPressed: false
     }
@@ -37,11 +39,12 @@ export class BodyGoal extends React.Component {
     }
 
     setGoal = (e, props) => {
-        const id = this.props.thisUser.user_id;
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: id, body_goal: this.props.bodyGoal })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
+                // save updated user object in Redux store (state.thisUser)
                 this.props.sendUserData(res.data);
+                // go back to settings
                 this.props.history.goBack();
             })
             .catch(err => {

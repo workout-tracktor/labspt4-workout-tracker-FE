@@ -1,3 +1,5 @@
+// View for the first step of on boarding process (user is choosing a body goal). If user is skiping on boarding, we're automatially setting units to US system, but body goal remain blank
+
 import React from "react"
 import styled from "styled-components";
 

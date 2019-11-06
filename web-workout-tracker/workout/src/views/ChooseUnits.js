@@ -1,3 +1,5 @@
+// View for the second step of on boarding process (user is choosing units - metric or standard (us) system). If user is skiping on boarding, we're automatially setting units to US system
+
 import React from "react"
 import styled from "styled-components";
 
