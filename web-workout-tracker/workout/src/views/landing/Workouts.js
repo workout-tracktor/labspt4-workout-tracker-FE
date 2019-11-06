@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 //moment is used to get the time and set AM or PM
-import emoji from "../../assets/images/ThinkingEmoji.svg";
 import plus from "../../assets/icons/Plus.svg";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DrownDownLogs from "../DropdownLogs";
 import axios from "axios";
-import PencilEdit from "../../assets/icons/PencilEdit.svg";
 import SuggestedWorkouts from "../../components/SuggestedWorkouts";
 
 class Workouts extends React.Component {
@@ -40,18 +38,14 @@ class Workouts extends React.Component {
     return (
       <Container>
         {this.state.displayingWorkouts ? (
-          <TitleWithEdit>
-            <TitleTextWithEdit> FITTER FASTER FURTHER </TitleTextWithEdit>
-            <EditButton onClick={this.editHandler}>
-              <EditIcon src={PencilEdit} alt="edit icon" />
-              <ButtonText>EDIT</ButtonText>
-            </EditButton>
-          </TitleWithEdit>
-        ) : (
           <Title>
             <TitleText> FITTER FASTER FURTHER </TitleText>
           </Title>
-        )}
+        ) : (
+            <Title>
+              <TitleText> FITTER FASTER FURTHER </TitleText>
+            </Title>
+          )}
 
         {this.props.exerciseData.length !== 0 ? (
           <DrownDownLogs
@@ -59,15 +53,16 @@ class Workouts extends React.Component {
             titleToggler={bool => this.titleToggler(bool)}
           />
         ) : (
-          <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
-            <Plus src={emoji} alt="thinking emoji" />
-            <TextContainer>
-              <Text> NO WORKOUTS</Text>
-              <Text> LOGGED TODAY</Text>
-            </TextContainer>
-          </NoWorkout>
-        )}
-        <SuggestedWorkouts />
+          <>
+            <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
+              <TextContainer>
+                <Text> NO WORKOUTS LOGGED</Text>
+                <Caption>What would you like to workout today?</Caption>
+              </TextContainer>
+            </NoWorkout>
+            <SuggestedWorkouts />
+            </>
+          )}
         {/* Bring in the suggestions here I believe. Check with Super Awesome Miguel. */}
       </Container>
     );
@@ -126,21 +121,29 @@ const TitleTextWithEdit = styled.p`
 const NoWorkout = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 40px 0;
 `;
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 25px auto;
 `;
 const Text = styled.p`
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  color: gray;
+  color: white;
+  opacity: 0.3;
 `;
-
+const Caption = styled.p`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 10px;
+  color: white;
+  opacity: 0.3;
+`
 const TitleWithEdit = styled.div`
   display: flex;
   flex-direction: row;
@@ -158,62 +161,6 @@ const TitleWithEdit = styled.div`
 const Plus = styled.img`
   display: flex;
   justify-content: flex-start;
-`;
-const EditIcon = styled.img`
-  display: flex;
-  align-items: center;
-  width: 1.3rem;
-`;
-const ButtonText = styled.p`
-  font-family: Roboto Condensed;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  color: white;
-`;
-const EditButton = styled.button`
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 6px;
-  padding: 7px 5px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 70px;
-  margin: 0 5px;
-
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
-const Button = styled.button`
-  background: linear-gradient(#2fdde4, #2367ff);
-  color: white;
-  font-size: 24px;
-  line-height: 23px;
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 2px;
-  padding: 7px 15px;
-  width: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
 `;
 
 const mapStateToProps = state => {
