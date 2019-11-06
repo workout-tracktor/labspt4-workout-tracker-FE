@@ -74,7 +74,7 @@ export class ChooseUnits extends React.Component {
 
                 {/* Reusable header component (Icon + text). Props: icon source(=url) and text(=text) */}
 
-                <OnboardingHeader url={TrophyIcon} text="Choose a metric system" />
+                <OnboardingHeader url={TrophyIcon} text="Choose a metric system" bottom="80px" />
 
                 <OptionsWrapper>
                     <OptionButton data-testid="units" onClick={() => this.clickOptionHandler("standard")}>
@@ -150,7 +150,7 @@ const OptionsWrapper = styled.div`
 `;
 
 const OptionButton = styled.button`
-    width: 500px;
+    max-width: 500px;
     height: 119px;
     position: relative;
     margin: 0 0 15px 0;
