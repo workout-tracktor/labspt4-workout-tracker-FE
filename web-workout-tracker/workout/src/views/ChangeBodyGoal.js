@@ -1,4 +1,4 @@
-// View for the first step of on boarding process (user is choosing a body goal). If user is skiping on boarding, we're automatially setting units to US system, but body goal remain blank
+// This view is from changing body goal from the settings.
 
 import React from "react"
 import styled from "styled-components";
@@ -19,7 +19,7 @@ import CheckMark from "../assets/icons/CheckMark.svg";
 
 // this export is for testing purposes
 export class BodyGoal extends React.Component {
-    state= {
+    state = {
         goal: "",
         buttonPressed: false
     }
@@ -33,25 +33,9 @@ export class BodyGoal extends React.Component {
         if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
             this.setState({ buttonPressed: false });
         }
-        if(e.target.dataset.txt === "I'll do this later") {
-            this.props.history.push("/Landing");
+        if(e.target.dataset.txt === "< Go back") {
+            this.props.history.goBack();
         }
-    }
-
-    // If user is skipping onboarding process, we're setting default unit as standard (meaning US system) 
-    setDefaultUnits = () => {
-        axios
-        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "standard" })
-        .then(res => {
-            // save updated user object in Redux store (state.thisUser)
-            this.props.sendUserData(res.data);
-            // go to the next on boarding screen (choose default units)
-            this.props.history.push("/Landing");
-        })
-        .catch(err => {
-            console.log(err);
-            this.props.history.push("/onboarding/body-goal");
-        })
     }
 
     setGoal = (e, props) => {
@@ -60,12 +44,12 @@ export class BodyGoal extends React.Component {
             .then(res => {
                 // save updated user object in Redux store (state.thisUser)
                 this.props.sendUserData(res.data);
-                // go to the next on boarding screen (choose default units)
-                this.props.history.push("/onboarding/choose-units");
+                // go back to settings
+                this.props.history.goBack();
             })
             .catch(err => {
                 console.log(err);
-                this.props.history.push("/onboarding/body-goal");
+                this.props.history.push("/change-body-goal");
             })
     }
 
@@ -87,8 +71,8 @@ export class BodyGoal extends React.Component {
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                     {/* Skip on boarding Button*/}
-                    <Button text="I'll do this later" background="transparent" padding="7px 0px" onClick={this.setDefaultUnits} />
+                    {/* Go back button */}
+                    <Button text="< Go back" background="transparent" padding="7px 0px" />
 
                     {/* "Select" Button*/}
                     {

@@ -97,7 +97,16 @@ export const SET_USER_GOAL_SUCCESS = 'SET_USER_GOAL_SUCCESS';
 export const sendUserGoal = bodyGoal => dispatch => { 
   //sends body goal that is active now, before pressing Select button. TEMPORARY storage
   dispatch({type: SET_USER_GOAL_SUCCESS, payload: bodyGoal})
-  console.log(bodyGoal);
+} 
+
+/* Save units */
+
+export const SET_USER_UNITS_SUCCESS = 'SET_USER_UNITS_SUCCESS';
+
+export const sendUserUnits = units => dispatch => { 
+  //sends body goal that is active now, before pressing Select button. TEMPORARY storage
+  dispatch({type: SET_USER_UNITS_SUCCESS, payload: units})
+  console.log(units);
 } 
 
 export const addExerciseToState = newExercise  => {

@@ -4,11 +4,44 @@ import styled from "styled-components";
 import ProfileIcon from "./ProfileIcon.png";
 import { connect } from "react-redux";
 import Logout from "./Logout";
+import axios from "axios";
+import { sendUserData } from '../../actions';
+
 
 class UserSettings extends React.Component {
+  state = {
+    metric: false,
+    us: true
+  }
+
+  componentDidMount(props) {
+    if(this.props.thisUser.unit_system === "metric") {
+      this.setState({metric: true, us: false});
+    }
+  }
+
   toOnboarding = props => {
-    this.props.history.push("/onboarding/body-goal");
+    this.props.history.push("/change-body-goal");
   };
+
+  handleCheckBoxClick = () => {
+    this.setState({
+      metric: !this.state.metric,
+      us: !this.state.us
+    });
+  } 
+
+  updateUser = units => {
+    axios
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: units })
+        .then(res => {
+            // save updated user object in Redux store (state.thisUser)
+            this.props.sendUserData(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+  }
 
   render = () => (
     <Section>
@@ -30,21 +63,29 @@ class UserSettings extends React.Component {
         <GoalValueDiv>{this.props.thisUser.body_goal}</GoalValueDiv>
       </Div>
 
-      <Div onClick={this.update_active_setting}>
+      <Div  onClick={this.update_active_setting}>
         <Span className="title">Units</Span>
         <Unit>
-          <UnitDiv className="unit-types">
-            <Input type="radio" name="unit-type" value="us" id="us"></Input>
+          <UnitDiv className="unit-types" onChange={() => this.updateUser("standard")}>
+            <Input
+              type="radio"
+              name="unit-type"
+              value="us"
+              id="us"
+              checked={this.state.us}
+              onClick={this.handleCheckBoxClick}
+            ></Input>
             <Label htmlFor="us">US Standard</Label>
           </UnitDiv>
 
-          <UnitDiv>
+          <UnitDiv onChange={() => this.updateUser("metric")}>
             <Input
               type="radio"
               name="unit-type"
               value="metric"
               id="metric"
-              defaultChecked
+              checked={this.state.metric}
+              onClick={this.handleCheckBoxClick}
             ></Input>
             <Label htmlFor="metric">Metric</Label>
           </UnitDiv>
@@ -147,7 +188,8 @@ const mapStateToProps = state => {
     // it's saved data for particular user
     thisUser: state.thisUser,
     // it's a temporary storage for on boarding page purposes
-    bodyGoal: state.bodyGoal
+    bodyGoal: state.bodyGoal,
+    units: state.units
   };
 };
-export default connect(mapStateToProps)(UserSettings);
+export default connect(mapStateToProps, {sendUserData})(UserSettings);

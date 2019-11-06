@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 export default function Button(props) {
     return (
-        <StyledButton data-testid="option-button" data-txt={props.text} onClick={props.setGoal} background={props.background} color={props.color} padding={props.padding}>
+        <StyledButton data-testid="option-button" data-txt={props.text} onClick={props.onClick} background={props.background} color={props.color} padding={props.padding} justify={props.justify}>
             {props.text}
         </StyledButton>
     )
@@ -30,7 +30,7 @@ const StyledButton = styled.button`
     min-width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: ${props => props.justify || "flex-start"};
 
     &:hover {
         cursor: pointer;
