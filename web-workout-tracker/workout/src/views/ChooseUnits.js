@@ -107,9 +107,10 @@ export class ChooseUnits extends React.Component {
 
                 <ButtonsWrapper>
                     {/* Go back button */}
-                    {
-                        this.state.buttonPressed && <Button text="< Go back" background="transparent" />
-                    }
+                    <Button text="< Go back" background="transparent" />
+                    {/* {
+                        this.state.buttonPressed && 
+                    } */}
 
                     {/* Skip on boarding Button*/}
                     {
