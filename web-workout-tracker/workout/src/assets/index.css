@@ -113,6 +113,10 @@
     align-content: center;
     margin: 10px;
   }
+
+  .copyright {
+    padding-top: 50px;
+  }
 }
 @media (min-width: 700px) {
   .top-market .top-cta {
@@ -209,8 +213,8 @@
   }
   .lower-market .trips {
     margin-top: 40px;
-    margin-left: 30px;
-    width: 700px;
+    margin-left: 10%;
+    width: 600px;
   }
 }
 @media (min-width: 1000px) {
@@ -247,9 +251,9 @@
     text-align: center;
   }
   .upper-mid-market .onboarding-mock {
-    margin-top: 150px;
+    margin-top: 119px;
     margin-left: 43%;
-    width: 34%;
+    width: 32%;
     position: absolute;
     display: block;
   }
@@ -303,7 +307,7 @@
     margin-left: 1200px;
   }
   .lower-market .feature-graphic {
-    width: 17%;
+    width: 20%;
     margin-top: -150px;
     margin-left: 16%;
     position: absolute;
@@ -311,7 +315,7 @@
   .lower-market .trips {
     /*margin-top: 440px;  removing for right now*/
     margin-left: 50%;
-    width: 40%;
+    width: 45%;
   }
 }
 @media (min-width: 300px) {
@@ -345,6 +349,10 @@
     margin-top: 30px;
     right: 60px;
     width: 150px;
+  }
+
+  .copyright {
+    text-align: center;
   }
   .copyright p {
     text-align: center;
@@ -425,7 +433,127 @@
 }
 @media (min-width: 1918px) {
   .top-market .top-cta {
-    margin-left: 30%;
+    margin-left: 27.5%;
     margin-top: -400px;
   }
+}
+
+/*Team Page*/
+
+.team {
+  margin: 0 auto;
+  width: 1810px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.team .member {
+  margin-top: 90px;
+  padding-top: 5px;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 30em;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.member img {
+  width: 70%;
+  height: 200px;
+  border-radius: 60%;
+  margin: 10%;
+  margin-top: -80px;
+  position: relative;
+  margin-left: 4.4em;
+}
+
+.member h2 {
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 1.5em;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.member h3 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  font-weight: 400;
+}
+
+.member p {
+  font-size: 150%;
+  padding-top: 25px;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 20px;
+  width: 20em;
+  text-align: center;
+  background-color: white;
+}
+
+.member .icons {
+  background-color: #ffffff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  padding: 10px 0 0 0;
+  padding-left: 9%;
+}
+
+.member i {
+  background-color: #ffffff;
+  margin: 5px;
+  cursor: pointer;
+  padding: 3%;
+}
+
+.fa {
+  margin-left: 20px;
+}
+
+/*Team page link*/
+.link {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.link button {
+  background-image: linear-gradient(to right, #236cfe, #2ed7e5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+
+  /* margin-left: 46%; */
+  /* margin-bottom: 30px; */
+  padding: 5px 50px 5px 50px;
+}
+
+.link button link {
+  cursor: pointer;
+}
+
+/*Marketing page link*/
+.copyright button {
+  background-image: linear-gradient(to right, #236cfe, #2ed7e5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+
+  /* margin-left: 46%; */
+  /* margin-bottom: 30px; */
+  padding: 5px 50px 5px 50px;
+}
+
+.copyright button link {
+  cursor: pointer;
 }
