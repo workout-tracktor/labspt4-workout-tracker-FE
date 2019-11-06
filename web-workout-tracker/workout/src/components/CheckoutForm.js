@@ -36,7 +36,7 @@ export default class CheckoutForm extends React.Component {
         currency="usd"
         label="Want to chart your progress?" // text inside the Stripe button
         panelLabel="Pay with 💳"
-        description="Special Features"
+        description="Charts to visualize your progress."
         image="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/lift-logo.png"
         locale="auto"
         name="LiftQuest"
