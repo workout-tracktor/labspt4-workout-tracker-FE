@@ -66,7 +66,7 @@ class UserSettings extends React.Component {
       <Div  onClick={this.update_active_setting}>
         <Span className="title">Units</Span>
         <Unit>
-          <UnitDiv className="unit-types" onClick={() => this.updateUser("standard")}>
+          <UnitDiv className="unit-types" onChange={() => this.updateUser("standard")}>
             <Input
               type="radio"
               name="unit-type"
@@ -78,7 +78,7 @@ class UserSettings extends React.Component {
             <Label htmlFor="us">US Standard</Label>
           </UnitDiv>
 
-          <UnitDiv onClick={() => this.updateUser("metric")}>
+          <UnitDiv onChange={() => this.updateUser("metric")}>
             <Input
               type="radio"
               name="unit-type"
