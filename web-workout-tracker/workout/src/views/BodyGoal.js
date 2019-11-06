@@ -36,8 +36,23 @@ export class BodyGoal extends React.Component {
         }
     }
 
+    // If user is skipping onboarding process, we're setting default unit as standard (meaning US system) 
+    setDefaultUnits = () => {
+        axios
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "standard" })
+        .then(res => {
+            // save updated user object in Redux store (state.thisUser)
+            this.props.sendUserData(res.data);
+            // go to the next on boarding screen (choose default units)
+            this.props.history.push("/Landing");
+        })
+        .catch(err => {
+            console.log(err);
+            this.props.history.push("/onboarding/body-goal");
+        })
+    }
+
     setGoal = (e, props) => {
-        // const id = this.props.thisUser.user_id;
         axios
             .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, body_goal: this.props.bodyGoal })
             .then(res => {
@@ -71,7 +86,7 @@ export class BodyGoal extends React.Component {
                 
                 <ButtonsWrapper>
                      {/* Skip on boarding Button*/}
-                    <Button text="I'll do this later" background="transparent" padding="7px 0px" />
+                    <Button text="I'll do this later" background="transparent" padding="7px 0px" onClick={this.setDefaultUnits} />
 
                     {/* "Select" Button*/}
                     {
