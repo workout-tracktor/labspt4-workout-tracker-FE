@@ -1,8 +1,10 @@
 import React from "react";
 import { useAuth0 } from "../components/auth0-wrapper";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 import { Team } from "../components/Team";
+import { withRouter } from "react-router-dom";
 
 // Image imports
 import phoneGuy from "../assets/images/guyWithPhone.jpg";
@@ -113,15 +115,11 @@ const Marketing = props => {
         */}
             <h1>Fitter Faster Further</h1>
             {/* <a href="https://peaceful-joliot-329a9c.netlify.com/">Login</a> */}
-            {/* <p>
-              "You must expect great things of yourself before you can do them."
-              ~ Michael Jordan
-            </p> */}
           </footer>
         </div>
         <div className="copyright">
           <button>
-            <Link to={'/team'}>TEAM</Link>
+            <Link to={"/team"}>TEAM</Link>
           </button>
           <p>© 2019 LiftQuest</p>
         </div>
@@ -131,4 +129,4 @@ const Marketing = props => {
   );
 };
 
-export default connect()(Marketing);
+export default withRouter(Marketing)
