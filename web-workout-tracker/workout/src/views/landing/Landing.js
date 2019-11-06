@@ -5,7 +5,6 @@ import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
 import { connect } from "react-redux";
-import { StripeProvider } from "react-stripe-elements";
 import CheckoutForm from "../../components/CheckoutForm";
 
 class Landing extends React.Component {
@@ -42,18 +41,20 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <Container>
-        {this.state.isLoggedin ? (
-          <>
-            <Calendar onChange={this.onChange} value={this.state.date} />
+      <>
+        <Container>
+          {this.state.isLoggedin ? (
+            <>
+              <Calendar onChange={this.onChange} value={this.state.date} />
 
-            <Workouts />
-          </>
-        ) : null}
-        <div>
+              <Workouts />
+            </>
+          ) : null}
+        </Container>
+        <CheckoutDiv>
           <CheckoutForm />
-        </div>
-      </Container>
+        </CheckoutDiv>
+      </>
     );
   }
 }
@@ -72,6 +73,11 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
   }
+`;
+
+const CheckoutDiv = styled.div`
+  text-align: center;
+  margin-bottom: 30px;
 `;
 export default connect(
   mapStateToProps,
