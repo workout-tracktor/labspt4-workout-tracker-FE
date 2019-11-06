@@ -11,14 +11,12 @@ import { sendUserData } from '../../actions';
 class UserSettings extends React.Component {
   state = {
     metric: false,
-    us: false
+    us: true
   }
 
   componentDidMount(props) {
     if(this.props.thisUser.unit_system === "metric") {
-      this.setState({metric: true});
-    } else if (this.props.thisUser.unit_system === "standard") {
-      this.setState({us: true});
+      this.setState({metric: true, us: false});
     }
   }
 
