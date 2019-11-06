@@ -33,9 +33,9 @@ export class BodyGoal extends React.Component {
         if(e.target.dataset.testid !== "body-goal" || e.target.dataset.txt === "Select") {
             this.setState({ buttonPressed: false });
         }
-        // if(e.target.dataset.txt === "I'll do this later") {
-        //     this.props.history.push("/Landing");
-        // }
+        if(e.target.dataset.txt === "< Go back") {
+            this.props.history.goBack();
+        }
     }
 
     setGoal = (e, props) => {
@@ -71,12 +71,12 @@ export class BodyGoal extends React.Component {
                 </OptionsWrapper>
                 
                 <ButtonsWrapper>
-                     {/* Skip on boarding Button*/}
-                    {/* <Button text="I'll do this later" background="transparent" padding="7px 0px" /> */}
+                    {/* Go back button */}
+                    <Button text="< Go back" background="transparent" padding="7px 0px" />
 
                     {/* "Select" Button*/}
                     {
-                        this.state.buttonPressed && <Button text="Select" onClick={this.setGoal} />
+                        this.state.buttonPressed && <Button text="Select" justify="center" onClick={this.setGoal} />
                     }
                 </ButtonsWrapper>
 
@@ -110,7 +110,7 @@ const ButtonsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
+    justify-content: space-between;
 `;
 
 

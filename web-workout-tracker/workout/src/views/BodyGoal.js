@@ -92,7 +92,7 @@ export class BodyGoal extends React.Component {
 
                     {/* "Select" Button*/}
                     {
-                        this.state.buttonPressed && <Button text="Select" onClick={this.setGoal} />
+                        this.state.buttonPressed && <Button text="Select" justify="center" onClick={this.setGoal} />
                     }
                 </ButtonsWrapper>
 

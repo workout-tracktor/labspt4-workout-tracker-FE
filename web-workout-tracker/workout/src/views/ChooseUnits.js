@@ -109,19 +109,19 @@ export class ChooseUnits extends React.Component {
 
                 <ButtonsWrapper>
                     {/* Go back button */}
-                    <Button text="< Go back" background="transparent" />
+                    <Button text="< Go back" background="transparent" padding="7px 0px" />
                     {/* {
                         this.state.buttonPressed && 
                     } */}
 
                     {/* Skip on boarding Button*/}
                     {
-                        !this.state.buttonPressed && <Button text="I'll do this later" background="transparent" padding="7px 0px" onClick={this.setDefault} />
+                        !this.state.buttonPressed && <Button text="I'll do this later" background="transparent" padding="7px 0px" onClick={this.setDefault} justify="center" />
                     }
 
                     {/* "Select" Button*/}
                     {
-                        this.state.buttonPressed && <Button text="I'm done" onClick={this.setUnits} />
+                        this.state.buttonPressed && <Button text="I'm done" onClick={this.setUnits} justify="center" />
                     }
                 </ButtonsWrapper>
 
@@ -152,7 +152,6 @@ const OptionsWrapper = styled.div`
 const OptionButton = styled.button`
     width: 500px;
     height: 119px;
-    /* z-index: 111; */
     position: relative;
     margin: 0 0 15px 0;
     padding: 0 0 0 23px;
@@ -218,7 +217,7 @@ const InvisibleLine = styled.div`
 
 const ButtonsWrapper = styled.div`
     width: 90%;
-    max-width: 510px;
+    max-width: 490px;
     z-index: 333;
     margin: 0 auto;
     display: flex;
