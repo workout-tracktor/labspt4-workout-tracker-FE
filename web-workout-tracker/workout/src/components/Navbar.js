@@ -34,6 +34,7 @@ const NavBar = props => {
           <Button
             color={"white"}
             background={" linear-gradient(#2FDDE4, #2367FF)"}
+            justify={"center"}
             text={"LOGIN"}
           />
         </Nav>
