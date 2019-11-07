@@ -433,7 +433,7 @@
 }
 @media (min-width: 1918px) {
   .top-market .top-cta {
-    margin-left: 26%;
+    margin-left: 27.5%;
     margin-top: -400px;
   }
 }
@@ -462,7 +462,7 @@
 }
 
 .member img {
-  width: 215px;
+  width: 70%;
   height: 200px;
   border-radius: 60%;
   margin: 10%;
@@ -478,7 +478,6 @@
   background-color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 .member h3 {
@@ -504,8 +503,8 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
-  padding: 15px;
-  padding-left: 22%;
+  padding: 10px 0 0 0;
+  padding-left: 9%;
 }
 
 .member i {
@@ -513,10 +512,6 @@
   margin: 5px;
   cursor: pointer;
   padding: 3%;
-}
-
-FontAwesomeIcon {
-  width: 2em;
 }
 
 .fa {
@@ -533,12 +528,11 @@ FontAwesomeIcon {
   color: white;
   font-size: 20px;
   border-radius: 5px;
+  width: 176px;
+  height: 35px;
+  margin-top: 40px;
   font-weight: bold;
   border: none;
-
-  /* margin-left: 46%; */
-  /* margin-bottom: 30px; */
-  padding: 5px 50px 5px 50px;
 }
 
 .link button link {
