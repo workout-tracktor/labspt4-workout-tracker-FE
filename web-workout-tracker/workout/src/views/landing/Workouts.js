@@ -35,6 +35,7 @@ class Workouts extends React.Component {
           <DrownDownLogs
             workout={this.props.workouts}
             titleToggler={bool => this.titleToggler(bool)}
+            newStateWhoDis = {this.props.newStateWhoDis}
           />
         ) : (
           <>

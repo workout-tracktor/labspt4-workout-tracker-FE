@@ -50,55 +50,71 @@ class Landing extends React.Component {
             })
             .catch(err => console.log(err))
     }
+    
+    newStateWhoDis = updatedExercises => {
+      this.setState({todaysExercises: updatedExercises})
+    }
 
     onChange = date => {
 
         const dateSelected = this.get_date(date)
-        console.log('made it ')
         //filter through exercise state by date
-        let todaysExercises =  this.state.exercises.filter(exercise => {
+        
+          let todaysExercises =  this.state.exercises.filter(exercise => {
           if (exercise.date === dateSelected && exercise.id) {
             return exercise
           }
         })
         let sets = []
-
+        if(todaysExercises.length !== 0){
         todaysExercises.map(exercise => {
 
                 axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
                     .then(res => {
-                      let exercise = todaysExercises
-                      sets.push(...res.data)
-                      let convertedObject = []
-                      for(let i=0;i<exercise.length; i++) {
-                          //convertedObject[i]['sets'] = []
-                          convertedObject.push(exercise[i])
-                          convertedObject[i]['sets'] = []
-                          for(let j=0;j<sets.length;j++) {
-                              if(exercise[i].id === sets[j]['exercise_id']) {
-                                  console.log('hello')
-                                  convertedObject[i]['sets'].push(sets[j])
-                                  // console.log(exercise[i].id)
-                                  // console.log(sets[j]['exercise_id'])
-                              }
-                          }
+                        let exercise = [...todaysExercises]
+                        sets.push(...res.data)
+                        let convertedObject = []
+                        for(let i=0;i<exercise.length; i++) {
+                            //convertedObject[i]['sets'] = []
+                            convertedObject.push(exercise[i])
+                            convertedObject[i]['sets'] = []
+                            for(let j=0;j<sets.length;j++) {
+                                if(exercise[i].id === sets[j]['exercise_id']) {
+                                    convertedObject[i]['sets'].push(sets[j])
+                                    // console.log(exercise[i].id)
+                                    // console.log(sets[j]['exercise_id'])
+                                }
+                            }
+                       this.setState({todaysExercises: convertedObject})
                       }
-                     this.setState({todaysExercises: convertedObject})
+                      
+
+
                     })
                     .catch(err => console.log(err))
         })
+      } else {
+        this.setState({todaysExercises: []})
+      }
     }
 
+    ester(){
+      let newStuff = []
+      this.state.todaysExercises.map(object => {
+        newStuff.push(object)
+      })
+      return newStuff
+    }
 
     render() {
-      console.log(this.state.todaysExercises)
         return (
           <>
             <Container>
                 {this.state.isLoggedin ?
+                  
                     <>
                         <Calendar onChange={this.onChange} value={this.state.date}/>
-                        <Workouts workouts = {this.state.todaysExercises} />
+                        <Workouts workouts = {this.ester()} newStateWhoDis = {this.newStateWhoDis} />
                     </>
                     : null}
             </Container>

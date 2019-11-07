@@ -24,7 +24,6 @@ class DropdownLogs extends React.Component {
 
   componentDidMount() {
     //Notifies parent component to change the titling to include Edit button.
-    this.props.titleToggler(true);
   }
 
   dropDownToggler = workoutIndex => {
@@ -50,37 +49,42 @@ class DropdownLogs extends React.Component {
 
     editHandler = workout => e =>{
         e.preventDefault()
-        console.log('edit button')
         // this.props.history.push({
         //  pathname:   `/exercise-form/${workout.workoutType}`,
         //  workout: workout
         // })
     }
 
-    deleteHandler = exerciseId => {
-      // console.log('deleting')
-      //   axios.delete(`https://workouttrackerprod.herokuapp.com/api/exercises?exercise_id=${exerciseId}` )
-      //   .then(res => {
- 
-      //     console.log('deleted')
-      //   })
-      //   .catch(err => {
-      //     console.log('did not work' , err)
-      //   })
+    deleteHandler = exerciseId => e => {
+      e.preventDefault()
+        axios
+          .delete(`https://workouttrackerstaging-2.herokuapp.com/api/exercise?id=${exerciseId}` )
+          .then(res => {
+            const newState = this.props.workout.filter(exercise => {
+                              if(exercise.id !== exerciseId){
+                                return exercise
+                              }
+                              })
+              this.props.history.push('/validate-user')
+          })
+          .catch(err => {
+            console.log('did not work' , err)
+          })
     }
 
     render(){
-      console.log(this.props.workout)
+      // console.log(this.props.workout[1])
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
             <Container>
                       
-                {this.props.workout.map((workout, workoutIndex) => {
+                {this.props.workout.map((exercise, workoutIndex) => {
+                  {/* console.log(exercise) */}
                     return(
                         <TopContainer>
                         <Dropdown 
                         key= {workoutIndex} 
-                        onClick = {() => this.dropDownToggler(workoutIndex)}
+                        onClick = {() => this.dropDownToggler(exercise.id)}
                         //onClick sends the id of the current workout to the selectedValue array, which then is passed
                         //to the conditional below to see if it should render the workout log data
                         >
@@ -88,28 +92,28 @@ class DropdownLogs extends React.Component {
                                 <Arrow 
                                     src = {DropdownArrow}  
                                     //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
-                                    rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
+                                    rotate= {this.state.selectedValue.includes(exercise.id)? this.state.selectedValue.includes(exercise.id) : null}
                                     alt = "arrow"
                                 />
-                                <Text> {workout.name}</Text>
+                                <Text> {exercise.name}</Text>
                             </TitleLeft>
                             <Text> {this.props.workout.length} Excercises</Text>
                         </Dropdown>
                         <PutDelete> 
-                          <EditButton onClick={this.editHandler(workout)}>
+                          <EditButton onClick={this.editHandler(exercise)}>
                           <EditIcon src={PencilEdit} alt="edit icon" />
                             <ButtonText>EDIT</ButtonText>
                           </EditButton>
-                          <DeleteButton onClick={this.deleteHandler(workout.id )}>
+                          <DeleteButton onClick={this.deleteHandler(exercise.id)}>
                             <DeleteText >DELETE</DeleteText>
                           </DeleteButton>
                         </PutDelete>
                         {
                             //checks to see if the mappped id is is included in the selectedValue state to render 
                             //workout log data.
-                            this.state.selectedValue.includes(workoutIndex) ?
-                            workout.sets.map((sets, index) => {
-                              if(workout.id === sets["exercise_id"]){   
+                            this.state.selectedValue.includes(exercise.id) ?
+                            exercise.sets.map((sets, index) => {
+                              if(exercise.id === sets["exercise_id"]){   
                                 return(
                                     <>
 
