@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 
 export default class SuggestedModal extends React.Component {
+
+
   render() {
     return (
       <Modal>
@@ -12,7 +15,14 @@ export default class SuggestedModal extends React.Component {
               <Name> {exercise.name}</Name>
               <Description>
                 {parse(exercise.description)}
-                <Button>Add Workout</Button>
+                <Link to={{
+                   pathname: "/exercise-form",
+                   state: {
+                     exerciseName: exercise.name
+                   }
+                   }}>
+                  <Button>Add Workout</Button>
+                </Link>
               </Description>
             </Exercise>
           );
@@ -43,9 +53,9 @@ const Modal = styled.div`
 const Exercise = styled.details`
   width: 94%;
   border-radius: 16px;
-  margin-bottom: 15px;  
+  margin-bottom: 15px;
   &::-webkit-details-marker: {
-    display: "none",
+    display: "none";
   }
 `;
 
@@ -74,13 +84,13 @@ font-family: Roboto Condensed, sans-serif;
 `;
 
 const Button = styled.button`
- margin-left: 38%;
- font-size: 14px;
- font-weight: bold;
- border: 2px solid #03a3f3;
- color: #03a3f3;
- border-radius: 4px;
- text-transform: uppercase;
- background: rgba(3, 163, 243, 0.1);
- padding: 9px 10px;
+  margin-left: 38%;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #03a3f3;
+  color: #03a3f3;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: rgba(3, 163, 243, 0.1);
+  padding: 9px 10px;
 `;

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ExerciseCardioForm from "./ExerciseCardioForm";
 import ExerciseWeightliftingForm from "./ExerciseWeightliftingForm";
 import DatePicker from "../DatePicker";
@@ -10,6 +10,11 @@ import axios from 'axios'
 
 const ExerciseForm = (props) => {
     const exerciseType = props.match.params.exercise
+    
+    useEffect(() => {
+      const { exerciseName } = props.location.state;
+      setName(`${exerciseName}`)
+    }, [])
 
     const backHandler = event => {
         event.preventDefault();

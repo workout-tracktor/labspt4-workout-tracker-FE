@@ -1,37 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import weight from "../../assets/icons/Weightlifting.png";
 import cardio from "../../assets/icons/Cardio.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ExerciseTypeForm = () => {
-    const onSubmitHandler = event => {
-        event.preventDefault();
-    };
+const ExerciseTypeForm = (props) => {
+  // Coming from the suggestedWorkouts
+  useEffect(() => {
+    const { exerciseName } = props.location.state;
+    setExerciseName(`${exerciseName}`)
+  }, [])
+
+  const [ExerciseName, setExerciseName] = useState("");
+  console.log(ExerciseName)
+  const onSubmitHandler = event => {
+    event.preventDefault();
+  };
+
     return (
-        <Div>
-            <Form onSubmit={onSubmitHandler}>
-                <Header>What Type of Exercise?</Header>
-                <Link to={'/exercise-form/weightlifting'}>
-                    <Button value="weightlifting">
-                        <Div>
-                            <img src={weight} alt="weight"/>
-                        </Div>
-                        Weightlifting
-                    </Button>
-                </Link>
-                <Link to={'/exercise-form/cardio'}>
-                    <Button value="cardio">
-                        <Div>
-                            <img src={cardio} alt="cardio"/>
-                        </Div>
-                        Cardio
-                    </Button>
-                </Link>
-            </Form>
-        </Div>
+      <Div>
+        <Form onSubmit={onSubmitHandler}>
+          <Header>What Type of Exercise?</Header>
+          <Link to={{pathname: "/exercise-form/weightlifting", state: {exerciseName: ExerciseName}}}>
+            <Button value="weightlifting">
+              <Div>
+                <img src={weight} alt="weight" />
+              </Div>
+              Weightlifting
+            </Button>
+          </Link>
+          <Link to={{pathname: "/exercise-form/cardio", state: {exerciseName: ExerciseName}}}>
+            <Button value="cardio">
+              <Div>
+                <img src={cardio} alt="cardio" />
+              </Div>
+              Cardio
+            </Button>
+          </Link>
+        </Form>
+      </Div>
     );
-};
+
+}
 
 const Div = styled.div`
   /* height: 300px; */

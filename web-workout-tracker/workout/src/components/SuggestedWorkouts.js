@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SuggestedModal from "./SuggestedModal";
 import axios from "axios";
-import parse from "html-react-parser";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 
 class SuggestedWorkouts extends React.Component {
