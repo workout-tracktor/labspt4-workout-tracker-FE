@@ -12,7 +12,7 @@ export const register = (user) => dispatch => {
   dispatch({ type: REGISTER_START});
   // localStorage.removeItem("token");
   return axios
-        .post("https://workouttrackerprod.herokuapp.com/api/user/register", user)
+        .post("https://workouttrackerstaging-2.herokuapp.com/api/user/register", user)
         .then(res => {
             // localStorage.setItem('token', res.data.user_id);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data, user: user});
@@ -35,7 +35,7 @@ export const login = (user) => dispatch => {
     // localStorage.removeItem("token");
     // user object should have user_id field in the body
     return axios
-        .put("https://workouttrackerprod.herokuapp.com/api/user", user)
+        .put("https://workouttrackerstaging-2.herokuapp.com/api/user", user)
         .then(res => {
             console.log(res);
             // localStorage.setItem('token', res.data.token);
@@ -59,7 +59,7 @@ export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 export const updateUser = updatedUser => dispatch => {
   dispatch({ type: UPDATE_USER_START });
   axios
-    .put("https://workouttrackerprod.herokuapp.com/api/user", updatedUser)
+    .put("https://workouttrackerstaging-2.herokuapp.com/api/user", updatedUser)
     .then(res => {
       console.log(res);
       dispatch({

@@ -17,16 +17,6 @@ class Workouts extends React.Component {
   }
 
   componentDidMount() {
-    // WIP to get workout data from backend
-    // const user_id = localStorage.getItem('user_id');
-    // console.log(user_id)
-    // axios.get(`https://workouttrackerprod.herokuapp.com/api/logs?user_id=${user_id}`,)
-    //     .then(res => {
-    //         console.log(res)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
   }
 
   titleToggler(bool) {
@@ -37,19 +27,13 @@ class Workouts extends React.Component {
   render() {
     return (
       <Container>
-        {this.state.displayingWorkouts ? (
-          <Title>
-            <TitleText> FITTER FASTER FURTHER </TitleText>
-          </Title>
-        ) : (
             <Title>
               <TitleText> FITTER FASTER FURTHER </TitleText>
             </Title>
-          )}
 
-        {this.props.exerciseData.length !== 0 ? (
+        {this.props.workouts ? (
           <DrownDownLogs
-            workout={this.props.exerciseData}
+            workout={this.props.workouts}
             titleToggler={bool => this.titleToggler(bool)}
           />
         ) : (

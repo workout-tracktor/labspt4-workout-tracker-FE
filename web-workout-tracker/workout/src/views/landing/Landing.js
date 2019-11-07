@@ -4,63 +4,114 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import "../Calendar.css";
 import Workouts from "./Workouts";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import CheckoutForm from "../../components/CheckoutForm";
 
 class Landing extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      date: new Date(),
-      //when date is clicked on,
-      workouts: true,
-      //selectedDate is the date that is selected on the calendar
-      //which will then be sent to back end to check to see if there was workout data
-      selectedDate: null,
-      isLoggedin: false,
-      user_id: ""
-    };
-  }
-  componentDidMount() {
-    //checks to see if user is logged in by checking cookie to render components
-    if (document.cookie.indexOf("auth0.is.authenticated") !== -1) {
-      this.setState({ isLoggedin: !this.state.isLoggedin });
-    } else {
-      this.setState({ isLoggedin: false });
+    constructor(props) {
+        super(props)
+        this.state = {
+            date: new Date(),
+            //when date is clicked on,
+            workouts: true,
+            //selectedDate is the date that is selected on the calendar
+            //which will then be sent to back end to check to see if there was workout data
+            selectedDate: null,
+            isLoggedin: false,
+            user_id: "",
+            exercises: [],
+            todaysExercises: [],
+            didCalendarChange: false
+        };
     }
-    axios
-      .get("https://workouttrackerprod.herokuapp.com/")
-      .then(res => {
-        this.setState(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-  onChange = date => this.setState({ date });
 
-  render() {
-    return (
-      <>
-        <Container>
-          {this.state.isLoggedin ? (
-            <>
-              <Calendar onChange={this.onChange} value={this.state.date} />
+    get_date = (dateObject) => {
+        const date = dateObject
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+        const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+        return `${year}-${month}-${day}`
+    }
 
-              <Workouts />
-            </>
-          ) : null}
-        </Container>
-        <CheckoutDiv>
-          <CheckoutForm />
-        </CheckoutDiv>
-      </>
-    );
-  }
+    componentDidMount() {
+        //checks to see if user is logged in by checking cookie to render components
+        if (document.cookie.indexOf('auth0.is.authenticated') !== -1) {
+            this.setState({isLoggedin: !this.state.isLoggedin})
+        } else {
+            this.setState({isLoggedin: false})
+        }
+
+        const user_id = localStorage.getItem('user_id');
+        axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/exercises?user_id=${user_id}`)
+            .then(res => {
+                this.setState({exercises: res.data})
+                let today = new Date()
+                this.onChange(today)
+            })
+            .catch(err => console.log(err))
+    }
+
+    onChange = date => {
+
+        const dateSelected = this.get_date(date)
+        console.log('made it ')
+        //filter through exercise state by date
+        let todaysExercises =  this.state.exercises.filter(exercise => {
+          if (exercise.date === dateSelected && exercise.id) {
+            return exercise
+          }
+        })
+        let sets = []
+
+        todaysExercises.map(exercise => {
+
+                axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
+                    .then(res => {
+                      let exercise = todaysExercises
+                      sets.push(...res.data)
+                      let convertedObject = []
+                      for(let i=0;i<exercise.length; i++) {
+                          //convertedObject[i]['sets'] = []
+                          convertedObject.push(exercise[i])
+                          convertedObject[i]['sets'] = []
+                          for(let j=0;j<sets.length;j++) {
+                              if(exercise[i].id === sets[j]['exercise_id']) {
+                                  console.log('hello')
+                                  convertedObject[i]['sets'].push(sets[j])
+                                  // console.log(exercise[i].id)
+                                  // console.log(sets[j]['exercise_id'])
+                              }
+                          }
+                      }
+                     this.setState({todaysExercises: convertedObject})
+                    })
+                    .catch(err => console.log(err))
+        })
+    }
+
+
+    render() {
+      console.log(this.state.todaysExercises)
+        return (
+          <>
+            <Container>
+                {this.state.isLoggedin ?
+                    <>
+                        <Calendar onChange={this.onChange} value={this.state.date}/>
+                        <Workouts workouts = {this.state.todaysExercises} />
+                    </>
+                    : null}
+            </Container>
+            <CheckoutDiv>
+              <CheckoutForm />
+            </CheckoutDiv>
+           </>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  thisUser: state.thisUser
+    thisUser: state.thisUser
 });
 
 const Container = styled.div`
