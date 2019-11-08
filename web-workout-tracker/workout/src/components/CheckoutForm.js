@@ -9,7 +9,7 @@ export default class CheckoutForm extends React.Component {
       .redirectToCheckout({
         items: [{ sku: "sku_G5XJGwvYOLZ2KZ", quantity: 1 }],
         successUrl:
-          window.location.protocol + "//liftquestapp.com/landing-paid",
+          window.location.protocol + "//liftquestapp.com/Landing-paid",
         cancelUrl: window.location.protocol + "//liftquestapp.com/landing"
       })
       .then(result => {
