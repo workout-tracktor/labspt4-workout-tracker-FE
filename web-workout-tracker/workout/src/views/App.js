@@ -17,6 +17,7 @@ import Loading from "../components/Loading";
 import ExerciseTypeForm from "./exercise_form/ExerciseTypeForm";
 import { MarketingPage } from "./MarketingPage";
 import { TeamPage } from "./TeamPage";
+import LandingPaid from "./landing/LandingPaid";
 
 function App() {
   const { loading } = useAuth0();
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/" component={MarketingPage} />
           <Route exact path="/validate-user" render={(props) => <ValidateUser {...props} newUserToggler={newUserToggler} />} />
           <Route exact path="/Landing" render={(props) => <Landing {...props} />} />/>
+          <Route exact path="/Landing-paid" render={(props) => <LandingPaid {...props} />} />/>
           <Route exact path="/user-settings" component={UserSettings} />
           {/* On boarding - choose the body goal */}
           {/* @TO-DO: Make route private */}

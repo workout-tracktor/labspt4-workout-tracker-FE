@@ -113,14 +113,14 @@ class Landing extends React.Component {
                 {this.state.isLoggedin ?
                   
                     <>
-                        <Calendar onChange={this.onChange} value={this.state.date}/>
+                        <Col1>
+                          <Calendar onChange={this.onChange} value={this.state.date} />
+                          <CheckoutForm />
+                        </Col1>
                         <Workouts workouts = {this.ester()} newStateWhoDis = {this.newStateWhoDis} />
                     </>
                     : null}
             </Container>
-            <CheckoutDiv>
-              <CheckoutForm />
-            </CheckoutDiv>
            </>
         );
     }
@@ -141,10 +141,13 @@ const Container = styled.div`
     align-items: center;
   }
 `;
-
 const CheckoutDiv = styled.div`
   text-align: center;
   margin-bottom: 30px;
+`;
+const Col1 = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 export default connect(
   mapStateToProps,

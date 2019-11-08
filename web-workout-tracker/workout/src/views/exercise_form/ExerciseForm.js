@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ExerciseCardioForm from "./ExerciseCardioForm";
 import ExerciseWeightliftingForm from "./ExerciseWeightliftingForm";
 import DatePicker from "../DatePicker";
@@ -13,6 +13,11 @@ const ExerciseForm = (props) => {
     const [date, setDate] = useState(new Date());
     const [completed, setCompleted] = useState(false);
     const exerciseType = props.match.params.exercise
+    
+    useEffect(() => {
+      const { exerciseName } = props.location.state;
+      setName(`${exerciseName}`)
+    }, [])
 
     //set info
     const [set, setSet] = useState(() => {
@@ -56,7 +61,7 @@ const ExerciseForm = (props) => {
         if (edit === true) {
             axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises`, newExercise)
         } else {
-            axios.post('https://workouttrackerstaging-2.herokuapp.com/api/exercises', newExercise)
+            axios.post('https://workouttrackerprod.herokuapp.com/api/exercises', newExercise)
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
         }
