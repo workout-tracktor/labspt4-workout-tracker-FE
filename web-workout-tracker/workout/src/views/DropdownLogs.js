@@ -169,14 +169,16 @@ const TitleLeft = styled.div`
     justify-content: center;
     align-items: center;
 `
-const TitleText = styled.p`
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    color: #03A3F3;
-    text-transform: uppercase;
-`
+// Built but never used
+
+// const TitleText = styled.p`
+//     font-family: Roboto Condensed;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 18px;
+//     color: #03A3F3;
+//     text-transform: uppercase;
+// `
 const Text = styled.p`
     font-family: Roboto Condensed;
     font-style: normal;
@@ -216,30 +218,33 @@ const EditButton = styled.button`
     outline: none;
   }
 `;
-const Button = styled.button`
-  background: linear-gradient(#2fdde4, #2367ff);
-  color: white;
-  font-size: 24px;
-  line-height: 23px;
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 2px;
-  padding: 7px 15px;
-  width: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
+
+// Build but never used
+
+// const Button = styled.button`
+//   background: linear-gradient(#2fdde4, #2367ff);
+//   color: white;
+//   font-size: 24px;
+//   line-height: 23px;
+//   font-family: Roboto Condensed, sans-serif;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   border: none;
+//   border-radius: 2px;
+//   padding: 7px 15px;
+//   width: 280px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   margin: 0 auto;
+//   margin-bottom: 20px;
+//   &:hover {
+//     cursor: pointer;
+//   }
+//   &:focus,
+//   &:active {
+//     outline: none;
+//   }
+// `;
 
 export default withRouter(DropdownLogs);

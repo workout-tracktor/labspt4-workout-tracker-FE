@@ -1,9 +1,5 @@
 import React from "react";
-import { useAuth0 } from "../components/auth0-wrapper";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
-import { Team } from "../components/Team";
 import { withRouter } from "react-router-dom";
 
 // Image imports

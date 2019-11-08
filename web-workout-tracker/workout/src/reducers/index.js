@@ -13,7 +13,7 @@ import {
     SET_USER_GOAL_SUCCESS,
     SET_USER_UNITS_SUCCESS,
     GET_BODY_GOAL_SUCCESS,
-    GET_BODY_GOAL_FAIL,
+    // GET_BODY_GOAL_FAIL,
     ADD_EXERCISE
 } from '../actions';
 

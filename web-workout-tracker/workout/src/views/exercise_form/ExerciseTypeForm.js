@@ -9,7 +9,7 @@ const ExerciseTypeForm = (props) => {
   useEffect(() => {
     const { exerciseName } = props.location.state;
     setExerciseName(`${exerciseName}`)
-  }, [])
+  })
 
   const [ExerciseName, setExerciseName] = useState("");
   console.log(ExerciseName)

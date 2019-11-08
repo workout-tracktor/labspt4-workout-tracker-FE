@@ -1,9 +1,7 @@
 import React from "react";
-import { useAuth0 } from "../components/auth0-wrapper";
 import { connect } from "react-redux";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
-import Home from "../components/Marketing";
 
 // Team images
 import Tevvin from "../assets/images/Tevvin.jpg";
@@ -170,7 +168,8 @@ const Team = props => {
             <a href="https://github.com/mychal-hall">
               <i className="fa fa-github-square fa-4x" aria-hidden="true" />
             </a>
-            <a>
+            {/* Mychal has not provided a LinkedIn */}
+            <a href="https://github.com/mychal-hall">
               <i className="fa fa-linkedin-square fa-4x" aria-hidden="true" />
             </a>
             <a href="mailto:hallmychal@gmail.com">

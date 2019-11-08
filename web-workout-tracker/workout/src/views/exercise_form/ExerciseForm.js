@@ -14,7 +14,7 @@ const ExerciseForm = (props) => {
     useEffect(() => {
       const { exerciseName } = props.location.state;
       setName(`${exerciseName}`)
-    }, [])
+    }, [props.location.state])
 
     const backHandler = event => {
         event.preventDefault();
@@ -50,9 +50,9 @@ const ExerciseForm = (props) => {
 
     const [completed, setCompleted] = useState(false);
 
-    let setObject = {}
+    // let setObject = {}
 
-    const [editWorkout, setEditWorkout] = useState(props.workout)
+    // const [editWorkout, setEditWorkout] = useState(props.workout) 
 
     const[edit, setEdit] = useState(false)
 
@@ -82,7 +82,7 @@ const ExerciseForm = (props) => {
       } else {
         autocomplete()
       }
-    }, []);
+    });
 
     return (
         <Container>
