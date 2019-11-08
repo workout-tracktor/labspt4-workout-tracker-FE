@@ -58,7 +58,7 @@ class DropdownLogs extends React.Component {
     deleteHandler = exerciseId => e => {
       e.preventDefault()
         axios
-          .delete(`https://workouttrackerstaging-2.herokuapp.com/api/exercise?id=${exerciseId}` )
+          .delete(`https://workouttrackerprod.herokuapp.com/api/exercise?id=${exerciseId}` )
           .then(res => {
             const newState = this.props.workout.filter(exercise => {
                               if(exercise.id !== exerciseId){
@@ -100,10 +100,12 @@ class DropdownLogs extends React.Component {
                             <Text> {this.props.workout.length} Exercises</Text>
                         </Dropdown>
                         <PutDelete> 
-                          <EditButton onClick={this.editHandler(exercise)}>
+                          {
+                            //Edit Button toggler that still needs to be functional.
+                            /* <EditButton onClick={this.editHandler(exercise)}>
                           <EditIcon src={PencilEdit} alt="edit icon" />
                             <ButtonText>EDIT</ButtonText>
-                          </EditButton>
+                          </EditButton> */}
                           <DeleteButton onClick={this.deleteHandler(exercise.id)}>
                             <DeleteText >DELETE</DeleteText>
                           </DeleteButton>
@@ -219,7 +221,7 @@ const DeleteText = styled.p`
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
 `;
 const EditButton = styled.button`
@@ -249,7 +251,7 @@ const DeleteButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 70px;
+  width: 50px;
   margin: 0 5px;
 
   &:hover {

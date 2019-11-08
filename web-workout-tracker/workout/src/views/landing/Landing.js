@@ -42,7 +42,7 @@ class Landing extends React.Component {
         }
 
         const user_id = localStorage.getItem('user_id');
-        axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/exercises?user_id=${user_id}`)
+        axios.get(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`)
             .then(res => {
                 this.setState({exercises: res.data})
                 let today = new Date()
@@ -69,7 +69,7 @@ class Landing extends React.Component {
         if(todaysExercises.length !== 0){
         todaysExercises.map(exercise => {
 
-                axios.get(`https://workouttrackerstaging-2.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
+                axios.get(`https://workouttrackerprod.herokuapp.com/api/sets?exercise_id=${exercise.id}`)
                     .then(res => {
                         let exercise = [...todaysExercises]
                         sets.push(...res.data)
