@@ -23,3 +23,7 @@ Run the following commands to install LiftQuest from source:
 + [React](https://reactjs.org/) is used for UI.
 + [PostgreSQL](https://www.postgresql.org/) handles persisting backend data, which can be found [here](https://github.com/workout-tracktor/labspt4-workout-tracker-BE).
 + [Styled-Components](https://www.styled-components.com/) assisted in producing clean and easy to read code to help style componenents.
+
+
+## Team
+[Gabe Samaniego](https://github.com/gsamaniego41)
