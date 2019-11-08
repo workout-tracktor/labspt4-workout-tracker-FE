@@ -15,8 +15,11 @@ const ExerciseForm = (props) => {
     const exerciseType = props.match.params.exercise
     
     useEffect(() => {
-      const { exerciseName } = props.location.state;
-      setName(`${exerciseName}`)
+        if(props.location.state){
+            const { exerciseName } = props.location.state;
+            setName(`${exerciseName}`)
+        }
+
     }, [])
 
     //set info
