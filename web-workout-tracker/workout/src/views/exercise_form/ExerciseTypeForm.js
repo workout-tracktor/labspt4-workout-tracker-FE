@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ExerciseTypeForm = (props) => {
   // Coming from the suggestedWorkouts
   useEffect(() => {
-    if(props.location === true){
+    if(props.location.length !== undefined){
       const { exerciseName } = props.location.state;
       setExerciseName(`${exerciseName}`)
     }
