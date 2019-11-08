@@ -6,7 +6,6 @@ import "../Calendar.css";
 import Workouts from "./Workouts";
 import {connect} from "react-redux";
 import CheckoutForm from "../../components/CheckoutForm";
-import SuggestedWorkouts from "../../components/SuggestedWorkouts";
 import ProgressCharts from "../ProgressCharts";
 
 class Landing extends React.Component {
@@ -120,10 +119,10 @@ class Landing extends React.Component {
                 {this.state.isLoggedin ?
                   
                     <>
-                    <Col1>
-                        <Calendar onChange={this.onChange} value={this.state.date} />
-                        <ProgressCharts></ProgressCharts>
-                    </Col1>
+                        <Col1>
+                          <Calendar onChange={this.onChange} value={this.state.date} />
+                          <ProgressCharts />
+                        </Col1>
                         <Workouts reRender = {this.state.reRender} workouts = {this.ester()} newStateWhoDis = {this.newStateWhoDis} />
                     </>
                     : null
