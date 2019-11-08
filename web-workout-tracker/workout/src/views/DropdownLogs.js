@@ -97,7 +97,7 @@ class DropdownLogs extends React.Component {
                                 />
                                 <Text> {exercise.name}</Text>
                             </TitleLeft>
-                            <Text> {this.props.workout.length} Excercises</Text>
+                            <Text> {this.props.workout.length} Exercises</Text>
                         </Dropdown>
                         <PutDelete> 
                           <EditButton onClick={this.editHandler(exercise)}>
