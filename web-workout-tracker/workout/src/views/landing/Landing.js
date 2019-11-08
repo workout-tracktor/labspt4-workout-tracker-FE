@@ -6,6 +6,7 @@ import "../Calendar.css";
 import Workouts from "./Workouts";
 import {connect} from "react-redux";
 import CheckoutForm from "../../components/CheckoutForm";
+import SuggestedWorkouts from "../../components/SuggestedWorkouts";
 
 class Landing extends React.Component {
     constructor(props) {
@@ -21,7 +22,8 @@ class Landing extends React.Component {
             user_id: "",
             exercises: [],
             todaysExercises: [],
-            didCalendarChange: false
+            didCalendarChange: false,
+            reRender: false
         };
     }
 
@@ -39,24 +41,27 @@ class Landing extends React.Component {
             this.setState({isLoggedin: !this.state.isLoggedin})
         } else {
             this.setState({isLoggedin: false})
+
         }
 
         const user_id = localStorage.getItem('user_id');
         axios.get(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`)
             .then(res => {
+              console.log(res.data)
                 this.setState({exercises: res.data})
                 let today = new Date()
                 this.onChange(today)
+               
             })
             .catch(err => console.log(err))
     }
     
     newStateWhoDis = updatedExercises => {
       this.setState({todaysExercises: updatedExercises})
+
     }
 
     onChange = date => {
-
         const dateSelected = this.get_date(date)
         //filter through exercise state by date
         
@@ -93,6 +98,7 @@ class Landing extends React.Component {
                     })
                     .catch(err => console.log(err))
         })
+        
       } else {
         this.setState({todaysExercises: []})
       }
@@ -117,9 +123,10 @@ class Landing extends React.Component {
                           <Calendar onChange={this.onChange} value={this.state.date} />
                           <CheckoutForm />
                         </Col1>
-                        <Workouts workouts = {this.ester()} newStateWhoDis = {this.newStateWhoDis} />
+                        <Workouts reRender = {this.state.reRender} workouts = {this.ester()} newStateWhoDis = {this.newStateWhoDis} />
                     </>
-                    : null}
+                    : null
+                }
             </Container>
            </>
         );

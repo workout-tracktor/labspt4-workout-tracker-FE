@@ -15,7 +15,7 @@ const ExerciseForm = (props) => {
     const exerciseType = props.match.params.exercise
     
     useEffect(() => {
-        if(props.location.state !== undefined){
+        if(props.location.state.length !== undefined){
             const { exerciseName } = props.location.state;
             setName(`${exerciseName}`)
         }
@@ -65,10 +65,11 @@ const ExerciseForm = (props) => {
             axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises`, newExercise)
         } else {
             axios.post('https://workouttrackerprod.herokuapp.com/api/exercises', newExercise)
-                .then(res => console.log(res.data))
+                .then(res => 
+                    props.history.push('/Landing')
+                )
                 .catch(err => console.log(err))
         }
-        props.history.push('/Landing')
     };
 
     const [InitialName, setInitialName] = useState([]);
