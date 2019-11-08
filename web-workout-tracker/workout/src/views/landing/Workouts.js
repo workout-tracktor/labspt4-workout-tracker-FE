@@ -31,13 +31,14 @@ class Workouts extends React.Component {
               <TitleText> FITTER FASTER FURTHER </TitleText>
             </Title>
 
-        {this.props.workouts ? (
+        {this.props.workouts.length !==0 ? (
           <DrownDownLogs
             workout={this.props.workouts}
             titleToggler={bool => this.titleToggler(bool)}
             newStateWhoDis = {this.props.newStateWhoDis}
           />
         ) : (
+         
           <>
             <NoWorkout titleToggler={bool => this.titleToggler(bool)}>
               <TextContainer>
