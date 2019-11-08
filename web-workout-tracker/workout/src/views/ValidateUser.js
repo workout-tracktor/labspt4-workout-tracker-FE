@@ -22,7 +22,8 @@ const ValidateUser = (props) => {
         username: user.nickname,
         email: user.email,
         avatar: user.picture,
-        password: user.sub
+        password: user.sub,
+        units_system: 'metric'
       }
 
       axios
@@ -33,6 +34,7 @@ const ValidateUser = (props) => {
         //correct buttons
         props.newUserToggler(false)
         props.getBodyGoal(res.data)
+
         localStorage.setItem("user_id", res.data.user_id )
         props.history.push("/Landing")    
       })

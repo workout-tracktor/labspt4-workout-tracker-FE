@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import styled from "styled-components";
 import DropdownArrow from '../assets/icons/DropdownArrow.svg'
 import DropDownInfo from './DropDownInfo'
@@ -23,7 +24,6 @@ class DropdownLogs extends React.Component {
 
   componentDidMount() {
     //Notifies parent component to change the titling to include Edit button.
-    this.props.titleToggler(true);
   }
 
   dropDownToggler = workoutIndex => {
@@ -49,28 +49,42 @@ class DropdownLogs extends React.Component {
 
     editHandler = workout => e =>{
         e.preventDefault()
-        this.props.history.push({
-         pathname:   `/exercise-form/${workout.workoutType}`,
-         workout: workout
-        })
+        // this.props.history.push({
+        //  pathname:   `/exercise-form/${workout.workoutType}`,
+        //  workout: workout
+        // })
     }
 
-    deleteHandler = exerciseId => {
-        console.log('Wait for backend to resolve GET to get the exercise ID to delete')
-        // axios.put(`https://workouttrackerprod.herokuapp.com/api/exercises?user_id=${user_id}`, exerciseId)
+    deleteHandler = exerciseId => e => {
+      e.preventDefault()
+        axios
+          .delete(`https://workouttrackerprod.herokuapp.com/api/exercise?id=${exerciseId}` )
+          .then(res => {
+            const newState = this.props.workout.filter(exercise => {
+                              if(exercise.id !== exerciseId){
+                                return exercise
+                              }
+                              })
+              this.props.history.push('/validate-user')
+          })
+          .catch(err => {
+            console.log('did not work' , err)
+          })
     }
 
     render(){
+      // console.log(this.props.workout[1])
         // const {exerciseName, sets, weights, unit, reps} = this.state.logs
         return(
             <Container>
                       
-                {this.props.workout.map((workout, workoutIndex) => {
+                {this.props.workout.map((exercise, workoutIndex) => {
+                  {/* console.log(exercise) */}
                     return(
                         <TopContainer>
                         <Dropdown 
                         key= {workoutIndex} 
-                        onClick = {() => this.dropDownToggler(workoutIndex)}
+                        onClick = {() => this.dropDownToggler(exercise.id)}
                         //onClick sends the id of the current workout to the selectedValue array, which then is passed
                         //to the conditional below to see if it should render the workout log data
                         >
@@ -78,48 +92,48 @@ class DropdownLogs extends React.Component {
                                 <Arrow 
                                     src = {DropdownArrow}  
                                     //checks to see if id is in selectedValue/selected, then sets the animation prop for it to rotate
-                                    rotate= {this.state.selectedValue.includes(workoutIndex)? this.state.selectedValue.includes(workoutIndex) : null}
+                                    rotate= {this.state.selectedValue.includes(exercise.id)? this.state.selectedValue.includes(exercise.id) : null}
                                     alt = "arrow"
                                 />
-                                <Text> {workout.name}</Text>
-                                <EditButton onClick={this.editHandler(workout)}>
-                                <EditIcon src={PencilEdit} alt="edit icon" />
-                                <ButtonText>EDIT</ButtonText>
-                                </EditButton>
-
-                                <EditButton onClick={this.deleteHandler(
-                                    //When GET is functional from backend, insert the exerciseId
-                                    // exerciseId
-                                    )}>
-                                <ButtonText>DELETE</ButtonText>
-                                </EditButton>
-
+                                <Text> {exercise.name}</Text>
                             </TitleLeft>
-                            <Text> {workout.set.length} Excercises</Text>
+                            <Text> {this.props.workout.length} Exercises</Text>
                         </Dropdown>
+                        <PutDelete> 
+                          {
+                            //Edit Button toggler that still needs to be functional.
+                            /* <EditButton onClick={this.editHandler(exercise)}>
+                          <EditIcon src={PencilEdit} alt="edit icon" />
+                            <ButtonText>EDIT</ButtonText>
+                          </EditButton> */}
+                          <DeleteButton onClick={this.deleteHandler(exercise.id)}>
+                            <DeleteText >DELETE</DeleteText>
+                          </DeleteButton>
+                        </PutDelete>
                         {
                             //checks to see if the mappped id is is included in the selectedValue state to render 
                             //workout log data.
-                            this.state.selectedValue.includes(workoutIndex) ?
-                            workout.set.map((sets, index) => {
+                            this.state.selectedValue.includes(exercise.id) ?
+                            exercise.sets.map((sets, index) => {
+                              if(exercise.id === sets["exercise_id"]){   
                                 return(
                                     <>
+
                                     <DropDownInfo 
-                                        
-                                        weight = {sets[`weight${index}`]} 
+                                        weight = {sets.weight} 
                                         thisIndex = {index+1} 
-                                        reps = {sets[`rep${index}`]}
-                                        //type checks to see if distance key is in mapped object
+                                        reps = {sets.reps}
+                                        //type checks to see if cardio key is in mapped object
                                         //it passes a true prop to render the distance data
-                                        type = {sets[`distance${index}`] ? false : true }
+                                        workout_type = {sets.distance === null ? true : false }
                                         distanceUnits = {this.state.distanceUnits}
-                                        distance = { sets[`distance${index}`] }
-                                        unit = {this.state.unit}
+                                        distance = { sets.distance }
+                                        unit = {sets.distance_units}
                                         />
                                     </>
-                                )
+                                )}
                         })
-                            : null
+                        : null
                         }
 
                     
@@ -153,6 +167,12 @@ const Dropdown = styled.div`
     &:hover {
         cursor: pointer;
     }
+`
+const PutDelete = styled.div `
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 5px;
 `
 const Arrow = styled.img`
     padding: 0 5px;
@@ -197,6 +217,13 @@ const ButtonText = styled.p`
   font-size: 18px;
   color: white;
 `;
+const DeleteText = styled.p`
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+`;
 const EditButton = styled.button`
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -206,6 +233,25 @@ const EditButton = styled.button`
   align-items: center;
   justify-content: space-around;
   width: 70px;
+  margin: 0 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+`;
+const DeleteButton = styled.button`
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50px;
   margin: 0 5px;
 
   &:hover {

@@ -6,9 +6,9 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
   const addASet = e => {
     e.preventDefault();
     let newData = {};
-    newData[`weight${set.length}`] = 0;
-    newData[`unit${set.length}`] = "lbs";
-    newData[`rep${set.length}`] = 0;
+    newData[`weight`] = 0;
+    newData[`weight_units`] = "lbs";
+    newData[`reps`] = 0;
     setSet([...set, newData]);
   };
 
@@ -38,11 +38,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
                 type="number"
                 min="1"
                 max="1000"
-                name={`rep${idx}`}
+                name={`reps`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                value={setData[`rep${idx}`]}
+                value={setData[`reps`]}
                 required
               />
             </InputDiv>
@@ -53,11 +53,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
                 type="number"
                 min="1"
                 max="1000"
-                name={`weight${idx}`}
+                name={`weight`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                value={setData[`weight${idx}`]}
+                value={setData[`weight`]}
                 required
               />
             </InputDiv>
@@ -73,11 +73,11 @@ const ExerciseWeightliftingForm = ({ set, setSet }) => {
             <InputDiv>
               <InputLabel>Unit: </InputLabel>
               <Select
-                name={`unit${idx}`}
+                name={`weight_units`}
                 onChange={e => {
                   inputHandler(idx, e);
                 }}
-                defaultValue={set[idx][`unit${idx}`]}
+                defaultValue={set[idx][`weight_units`]}
               >
                 <Option value="lbs">lbs</Option>
                 <Option value="kg">kg</Option>

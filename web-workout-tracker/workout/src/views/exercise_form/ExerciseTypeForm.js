@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 const ExerciseTypeForm = (props) => {
   // Coming from the suggestedWorkouts
   useEffect(() => {
-    const { exerciseName } = props.location.state;
-    setExerciseName(`${exerciseName}`)
+    if(props.location === true){
+      const { exerciseName } = props.location.state;
+      setExerciseName(`${exerciseName}`)
+    }
+
   }, [])
 
   const [ExerciseName, setExerciseName] = useState("");
