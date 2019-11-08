@@ -1,49 +1,47 @@
 import React from "react";
-import StripeCheckout from "react-stripe-checkout";
-
-//need following on backend
-// router.route('/save-stripe-token')
-// .post((req, res) => {
-// stripe.charges.create({
-// amount: 300,
-// currency: "usd",
-// source: req.token,
-// description: "Charge for additional features"
-// }, function(err, charge) {
-// asynchronously called, check if charge was created successfully
-// ...
-// Insert job, or return error to frontend
-// });
-// });
+import styled from "styled-components";
+// import StripeCheckout from "react-stripe-checkout";
+const stripe = window.Stripe("pk_test_1MMw6F4AwE6N02FyRrmMDgUw00jBG44S6s");
 
 export default class CheckoutForm extends React.Component {
-  onToken = token => {
-    fetch("/save-stripe-token", {
-      method: "POST",
-      body: JSON.stringify(token)
-    }).then(response => {
-      response.json().then(data => {
-        alert(`We are in business, ${data.email}`);
+  checkout() {
+    stripe
+      .redirectToCheckout({
+        items: [{ sku: "sku_G5XJGwvYOLZ2KZ", quantity: 1 }],
+        successUrl:
+          window.location.protocol + "//liftquestapp.com/landing-paid",
+        cancelUrl: window.location.protocol + "//liftquestapp.com/landing"
+      })
+      .then(result => {
+        console.log(result);
       });
-    });
-  };
+  }
 
   render() {
     return (
-      <StripeCheckout
-        name="LiftQuest" // the pop-in header title
-        amount="300"
-        currency="usd"
-        label="Want to chart your progress?" // text inside the Stripe button
-        panelLabel="Pay with 💳"
-        description="Charts to visualize your progress."
-        image="https://lift-quest-logo-staging.s3.us-east-2.amazonaws.com/lift-logo.png"
-        locale="auto"
-        name="LiftQuest"
-        stripeKey="pk_test_1MMw6F4AwE6N02FyRrmMDgUw00jBG44S6s"
-        token={this.onToken}
-        zipCode
-      />
+      <Button
+        onClick={this.checkout}
+        // background="linear-gradient(to right, #236cfe, #2ed7e5)"
+        // padding="30px"
+        // border="none"
+        // border-radius="5px"
+        // color="white"
+        // font-size="20px"
+        // font-weight="bold"
+      >
+        Want to chart your progress?
+      </Button>
     );
   }
 }
+
+const Button = styled.button`
+  background-image: linear-gradient(to right, #236cfe, #2ed7e5);
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+`;
