@@ -41,7 +41,7 @@ export class BodyGoal extends React.Component {
     // If user is skipping onboarding process, we're setting default unit as standard (meaning US system) 
     setDefaultUnits = () => {
         axios
-        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, unit_system: "standard" })
+        .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: localStorage.getItem('user_id'), unit_system: "standard" })
         .then(res => {
             // save updated user object in Redux store (state.thisUser)
             this.props.sendUserData(res.data);
@@ -56,7 +56,7 @@ export class BodyGoal extends React.Component {
 
     setGoal = (e, props) => {
         axios
-            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: this.props.thisUser.user_id, body_goal: this.props.bodyGoal })
+            .put("https://workouttrackerprod.herokuapp.com/api/user", { user_id: localStorage.getItem('user_id'), body_goal: this.props.bodyGoal })
             .then(res => {
                 // save updated user object in Redux store (state.thisUser)
                 this.props.sendUserData(res.data);
