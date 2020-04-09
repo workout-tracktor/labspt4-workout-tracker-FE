@@ -42,11 +42,18 @@ const ValidateUser = (props) => {
         //If failed 404 Not Found nickname, sends to onboarding
         axios.post(`https://workouttrackerprod.herokuapp.com/api/user`, userData)
         .then(res => {
+
+          props.newUserToggler(false)
           props.getBodyGoal(res.data)
+  
           localStorage.setItem("user_id", res.data.user_id )
-          props.history.push("/onboarding/body-goal" )
-          //sets the nav bar to hide certain buttons if new user
-          props.newUserToggler(true)
+          props.history.push("/Landing")    
+          // Below onboarding screen is commented out until backend issue is fixed.
+          // props.getBodyGoal(res.data)
+          // localStorage.setItem("user_id", res.data.user_id )
+          // props.history.push("/onboarding/body-goal" )
+          // //sets the nav bar to hide certain buttons if new user
+          // props.newUserToggler(true)
         })
       })
       }
