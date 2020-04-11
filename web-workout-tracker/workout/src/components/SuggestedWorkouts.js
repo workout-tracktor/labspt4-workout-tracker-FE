@@ -298,6 +298,9 @@ const SuggestedCard = styled.div`
   border-radius: 16px;
   border: none;
   padding: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const CardText = styled.div`

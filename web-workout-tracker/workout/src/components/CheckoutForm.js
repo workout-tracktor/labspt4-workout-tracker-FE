@@ -21,13 +21,6 @@ export default class CheckoutForm extends React.Component {
     return (
       <Button
         onClick={this.checkout}
-        // background="linear-gradient(to right, #236cfe, #2ed7e5)"
-        // padding="30px"
-        // border="none"
-        // border-radius="5px"
-        // color="white"
-        // font-size="20px"
-        // font-weight="bold"
       >
         Want to chart your progress?
       </Button>
@@ -44,4 +37,7 @@ const Button = styled.button`
   color: white;
   font-size: 20px;
   font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
 `;

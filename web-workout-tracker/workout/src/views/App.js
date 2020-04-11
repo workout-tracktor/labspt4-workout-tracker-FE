@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/team" component={TeamPage} />
           <Route exact path="/" component={MarketingPage} />
           <Route exact path="/validate-user" render={(props) => <ValidateUser {...props} newUserToggler={newUserToggler} />} />
-          <Route exact path="/Landing" render={(props) => <Landing {...props} />} />/>
+          <Route exact path="/Landing" render={(props) => <Landing {...props} />} newUserToggler={newUserToggler} />/>
           <Route exact path="/Landing-paid" render={(props) => <LandingPaid {...props} />} />/>
           <Route exact path="/user-settings" component={UserSettings} />
           {/* On boarding - choose the body goal */}

@@ -67,6 +67,9 @@ const Name = styled.summary`
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Description = styled.div`
@@ -93,4 +96,7 @@ const Button = styled.button`
   text-transform: uppercase;
   background: rgba(3, 163, 243, 0.1);
   padding: 9px 10px;
+  &:hover {
+    cursor: pointer;
+  }
 `;

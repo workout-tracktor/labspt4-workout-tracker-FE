@@ -6,7 +6,6 @@ import "../Calendar.css";
 import Workouts from "./Workouts";
 import {connect} from "react-redux";
 import CheckoutForm from "../../components/CheckoutForm";
-import SuggestedWorkouts from "../../components/SuggestedWorkouts";
 
 class Landing extends React.Component {
     constructor(props) {
@@ -37,6 +36,7 @@ class Landing extends React.Component {
 
     componentDidMount() {
         //checks to see if user is logged in by checking cookie to render components
+        console.log(this.props)
         if (document.cookie.indexOf('auth0.is.authenticated') !== -1) {
             this.setState({isLoggedin: !this.state.isLoggedin})
         } else {

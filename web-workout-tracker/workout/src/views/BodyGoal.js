@@ -46,7 +46,7 @@ export class BodyGoal extends React.Component {
             // save updated user object in Redux store (state.thisUser)
             this.props.sendUserData(res.data);
             // go to the next on boarding screen (choose default units)
-            this.props.history.push("/Landing");
+            this.props.history.push("/validate-user");
         })
         .catch(err => {
             console.log(err);

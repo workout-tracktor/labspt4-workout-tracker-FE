@@ -5,6 +5,8 @@ import { useAuth0 } from "../components/auth0-wrapper";
 import axios from "axios";
 import {getBodyGoal} from '../actions'
 import { connect } from "react-redux";
+import Loading from "../components/Loading"
+import styled from "styled-components";
 
 // import {post}
 const ValidateUser = (props) => {
@@ -52,12 +54,21 @@ const ValidateUser = (props) => {
       }
   });
   return (
-    <>
-    </>
+    <Container>
+      <Loading />
+    </Container>
   );
 };
 const mapStateToProps = state => ({
 });
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+`
 
 export default connect(
   mapStateToProps, 

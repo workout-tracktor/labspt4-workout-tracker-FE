@@ -163,7 +163,7 @@ const Dropdown = styled.div`
     flex-direction: row;
     justify-content: space-between;
     border-top: 1px solid #636774;
-    padding: 20px 0;
+    padding: 20px 0;;
     &:hover {
         cursor: pointer;
     }
