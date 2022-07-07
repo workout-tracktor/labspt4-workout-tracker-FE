@@ -18,7 +18,7 @@
     "font-awesome": "^4.7.0",
     "html-react-parser": "^0.9.1",
     "less": "^3.10.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.9.0",
     "react-calendar": "^2.19.2",
     "react-chartjs-2": "^2.8.0",
